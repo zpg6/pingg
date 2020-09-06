@@ -19,9 +19,9 @@ export class FeedHeroComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ AppComponent')
+        console.log('Subscription updated @ FeedHeroComponent')
       }));
-      console.log('Subscription created @ AppComponent')
+      console.log('Subscription created @ FeedHeroComponent')
   }
   ngOnInit() {}
 
@@ -34,10 +34,10 @@ export class FeedHeroComponent implements OnInit, OnDestroy {
   }
 
   isHome():boolean {
-    return this.appData.navbarPage === NavbarPage.home
+    return this.appData.navbarPage == NavbarPage.home
   }
 
-  getPage(): string {
+  getPage():string {
     return this.appData.navbarPage
   }
 }

@@ -19,9 +19,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ AppComponent')
+        console.log('Subscription updated @ NavbarComponent')
       }));
-      console.log('Subscription created @ AppComponent')
+      console.log('Subscription created @ NavbarComponent')
   }
   ngOnInit() {}
 
@@ -36,7 +36,38 @@ export class NavbarComponent implements OnInit, OnDestroy {
   showMenu = false;
 
   setPage(to: string) {
-    this.appData.navbarPage = (<any>NavbarPage)[to];
+    console.log('page changed to ' + to);
+    this.appData.navbarPage = this.pageFromString(to);
+    console.log('page is now ' + this.appData.navbarPage);
     this.updateObserver();
+  }
+
+  active(page: string):string {
+    return this.appData.navbarPage === page ? 'is-active':'';
+  }
+
+  pageFromString(page: string):NavbarPage {
+    if (page === 'Feed') {
+      return NavbarPage.feed;
+    }
+    if (page === 'Map') {
+      return NavbarPage.map;
+    }
+    if (page === 'Connect') {
+      return NavbarPage.connect;
+    }
+    if (page === 'Profile') {
+      return NavbarPage.profile;
+    }
+    if (page === 'Chat') {
+      return NavbarPage.chat;
+    }
+    if (page === 'Login') {
+      return NavbarPage.login;
+    }
+    if (page === 'Create Account') {
+      return NavbarPage.createAccount;
+    }
+    return NavbarPage.home;
   }
 }

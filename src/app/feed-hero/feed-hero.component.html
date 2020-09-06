@@ -7,17 +7,20 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
+
       <div *ngIf="isHome()">
         <img src="../../assets/images/pingg_logo.png" width="250" height="95">
         <h2 class="subtitle">
           Where better matches are made.
         </h2>
       </div>
+
       <div *ngIf="!isHome()">
         <h1 class="title">
-          {{ getPage() }}
+          {{ this.appData.navbarPage }}
         </h1>
       </div>
+
     </div>
   </div>
 </section>

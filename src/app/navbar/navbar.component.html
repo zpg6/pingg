@@ -17,21 +17,21 @@
     <!-- DESKTOP/WIDESCREEN VERSION -->
 
     <div class="navbar-start is-hidden-touch">
-      <a class="navbar-item is-active" (click)="setPage('Home')">
+      <a class="navbar-item {{ active('Feed') }}" (click)="setPage('Feed')">
         <span class="icon has-text-light">
           <i class="fas fa-newspaper"></i>
         </span>
         <span class="is-unselectable">&nbsp;Feed</span>
       </a>
 
-      <a class="navbar-item" (click)="setPage('Map')">
+      <a class="navbar-item {{ active('Map') }}" (click)="setPage('Map')">
         <span class="icon has-text-light">
           <i class="fas fa-map-marked-alt"></i>
         </span>
         <span class="is-unselectable">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item" (click)="setPage('Connect')">
+      <a class="navbar-item {{ active('Connect') }}" (click)="setPage('Connect')">
         <span class="icon has-text-light">
           <i class="fas fa-address-card"></i>
         </span>
@@ -44,13 +44,13 @@
         </a>
 
         <div class="navbar-dropdown" style="background-color: #363636;">
-          <a class="navbar-item" (click)="setPage('Profile')">
+          <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
             <span class="icon">
               <i class="fas fa-user-edit"></i>
             </span>
             <span class="is-unselectable">&nbsp;Profile</span>
           </a>
-          <a class="navbar-item" (click)="setPage('Chat')">
+          <a class="navbar-item {{ active('Chat') }}" (click)="setPage('Chat')">
             <span class="icon">
               <i class="fas fa-envelope"></i>
             </span>
