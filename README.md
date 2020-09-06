@@ -1,4 +1,4 @@
-<img src="src/assets/images/pingg_logo_wide.png"
+<img src="src/assets/images/pingg_logo_bg.png"
      alt="pingg"
      style="float: center;" />
 ## Where better matches are made.
