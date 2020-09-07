@@ -29,7 +29,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Firebase
 
-We'll be using the official package for Angular called [AngularFire](https://github.com/angular/angularfire). Well tested and documented
+We will be using [Firebase Hosting](https://firebase.google.com/docs/hosting) as the deployment service for our Angular Web App.
+
+We'll be using the official package for Angular called [AngularFire](https://github.com/angular/angularfire). You'll find they have extensive documentation on all of the Firebase back-end ervices "pingg" will rely on including:
+
+- [Firebase Cloud Firestore](https://firebase.google.com/docs/firestore)
+- [Firebase Authentication](https://firebase.google.com/docs/auth)
+- [Firebase Cloud Storage](https://firebase.google.com/docs/storage)
+
 
 ## Run the Development Server
 
