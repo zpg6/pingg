@@ -44,6 +44,6 @@ To run, `cd` to the repository root folder and run `ng serve` for a local dev se
 
 - To read more about Angular concepts like components, modules, pipes, etc. please visit [angular.io/docs](https://angular.io/docs).
 
-- For more help with how Firebase services work, see [Firebase Docs](https://firebase.google.com/docs/guides). There won't necessarily be Typescript code snippets there you can use in Angular, but they will explain data movements outside of the Angular app and the limitations of the services.
+- For more help with how Firebase services work, see [Firebase Docs](https://firebase.google.com/docs/guides). There won't necessarily be Typescript code snippets there you can use in Angular, you can however change the snippet examples to a language you're familiar with to better understand the concept.
 
 
