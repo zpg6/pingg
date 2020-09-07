@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install Angular CLI
 
-Install Angular globally on your machine with this snippet.
+Install Angular globally on your machine with this snippet.  
 `npm install -g @angular/cli`
 
 ## Coding Angular with Typescript
@@ -33,7 +33,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Further help
+## Further Help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
