@@ -17,6 +17,8 @@ Install Angular globally on your machine with this snippet.
 
 To play around with some Angular on the side before getting into this repository's project files, it would be helpful to check out [Using Angular in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial). Be sure to use **Typescript** and **CSS**.
 
+If you haven't used Angular before, please watch this [video](https://www.youtube.com/watch?v=23o0evRtrFI) and use VSCode to replicate what he makes. It's important for everyone working on aspects of an Angular project to understand the concept of component hierarchy and reusability.
+
 ## Code Scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. It may be easier to use the Terminal/CommandPrompt inside of VSCode. I use one Terminal for `ng g ...` commands and one that runs the server and re-compiles in real-time after running `ng serve` and leaving it open in the background.
