@@ -29,7 +29,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Firebase
 
-We'll be using the official package for Angular called (AngularFire)[https://github.com/angular/angularfire]. Well tested and documented
+We'll be using the official package for Angular called [AngularFire](https://github.com/angular/angularfire). Well tested and documented
 
 ## Run the Development Server
 
