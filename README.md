@@ -4,6 +4,8 @@
 
 A group project for CS1530 Software Engineering at the University of Pittsburgh. Our objective is to design a web-based information system for social networking using component-based programming. 
 
+DEMO: **[https://pingg.tech](https://pingg.tech)**
+
 Contributors:
 - [Joseph Paul](https://github.com/joepauljoe)
 - [Mike Voit](https://github.com/mikeswa)
