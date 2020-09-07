@@ -15,7 +15,7 @@ Install Angular globally on your machine with this snippet.
 
 ## Creating a Playground
 
-To play around with some Angular on the side before getting into this repository's project files, it would be helpful to check out [Using Angular in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial). Be sure to use Typescript (not Javascript) and CSS (not SASS, SCSS, or )
+To play around with some Angular on the side before getting into this repository's project files, it would be helpful to check out [Using Angular in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial). Be sure to use **Typescript** and **CSS**.
 
 ## Run the Development Server
 
