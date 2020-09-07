@@ -13,11 +13,11 @@ Install Angular globally on your machine with this snippet.
 
 ## Developing Angular with Typescript
 
-[VSCode](https://code.visualstudio.com) with the Angular extension is recommended due to good code suggestion and real-time lint for the **Typescript** and Angular syntaxes.
+[VSCode](https://code.visualstudio.com) with the Angular extension is recommended due to good code suggestion and real-time lint for the **[Typescript](https://www.typescriptlang.org/)** and Angular syntaxes.
 
 ## Creating a Playground
 
-To play around with some Angular on the side before getting into this repository's project files, it would be helpful to check out [Using Angular in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial). Be sure to use **Typescript** and **CSS**.
+To play around with some Angular on the side before getting into this repository's project files, it would be helpful to check out [Using Angular in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial). Be sure to use **[Typescript](https://www.typescriptlang.org/)** and **[CSS](https://www.w3schools.com/css/default.asp)**.
 
 If you haven't used Angular before, please watch this [video](https://www.youtube.com/watch?v=23o0evRtrFI) and use VSCode to replicate what he makes. It's important for everyone working on aspects of an Angular project to understand the concept of component hierarchy and reusability.
 
@@ -52,6 +52,9 @@ On the front-end, we'll be using the official package for Firebase in Angular ca
 - [Firebase Authentication](https://firebase.google.com/docs/auth)
 - [Firebase Cloud Storage](https://firebase.google.com/docs/storage)
 
+## Google Maps Javascript API
+
+We'll be using [TypeScript Google Maps](https://developers.google.com/maps/documentation/javascript/using-typescript) to implement the [Maps Javascript API](https://developers.google.com/maps/documentation/javascript).
 
 # Local Development
 
