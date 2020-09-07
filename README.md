@@ -47,7 +47,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Bulma CSS Styling
 
-[Bulma](https://bulma.io) is a modern CSS framework initially developed, like many others, in response the popular Bootstrap CSS framework. It's a CSS only framework with no JavaScript required, so it integrates in any environment by npm, jsDelivr CDN, and download for a one-time project-wide import. With a column-based layout, making Bulma perfect for quickly designing web pages for widescreen, desktop, tablet, and mobile screens.
+[Bulma](https://bulma.io) is a modern CSS framework initially developed, like many others, in response to the popular Bootstrap CSS framework. It's a CSS only framework with no JavaScript required, so it integrates in any environment by npm, jsDelivr CDN, and download for a one-time project-wide import. With a column-based layout, making Bulma perfect for quickly designing web pages for widescreen, desktop, tablet, and mobile screens.
 
 Bulma is already imported to the pingg **`app-module`** and ready to use project-wide without any further import statements. It's located in the `./src/bulma` directory. 
 
