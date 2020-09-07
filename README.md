@@ -4,12 +4,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
+# Getting Start with Angular
+
 ## Install Angular CLI
 
 Install Angular globally on your machine with this snippet.  
 `npm install -g @angular/cli`
 
-## Coding Angular with Typescript
+## Developing Angular with Typescript
 
 [VSCode](https://code.visualstudio.com) with the Angular extension is recommended due to good code suggestion and real-time lint for the **Typescript** and Angular syntaxes.
 
@@ -27,6 +29,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 > 
 > ./src/app/GETS_PLACED_HERE
 
+
+# Services and Frameworks
+
 ## Bulma CSS Styling
 
 [Bulma](https://bulma.io) is a modern CSS framework initially developed, like many others, in response the popular Bootstrap CSS framework. It's a CSS only framework with no JavaScript required, so it integrates in any environment by npm, jsDelivr CDN, and download for a one-time project-wide import. With a column-based layout, making Bulma perfect for quickly designing web pages for widescreen, desktop, tablet, and mobile screens.
@@ -39,21 +44,30 @@ The [Bulma Documentation](https://bulma.io/documentation/) includes code snippet
 
 ## Firebase
 
-We will be using [Firebase Hosting](https://firebase.google.com/docs/hosting) as the deployment service for our Angular Web App.
+For deployment, we'll be using [Firebase Hosting](https://firebase.google.com/docs/hosting) to serve our Angular Web App.
 
-We'll be using the official package for Angular called [AngularFire](https://github.com/angular/angularfire). You'll find they have extensive documentation on all of the Firebase back-end ervices "pingg" will rely on including:
+On the front-end, we'll be using the official package for Firebase in Angular called [AngularFire](https://github.com/angular/angularfire). You'll find they have written [extensive documentation](https://github.com/angular/angularfire/tree/master/docs) to connect our Angular app with all of the Firebase back-end services including:
 
 - [Firebase Cloud Firestore](https://firebase.google.com/docs/firestore)
 - [Firebase Authentication](https://firebase.google.com/docs/auth)
 - [Firebase Cloud Storage](https://firebase.google.com/docs/storage)
 
 
-## Run the Development Server
+# Local Development
 
-To run, `cd` to the repository root folder and run `ng serve` for a local dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change and save any of the source files.
+## Running the Development Server
 
+To locally serve the Angular app, `cd` to the repository root folder and execute `ng serve`. Navigate to `http://localhost:4200/` in your web browser. The app will automatically reload if you change and save any of the source files.
 
-## Further Help
+## Inspect Element
+
+Don't forget that right-clicking on the page and selecting `Inspect` or `Inspect Element` will bring up a suite of diagnostic tools in most browsers. The `Console` tab or section will display any `console.log(string)` prints or errors from the Angular app.
+
+## Augury
+
+Check out adding [Augury](https://augury.rangle.io) to your browser extensions for an Angular-specific debugging tool.
+
+# Further Help
 
 - To see some great example videos from *basic Angular* to *integrating with Firebase* to *server-side cloud functions*, click this link [FireShip Playlists on YouTube](https://www.youtube.com/c/AngularFirebase/playlists) and select the topic you're working on.
 
