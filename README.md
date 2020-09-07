@@ -21,7 +21,7 @@ To play around with some Angular on the side before getting into this repository
 
 To run, `cd` to the repository root folder and run `ng serve` for a local dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change and save any of the source files.
 
-## Code scaffolding
+## Code Scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
