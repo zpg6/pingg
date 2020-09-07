@@ -36,9 +36,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   showMenu = false;
 
   setPage(to: string) {
-    console.log('page changed to ' + to);
+    if (this.appData.navbarPage === this.pageFromString(to)) {
+      return;
+    }
+    if (this.showMenu) {
+      this.showMenu = false;
+    }
     this.appData.navbarPage = this.pageFromString(to);
-    console.log('page is now ' + this.appData.navbarPage);
+    console.log('Navbar Page is now ' + this.appData.navbarPage);
     this.updateObserver();
   }
 
