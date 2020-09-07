@@ -27,6 +27,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 > 
 > ./src/app/GETS_PLACED_HERE
 
+## Firebase
+
+We'll be using the official package for Angular called (AngularFire)[https://github.com/angular/angularfire]. Well tested and documented
+
 ## Run the Development Server
 
 To run, `cd` to the repository root folder and run `ng serve` for a local dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change and save any of the source files.
@@ -34,8 +38,12 @@ To run, `cd` to the repository root folder and run `ng serve` for a local dev se
 
 ## Further Help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- To see some great example videos from *basic Angular* to *integrating with Firebase* to *server-side cloud functions*, click this link [FireShip Playlists on YouTube](https://www.youtube.com/c/AngularFirebase/playlists) and select the topic you're working on.
 
-To read more about Angular concepts like components, modules, pipes, etc. please visit [angular.io/docs](https://angular.io/docs).
+- To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-To see some great example videos from *basic Angular* to *integrating with Firebase* to *server-side cloud functions*, click this link [FireShip Playlists on YouTube](https://www.youtube.com/c/AngularFirebase/playlists) and select the topic you're working on.
+- To read more about Angular concepts like components, modules, pipes, etc. please visit [angular.io/docs](https://angular.io/docs).
+
+- For more help with how Firebase services work, see [Firebase Docs](https://firebase.google.com/docs/guides). There won't necessarily be Typescript code snippets there you can use in Angular, but they will explain data movements outside of the Angular app and the limitations of the services.
+
+
