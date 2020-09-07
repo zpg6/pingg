@@ -27,6 +27,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 > 
 > ./src/app/GETS_PLACED_HERE
 
+## Bulma CSS Styling
+
+[Bulma](https://bulma.io) is a modern CSS framework initially developed, like many others, in response the popular Bootstrap CSS framework. It's a CSS only framework with no JavaScript required, so it integrates in any environment by npm, jsDelivr CDN, and download for a one-time project-wide import. With a column-based layout, making Bulma perfect for quickly designing web pages for widescreen, desktop, tablet, and mobile screens.
+
 ## Firebase
 
 We will be using [Firebase Hosting](https://firebase.google.com/docs/hosting) as the deployment service for our Angular Web App.
