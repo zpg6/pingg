@@ -17,21 +17,18 @@ Install Angular globally on your machine with this snippet.
 
 To play around with some Angular on the side before getting into this repository's project files, it would be helpful to check out [Using Angular in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial). Be sure to use **Typescript** and **CSS**.
 
-## Run the Development Server
-
-To run, `cd` to the repository root folder and run `ng serve` for a local dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change and save any of the source files.
-
 ## Code Scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. It may be easier to use the Terminal/CommandPrompt inside of VSCode. I use one Terminal for `ng g ...` commands and one that runs the server and re-compiles in real-time after running `ng serve` and leaving it open in the background.
 
 > NOTE: Creating a component with the command `ng g component chatWindow` will create a component `chat-window-component`. In other words, no need to add the type of the newly scaffolded code to the name of it, Angular CLI will add it for you. Newly scaffolded files are placed in the following folder: 
 > 
 > ./src/app/GETS_PLACED_HERE
 
-## Build
+## Run the Development Server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To run, `cd` to the repository root folder and run `ng serve` for a local dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change and save any of the source files.
+
 
 ## Further Help
 
