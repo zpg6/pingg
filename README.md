@@ -2,6 +2,19 @@
      alt="pingg"
      style="float: center;" />
 
+A group project for CS1530 Software Engineering at the University of Pittsburgh. Our objective is to design a web-based information system for social networking using component-based programming. 
+
+Contributors:
+- [Joseph Paul](https://github.com/joepauljoe)
+- [Mike Voit](https://github.com/mikeswa)
+- [Dominic Karras](https://github.com/dak198)
+- [Faaris Ismail](https://github.com/FaarisIsmail)
+- [Zach Grimaldi](https://github.com/zpg6)
+
+# Overview
+
+pingg is a social networking site designed for gamers to link up and play their favorite games both online and in person. The service will primarily allow users to discover new players who play similar games, with the ability to filter by location, average ping, and recently played games, along with stats and play-styles on a per-game basis. Users will be able to set a searchable primary alias on their profile along with a list of aliases they have used in other games. They will also be able to add a small visual flare to their profile by choosing from a preset list of icons.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
 # Getting Start with Angular
