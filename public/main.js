@@ -339,9 +339,14 @@ class NavbarComponent {
         this.observerService.sendMessage(this.appData);
     }
     setPage(to) {
-        console.log('page changed to ' + to);
+        if (this.appData.navbarPage === this.pageFromString(to)) {
+            return;
+        }
+        if (this.showMenu) {
+            this.showMenu = false;
+        }
         this.appData.navbarPage = this.pageFromString(to);
-        console.log('page is now ' + this.appData.navbarPage);
+        console.log('Navbar Page is now ' + this.appData.navbarPage);
         this.updateObserver();
     }
     active(page) {
