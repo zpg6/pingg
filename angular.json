@@ -143,8 +143,13 @@
               "devServerTarget": "pingg:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "pingg"
 }

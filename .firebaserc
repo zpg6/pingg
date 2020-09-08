@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "cs1530group11"
+  },
+  "targets": {
+    "cs1530group11": {
+      "hosting": {
+        "pingg": [
+          "cs1530group11"
+        ]
+      }
+    }
   }
 }

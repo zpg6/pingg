@@ -13,7 +13,7 @@ export class FeedHeroComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
-  title = 'Stock Manager'
+  title = 'Stock Manager';
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -40,4 +40,5 @@ export class FeedHeroComponent implements OnInit, OnDestroy {
   getPage():string {
     return this.appData.navbarPage
   }
+
 }
