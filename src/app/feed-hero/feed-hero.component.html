@@ -12,22 +12,7 @@
 
         <div class="column is-half">
 
-          <div *ngIf="isHome()">
-            <img src="../../assets/images/pingg_logo.png" width="250" height="95">
-            <h2 class="subtitle">
-              Where better matches are made.
-            </h2>
-          </div>
-
-          <br>
-
-          <div *ngIf="isHome() && !(this.appData.isAuthenticated)">
-            <div class="box" style="background-color: #356700;">
-              <h2 class="title">
-                Login
-              </h2>
-            </div>
-          </div>
+          <app-login-box></app-login-box>
 
           <div *ngIf="!isHome()">
             <h1 class="title">
