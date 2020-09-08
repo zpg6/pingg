@@ -2,7 +2,7 @@
      alt="pingg"
      style="float: center;" />
 
-A group project for CS1530 Software Engineering at the University of Pittsburgh. Our objective is to design a web-based information system for social networking using component-based programming. 
+A group project for CS1530 Software Engineering at the University of Pittsburgh. Our objective is to design a web-based information system for social networking using component-based programming. Our written submissions are available in the **[Submission Documents](https://github.com/zpg6/pingg/tree/master/SubmissionDocuments)** directory.
 
 DEMO: **[https://pingg.tech](https://pingg.tech)**
 
@@ -12,6 +12,7 @@ Contributors:
 - [Dominic Karras](https://github.com/dak198)
 - [Faaris Ismail](https://github.com/FaarisIsmail)
 - [Zach Grimaldi](https://github.com/zpg6)
+
 
 # Overview
 
