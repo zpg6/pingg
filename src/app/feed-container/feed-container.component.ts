@@ -6,24 +6,30 @@ import { ObserverService } from '../observer.service';
 
 @Component({
   selector: 'app-feed-hero',
-  templateUrl: './feed-hero.component.html',
-  styleUrls: ['./feed-hero.component.css']
+  templateUrl: './feed-container.component.html',
+  styleUrls: ['./feed-container.component.css']
 })
-export class FeedHeroComponent implements OnInit, OnDestroy {
+export class FeedContainerComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
   title = 'Stock Manager';
+  numbers = Array<number>();
+  i : number = 0;
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ FeedHeroComponent')
+        console.log('Subscription updated @ FeedContainerComponent')
       }));
-      console.log('Subscription created @ FeedHeroComponent')
+      console.log('Subscription created @ FeedContainerComponent')
   }
-  ngOnInit() {}
+  ngOnInit() {
+    for (this.i = 0; this.i<=1000;this.i++) {
+      this.numbers.concat[this.i];
+    }
+  }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks

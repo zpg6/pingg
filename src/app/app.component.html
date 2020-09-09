@@ -1,2 +1,12 @@
-<app-feed-hero></app-feed-hero>
-<router-outlet></router-outlet>
+<section class="hero is-dark is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <app-navbar></app-navbar>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <app-login-box *ngIf="!(this.appData.isAuthenticated)" class="container"></app-login-box>
+    <router-outlet *ngIf="this.appData.isAuthenticated" class="container"></router-outlet>
+  </div>
+</section>
