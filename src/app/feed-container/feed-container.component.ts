@@ -14,8 +14,7 @@ export class FeedContainerComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   title = 'Stock Manager';
-  numbers = Array<number>();
-  i : number = 0;
+  nums:number[] = [1,2,3,3]
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -26,9 +25,7 @@ export class FeedContainerComponent implements OnInit, OnDestroy {
       console.log('Subscription created @ FeedContainerComponent')
   }
   ngOnInit() {
-    for (this.i = 0; this.i<=1000;this.i++) {
-      this.numbers.concat[this.i];
-    }
+
   }
 
   ngOnDestroy() {

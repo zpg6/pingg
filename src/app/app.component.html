@@ -6,7 +6,9 @@
 
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
-    <app-login-box *ngIf="!(this.appData.isAuthenticated)" class="container"></app-login-box>
-    <router-outlet *ngIf="this.appData.isAuthenticated" class="container"></router-outlet>
+    <div class="container">
+      <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
+      <router-outlet *ngIf="this.appData.isAuthenticated"></router-outlet>
+    </div>
   </div>
 </section>

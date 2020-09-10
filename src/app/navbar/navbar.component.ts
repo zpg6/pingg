@@ -36,6 +36,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   showMenu = false;
 
   setPage(to: string) {
+    if (!(this.appData.isAuthenticated)) {
+      return;
+    }
     if (this.appData.navbarPage === this.pageFromString(to)) {
       return;
     }
@@ -45,6 +48,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.appData.navbarPage = this.pageFromString(to);
     console.log('Navbar Page is now ' + this.appData.navbarPage);
     this.updateObserver();
+  }
+
+  getPage(current: string) {
+    return this.appData.navbarPage
   }
 
   active(page: string):string {
