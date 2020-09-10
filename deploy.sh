@@ -11,11 +11,11 @@ cp -rf dist/pingg/* public
 firebase deploy --only hosting
 git add .
 git commit -m "${commitMessage}"
-git push origin
 git checkout master
 git merge ${devBranch}
 git push origin
 git checkout ${devBranch}
+git push origin
 
 
 
