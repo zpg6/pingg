@@ -61,7 +61,7 @@ You'll be asked to enter that *BRANCH_NAME* and a commit message (please be deta
 The script handles **BOTH** Firebase deploying and GitHub committing, pushing, merging, and re-checking out *BRANCH_NAME*.
 Please let Zach know of any errors encountered in the shell script.
 
-Before making future changes, you will need to run `sh checkout.sh` while in the root folder of the project.
+Before making ANY LOCAL CHANGES next time you want to code pingg, you will need to run `sh checkout.sh` while in the root folder of the project.
 You'll be asked to enter that *BRANCH_NAME*. The script handles fetching any changes to the master branch and merging
 them into your *BRANCH_NAME*.
 
