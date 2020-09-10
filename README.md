@@ -61,6 +61,10 @@ You'll be asked to enter that *BRANCH_NAME* and a commit message (please be deta
 The script handles **BOTH** Firebase deploying and GitHub committing, pushing, merging, and re-checking out *BRANCH_NAME*.
 Please let Zach know of any errors encountered in the shell script.
 
+Before making future changes, you will need to run `sh checkout.sh` while in the root folder of the project.
+You'll be asked to enter that *BRANCH_NAME*. The script handles fetching any changes to the master branch and merging
+them into your *BRANCH_NAME*.
+
 ## Code Scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. It may be easier to use the Terminal/CommandPrompt inside of VSCode. I use one Terminal for `ng g ...` commands and one that runs the server and re-compiles in real-time after running `ng serve` and leaving it open in the background.
