@@ -37,6 +37,30 @@ To play around with some Angular on the side before getting into this repository
 
 If you haven't used Angular before, please watch this [video](https://www.youtube.com/watch?v=23o0evRtrFI) and use VSCode to replicate what he makes. It's important for everyone working on aspects of an Angular project to understand the concept of component hierarchy and reusability.
 
+
+## GitHub (COPY AND PASTE COMMANDS!)
+
+### Cloning
+
+Run the command `cd SOME/PATH` to a clean workspace **NOT under iCloud sync**.  
+Clone the project using the command `git clone https://github.com/zpg6/pingg.git`  
+Run `git checkout master`.  
+
+### Branching
+
+Create a branch that identifies you with `git branch BRANCH_NAME`.
+Run `git checkout BRANCH_NAME`.
+
+### Deploying (MacOS only)
+
+- You'll need to have Angular, Firebase CLI, and git installed to your Terminal for
+all of the commands in the script to execute.
+
+Run the shell script I made by running `sh deploy.sh` while in the root folder of the project.  
+You'll be asked to enter that *BRANCH_NAME* and a commit message (please be detailed).  
+The script handles **BOTH** Firebase deploying and GitHub committing, pushing, merging, and re-checking out *BRANCH_NAME*.
+Please let Zach know of any errors encountered in the shell script.
+
 ## Code Scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. It may be easier to use the Terminal/CommandPrompt inside of VSCode. I use one Terminal for `ng g ...` commands and one that runs the server and re-compiles in real-time after running `ng serve` and leaving it open in the background.
