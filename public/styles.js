@@ -486,8 +486,8 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/bulma/bulma.css */"./src/bulma/bulma.css");
+__webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/bulma/bulma.css */"./src/bulma/bulma.css");
 
 
 /***/ })
