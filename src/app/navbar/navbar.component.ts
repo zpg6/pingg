@@ -87,4 +87,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   logSearchBox() {
     console.log(this.searchBox);
   }
+
+  description():string {
+    if (this.appData.navbarPage === 'Feed') {
+      return 'The latest on your favorites...';
+    }
+    if (this.appData.navbarPage === 'Map') {
+      return 'Nearby players ready to match up...';
+    }
+    if (this.appData.navbarPage === 'Connect') {
+      return 'Meet players with similar styles...';
+    }
+    if (this.appData.navbarPage === 'Profile') {
+      return 'Show off what makes you unique...';
+    }
+    if (this.appData.navbarPage === 'Chat') {
+      return 'Direct + Group Messaging...';
+    }
+    return '';
+  }
 }

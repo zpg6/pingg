@@ -14,7 +14,7 @@ export class FeedContainerComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   title = 'Stock Manager';
-  nums:number[] = [1,2,3,3]
+  nums:number[] = [1,2,3,4,5,6,7,8,9]
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
