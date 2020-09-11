@@ -11,7 +11,8 @@ import { SignInButtonsComponent } from './sign-in-buttons/sign-in-buttons.compon
 import { MapContainerComponent } from './map-container/map-container.component';
 import { ConnectContainerComponent } from './connect-container/connect-container.component';
 import { ProfileContainerComponent } from './profile-container/profile-container.component';
-import { ChatContainerComponent } from './chat-container/chat-container.component'
+import { ChatContainerComponent } from './chat-container/chat-container.component';
+import { SidebarComponent } from './sidebar/sidebar.component'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ChatContainerComponent } from './chat-container/chat-container.componen
     ConnectContainerComponent,
     ProfileContainerComponent,
     ChatContainerComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

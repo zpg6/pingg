@@ -3,6 +3,7 @@ import { NavbarPage } from '../navbar-page.enum';
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +14,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
+  subscriptionRoute = new Subscription();
   title = 'Stock Manager';
   searchBox = '';
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute) {
       // subscribe to home component messages
+      this.subscriptionRoute.add(activatedRoute.url.subscribe(url => {
+        console.log('url:'+url)
+      }))
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
         console.log('Subscription updated @ NavbarComponent')
@@ -60,26 +65,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   pageFromString(page: string):NavbarPage {
-    if (page === 'Feed') {
+    if (page.toLowerCase() === 'feed') {
       return NavbarPage.feed;
     }
-    if (page === 'Map') {
+    if (page.toLowerCase() === 'map') {
       return NavbarPage.map;
     }
-    if (page === 'Connect') {
+    if (page.toLowerCase() === 'connect') {
       return NavbarPage.connect;
     }
-    if (page === 'Profile') {
+    if (page.toLowerCase() === 'profile') {
       return NavbarPage.profile;
     }
-    if (page === 'Chat') {
+    if (page.toLowerCase() === 'chat') {
       return NavbarPage.chat;
     }
-    if (page === 'Login') {
+    if (page.toLowerCase() === 'login') {
       return NavbarPage.login;
-    }
-    if (page === 'Create Account') {
-      return NavbarPage.createAccount;
     }
     return NavbarPage.feed;
   }

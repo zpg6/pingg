@@ -1,5 +1,23 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/bulma/bulma-dashboard.css":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--13-1!./node_modules/postcss-loader/src??embedded!./src/bulma/bulma-dashboard.css ***!
+  \************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.i, ".is-scrollable {\n  overflow-y: auto;\n}\n\n.dashboard {\n  display: flex;\n  flex-direction: row;\n}\n\n.dashboard.is-full-height {\n  height: 100vh;\n}\n\n.dashboard-panel {\n  display: flex;\n  flex-direction: column;\n  padding: 2rem 1.5rem;\n  flex: 0 0 25rem;\n  height: 100%;\n}\n\n.dashboard-panel.left {\n  flex: 0 0 25rem;\n}\n\n.dashboard-panel.right {\n  flex: 0 0 25rem;\n}\n\n.dashboard-panel.has-thick-padding {\n  padding: 3rem 2rem;\n}\n\n.dashboard-panel.is-one-quarter {\n  flex: 0 0 25%;\n}\n\n.dashboard-panel.is-half {\n  flex: 0 0 50%;\n}\n\n.dashboard-panel.is-one-third {\n  flex: 0 0 33.3333333333%;\n}\n\n.dashboard-panel.is-small {\n  flex: 0 0 15rem;\n}\n\n.dashboard-panel.is-medium {\n  flex: 0 0 20rem;\n}\n\n.dashboard-panel.is-large {\n  flex: 0 0 30rem;\n}\n\n.dashboard-panel-header.is-centered, .dashboard-panel-content.is-centered, .dashboard-panel-footer.is-centered {\n  display: flex;\n  justify-content: center;\n}\n\n.dashboard-panel-header {\n  margin-bottom: 2rem;\n}\n\n.dashboard-panel-main {\n  flex: 1;\n}\n\n.dashboard-panel-footer {\n  margin-top: 2rem;\n}\n\n.dashboard-main {\n  display: flex;\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n\n.dashboard-main .navbar.is-fixed-top {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n\n.dashboard-main .footer {\n  flex: 1;\n}\n\n/*# sourceMappingURL=bulma-dashboard.css.map */\n", "",{"version":3,"sources":["bulma-dashboard.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AACA;EACE,aAAa;AACf;;AACA;EACE,aAAa;EACb,sBAAsB;EACtB,oBAAoB;EACpB,eAAe;EACf,YAAY;AACd;;AACA;EACE,eAAe;AACjB;;AACA;EACE,eAAe;AACjB;;AACA;EACE,kBAAkB;AACpB;;AACA;EACE,aAAa;AACf;;AACA;EACE,aAAa;AACf;;AACA;EACE,wBAAwB;AAC1B;;AACA;EACE,eAAe;AACjB;;AACA;EACE,eAAe;AACjB;;AACA;EACE,eAAe;AACjB;;AACA;EACE,aAAa;EACb,uBAAuB;AACzB;;AACA;EACE,mBAAmB;AACrB;;AACA;EACE,OAAO;AACT;;AACA;EACE,gBAAgB;AAClB;;AACA;EACE,aAAa;EACb,OAAO;EACP,aAAa;EACb,sBAAsB;EACtB,iBAAiB;AACnB;;AACA;EACE,wBAAwB;EACxB,gBAAgB;EAChB,MAAM;AACR;;AACA;EACE,OAAO;AACT;;AAEA,8CAA8C","file":"bulma-dashboard.css","sourcesContent":[".is-scrollable {\n  overflow-y: auto;\n}\n\n.dashboard {\n  display: flex;\n  flex-direction: row;\n}\n.dashboard.is-full-height {\n  height: 100vh;\n}\n.dashboard-panel {\n  display: flex;\n  flex-direction: column;\n  padding: 2rem 1.5rem;\n  flex: 0 0 25rem;\n  height: 100%;\n}\n.dashboard-panel.left {\n  flex: 0 0 25rem;\n}\n.dashboard-panel.right {\n  flex: 0 0 25rem;\n}\n.dashboard-panel.has-thick-padding {\n  padding: 3rem 2rem;\n}\n.dashboard-panel.is-one-quarter {\n  flex: 0 0 25%;\n}\n.dashboard-panel.is-half {\n  flex: 0 0 50%;\n}\n.dashboard-panel.is-one-third {\n  flex: 0 0 33.3333333333%;\n}\n.dashboard-panel.is-small {\n  flex: 0 0 15rem;\n}\n.dashboard-panel.is-medium {\n  flex: 0 0 20rem;\n}\n.dashboard-panel.is-large {\n  flex: 0 0 30rem;\n}\n.dashboard-panel-header.is-centered, .dashboard-panel-content.is-centered, .dashboard-panel-footer.is-centered {\n  display: flex;\n  justify-content: center;\n}\n.dashboard-panel-header {\n  margin-bottom: 2rem;\n}\n.dashboard-panel-main {\n  flex: 1;\n}\n.dashboard-panel-footer {\n  margin-top: 2rem;\n}\n.dashboard-main {\n  display: flex;\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n.dashboard-main .navbar.is-fixed-top {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n}\n.dashboard-main .footer {\n  flex: 1;\n}\n\n/*# sourceMappingURL=bulma-dashboard.css.map */\n"]}]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/bulma/bulma.css":
 /*!**************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ref--13-1!./node_modules/postcss-loader/src??embedded!./src/bulma/bulma.css ***!
@@ -421,6 +439,35 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./src/bulma/bulma-dashboard.css":
+/*!***************************************!*\
+  !*** ./src/bulma/bulma-dashboard.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--13-1!../../node_modules/postcss-loader/src??embedded!./bulma-dashboard.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/bulma/bulma-dashboard.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/bulma/bulma.css":
 /*!*****************************!*\
   !*** ./src/bulma/bulma.css ***!
@@ -480,14 +527,15 @@ module.exports = content.locals || {};
 /***/ }),
 
 /***/ 2:
-/*!****************************************************!*\
-  !*** multi ./src/styles.css ./src/bulma/bulma.css ***!
-  \****************************************************/
+/*!************************************************************************************!*\
+  !*** multi ./src/styles.css ./src/bulma/bulma.css ./src/bulma/bulma-dashboard.css ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/bulma/bulma.css */"./src/bulma/bulma.css");
+__webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/bulma/bulma.css */"./src/bulma/bulma.css");
+module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/bulma/bulma-dashboard.css */"./src/bulma/bulma-dashboard.css");
 
 
 /***/ })

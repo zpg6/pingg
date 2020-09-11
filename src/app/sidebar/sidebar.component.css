@@ -1,0 +1,22 @@
+.menu-list a {
+  color: whitesmoke;
+  margin-bottom: 5px;
+}
+
+.menu-list a:hover {
+  color: #FFF;
+  background-color: #356700;
+  border-radius: 8px;
+}
+
+.menu-list a:active {
+  color: #292929;
+  background-color: #95EF72;
+  border-radius: 8px;
+}
+
+.menu-list a.is-active {
+  color: #292929;
+  background-color: #95EF72;
+  border-radius: 8px;
+}

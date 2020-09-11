@@ -50,7 +50,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/bulma/bulma.css"
+              "src/bulma/bulma.css",
+              "src/bulma/bulma-dashboard.css"
             ],
             "scripts": []
           },
