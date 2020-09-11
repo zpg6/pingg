@@ -58,12 +58,12 @@
           <a class="navbar-item">
             Report an issue
           </a>
-          <a class="navbar-item">
-            Log In / Sign Up
+          <a class="navbar-item" (click)="logout()">
+            Logout
           </a>
         </div>
       </div>
-      <p class="navbar-item subtitle is-hidden-touch is-unselectable" style="margin-left: 100px;"><b>{{this.appData.navbarPage}}</b>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>{{description()}}</i></p>
+      <p class="navbar-item subtitle is-hidden-touch is-unselectable" style="margin-left: 100px;"><b style="font-size: x-large;">{{this.appData.navbarPage}}</b>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>{{description()}}</i></p>
     </div>
 
     <!-- TABLET/MOBILE VERSION -->

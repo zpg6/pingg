@@ -1,0 +1,17 @@
+.bars-bg {
+  background-image: url('../../assets/images/pinggBarsTight.png');
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-box-inner {
+  background-color: #292929;
+  border: 5px solid #356700;
+  padding: 25px;
+}
+
+.login-box-outer {
+  border: 2px solid #95EF72;
+  padding: 0px;
+}

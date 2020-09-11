@@ -106,4 +106,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     return '';
   }
+
+  logout() {
+    this.appData = new AppData();
+    this.updateObserver();
+  }
 }

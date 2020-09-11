@@ -1,0 +1,7 @@
+.bars-bg {
+  background-image: url('../assets/images/pinggBarsTightSpaced.png');
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}

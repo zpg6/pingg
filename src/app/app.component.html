@@ -5,7 +5,7 @@
   </div>
 
   <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
+  <div class="hero-body {{ this.appData.isAuthenticated ? '':'bars-bg' }}">
     <div class="container">
       <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
       <router-outlet *ngIf="this.appData.isAuthenticated"></router-outlet>
