@@ -13,7 +13,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
-  title = 'Stock Manager'
+  title = 'Stock Manager';
+  searchBox = '';
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -80,6 +81,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (page === 'Create Account') {
       return NavbarPage.createAccount;
     }
-    return NavbarPage.home;
+    return NavbarPage.feed;
+  }
+
+  logSearchBox() {
+    console.log(this.searchBox);
   }
 }

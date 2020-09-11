@@ -1,5 +1,4 @@
 export enum NavbarPage {
-  home = 'Home',
   feed = 'Feed',
   map = 'Map',
   connect = 'Connect',

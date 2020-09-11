@@ -1,9 +1,10 @@
 
 <nav class="navbar is-dark">
   <div class="navbar-brand">
-    <a class="navbar-item {{ active('Home') }}"  [routerLink]="['']" [queryParams]="{from: getPage('Home')}" (click)="setPage('Home')">
-      <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Homepage" width="112" height="28">
+    <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage('Feed')}" (click)="setPage('Feed')">
+      <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
     </a>
+    <p class="navbar-item has-text-weight-semibold is-hidden-touch" (click)="logSearchBox()">Where better matches are made.</p>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample" (click)="this.showMenu = !this.showMenu">
       <span></span>
       <span></span>
@@ -16,7 +17,18 @@
 
     <!-- DESKTOP/WIDESCREEN VERSION -->
 
-    <div class="navbar-start is-hidden-touch">
+    <div class="navbar-start">
+      <div class="field" style="margin: 10px">
+        <p class="control has-icons-left">
+          <input class="input is-medium is-rounded" type="text" placeholder="Search">
+          <span class="icon is-medium is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="navbar-end is-hidden-touch">
 
       <a class="navbar-item {{ active('Feed') }}" [routerLink]="['/feed']" [queryParams]="{from: getPage('Feed')}" (click)="setPage('Feed')">
         <span class="icon has-text-light">
@@ -44,7 +56,7 @@
           <span class="is-unselectable">More</span>
         </a>
 
-        <div class="navbar-dropdown" style="background-color: #363636;">
+        <div class="navbar-dropdown is-right" style="background-color: #363636;">
           <a class="navbar-item {{ active('Profile') }}" [routerLink]="['/profile']" [queryParams]="{from: getPage('Profile')}" (click)="setPage('Profile')">
             <span class="icon">
               <i class="fas fa-user-edit"></i>
@@ -70,7 +82,7 @@
 
     <!-- TABLET/MOBILE VERSION -->
 
-    <div class="navbar-start is-hidden-desktop">
+    <div class="navbar-end is-hidden-desktop">
       <a class="navbar-item" (click)="setPage('Feed')">
         <span class="icon has-text-light">
           <i class="fas fa-newspaper"></i>
