@@ -80,8 +80,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (page.toLowerCase() === 'chat') {
       return NavbarPage.chat;
     }
-    if (page.toLowerCase() === 'login') {
-      return NavbarPage.login;
+    if (page.toLowerCase() === 'search') {
+      return NavbarPage.search;
     }
     return NavbarPage.feed;
   }
