@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.updateObserver();
   }
 
-  getPage(current: string) {
+  getPage() {
     return this.appData.navbarPage
   }
 
