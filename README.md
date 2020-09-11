@@ -51,7 +51,9 @@ Run `git checkout master`.
 Create a branch that identifies you with `git branch BRANCH_NAME`.
 Run `git checkout BRANCH_NAME`.
 
-### Deploying (MacOS only)
+### Deploying 
+
+ - To run bash scripts on Windows, see [this link](https://www.thewindowsclub.com/how-to-run-sh-or-shell-script-file-in-windows-10).
 
 - You'll need to have Angular, Firebase CLI, and git installed to your Terminal for
 all of the commands in the script to execute.
