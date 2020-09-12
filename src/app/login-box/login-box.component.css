@@ -1,6 +1,6 @@
-.bars-bg {
-  background-image: url('../../assets/images/pinggBarsTight.png');
-  background-position: bottom;
+.circles-bg {
+  background-image: url('../../assets/images/pinggCircles.png');
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }

@@ -1,12 +1,35 @@
 
 <nav class="navbar is-dark">
-  <div class="navbar-brand">
+
+  <!-- DESKTOP/WIDESCREEN VERSION -->
+  <div class="navbar-brand is-hidden-touch">
     <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage()}" (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
       </span>
       <span class="is-unselectable is-hidden-touch">&nbsp;Feed</span>
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample" (click)="this.showMenu = !this.showMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- TABLET/MOBILE VERSION -->
+  <div class="navbar-brand is-hidden-desktop">
+    <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage()}" (click)="setPage('Feed')">
+      <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
+      <span class="icon has-text-light is-hidden-touch">
+        <i class="fas fa-newspaper"></i>
+      </span>
+      <span class="is-unselectable is-hidden-touch">&nbsp;Feed</span>
+    </a>
+    <a class="navbar-item">
+      <p class="subtitle is-size-7 is-unselectable">
+        <b style="font-size: larger;">{{this.appData.navbarPage}}&nbsp;&nbsp;&nbsp;|</b>&nbsp;&nbsp;&nbsp;<i>{{description()}}</i>
+      </p>
     </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample" (click)="this.showMenu = !this.showMenu">
       <span></span>
