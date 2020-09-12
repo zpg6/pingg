@@ -1,47 +1,30 @@
 <!-- left panel -->
-<div class="dashboard-panel is-medium has-thick-padding is-hidden-mobile" style="height: 100%; width: 100%; background-color: #292929;">
+<div class="dashboard-panel is-medium has-thick-padding is-hidden-mobile" style="height: 100%; width: 100%; background-color: #292929;" *ngIf="!(this.appData.navbarPage === 'Map')">
   <!-- <header class="dashboard-panel-header">
     <div class="has-text-centered">
       <img src="../../assets/images/StockManagerLogoV1.png" width="100px" height="100px" style="margin-left: 50px; margin-right: 50px;">
     </div>
   </header> -->
 
-  <div class="dashboard-panel-content">
+  <div class="dashboard-panel-content is-scrollable">
 
     <aside class="menu has-text-light">
 
-      <!-- <div *ngFor="let menu of getMenu()">
-        <p class="menu-label">{{menu.section}}</p>
-        <div *ngFor="let link of menu.links">
-          <li><a>{{link}}</a></li>
-        </div>
-      </div> -->
+      <div *ngFor="let title of getTitles()">
+        <p class="menu-label" style="margin-top: 1.5em;">
+          {{title}}
+        </p>
 
-      <ul class="menu-list">
-        <li><a class="is-active">Main Feed</a></li>
-      </ul>
-      <br>
+        <ul class="menu-list" *ngIf="getSections(title).length > 0">
+          <div *ngFor="let section of getSections(title)">
+            <li><a class="{{ getOptions(section).length > 0 ? 'is-active':'' }}" (click)="toggleExpand(section)">{{section}}</a></li>
+            <ul *ngFor="let option of getOptions(section)" style="padding-left: 15px;">
+              <li><a>{{option}}</a></li>
+            </ul>
+          </div>
+        </ul>
+      </div>
 
-      <p class="menu-label">
-        Sort By
-      </p>
-
-      <ul class="menu-list">
-        <li><a>Top Rated</a></li>
-        <li><a>Most Rated</a></li>
-        <li><a>Newest</a></li>
-        <li><a>Oldest</a></li>
-      </ul>
-
-      <br>
-      <p class="menu-label">
-        Filter By
-      </p>
-
-      <ul class="menu-list">
-        <li><a>Genre</a></li>
-        <li><a>Platform</a></li>
-      </ul>
 
       <br><br>
 

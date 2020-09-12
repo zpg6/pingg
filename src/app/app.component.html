@@ -1,7 +1,7 @@
 <section class="hero is-dark is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
-    <app-navbar></app-navbar>
+    <app-navbar *ngIf="this.appData?.isAuthenticated"></app-navbar>
   </div>
 
   <!-- Hero content: will be in the middle -->
@@ -12,15 +12,21 @@
   </div>
 
   <div class="hero-body" *ngIf="this.appData.isAuthenticated" style="padding: 0px;">
-    <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
-    <div style="display: inline-block;">
-      <div class="columns is-centered">
-        <div class="column is-10">
-          <div class="container">
-            <router-outlet *ngIf="this.appData.isAuthenticated"></router-outlet>
+    <div class="dashboard is-full-height">
+
+      <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
+      <div class="dashboard-main is-scrollable is-dark">
+        <div style="display: inline-block;">
+          <div class="columns is-centered">
+            <div class="column is-10">
+              <div class="container">
+                <router-outlet *ngIf="this.appData.isAuthenticated"></router-outlet>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

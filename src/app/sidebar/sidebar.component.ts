@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
+  expanded = '';
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -35,34 +36,46 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
-  getMenu() {
-    this.menus.forEach(menu => {
-      if (menu.page === this.appData.navbarPage) {
-        return menu.items;
-      }
-    })
+  toggleExpand(section: string) {
+    if (this.expanded === section) {
+      this.expanded = '';
+    } else {
+      this.expanded = section;
+    }
   }
 
-  menus: [{
-    page: NavbarPage.search,
-    items: [
-      {
-        section: 'Sort By',
-        links: [
-          'Most Rated',
-          'Top Rated',
-          'Newest',
-          'Oldest',
-        ],
-      },
-      {
-        section: 'Filter By',
-        links: [
-          'Platform',
-          'Genre',
-        ],
-      },
-    ]
-  }]
+  getOptions(section: string):string[] {
+    if (!(this.expanded === section)) { return []; }
+    if (section === 'Genre') {
+      return ['Arcade','Fantasy','Puzzle','Shooter'];
+    }
+    if (section === 'Platform') {
+      return ['Console','Desktop','Mobile'];
+    }
+    return [];
+  }
+
+  getSections(title: string):string[] {
+    if (title === 'Filter By') {
+      return ['Genre','Platform'];
+    }
+    if (title === 'Sort By') {
+      return ['Top Rated','Most Rated','Newest','Oldest'];
+    }
+    if (title === 'Connect With') {
+      return ['Games','Players'];
+    }
+    return [];
+  }
+
+  getTitles():string[] {
+    if (this.appData.navbarPage === NavbarPage.feed) {
+      return ['Filter By']
+    }
+    if (this.appData.navbarPage === NavbarPage.connect) {
+      return ['Connect With','Sort By','Filter By']
+    }
+    return [];
+  }
 
 }
