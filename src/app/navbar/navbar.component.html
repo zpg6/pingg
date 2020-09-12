@@ -1,5 +1,5 @@
 
-<nav class="navbar is-dark">
+<nav class="navbar is-dark" style="border-bottom: 5px solid #95EF72;">
 
   <!-- DESKTOP/WIDESCREEN VERSION -->
   <div class="navbar-brand is-hidden-touch">
@@ -86,7 +86,7 @@
           </a>
         </div>
       </div>
-      <p class="navbar-item subtitle is-hidden-touch is-unselectable" style="margin-left: 100px;"><b style="font-size: x-large;">{{this.appData.navbarPage}}</b>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>{{description()}}</i></p>
+      <p class="navbar-item subtitle is-hidden-touch is-unselectable" style="margin-left: 10px;"><b style="font-size: x-large;">{{this.appData.navbarPage}}</b>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>{{description()}}</i></p>
     </div>
 
     <!-- TABLET/MOBILE VERSION -->
@@ -138,19 +138,19 @@
     </div>
 
     <div class="navbar-end">
-      <div class="field" style="margin: 10px">
+      <div class="navbar-item field has-addons">
         <p class="control has-icons-left">
-          <input class="input is-medium" type="text" placeholder="Search">
-          <span class="icon is-medium is-left">
+          <input class="input" type="text" placeholder="Search">
+          <span class="icon is-left">
             <i class="fas fa-search"></i>
           </span>
         </p>
+        <div class="control">
+          <a class="button is-danger">
+            Search
+          </a>
+        </div>
       </div>
-      <span class="navbar-item">
-        <a class="button has-text-light" style="background-color: #356700;">
-          <span>Search</span>
-        </a>
-      </span>
     </div>
 
   </div>

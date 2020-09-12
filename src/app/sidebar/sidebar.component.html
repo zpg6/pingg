@@ -10,6 +10,10 @@
 
     <aside class="menu has-text-light">
 
+      <div class="control" *ngIf="this.appData.navbarPage === 'Feed'">
+        <a class="button is-danger">New Post</a>
+      </div>
+
       <div *ngFor="let title of getTitles()">
         <p class="menu-label" style="margin-top: 1.5em;">
           {{title}}
@@ -19,7 +23,7 @@
           <div *ngFor="let section of getSections(title)">
             <li><a class="{{ getOptions(section).length > 0 ? 'is-active':'' }}" (click)="toggleExpand(section)">{{section}}</a></li>
             <ul *ngFor="let option of getOptions(section)" style="padding-left: 15px;">
-              <li><a>{{option}}</a></li>
+              <li><a class="menu-list-item">{{option}}</a></li>
             </ul>
           </div>
         </ul>

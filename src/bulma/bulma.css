@@ -4947,28 +4947,7 @@ button.dropdown-item.is-active {
   line-height: 1.25;
 }
 
-.menu-list a {
-  border-radius: 2px;
-  color: #4a4a4a;
-  display: block;
-  padding: 0.5em 0.75em;
-}
 
-.menu-list a:hover {
-  background-color: whitesmoke;
-  color: #363636;
-}
-
-.menu-list a.is-active {
-  background-color: #3273dc;
-  color: #fff;
-}
-
-.menu-list li ul {
-  border-left: 1px solid #dbdbdb;
-  margin: 0.75em;
-  padding-left: 0.75em;
-}
 
 .menu-label {
   color: #7a7a7a;

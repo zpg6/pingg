@@ -1,5 +1,5 @@
 span.red-number {
-  background: black;
+  background: #f14668;
   border-radius: 0.8em;
   -moz-border-radius: 0.8em;
   -webkit-border-radius: 0.8em;
@@ -13,3 +13,7 @@ span.red-number {
   width: 1.6em;
 
 }
+
+/* a.navbar-item.is-active {
+  border-bottom: 5px solid #95EF72;
+} */
