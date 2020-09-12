@@ -11,7 +11,12 @@
     <aside class="menu has-text-light">
 
       <div class="control" *ngIf="this.appData.navbarPage === 'Feed'">
-        <a class="button is-danger">New Post</a>
+        <button class="button is-danger">
+          <span class="icon">
+            <i class="fas fa-pencil-alt"></i>
+          </span>
+          <span>New Post</span>
+        </button>
       </div>
 
       <div *ngFor="let title of getTitles()">
