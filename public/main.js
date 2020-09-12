@@ -37,6 +37,8 @@ __webpack_require__.r(__webpack_exports__);
 
 class AppData {
     constructor() {
+        this.title = 'pingg';
+        this.tagline = 'Where better matches are made.';
         this.navbarPage = _app_navbar_page_enum__WEBPACK_IMPORTED_MODULE_0__["NavbarPage"].feed;
         this.isAuthenticated = false;
     }
