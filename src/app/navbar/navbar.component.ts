@@ -20,11 +20,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute) {
       // subscribe to home component messages
-      this.subscriptionRoute.add(activatedRoute.url.subscribe(url => {
-        console.log('url:'+url)
-      }))
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
+        let to = activatedRoute.snapshot.queryParams['to'];
+        console.log('to = ' + to);
+        this.appData.navbarPage = this.pageFromString(to)
+        // this.updateObserver()
         console.log('Subscription updated @ NavbarComponent')
       }));
       console.log('Subscription created @ NavbarComponent')

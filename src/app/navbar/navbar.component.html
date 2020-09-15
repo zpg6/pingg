@@ -3,7 +3,7 @@
 
   <!-- DESKTOP/WIDESCREEN VERSION -->
   <div class="navbar-brand is-hidden-touch">
-    <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage()}" (click)="setPage('Feed')">
+    <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage(), to: 'Feed'}" (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
@@ -19,7 +19,7 @@
 
   <!-- TABLET/MOBILE VERSION -->
   <div class="navbar-brand is-hidden-desktop">
-    <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage()}" (click)="setPage('Feed')">
+    <a class="navbar-item {{ active('Feed') }}"  [routerLink]="['']" [queryParams]="{from: getPage(), to: 'Feed'}" (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
@@ -45,14 +45,14 @@
 
     <div class="navbar-start is-hidden-touch">
 
-      <a class="navbar-item {{ active('Map') }}" [routerLink]="['/map']" [queryParams]="{from: getPage()}" (click)="setPage('Map')">
+      <a class="navbar-item {{ active('Map') }}" [routerLink]="['/map']" [queryParams]="{from: getPage(), to: 'Map'}" (click)="setPage('Map')">
         <span class="icon has-text-light">
           <i class="fas fa-map-marked-alt"></i>
         </span>
         <span class="is-unselectable">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item {{ active('Connect') }}" [routerLink]="['/connect']" [queryParams]="{from: getPage()}" (click)="setPage('Connect')">
+      <a class="navbar-item {{ active('Connect') }}" [routerLink]="['/connect']" [queryParams]="{from: getPage(), to: 'Connect'}" (click)="setPage('Connect')">
         <span class="icon has-text-light">
           <i class="fas fa-address-card"></i>
         </span>
@@ -65,13 +65,13 @@
         </a>
 
         <div class="navbar-dropdown is-left" style="background-color: #363636;">
-          <a class="navbar-item {{ active('Profile') }}" [routerLink]="['/profile']" [queryParams]="{from: getPage()}" (click)="setPage('Profile')">
+          <a class="navbar-item {{ active('Profile') }}" [routerLink]="['/profile']" [queryParams]="{from: getPage(), to: 'Profile'}" (click)="setPage('Profile')">
             <span class="icon">
               <i class="fas fa-user-edit"></i>
             </span>
             <span class="is-unselectable">&nbsp;Profile</span>
           </a>
-          <a class="navbar-item {{ active('Chat') }}" [routerLink]="['/chat']" [queryParams]="{from: getPage()}" (click)="setPage('Chat')">
+          <a class="navbar-item {{ active('Chat') }}" [routerLink]="['/chat']" [queryParams]="{from: getPage(), to: 'Chat'}" (click)="setPage('Chat')">
             <span class="icon">
               <i class="fas fa-envelope"></i>
             </span>
@@ -92,21 +92,21 @@
     <!-- TABLET/MOBILE VERSION -->
 
     <div class="navbar-start is-hidden-desktop">
-      <a class="navbar-item {{ active('Feed') }}" [routerLink]="['']" [queryParams]="{from: getPage()}" (click)="setPage('Feed')">
+      <a class="navbar-item {{ active('Feed') }}" [routerLink]="['']" [queryParams]="{from: getPage(), to: 'Feed'}" (click)="setPage('Feed')">
         <span class="icon has-text-light">
           <i class="fas fa-newspaper"></i>
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Feed</span>
       </a>
 
-      <a class="navbar-item {{ active('Map') }}" [routerLink]="['/map']" [queryParams]="{from: getPage()}" (click)="setPage('Map')">
+      <a class="navbar-item {{ active('Map') }}" [routerLink]="['/map']" [queryParams]="{from: getPage(), to: 'Map'}" (click)="setPage('Map')">
         <span class="icon has-text-light">
           <i class="fas fa-map-marked-alt"></i>
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item {{ active('Connect') }}" [routerLink]="['/connect']" [queryParams]="{from: getPage()}" (click)="setPage('Connect')">
+      <a class="navbar-item {{ active('Connect') }}" [routerLink]="['/connect']" [queryParams]="{from: getPage(), to: 'Connect'}" (click)="setPage('Connect')">
         <span class="icon has-text-light">
           <i class="fas fa-address-card"></i>
         </span>
@@ -114,13 +114,13 @@
       </a>
 
 
-      <a class="navbar-item {{ active('Profile') }}" [routerLink]="['/profile']" [queryParams]="{from: getPage()}" (click)="setPage('Profile')">
+      <a class="navbar-item {{ active('Profile') }}" [routerLink]="['/profile']" [queryParams]="{from: getPage(), to: 'Profile'}" (click)="setPage('Profile')">
         <span class="icon has-text-light">
           <i class="fas fa-user-edit has-text-light"></i>
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Profile</span>
       </a>
-      <a class="navbar-item {{ active('Chat') }}" [routerLink]="['/chat']" [queryParams]="{from: getPage()}" (click)="setPage('Chat')">
+      <a class="navbar-item {{ active('Chat') }}" [routerLink]="['/chat']" [queryParams]="{from: getPage(), to: 'Chat'}" (click)="setPage('Chat')">
         <span class="icon has-text-light">
           <i class="fas fa-envelope"></i>
         </span>
