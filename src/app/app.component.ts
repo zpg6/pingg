@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppData } from './app-data';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { ObserverService } from './observer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { NavbarPage } from './navbar-page.enum';
 
 @Component({
@@ -17,19 +18,37 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription2 = new Subscription();
   title = 'Stock Manager';
 
-  constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute) {
+  constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute, private router: Router) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
+        if (!this.appData.isAuthenticated) {
+          this.appData.navbarPage = NavbarPage.feed;
+          router.navigate(['/']);
+        }
         console.log('Subscription updated @ FeedHeroComponent')
       }));
-      this.subscription2.add(activatedRoute.paramMap.subscribe(map =>{
-        let to = this.pageFromString(map.get('to'));
-        if (!(to === this.appData.navbarPage)) {
-          this.appData.navbarPage = to;
+      // this.subscription2.add(activatedRoute.paramMap.subscribe(map =>{
+      //   let to = this.pageFromString(map.get('to'));
+      //   if (!(to === this.appData.navbarPage)) {
+      //     this.appData.navbarPage = to;
+      //     this.updateObserver();
+      //   }
+      // }));
+      router.events.pipe(
+        filter( (event: NavigationStart) =>  {
+          return (event instanceof NavigationStart);
+        })
+      ).subscribe( (event: NavigationStart) => {
+        let url = event.url;
+        url = url.replace('/','');
+        console.log('url from appComp = ' + url);
+        let page = this.pageFromString(url);
+        if (this.appData.navbarPage !== page) {
+          this.appData.navbarPage = page;
           this.updateObserver();
         }
-      }));
+      })
       console.log('Subscription created @ FeedHeroComponent')
   }
   ngOnInit() {}

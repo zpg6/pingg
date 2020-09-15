@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavbarPage } from '../navbar-page.enum';
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { ObserverService } from '../observer.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private observerService: ObserverService, private router: Router) {
       // subscribe to home component messages
+      //console.log('constructor load up url = ' + router.url)
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
         console.log('Subscription updated @ NavbarComponent')
