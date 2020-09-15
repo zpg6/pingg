@@ -4,5 +4,5 @@ export class AppData {
   title = 'pingg';
   tagline = 'Where better matches are made.';
   navbarPage: NavbarPage = NavbarPage.feed
-  isAuthenticated: boolean = true;
+  isAuthenticated: boolean = false;
 }
