@@ -703,14 +703,17 @@ class NavbarComponent {
         this.subscriptionRoute = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
         this.title = 'Stock Manager';
         this.searchBox = '';
+        this.updated = false;
         this.showMenu = false;
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
             let to = activatedRoute.snapshot.queryParams['to'];
             console.log('to = ' + to);
-            this.appData.navbarPage = this.pageFromString(to);
-            // this.updateObserver()
+            if (this.appData.navbarPage !== to) {
+                this.appData.navbarPage = this.pageFromString(to);
+                this.updateObserver();
+            }
             console.log('Subscription updated @ NavbarComponent');
         }));
         console.log('Subscription created @ NavbarComponent');

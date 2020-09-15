@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   subscriptionRoute = new Subscription();
   title = 'Stock Manager';
   searchBox = '';
+  updated = false;
 
   constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute) {
       // subscribe to home component messages
@@ -24,8 +25,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.appData = message;
         let to = activatedRoute.snapshot.queryParams['to'];
         console.log('to = ' + to);
-        this.appData.navbarPage = this.pageFromString(to)
-        // this.updateObserver()
+        if (this.appData.navbarPage !== to) {
+          this.appData.navbarPage = this.pageFromString(to)
+          this.updateObserver()
+        }
         console.log('Subscription updated @ NavbarComponent')
       }));
       console.log('Subscription created @ NavbarComponent')
