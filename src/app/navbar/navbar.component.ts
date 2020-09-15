@@ -40,6 +40,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   showMenu = false;
+  showSearchBox = false;
+
+  clearSearch() {
+    if (this.showSearchBox) {
+      if (this.searchBox.length > 0) {
+        this.searchBox = '';
+      }  else {
+        this.showSearchBox = false;
+      }
+    } else {
+
+    }
+  }
 
   setPage(to: string) {
     if (!(this.appData.isAuthenticated)) {

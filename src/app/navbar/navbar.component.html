@@ -26,10 +26,37 @@
       </span>
       <span class="is-unselectable is-hidden-touch">&nbsp;Feed</span>
     </a>
-    <a class="navbar-item">
+    <a class="navbar-item" *ngIf="!this.showSearchBox">
       <p class="subtitle is-size-7 is-unselectable">
         <b style="font-size: larger;">{{this.appData.navbarPage}}</b><br><i>{{description()}}</i>
       </p>
+    </a>
+    <div class="navbar-item" *ngIf="this.showSearchBox">
+      <div class="field has-addons">
+        <p class="control has-icons-left">
+          <input class="input is-small" type="text" placeholder="Search">
+          <span class="icon is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+        <button class="button is-small">
+          <span class="icon">
+            <i class="fas fa-search"></i>
+          </span>
+        </button>
+        <button class="button is-small" (click)="clearSearch()">
+          <span class="icon">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+    <a class="navbar-item" (click)="this.showSearchBox = !this.showSearchBox" *ngIf="!this.showSearchBox">
+      <button class="button is-small">
+        <span class="icon">
+          <i class="fas fa-search"></i>
+        </span>
+      </button>
     </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample" (click)="this.showMenu = !this.showMenu">
       <span></span>
@@ -136,22 +163,5 @@
       </a>
 
     </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item field has-addons">
-        <p class="control has-icons-left">
-          <input class="input" type="text" placeholder="Search">
-          <span class="icon is-left">
-            <i class="fas fa-search"></i>
-          </span>
-        </p>
-        <div class="control">
-          <a class="button is-info">
-            Search
-          </a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </nav>
