@@ -22,19 +22,8 @@ export class AppComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        // if (!this.appData.isAuthenticated) {
-        //   this.appData.navbarPage = NavbarPage.feed;
-        //   router.navigate(['/']);
-        // }
-        console.log('Subscription updated @ FeedHeroComponent')
+        console.log('Subscription updated @ AppComponent')
       }));
-      // this.subscription2.add(activatedRoute.paramMap.subscribe(map =>{
-      //   let to = this.pageFromString(map.get('to'));
-      //   if (!(to === this.appData.navbarPage)) {
-      //     this.appData.navbarPage = to;
-      //     this.updateObserver();
-      //   }
-      // }));
       router.events.pipe(
         filter( (event: NavigationStart) =>  {
           return (event instanceof NavigationStart);
@@ -49,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
           this.updateObserver();
         }
       })
-      console.log('Subscription created @ FeedHeroComponent')
+      console.log('Subscription created @ AppComponent')
   }
   ngOnInit() {}
 

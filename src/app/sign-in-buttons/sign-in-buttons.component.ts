@@ -18,9 +18,9 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ NavbarComponent')
+        console.log('Subscription updated @ SignInButtonsComponent')
       }));
-      console.log('Subscription created @ NavbarComponent')
+      console.log('Subscription created @ SignInButtonsComponent')
   }
   ngOnInit() {}
 

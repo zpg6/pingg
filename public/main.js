@@ -182,19 +182,8 @@ class AppComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            // if (!this.appData.isAuthenticated) {
-            //   this.appData.navbarPage = NavbarPage.feed;
-            //   router.navigate(['/']);
-            // }
-            console.log('Subscription updated @ FeedHeroComponent');
+            console.log('Subscription updated @ AppComponent');
         }));
-        // this.subscription2.add(activatedRoute.paramMap.subscribe(map =>{
-        //   let to = this.pageFromString(map.get('to'));
-        //   if (!(to === this.appData.navbarPage)) {
-        //     this.appData.navbarPage = to;
-        //     this.updateObserver();
-        //   }
-        // }));
         router.events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])((event) => {
             return (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationStart"]);
         })).subscribe((event) => {
@@ -207,7 +196,7 @@ class AppComponent {
                 this.updateObserver();
             }
         });
-        console.log('Subscription created @ FeedHeroComponent');
+        console.log('Subscription created @ AppComponent');
     }
     ngOnInit() { }
     ngOnDestroy() {
@@ -421,9 +410,9 @@ class ConnectContainerComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ FeedContainerComponent');
+            console.log('Subscription updated @ ConnectContainerComponent');
         }));
-        console.log('Subscription created @ FeedContainerComponent');
+        console.log('Subscription created @ ConnectContainerComponent');
     }
     ngOnInit() {
     }
@@ -571,9 +560,9 @@ class LoginBoxComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ FeedHeroComponent');
+            console.log('Subscription updated @ LoginBoxComponent');
         }));
-        console.log('Subscription created @ FeedHeroComponent');
+        console.log('Subscription created @ LoginBoxComponent');
     }
     ngOnInit() { }
     ngOnDestroy() {
@@ -1240,9 +1229,9 @@ class SidebarComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ FeedContainerComponent');
+            console.log('Subscription updated @ SidebarComponent');
         }));
-        console.log('Subscription created @ FeedContainerComponent');
+        console.log('Subscription created @ SidebarComponent');
     }
     ngOnInit() {
     }
@@ -1338,9 +1327,9 @@ class SignInButtonsComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ NavbarComponent');
+            console.log('Subscription updated @ SignInButtonsComponent');
         }));
-        console.log('Subscription created @ NavbarComponent');
+        console.log('Subscription created @ SignInButtonsComponent');
     }
     ngOnInit() { }
     ngOnDestroy() {

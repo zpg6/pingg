@@ -18,9 +18,9 @@ export class ConnectContainerComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ FeedContainerComponent')
+        console.log('Subscription updated @ ConnectContainerComponent')
       }));
-      console.log('Subscription created @ FeedContainerComponent')
+      console.log('Subscription created @ ConnectContainerComponent')
   }
 
   ngOnInit() {
