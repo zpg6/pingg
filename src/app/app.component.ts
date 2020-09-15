@@ -22,10 +22,10 @@ export class AppComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        if (!this.appData.isAuthenticated) {
-          this.appData.navbarPage = NavbarPage.feed;
-          router.navigate(['/']);
-        }
+        // if (!this.appData.isAuthenticated) {
+        //   this.appData.navbarPage = NavbarPage.feed;
+        //   router.navigate(['/']);
+        // }
         console.log('Subscription updated @ FeedHeroComponent')
       }));
       // this.subscription2.add(activatedRoute.paramMap.subscribe(map =>{

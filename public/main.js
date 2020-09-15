@@ -182,10 +182,10 @@ class AppComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            if (!this.appData.isAuthenticated) {
-                this.appData.navbarPage = _navbar_page_enum__WEBPACK_IMPORTED_MODULE_4__["NavbarPage"].feed;
-                router.navigate(['/']);
-            }
+            // if (!this.appData.isAuthenticated) {
+            //   this.appData.navbarPage = NavbarPage.feed;
+            //   router.navigate(['/']);
+            // }
             console.log('Subscription updated @ FeedHeroComponent');
         }));
         // this.subscription2.add(activatedRoute.paramMap.subscribe(map =>{
