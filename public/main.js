@@ -829,16 +829,16 @@ class NavbarComponent {
     }
     description() {
         if (this.appData.navbarPage === 'Feed') {
-            return 'The latest on your favorites...';
+            return 'Latest on your favorites...';
         }
         if (this.appData.navbarPage === 'Map') {
-            return 'Nearby players ready to match up...';
+            return 'Other players nearby...';
         }
         if (this.appData.navbarPage === 'Connect') {
-            return 'Meet players with similar styles...';
+            return 'Recommendations from us...';
         }
         if (this.appData.navbarPage === 'Profile') {
-            return 'Show off what makes you unique...';
+            return 'What makes you unique...';
         }
         if (this.appData.navbarPage === 'Chat') {
             return 'Direct + Group Messaging...';
