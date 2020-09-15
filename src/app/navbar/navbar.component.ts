@@ -3,7 +3,7 @@ import { NavbarPage } from '../navbar-page.enum';
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -19,16 +19,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   searchBox = '';
   updated = false;
 
-  constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute) {
+  constructor(private observerService: ObserverService, private router: Router) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        let to = activatedRoute.snapshot.queryParams['to'];
-        console.log('to = ' + to);
-        if (this.appData.navbarPage !== to) {
-          this.appData.navbarPage = this.pageFromString(to)
-          this.updateObserver()
-        }
         console.log('Subscription updated @ NavbarComponent')
       }));
       console.log('Subscription created @ NavbarComponent')
@@ -55,9 +49,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (this.showMenu) {
       this.showMenu = false;
     }
+    let newPage = '/' + to.toLowerCase();
     this.appData.navbarPage = this.pageFromString(to);
     console.log('Navbar Page is now ' + this.appData.navbarPage);
     this.updateObserver();
+    this.router.navigate([newPage]);
   }
 
   getPage() {
