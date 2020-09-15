@@ -3,6 +3,8 @@ import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
 import { NavbarPage } from '../navbar-page.enum';
+import { AnimationOptions } from 'ngx-lottie';
+import { AnimationItem } from 'lottie-web';
 
 @Component({
   selector: 'app-login-box',
@@ -13,7 +15,14 @@ export class LoginBoxComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
-  title = 'Stock Manager';
+  public lottieConfig: Object = {
+    path: 'assets/lottie-files/greenCircleExpanding.json',
+    renderer: 'canvas',
+    autoplay: true,
+    loop: true
+  };
+  anim: any;
+  private animationSpeed: number = 1;
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -33,4 +42,10 @@ export class LoginBoxComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
+
+
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
 }

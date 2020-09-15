@@ -1,8 +1,8 @@
 .circles-bg {
-  background-image: url('../../assets/images/pinggCircles.png');
+  /* background-image: url('../../assets/images/pinggCircles.png');
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .login-box-inner {
@@ -16,4 +16,14 @@
   border: 14px solid #95EF72;
   border-radius: 24px;
   padding: 0px;
+}
+
+.anim-parent {
+  position: absolute;
+}
+
+.anim-child {
+  position: relative;
+  top: 0;
+  left: 0;
 }

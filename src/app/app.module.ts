@@ -14,12 +14,21 @@ import { ProfileContainerComponent } from './profile-container/profile-container
 import { ChatContainerComponent } from './chat-container/chat-container.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     GoogleMapsModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   declarations: [
     AppComponent,

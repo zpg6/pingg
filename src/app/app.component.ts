@@ -5,6 +5,8 @@ import { filter } from 'rxjs/operators';
 import { ObserverService } from './observer.service';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { NavbarPage } from './navbar-page.enum';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +17,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
-  subscription2 = new Subscription();
-  title = 'Stock Manager';
+  public lottieConfig: Object = {
+    path: 'assets/lottie-files/greenCircleExpanding.json',
+    renderer: 'canvas',
+    autoplay: true,
+    loop: true
+  };
+  anim: any;
+  private animationSpeed: number = 1;
 
   constructor(private observerService: ObserverService, private activatedRoute: ActivatedRoute, private router: Router) {
       // subscribe to home component messages
@@ -50,6 +58,14 @@ export class AppComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
+
+  options: AnimationOptions = {
+    path: '/assets/lottie-files/greenCircleExpanding.json',
+  };
+
   pageFromString(page: string):NavbarPage {
     if (page.toLowerCase() === 'feed' || page.length == 0) {
       return NavbarPage.feed;
@@ -71,4 +87,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     return NavbarPage.feed;
   }
+
+
 }

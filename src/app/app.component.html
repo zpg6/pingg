@@ -4,10 +4,22 @@
     <app-navbar *ngIf="this.appData?.isAuthenticated"></app-navbar>
   </div>
 
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body circles-bg" *ngIf="!(this.appData?.isAuthenticated)">
+  <div class="hero-body is-centered" style="position: absolute;">
     <div class="container">
-          <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
+      <ng-lottie
+      width="100vh"
+      height="100vh"
+      [options]="options"
+      (animationCreated)="animationCreated($event)"
+    ></ng-lottie>
+    </div>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body" *ngIf="!(this.appData?.isAuthenticated)" style="position: relative;">
+
+    <div class="container is-centered" >
+      <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
     </div>
   </div>
 
