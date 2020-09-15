@@ -42,6 +42,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   showMenu = false;
   showSearchBox = false;
 
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+    if (this.showSearchBox) {
+      this.showSearchBox = false;
+    }
+  }
+
   search() {
     if (this.searchBox.length > 0) {
       console.log('searched for: ' + this.searchBox);

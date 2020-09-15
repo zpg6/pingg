@@ -772,6 +772,12 @@ class NavbarComponent {
     updateObserver() {
         this.observerService.sendMessage(this.appData);
     }
+    toggleMenu() {
+        this.showMenu = !this.showMenu;
+        if (this.showSearchBox) {
+            this.showSearchBox = false;
+        }
+    }
     search() {
         if (this.searchBox.length > 0) {
             console.log('searched for: ' + this.searchBox);
@@ -886,7 +892,7 @@ NavbarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, NavbarComponent_div_20_Template, 9, 0, "div", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, NavbarComponent_a_21_Template, 4, 0, "a", 11);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NavbarComponent_Template_div_click_22_listener() { return ctx.showMenu = !ctx.showMenu; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NavbarComponent_Template_div_click_22_listener() { return ctx.toggleMenu(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "span");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "span");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](25, "span");
