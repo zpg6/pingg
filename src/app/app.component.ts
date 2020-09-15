@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   pageFromString(page: string):NavbarPage {
-    if (page.toLowerCase() === 'feed') {
+    if (page.toLowerCase() === 'feed' || page.length == 0) {
       return NavbarPage.feed;
     }
     if (page.toLowerCase() === 'map') {

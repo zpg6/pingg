@@ -219,7 +219,7 @@ class AppComponent {
         this.observerService.sendMessage(this.appData);
     }
     pageFromString(page) {
-        if (page.toLowerCase() === 'feed') {
+        if (page.toLowerCase() === 'feed' || page.length == 0) {
             return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_4__["NavbarPage"].feed;
         }
         if (page.toLowerCase() === 'map') {
