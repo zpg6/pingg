@@ -34,12 +34,12 @@
     <div class="navbar-item" *ngIf="this.showSearchBox" style="margin-right: -25px;">
       <div class="field has-addons">
         <p class="control has-icons-left">
-          <input class="input is-small" type="text" placeholder="Search">
+          <input class="input is-small is-dark" type="text" placeholder="Search">
           <span class="icon is-left">
             <i class="fas fa-search"></i>
           </span>
         </p>
-        <button class="button is-small" (click)="search()">
+        <button class="button is-small is-info" (click)="search()">
           <span class="icon">
             <i class="fas fa-search"></i>
           </span>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <a class="navbar-item" (click)="this.showSearchBox = !this.showSearchBox" *ngIf="!this.showSearchBox">
-      <button class="button is-small">
+      <button class="button is-small is-info">
         <span class="icon">
           <i class="fas fa-search"></i>
         </span>
@@ -157,6 +157,22 @@
         Logout
       </a>
 
+    </div>
+
+    <div class="navbar-end is-hidden-touch">
+      <div class="navbar-item field has-addons">
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="Search">
+          <span class="icon is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+        <div class="control">
+          <a class="button is-info">
+            Search
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
