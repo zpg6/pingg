@@ -5,13 +5,13 @@
   </div>
 
   <!-- Hero content: will be in the middle -->
-  <div class="hero-body circles-bg" *ngIf="!(this.appData.isAuthenticated)">
+  <div class="hero-body circles-bg" *ngIf="!(this.appData?.isAuthenticated)">
     <div class="container">
           <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
     </div>
   </div>
 
-  <div class="hero-body content-bg" *ngIf="this.appData.isAuthenticated" style="padding: 0px;">
+  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
     <div class="dashboard is-full-height">
 
       <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
@@ -20,7 +20,7 @@
           <div class="columns is-centered">
             <div class="column is-three-quarters content-fg">
               <div class="container" style="margin-bottom: 60px;">
-                <router-outlet *ngIf="this.appData.isAuthenticated"></router-outlet>
+                <router-outlet *ngIf="this.appData?.isAuthenticated"></router-outlet>
               </div>
             </div>
           </div>
@@ -28,6 +28,10 @@
       </div>
 
     </div>
+  </div>
+
+  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage === 'Map'" style="padding: 0px;">
+    <router-outlet *ngIf="this.appData?.isAuthenticated"></router-outlet>
   </div>
 
 </section>
