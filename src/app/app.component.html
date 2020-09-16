@@ -23,15 +23,22 @@
         ></ng-lottie>
   </div>
 
-  <div class="modal is-active" style="margin: 10px;">
-    <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
+  <div class="modal is-active" style="margin: 10px;" *ngIf="!(this.appData.isAuthenticated)">
+    <app-login-box></app-login-box>
   </div>
 
   <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
     <div class="dashboard is-full-height">
 
       <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
-      <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+
+      <div *ngIf="this.appData?.navbarPage === 'Connect'" class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+        <div style="display: inline-block;">
+          <router-outlet *ngIf="this.appData?.isAuthenticated"></router-outlet>
+        </div>
+      </div>
+
+      <div *ngIf="this.appData?.navbarPage !== 'Connect'" class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
         <div style="display: inline-block;">
           <div class="columns is-centered">
             <div class="column is-three-quarters content-fg">
