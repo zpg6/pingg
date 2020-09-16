@@ -51,7 +51,8 @@
             "styles": [
               "src/styles.css",
               "src/bulma/bulma.css",
-              "src/bulma/bulma-dashboard.css"
+              "src/bulma/bulma-dashboard.css",
+              "node_modules/firebaseui/dist/firebaseui.css"
             ],
             "scripts": []
           },

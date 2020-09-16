@@ -37796,6 +37796,550 @@ if (ngDevMode) {
 
 /***/ }),
 
+/***/ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js ***!
+  \*******************************************************************************/
+/*! exports provided: AngularFireAuth, AngularFireAuthModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularFireAuth", function() { return AngularFireAuth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularFireAuthModule", function() { return AngularFireAuthModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+// WARNING: interface has both a type and a value, skipping emit
+
+class AngularFireAuth {
+    /**
+     * @param {?} options
+     * @param {?} nameOrConfig
+     * @param {?} platformId
+     * @param {?} zone
+     */
+    constructor(options, nameOrConfig, 
+    // tslint:disable-next-line:ban-types
+    platformId, zone) {
+        /** @type {?} */
+        const schedulers = new _angular_fire__WEBPACK_IMPORTED_MODULE_3__["ɵAngularFireSchedulers"](zone);
+        /** @type {?} */
+        const keepUnstableUntilFirst = Object(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["ɵkeepUnstableUntilFirstFactory"])(schedulers);
+        /** @type {?} */
+        const auth = Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["observeOn"])(schedulers.outsideAngular), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])((/**
+         * @return {?}
+         */
+        () => zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js")))))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((/**
+         * @return {?}
+         */
+        () => Object(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["ɵfirebaseAppFactory"])(options, zone, nameOrConfig))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((/**
+         * @param {?} app
+         * @return {?}
+         */
+        app => zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => app.auth())))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["shareReplay"])({ bufferSize: 1, refCount: false }));
+        // HACK, as we're exporting auth.Auth, rather than auth, developers importing firebase.auth
+        //       (e.g, `import { auth } from 'firebase/app'`) are getting an undefined auth object unexpectedly
+        //       as we're completely lazy. Let's eagerly load the Auth SDK here.
+        //       There could potentially be race conditions still... but this greatly decreases the odds while
+        //       we reevaluate the API.
+        /** @type {?} */
+        const _ = auth.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["first"])()).subscribe();
+        this.authState = auth.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])((/**
+         * @param {?} auth
+         * @return {?}
+         */
+        auth => zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](auth.onAuthStateChanged.bind(auth)))))), keepUnstableUntilFirst);
+        this.user = auth.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])((/**
+         * @param {?} auth
+         * @return {?}
+         */
+        auth => zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](auth.onIdTokenChanged.bind(auth)))))), keepUnstableUntilFirst);
+        this.idToken = this.user.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])((/**
+         * @param {?} user
+         * @return {?}
+         */
+        user => user ? Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(user.getIdToken()) : Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(null))));
+        this.idTokenResult = this.user.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])((/**
+         * @param {?} user
+         * @return {?}
+         */
+        user => user ? Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["from"])(user.getIdTokenResult()) : Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(null))));
+        return Object(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["ɵlazySDKProxy"])(this, auth, zone);
+    }
+}
+AngularFireAuth.ɵfac = function AngularFireAuth_Factory(t) { return new (t || AngularFireAuth)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+/** @nocollapse */
+AngularFireAuth.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"],] }] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"],] }] },
+    { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+/** @nocollapse */ AngularFireAuth.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function AngularFireAuth_Factory() { return new AngularFireAuth(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"], 8), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); }, token: AngularFireAuth, providedIn: "any" });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AngularFireAuth, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'any'
+            }]
+    }], function () { return [{ type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
+                args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"]]
+            }] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"]
+            }, {
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
+                args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"]]
+            }] }, { type: Object, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
+                args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]]
+            }] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, null); })();
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class AngularFireAuthModule {
+}
+AngularFireAuthModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: AngularFireAuthModule });
+AngularFireAuthModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function AngularFireAuthModule_Factory(t) { return new (t || AngularFireAuthModule)(); }, providers: [AngularFireAuth] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AngularFireAuthModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{
+                providers: [AngularFireAuth]
+            }]
+    }], null, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=angular-fire-auth.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js ***!
+  \**************************************************************************/
+/*! exports provided: AngularFireModule, FIREBASE_APP_NAME, FIREBASE_OPTIONS, FirebaseApp, VERSION, ɵAngularFireSchedulers, ɵBlockUntilFirstOperator, ɵZoneScheduler, ɵfirebaseAppFactory, ɵkeepUnstableUntilFirstFactory, ɵlazySDKProxy */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularFireModule", function() { return AngularFireModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FIREBASE_APP_NAME", function() { return FIREBASE_APP_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FIREBASE_OPTIONS", function() { return FIREBASE_OPTIONS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseApp", function() { return FirebaseApp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERSION", function() { return VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAngularFireSchedulers", function() { return ɵAngularFireSchedulers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵBlockUntilFirstOperator", function() { return ɵBlockUntilFirstOperator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵZoneScheduler", function() { return ɵZoneScheduler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfirebaseAppFactory", function() { return ɵfirebaseAppFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵkeepUnstableUntilFirstFactory", function() { return ɵkeepUnstableUntilFirstFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵlazySDKProxy", function() { return ɵlazySDKProxy; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @return {?}
+ */
+
+function noop() {
+}
+/**
+ * Schedules tasks so that they are invoked inside the Zone that is passed in the constructor.
+ */
+// tslint:disable-next-line:class-name
+class ɵZoneScheduler {
+    /**
+     * @param {?} zone
+     * @param {?=} delegate
+     */
+    constructor(zone, delegate = rxjs__WEBPACK_IMPORTED_MODULE_0__["queueScheduler"]) {
+        this.zone = zone;
+        this.delegate = delegate;
+    }
+    /**
+     * @return {?}
+     */
+    now() {
+        return this.delegate.now();
+    }
+    /**
+     * @param {?} work
+     * @param {?=} delay
+     * @param {?=} state
+     * @return {?}
+     */
+    schedule(work, delay, state) {
+        /** @type {?} */
+        const targetZone = this.zone;
+        // Wrap the specified work function to make sure that if nested scheduling takes place the
+        // work is executed in the correct zone
+        /** @type {?} */
+        const workInZone = (/**
+         * @this {?}
+         * @param {?} state
+         * @return {?}
+         */
+        function (state) {
+            targetZone.runGuarded((/**
+             * @return {?}
+             */
+            () => {
+                work.apply(this, [state]);
+            }));
+        });
+        // Scheduling itself needs to be run in zone to ensure setInterval calls for async scheduling are done
+        // inside the correct zone. This scheduler needs to schedule asynchronously always to ensure that
+        // firebase emissions are never synchronous. Specifying a delay causes issues with the queueScheduler delegate.
+        return this.delegate.schedule(workInZone, delay, state);
+    }
+}
+if (false) {}
+// tslint:disable-next-line:class-name
+/**
+ * @template T
+ */
+class ɵBlockUntilFirstOperator {
+    /**
+     * @param {?} zone
+     */
+    constructor(zone) {
+        this.zone = zone;
+        this.task = null;
+    }
+    /**
+     * @param {?} subscriber
+     * @param {?} source
+     * @return {?}
+     */
+    call(subscriber, source) {
+        /** @type {?} */
+        const unscheduleTask = this.unscheduleTask.bind(this);
+        this.task = this.zone.run((/**
+         * @return {?}
+         */
+        () => Zone.current.scheduleMacroTask('firebaseZoneBlock', noop, {}, noop, noop)));
+        return source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])({ next: unscheduleTask, complete: unscheduleTask, error: unscheduleTask })).subscribe(subscriber).add(unscheduleTask);
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    unscheduleTask() {
+        // maybe this is a race condition, invoke in a timeout
+        // hold for 10ms while I try to figure out what is going on
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            if (this.task != null && this.task.state === 'scheduled') {
+                this.task.invoke();
+                this.task = null;
+            }
+        }), 10);
+    }
+}
+if (false) {}
+// tslint:disable-next-line:class-name
+class ɵAngularFireSchedulers {
+    /**
+     * @param {?} ngZone
+     */
+    constructor(ngZone) {
+        this.ngZone = ngZone;
+        this.outsideAngular = ngZone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => new ɵZoneScheduler(Zone.current)));
+        this.insideAngular = ngZone.run((/**
+         * @return {?}
+         */
+        () => new ɵZoneScheduler(Zone.current, rxjs__WEBPACK_IMPORTED_MODULE_0__["asyncScheduler"])));
+    }
+}
+if (false) {}
+/**
+ * Operator to block the zone until the first value has been emitted or the observable
+ * has completed/errored. This is used to make sure that universal waits until the first
+ * value from firebase but doesn't block the zone forever since the firebase subscription
+ * is still alive.
+ * @param {?} schedulers
+ * @return {?}
+ */
+function ɵkeepUnstableUntilFirstFactory(schedulers) {
+    return (/**
+     * @template T
+     * @param {?} obs$
+     * @return {?}
+     */
+    function keepUnstableUntilFirst(obs$) {
+        obs$ = obs$.lift(new ɵBlockUntilFirstOperator(schedulers.ngZone));
+        return obs$.pipe(
+        // Run the subscribe body outside of Angular (e.g. calling Firebase SDK to add a listener to a change event)
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["subscribeOn"])(schedulers.outsideAngular), 
+        // Run operators inside the angular zone (e.g. side effects via tap())
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["observeOn"])(schedulers.insideAngular)
+        // INVESTIGATE https://github.com/angular/angularfire/pull/2315
+        // share()
+        );
+    });
+}
+// DEBUG quick debugger function for inline logging that typescript doesn't complain about
+//       wrote it for debugging the ɵlazySDKProxy, commenting out for now; should consider exposing a
+//       verbose mode for AngularFire in a future release that uses something like this in multiple places
+//       usage: () => log('something') || returnValue
+// const log = (...args: any[]): false => { console.log(...args); return false }
+// The problem here are things like ngOnDestroy are missing, then triggering the service
+// rather than dig too far; I'm capturing these as I go.
+/** @type {?} */
+const noopFunctions = ['ngOnDestroy'];
+// INVESTIGATE should we make the Proxy revokable and do some cleanup?
+//             right now it's fairly simple but I'm sure this will grow in complexity
+/** @type {?} */
+const ɵlazySDKProxy = (/**
+ * @param {?} klass
+ * @param {?} observable
+ * @param {?} zone
+ * @return {?}
+ */
+(klass, observable, zone) => {
+    return new Proxy(klass, {
+        get: (/**
+         * @param {?} _
+         * @param {?} name
+         * @return {?}
+         */
+        (_, name) => zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
+            if (klass[name]) {
+                return klass[name];
+            }
+            if (noopFunctions.includes(name)) {
+                return (/**
+                 * @return {?}
+                 */
+                () => {
+                });
+            }
+            /** @type {?} */
+            const promise = observable.toPromise().then((/**
+             * @param {?} mod
+             * @return {?}
+             */
+            mod => {
+                /** @type {?} */
+                const ret = mod && mod[name];
+                // TODO move to proper type guards
+                if (typeof ret === 'function') {
+                    return ret.bind(mod);
+                }
+                else if (ret && ret.then) {
+                    return ret.then((/**
+                     * @param {?} res
+                     * @return {?}
+                     */
+                    (res) => zone.run((/**
+                     * @return {?}
+                     */
+                    () => res))));
+                }
+                else {
+                    return zone.run((/**
+                     * @return {?}
+                     */
+                    () => ret));
+                }
+            }));
+            // recurse the proxy
+            return new Proxy((/**
+             * @return {?}
+             */
+            () => undefined), {
+                get: (/**
+                 * @param {?} _
+                 * @param {?} name
+                 * @return {?}
+                 */
+                (_, name) => promise[name]),
+                // TODO handle callbacks as transparently as I can
+                apply: (/**
+                 * @param {?} self
+                 * @param {?} _
+                 * @param {?} args
+                 * @return {?}
+                 */
+                (self, _, args) => promise.then((/**
+                 * @param {?} it
+                 * @return {?}
+                 */
+                it => it && it(...args))))
+            });
+        })))
+    });
+});
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function FirebaseOptions() { }
+/**
+ * @record
+ */
+function FirebaseAppConfig() { }
+/** @type {?} */
+const FIREBASE_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["InjectionToken"]('angularfire2.app.options');
+/** @type {?} */
+const FIREBASE_APP_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["InjectionToken"]('angularfire2.app.nameOrConfig');
+// Have to implement as we need to return a class from the provider, we should consider exporting
+// this in the firebase/app types as this is our highest risk of breaks
+class FirebaseApp {
+}
+if (false) {}
+/** @type {?} */
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["Version"]('6.0.2');
+/**
+ * @param {?} options
+ * @param {?} zone
+ * @param {?=} nameOrConfig
+ * @return {?}
+ */
+function ɵfirebaseAppFactory(options, zone, nameOrConfig) {
+    /** @type {?} */
+    const name = typeof nameOrConfig === 'string' && nameOrConfig || '[DEFAULT]';
+    /** @type {?} */
+    const config = typeof nameOrConfig === 'object' && nameOrConfig || {};
+    config.name = config.name || name;
+    // Added any due to some inconsistency between @firebase/app and firebase types
+    /** @type {?} */
+    const existingApp = (/** @type {?} */ (firebase_app__WEBPACK_IMPORTED_MODULE_3__["apps"].filter((/**
+     * @param {?} app
+     * @return {?}
+     */
+    app => app && app.name === config.name))[0]));
+    // We support FirebaseConfig, initializeApp's public type only accepts string; need to cast as any
+    // Could be solved with https://github.com/firebase/firebase-js-sdk/pull/1206
+    return (/** @type {?} */ ((existingApp || zone.runOutsideAngular((/**
+     * @return {?}
+     */
+    () => Object(firebase_app__WEBPACK_IMPORTED_MODULE_3__["initializeApp"])(options, (/** @type {?} */ (config))))))));
+}
+/** @type {?} */
+const FIREBASE_APP_PROVIDER = {
+    provide: FirebaseApp,
+    useFactory: ɵfirebaseAppFactory,
+    deps: [
+        FIREBASE_OPTIONS,
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgZone"],
+        [new _angular_core__WEBPACK_IMPORTED_MODULE_2__["Optional"](), FIREBASE_APP_NAME]
+    ]
+};
+class AngularFireModule {
+    // tslint:disable-next-line:ban-types
+    /**
+     * @param {?} platformId
+     */
+    constructor(platformId) {
+        Object(firebase_app__WEBPACK_IMPORTED_MODULE_3__["registerVersion"])('angularfire', VERSION.full, platformId.toString());
+        Object(firebase_app__WEBPACK_IMPORTED_MODULE_3__["registerVersion"])('angular', _angular_core__WEBPACK_IMPORTED_MODULE_2__["VERSION"].full);
+    }
+    /**
+     * @param {?} options
+     * @param {?=} nameOrConfig
+     * @return {?}
+     */
+    static initializeApp(options, nameOrConfig) {
+        return {
+            ngModule: AngularFireModule,
+            providers: [
+                { provide: FIREBASE_OPTIONS, useValue: options },
+                { provide: FIREBASE_APP_NAME, useValue: nameOrConfig }
+            ]
+        };
+    }
+}
+AngularFireModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({ type: AngularFireModule });
+AngularFireModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ factory: function AngularFireModule_Factory(t) { return new (t || AngularFireModule)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["PLATFORM_ID"])); }, providers: [FIREBASE_APP_PROVIDER] });
+/** @nocollapse */
+AngularFireModule.ctorParameters = () => [
+    { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["PLATFORM_ID"],] }] }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](AngularFireModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"],
+        args: [{
+                providers: [FIREBASE_APP_PROVIDER]
+            }]
+    }], function () { return [{ type: Object, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"],
+                args: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["PLATFORM_ID"]]
+            }] }]; }, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=angular-fire.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js":
 /*!********************************************************************************!*\
   !*** ./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js ***!
@@ -48632,6 +49176,5313 @@ const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('10.0.
 
 
 //# sourceMappingURL=router.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/app/dist/index.cjs.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@firebase/app/dist/index.cjs.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var tslib = __webpack_require__(/*! tslib */ "./node_modules/@firebase/app/node_modules/tslib/tslib.es6.js");
+var util = __webpack_require__(/*! @firebase/util */ "./node_modules/@firebase/util/dist/index.cjs.js");
+var component = __webpack_require__(/*! @firebase/component */ "./node_modules/@firebase/component/dist/index.cjs.js");
+var logger$1 = __webpack_require__(/*! @firebase/logger */ "./node_modules/@firebase/logger/dist/index.esm.js");
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var _a;
+var ERRORS = (_a = {},
+    _a["no-app" /* NO_APP */] = "No Firebase App '{$appName}' has been created - " +
+        'call Firebase App.initializeApp()',
+    _a["bad-app-name" /* BAD_APP_NAME */] = "Illegal App name: '{$appName}",
+    _a["duplicate-app" /* DUPLICATE_APP */] = "Firebase App named '{$appName}' already exists",
+    _a["app-deleted" /* APP_DELETED */] = "Firebase App named '{$appName}' already deleted",
+    _a["invalid-app-argument" /* INVALID_APP_ARGUMENT */] = 'firebase.{$appName}() takes either no argument or a ' +
+        'Firebase App instance.',
+    _a["invalid-log-argument" /* INVALID_LOG_ARGUMENT */] = 'First argument to `onLog` must be null or a function.',
+    _a);
+var ERROR_FACTORY = new util.ErrorFactory('app', 'Firebase', ERRORS);
+
+var name$1 = "@firebase/app";
+var version = "0.6.11";
+
+var name$2 = "@firebase/analytics";
+
+var name$3 = "@firebase/auth";
+
+var name$4 = "@firebase/database";
+
+var name$5 = "@firebase/functions";
+
+var name$6 = "@firebase/installations";
+
+var name$7 = "@firebase/messaging";
+
+var name$8 = "@firebase/performance";
+
+var name$9 = "@firebase/remote-config";
+
+var name$a = "@firebase/storage";
+
+var name$b = "@firebase/firestore";
+
+var name$c = "firebase-wrapper";
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var _a$1;
+var DEFAULT_ENTRY_NAME = '[DEFAULT]';
+var PLATFORM_LOG_STRING = (_a$1 = {},
+    _a$1[name$1] = 'fire-core',
+    _a$1[name$2] = 'fire-analytics',
+    _a$1[name$3] = 'fire-auth',
+    _a$1[name$4] = 'fire-rtdb',
+    _a$1[name$5] = 'fire-fn',
+    _a$1[name$6] = 'fire-iid',
+    _a$1[name$7] = 'fire-fcm',
+    _a$1[name$8] = 'fire-perf',
+    _a$1[name$9] = 'fire-rc',
+    _a$1[name$a] = 'fire-gcs',
+    _a$1[name$b] = 'fire-fst',
+    _a$1['fire-js'] = 'fire-js',
+    _a$1[name$c] = 'fire-js-all',
+    _a$1);
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var logger = new logger$1.Logger('@firebase/app');
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Global context object for a collection of services using
+ * a shared authentication state.
+ */
+var FirebaseAppImpl = /** @class */ (function () {
+    function FirebaseAppImpl(options, config, firebase_) {
+        var e_1, _a;
+        var _this = this;
+        this.firebase_ = firebase_;
+        this.isDeleted_ = false;
+        this.name_ = config.name;
+        this.automaticDataCollectionEnabled_ =
+            config.automaticDataCollectionEnabled || false;
+        this.options_ = util.deepCopy(options);
+        this.container = new component.ComponentContainer(config.name);
+        // add itself to container
+        this._addComponent(new component.Component('app', function () { return _this; }, "PUBLIC" /* PUBLIC */));
+        try {
+            // populate ComponentContainer with existing components
+            for (var _b = tslib.__values(this.firebase_.INTERNAL.components.values()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var component$1 = _c.value;
+                this._addComponent(component$1);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    }
+    Object.defineProperty(FirebaseAppImpl.prototype, "automaticDataCollectionEnabled", {
+        get: function () {
+            this.checkDestroyed_();
+            return this.automaticDataCollectionEnabled_;
+        },
+        set: function (val) {
+            this.checkDestroyed_();
+            this.automaticDataCollectionEnabled_ = val;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(FirebaseAppImpl.prototype, "name", {
+        get: function () {
+            this.checkDestroyed_();
+            return this.name_;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(FirebaseAppImpl.prototype, "options", {
+        get: function () {
+            this.checkDestroyed_();
+            return this.options_;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    FirebaseAppImpl.prototype.delete = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.checkDestroyed_();
+            resolve();
+        })
+            .then(function () {
+            _this.firebase_.INTERNAL.removeApp(_this.name_);
+            return Promise.all(_this.container.getProviders().map(function (provider) { return provider.delete(); }));
+        })
+            .then(function () {
+            _this.isDeleted_ = true;
+        });
+    };
+    /**
+     * Return a service instance associated with this app (creating it
+     * on demand), identified by the passed instanceIdentifier.
+     *
+     * NOTE: Currently storage and functions are the only ones that are leveraging this
+     * functionality. They invoke it by calling:
+     *
+     * ```javascript
+     * firebase.app().storage('STORAGE BUCKET ID')
+     * ```
+     *
+     * The service name is passed to this already
+     * @internal
+     */
+    FirebaseAppImpl.prototype._getService = function (name, instanceIdentifier) {
+        if (instanceIdentifier === void 0) { instanceIdentifier = DEFAULT_ENTRY_NAME; }
+        this.checkDestroyed_();
+        // getImmediate will always succeed because _getService is only called for registered components.
+        return this.container.getProvider(name).getImmediate({
+            identifier: instanceIdentifier
+        });
+    };
+    /**
+     * Remove a service instance from the cache, so we will create a new instance for this service
+     * when people try to get this service again.
+     *
+     * NOTE: currently only firestore is using this functionality to support firestore shutdown.
+     *
+     * @param name The service name
+     * @param instanceIdentifier instance identifier in case multiple instances are allowed
+     * @internal
+     */
+    FirebaseAppImpl.prototype._removeServiceInstance = function (name, instanceIdentifier) {
+        if (instanceIdentifier === void 0) { instanceIdentifier = DEFAULT_ENTRY_NAME; }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        this.container.getProvider(name).clearInstance(instanceIdentifier);
+    };
+    /**
+     * @param component the component being added to this app's container
+     */
+    FirebaseAppImpl.prototype._addComponent = function (component) {
+        try {
+            this.container.addComponent(component);
+        }
+        catch (e) {
+            logger.debug("Component " + component.name + " failed to register with FirebaseApp " + this.name, e);
+        }
+    };
+    FirebaseAppImpl.prototype._addOrOverwriteComponent = function (component) {
+        this.container.addOrOverwriteComponent(component);
+    };
+    /**
+     * This function will throw an Error if the App has already been deleted -
+     * use before performing API actions on the App.
+     */
+    FirebaseAppImpl.prototype.checkDestroyed_ = function () {
+        if (this.isDeleted_) {
+            throw ERROR_FACTORY.create("app-deleted" /* APP_DELETED */, { appName: this.name_ });
+        }
+    };
+    return FirebaseAppImpl;
+}());
+// Prevent dead-code elimination of these methods w/o invalid property
+// copying.
+(FirebaseAppImpl.prototype.name && FirebaseAppImpl.prototype.options) ||
+    FirebaseAppImpl.prototype.delete ||
+    console.log('dc');
+
+var version$1 = "7.20.0";
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Because auth can't share code with other components, we attach the utility functions
+ * in an internal namespace to share code.
+ * This function return a firebase namespace object without
+ * any utility functions, so it can be shared between the regular firebaseNamespace and
+ * the lite version.
+ */
+function createFirebaseNamespaceCore(firebaseAppImpl) {
+    var apps = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    var components = new Map();
+    // A namespace is a plain JavaScript Object.
+    var namespace = {
+        // Hack to prevent Babel from modifying the object returned
+        // as the firebase namespace.
+        // @ts-ignore
+        __esModule: true,
+        initializeApp: initializeApp,
+        // @ts-ignore
+        app: app,
+        registerVersion: registerVersion,
+        setLogLevel: logger$1.setLogLevel,
+        onLog: onLog,
+        // @ts-ignore
+        apps: null,
+        SDK_VERSION: version$1,
+        INTERNAL: {
+            registerComponent: registerComponent,
+            removeApp: removeApp,
+            components: components,
+            useAsService: useAsService
+        }
+    };
+    // Inject a circular default export to allow Babel users who were previously
+    // using:
+    //
+    //   import firebase from 'firebase';
+    //   which becomes: var firebase = require('firebase').default;
+    //
+    // instead of
+    //
+    //   import * as firebase from 'firebase';
+    //   which becomes: var firebase = require('firebase');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    namespace['default'] = namespace;
+    // firebase.apps is a read-only getter.
+    Object.defineProperty(namespace, 'apps', {
+        get: getApps
+    });
+    /**
+     * Called by App.delete() - but before any services associated with the App
+     * are deleted.
+     */
+    function removeApp(name) {
+        delete apps[name];
+    }
+    /**
+     * Get the App object for a given name (or DEFAULT).
+     */
+    function app(name) {
+        name = name || DEFAULT_ENTRY_NAME;
+        if (!util.contains(apps, name)) {
+            throw ERROR_FACTORY.create("no-app" /* NO_APP */, { appName: name });
+        }
+        return apps[name];
+    }
+    // @ts-ignore
+    app['App'] = firebaseAppImpl;
+    function initializeApp(options, rawConfig) {
+        if (rawConfig === void 0) { rawConfig = {}; }
+        if (typeof rawConfig !== 'object' || rawConfig === null) {
+            var name_1 = rawConfig;
+            rawConfig = { name: name_1 };
+        }
+        var config = rawConfig;
+        if (config.name === undefined) {
+            config.name = DEFAULT_ENTRY_NAME;
+        }
+        var name = config.name;
+        if (typeof name !== 'string' || !name) {
+            throw ERROR_FACTORY.create("bad-app-name" /* BAD_APP_NAME */, {
+                appName: String(name)
+            });
+        }
+        if (util.contains(apps, name)) {
+            throw ERROR_FACTORY.create("duplicate-app" /* DUPLICATE_APP */, { appName: name });
+        }
+        var app = new firebaseAppImpl(options, config, namespace);
+        apps[name] = app;
+        return app;
+    }
+    /*
+     * Return an array of all the non-deleted FirebaseApps.
+     */
+    function getApps() {
+        // Make a copy so caller cannot mutate the apps list.
+        return Object.keys(apps).map(function (name) { return apps[name]; });
+    }
+    function registerComponent(component) {
+        var e_1, _a;
+        var componentName = component.name;
+        if (components.has(componentName)) {
+            logger.debug("There were multiple attempts to register component " + componentName + ".");
+            return component.type === "PUBLIC" /* PUBLIC */
+                ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    namespace[componentName]
+                : null;
+        }
+        components.set(componentName, component);
+        // create service namespace for public components
+        if (component.type === "PUBLIC" /* PUBLIC */) {
+            // The Service namespace is an accessor function ...
+            var serviceNamespace = function (appArg) {
+                if (appArg === void 0) { appArg = app(); }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                if (typeof appArg[componentName] !== 'function') {
+                    // Invalid argument.
+                    // This happens in the following case: firebase.storage('gs:/')
+                    throw ERROR_FACTORY.create("invalid-app-argument" /* INVALID_APP_ARGUMENT */, {
+                        appName: componentName
+                    });
+                }
+                // Forward service instance lookup to the FirebaseApp.
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                return appArg[componentName]();
+            };
+            // ... and a container for service-level properties.
+            if (component.serviceProps !== undefined) {
+                util.deepExtend(serviceNamespace, component.serviceProps);
+            }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            namespace[componentName] = serviceNamespace;
+            // Patch the FirebaseAppImpl prototype
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            firebaseAppImpl.prototype[componentName] =
+                // TODO: The eslint disable can be removed and the 'ignoreRestArgs'
+                // option added to the no-explicit-any rule when ESlint releases it.
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                function () {
+                    var args = [];
+                    for (var _i = 0; _i < arguments.length; _i++) {
+                        args[_i] = arguments[_i];
+                    }
+                    var serviceFxn = this._getService.bind(this, componentName);
+                    return serviceFxn.apply(this, component.multipleInstances ? args : []);
+                };
+        }
+        try {
+            // add the component to existing app instances
+            for (var _b = tslib.__values(Object.keys(apps)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var appName = _c.value;
+                apps[appName]._addComponent(component);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return component.type === "PUBLIC" /* PUBLIC */
+            ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                namespace[componentName]
+            : null;
+    }
+    function registerVersion(libraryKeyOrName, version, variant) {
+        var _a;
+        // TODO: We can use this check to whitelist strings when/if we set up
+        // a good whitelist system.
+        var library = (_a = PLATFORM_LOG_STRING[libraryKeyOrName]) !== null && _a !== void 0 ? _a : libraryKeyOrName;
+        if (variant) {
+            library += "-" + variant;
+        }
+        var libraryMismatch = library.match(/\s|\//);
+        var versionMismatch = version.match(/\s|\//);
+        if (libraryMismatch || versionMismatch) {
+            var warning = [
+                "Unable to register library \"" + library + "\" with version \"" + version + "\":"
+            ];
+            if (libraryMismatch) {
+                warning.push("library name \"" + library + "\" contains illegal characters (whitespace or \"/\")");
+            }
+            if (libraryMismatch && versionMismatch) {
+                warning.push('and');
+            }
+            if (versionMismatch) {
+                warning.push("version name \"" + version + "\" contains illegal characters (whitespace or \"/\")");
+            }
+            logger.warn(warning.join(' '));
+            return;
+        }
+        registerComponent(new component.Component(library + "-version", function () { return ({ library: library, version: version }); }, "VERSION" /* VERSION */));
+    }
+    function onLog(logCallback, options) {
+        if (logCallback !== null && typeof logCallback !== 'function') {
+            throw ERROR_FACTORY.create("invalid-log-argument" /* INVALID_LOG_ARGUMENT */, {
+                appName: name
+            });
+        }
+        logger$1.setUserLogHandler(logCallback, options);
+    }
+    // Map the requested service to a registered service name
+    // (used to map auth to serverAuth service when needed).
+    function useAsService(app, name) {
+        if (name === 'serverAuth') {
+            return null;
+        }
+        var useService = name;
+        return useService;
+    }
+    return namespace;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Return a firebase namespace object.
+ *
+ * In production, this will be called exactly once and the result
+ * assigned to the 'firebase' global.  It may be called multiple times
+ * in unit tests.
+ */
+function createFirebaseNamespace() {
+    var namespace = createFirebaseNamespaceCore(FirebaseAppImpl);
+    namespace.INTERNAL = tslib.__assign(tslib.__assign({}, namespace.INTERNAL), { createFirebaseNamespace: createFirebaseNamespace,
+        extendNamespace: extendNamespace,
+        createSubscribe: util.createSubscribe,
+        ErrorFactory: util.ErrorFactory,
+        deepExtend: util.deepExtend });
+    /**
+     * Patch the top-level firebase namespace with additional properties.
+     *
+     * firebase.INTERNAL.extendNamespace()
+     */
+    function extendNamespace(props) {
+        util.deepExtend(namespace, props);
+    }
+    return namespace;
+}
+var firebase = createFirebaseNamespace();
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var PlatformLoggerService = /** @class */ (function () {
+    function PlatformLoggerService(container) {
+        this.container = container;
+    }
+    // In initial implementation, this will be called by installations on
+    // auth token refresh, and installations will send this string.
+    PlatformLoggerService.prototype.getPlatformInfoString = function () {
+        var providers = this.container.getProviders();
+        // Loop through providers and get library/version pairs from any that are
+        // version components.
+        return providers
+            .map(function (provider) {
+            if (isVersionServiceProvider(provider)) {
+                var service = provider.getImmediate();
+                return service.library + "/" + service.version;
+            }
+            else {
+                return null;
+            }
+        })
+            .filter(function (logString) { return logString; })
+            .join(' ');
+    };
+    return PlatformLoggerService;
+}());
+/**
+ *
+ * @param provider check if this provider provides a VersionService
+ *
+ * NOTE: Using Provider<'app-version'> is a hack to indicate that the provider
+ * provides VersionService. The provider is not necessarily a 'app-version'
+ * provider.
+ */
+function isVersionServiceProvider(provider) {
+    var component = provider.getComponent();
+    return (component === null || component === void 0 ? void 0 : component.type) === "VERSION" /* VERSION */;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function registerCoreComponents(firebase, variant) {
+    firebase.INTERNAL.registerComponent(new component.Component('platform-logger', function (container) { return new PlatformLoggerService(container); }, "PRIVATE" /* PRIVATE */));
+    // Register `app` package.
+    firebase.registerVersion(name$1, version, variant);
+    // Register platform SDK identifier (no version).
+    firebase.registerVersion('fire-js', '');
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// Firebase Lite detection test
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+if (util.isBrowser() && self.firebase !== undefined) {
+    logger.warn("\n    Warning: Firebase is already defined in the global scope. Please make sure\n    Firebase library is only loaded once.\n  ");
+    // eslint-disable-next-line
+    var sdkVersion = self.firebase.SDK_VERSION;
+    if (sdkVersion && sdkVersion.indexOf('LITE') >= 0) {
+        logger.warn("\n    Warning: You are trying to load Firebase while using Firebase Performance standalone script.\n    You should load Firebase Performance with this instance of Firebase to avoid loading duplicate code.\n    ");
+    }
+}
+var initializeApp = firebase.initializeApp;
+// TODO: This disable can be removed and the 'ignoreRestArgs' option added to
+// the no-explicit-any rule when ESlint releases it.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+firebase.initializeApp = function () {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    // Environment check before initializing app
+    // Do the check in initializeApp, so people have a chance to disable it by setting logLevel
+    // in @firebase/logger
+    if (util.isNode()) {
+        logger.warn("\n      Warning: This is a browser-targeted Firebase bundle but it appears it is being\n      run in a Node environment.  If running in a Node environment, make sure you\n      are using the bundle specified by the \"main\" field in package.json.\n      \n      If you are using Webpack, you can specify \"main\" as the first item in\n      \"resolve.mainFields\":\n      https://webpack.js.org/configuration/resolve/#resolvemainfields\n      \n      If using Rollup, use the rollup-plugin-node-resolve plugin and specify \"main\"\n      as the first item in \"mainFields\", e.g. ['main', 'module'].\n      https://github.com/rollup/rollup-plugin-node-resolve\n      ");
+    }
+    return initializeApp.apply(undefined, args);
+};
+var firebase$1 = firebase;
+registerCoreComponents(firebase$1);
+
+exports.default = firebase$1;
+exports.firebase = firebase$1;
+//# sourceMappingURL=index.cjs.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/app/node_modules/tslib/tslib.es6.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@firebase/app/node_modules/tslib/tslib.es6.js ***!
+  \********************************************************************/
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return __assign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __createBinding(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result.default = mod;
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/auth/dist/auth.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@firebase/auth/dist/auth.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function() {var firebase = __webpack_require__(/*! @firebase/app */ "./node_modules/@firebase/app/dist/index.cjs.js").default;/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+var k,aa="function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){a!=Array.prototype&&a!=Object.prototype&&(a[b]=c.value)};function ba(a){a=["object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global,a];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}return globalThis}var ca=ba(this);
+function da(a,b){if(b){var c=ca;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];e in c||(c[e]={});c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&null!=b&&aa(c,a,{configurable:!0,writable:!0,value:b})}}function ea(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function fa(a){var b="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return b?b.call(a):{next:ea(a)}}
+da("Promise",function(a){function b(g){this.b=0;this.c=void 0;this.a=[];var h=this.f();try{g(h.resolve,h.reject)}catch(m){h.reject(m)}}function c(){this.a=null}function d(g){return g instanceof b?g:new b(function(h){h(g)})}if(a)return a;c.prototype.b=function(g){if(null==this.a){this.a=[];var h=this;this.c(function(){h.g()})}this.a.push(g)};var e=ca.setTimeout;c.prototype.c=function(g){e(g,0)};c.prototype.g=function(){for(;this.a&&this.a.length;){var g=this.a;this.a=[];for(var h=0;h<g.length;++h){var m=
+g[h];g[h]=null;try{m()}catch(p){this.f(p)}}}this.a=null};c.prototype.f=function(g){this.c(function(){throw g;})};b.prototype.f=function(){function g(p){return function(v){m||(m=!0,p.call(h,v))}}var h=this,m=!1;return{resolve:g(this.m),reject:g(this.g)}};b.prototype.m=function(g){if(g===this)this.g(new TypeError("A Promise cannot resolve to itself"));else if(g instanceof b)this.s(g);else{a:switch(typeof g){case "object":var h=null!=g;break a;case "function":h=!0;break a;default:h=!1}h?this.u(g):this.h(g)}};
+b.prototype.u=function(g){var h=void 0;try{h=g.then}catch(m){this.g(m);return}"function"==typeof h?this.w(h,g):this.h(g)};b.prototype.g=function(g){this.i(2,g)};b.prototype.h=function(g){this.i(1,g)};b.prototype.i=function(g,h){if(0!=this.b)throw Error("Cannot settle("+g+", "+h+"): Promise already settled in state"+this.b);this.b=g;this.c=h;this.l()};b.prototype.l=function(){if(null!=this.a){for(var g=0;g<this.a.length;++g)f.b(this.a[g]);this.a=null}};var f=new c;b.prototype.s=function(g){var h=this.f();
+g.Oa(h.resolve,h.reject)};b.prototype.w=function(g,h){var m=this.f();try{g.call(h,m.resolve,m.reject)}catch(p){m.reject(p)}};b.prototype.then=function(g,h){function m(A,Q){return"function"==typeof A?function(wa){try{p(A(wa))}catch(ud){v(ud)}}:Q}var p,v,C=new b(function(A,Q){p=A;v=Q});this.Oa(m(g,p),m(h,v));return C};b.prototype.catch=function(g){return this.then(void 0,g)};b.prototype.Oa=function(g,h){function m(){switch(p.b){case 1:g(p.c);break;case 2:h(p.c);break;default:throw Error("Unexpected state: "+
+p.b);}}var p=this;null==this.a?f.b(m):this.a.push(m)};b.resolve=d;b.reject=function(g){return new b(function(h,m){m(g)})};b.race=function(g){return new b(function(h,m){for(var p=fa(g),v=p.next();!v.done;v=p.next())d(v.value).Oa(h,m)})};b.all=function(g){var h=fa(g),m=h.next();return m.done?d([]):new b(function(p,v){function C(wa){return function(ud){A[wa]=ud;Q--;0==Q&&p(A)}}var A=[],Q=0;do A.push(void 0),Q++,d(m.value).Oa(C(A.length-1),v),m=h.next();while(!m.done)})};return b});
+var ha=ha||{},l=this||self,ia=/^[\w+/_-]+[=]{0,2}$/,ja=null;function ka(){}
+function la(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
+else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function ma(a){var b=la(a);return"array"==b||"object"==b&&"number"==typeof a.length}function na(a){return"function"==la(a)}function n(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}function oa(a){return Object.prototype.hasOwnProperty.call(a,pa)&&a[pa]||(a[pa]=++qa)}var pa="closure_uid_"+(1E9*Math.random()>>>0),qa=0;function ra(a,b,c){return a.call.apply(a.bind,arguments)}
+function sa(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var e=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(e,d);return a.apply(b,e)}}return function(){return a.apply(b,arguments)}}function q(a,b,c){Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?q=ra:q=sa;return q.apply(null,arguments)}
+function ta(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var d=c.slice();d.push.apply(d,arguments);return a.apply(this,d)}}var ua=Date.now||function(){return+new Date};function r(a,b){function c(){}c.prototype=b.prototype;a.Za=b.prototype;a.prototype=new c;a.prototype.constructor=a};/*
+
+ Copyright 2017 Google Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function t(a,b,c){this.code=va+a;this.message=b||xa[a]||"";this.a=c||null}r(t,Error);t.prototype.v=function(){var a={code:this.code,message:this.message};this.a&&(a.serverResponse=this.a);return a};t.prototype.toJSON=function(){return this.v()};function ya(a){var b=a&&a.code;return b?new t(b.substring(va.length),a.message,a.serverResponse):null}
+var va="auth/",xa={"admin-restricted-operation":"This operation is restricted to administrators only.","argument-error":"","app-not-authorized":"This app, identified by the domain where it's hosted, is not authorized to use Firebase Authentication with the provided API key. Review your key configuration in the Google API console.","app-not-installed":"The requested mobile application corresponding to the identifier (Android package name or iOS bundle ID) provided is not installed on this device.",
+"captcha-check-failed":"The reCAPTCHA response token provided is either invalid, expired, already used or the domain associated with it does not match the list of whitelisted domains.","code-expired":"The SMS code has expired. Please re-send the verification code to try again.","cordova-not-ready":"Cordova framework is not ready.","cors-unsupported":"This browser is not supported.","credential-already-in-use":"This credential is already associated with a different user account.","custom-token-mismatch":"The custom token corresponds to a different audience.",
+"requires-recent-login":"This operation is sensitive and requires recent authentication. Log in again before retrying this request.","dynamic-link-not-activated":"Please activate Dynamic Links in the Firebase Console and agree to the terms and conditions.","email-change-needs-verification":"Multi-factor users must always have a verified email.","email-already-in-use":"The email address is already in use by another account.","expired-action-code":"The action code has expired. ","cancelled-popup-request":"This operation has been cancelled due to another conflicting popup being opened.",
+"internal-error":"An internal error has occurred.","invalid-app-credential":"The phone verification request contains an invalid application verifier. The reCAPTCHA token response is either invalid or expired.","invalid-app-id":"The mobile app identifier is not registed for the current project.","invalid-user-token":"This user's credential isn't valid for this project. This can happen if the user's token has been tampered with, or if the user isn't for the project associated with this API key.","invalid-auth-event":"An internal error has occurred.",
+"invalid-verification-code":"The SMS verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.","invalid-continue-uri":"The continue URL provided in the request is invalid.","invalid-cordova-configuration":"The following Cordova plugins must be installed to enable OAuth sign-in: cordova-plugin-buildinfo, cordova-universal-links-plugin, cordova-plugin-browsertab, cordova-plugin-inappbrowser and cordova-plugin-customurlscheme.",
+"invalid-custom-token":"The custom token format is incorrect. Please check the documentation.","invalid-dynamic-link-domain":"The provided dynamic link domain is not configured or authorized for the current project.","invalid-email":"The email address is badly formatted.","invalid-api-key":"Your API key is invalid, please check you have copied it correctly.","invalid-cert-hash":"The SHA-1 certificate hash provided is invalid.","invalid-credential":"The supplied auth credential is malformed or has expired.",
+"invalid-message-payload":"The email template corresponding to this action contains invalid characters in its message. Please fix by going to the Auth email templates section in the Firebase Console.","invalid-multi-factor-session":"The request does not contain a valid proof of first factor successful sign-in.","invalid-oauth-provider":"EmailAuthProvider is not supported for this operation. This operation only supports OAuth providers.","invalid-oauth-client-id":"The OAuth client ID provided is either invalid or does not match the specified API key.",
+"unauthorized-domain":"This domain is not authorized for OAuth operations for your Firebase project. Edit the list of authorized domains from the Firebase console.","invalid-action-code":"The action code is invalid. This can happen if the code is malformed, expired, or has already been used.","wrong-password":"The password is invalid or the user does not have a password.","invalid-persistence-type":"The specified persistence type is invalid. It can only be local, session or none.","invalid-phone-number":"The format of the phone number provided is incorrect. Please enter the phone number in a format that can be parsed into E.164 format. E.164 phone numbers are written in the format [+][country code][subscriber number including area code].",
+"invalid-provider-id":"The specified provider ID is invalid.","invalid-recipient-email":"The email corresponding to this action failed to send as the provided recipient email address is invalid.","invalid-sender":"The email template corresponding to this action contains an invalid sender email or name. Please fix by going to the Auth email templates section in the Firebase Console.","invalid-verification-id":"The verification ID used to create the phone auth credential is invalid.","invalid-tenant-id":"The Auth instance's tenant ID is invalid.",
+"multi-factor-info-not-found":"The user does not have a second factor matching the identifier provided.","multi-factor-auth-required":"Proof of ownership of a second factor is required to complete sign-in.","missing-android-pkg-name":"An Android Package Name must be provided if the Android App is required to be installed.","auth-domain-config-required":"Be sure to include authDomain when calling firebase.initializeApp(), by following the instructions in the Firebase console.","missing-app-credential":"The phone verification request is missing an application verifier assertion. A reCAPTCHA response token needs to be provided.",
+"missing-verification-code":"The phone auth credential was created with an empty SMS verification code.","missing-continue-uri":"A continue URL must be provided in the request.","missing-iframe-start":"An internal error has occurred.","missing-ios-bundle-id":"An iOS Bundle ID must be provided if an App Store ID is provided.","missing-multi-factor-info":"No second factor identifier is provided.","missing-multi-factor-session":"The request is missing proof of first factor successful sign-in.","missing-or-invalid-nonce":"The request does not contain a valid nonce. This can occur if the SHA-256 hash of the provided raw nonce does not match the hashed nonce in the ID token payload.",
+"missing-phone-number":"To send verification codes, provide a phone number for the recipient.","missing-verification-id":"The phone auth credential was created with an empty verification ID.","app-deleted":"This instance of FirebaseApp has been deleted.","account-exists-with-different-credential":"An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.","network-request-failed":"A network error (such as timeout, interrupted connection or unreachable host) has occurred.",
+"no-auth-event":"An internal error has occurred.","no-such-provider":"User was not linked to an account with the given provider.","null-user":"A null user object was provided as the argument for an operation which requires a non-null user object.","operation-not-allowed":"The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.","operation-not-supported-in-this-environment":'This operation is not supported in the environment this application is running on. "location.protocol" must be http, https or chrome-extension and web storage must be enabled.',
+"popup-blocked":"Unable to establish a connection with the popup. It may have been blocked by the browser.","popup-closed-by-user":"The popup has been closed by the user before finalizing the operation.","provider-already-linked":"User can only be linked to one identity for the given provider.","quota-exceeded":"The project's quota for this operation has been exceeded.","redirect-cancelled-by-user":"The redirect operation has been cancelled by the user before finalizing.","redirect-operation-pending":"A redirect sign-in operation is already pending.",
+"rejected-credential":"The request contains malformed or mismatching credentials.","second-factor-already-in-use":"The second factor is already enrolled on this account.","maximum-second-factor-count-exceeded":"The maximum allowed number of second factors on a user has been exceeded.","tenant-id-mismatch":"The provided tenant ID does not match the Auth instance's tenant ID",timeout:"The operation has timed out.","user-token-expired":"The user's credential is no longer valid. The user must sign in again.",
+"too-many-requests":"We have blocked all requests from this device due to unusual activity. Try again later.","unauthorized-continue-uri":"The domain of the continue URL is not whitelisted.  Please whitelist the domain in the Firebase console.","unsupported-first-factor":"Enrolling a second factor or signing in with a multi-factor account requires sign-in with a supported first factor.","unsupported-persistence-type":"The current environment does not support the specified persistence type.","unsupported-tenant-operation":"This operation is not supported in a multi-tenant context.",
+"unverified-email":"The operation requires a verified email.","user-cancelled":"The user did not grant your application the permissions it requested.","user-not-found":"There is no user record corresponding to this identifier. The user may have been deleted.","user-disabled":"The user account has been disabled by an administrator.","user-mismatch":"The supplied credentials do not correspond to the previously signed in user.","user-signed-out":"","weak-password":"The password must be 6 characters long or more.",
+"web-storage-unsupported":"This browser is not supported or 3rd party cookies and data may be disabled."};var za={hd:{Ra:"https://staging-identitytoolkit.sandbox.googleapis.com/identitytoolkit/v3/relyingparty/",Xa:"https://staging-securetoken.sandbox.googleapis.com/v1/token",Ua:"https://staging-identitytoolkit.sandbox.googleapis.com/v2/",id:"b"},pd:{Ra:"https://www.googleapis.com/identitytoolkit/v3/relyingparty/",Xa:"https://securetoken.googleapis.com/v1/token",Ua:"https://identitytoolkit.googleapis.com/v2/",id:"p"},rd:{Ra:"https://staging-www.sandbox.googleapis.com/identitytoolkit/v3/relyingparty/",
+Xa:"https://staging-securetoken.sandbox.googleapis.com/v1/token",Ua:"https://staging-identitytoolkit.sandbox.googleapis.com/v2/",id:"s"},sd:{Ra:"https://www-googleapis-test.sandbox.google.com/identitytoolkit/v3/relyingparty/",Xa:"https://test-securetoken.sandbox.googleapis.com/v1/token",Ua:"https://test-identitytoolkit.sandbox.googleapis.com/v2/",id:"t"}};
+function Aa(a){for(var b in za)if(za[b].id===a)return a=za[b],{firebaseEndpoint:a.Ra,secureTokenEndpoint:a.Xa,identityPlatformEndpoint:a.Ua};return null}var Ba;Ba=Aa("__EID__")?"__EID__":void 0;function Ca(a){if(!a)return!1;try{return!!a.$goog_Thenable}catch(b){return!1}};function u(a){if(Error.captureStackTrace)Error.captureStackTrace(this,u);else{var b=Error().stack;b&&(this.stack=b)}a&&(this.message=String(a))}r(u,Error);u.prototype.name="CustomError";function Da(a,b){a=a.split("%s");for(var c="",d=a.length-1,e=0;e<d;e++)c+=a[e]+(e<b.length?b[e]:"%s");u.call(this,c+a[d])}r(Da,u);Da.prototype.name="AssertionError";function Ea(a,b){throw new Da("Failure"+(a?": "+a:""),Array.prototype.slice.call(arguments,1));};function Fa(a,b){this.c=a;this.f=b;this.b=0;this.a=null}Fa.prototype.get=function(){if(0<this.b){this.b--;var a=this.a;this.a=a.next;a.next=null}else a=this.c();return a};function Ga(a,b){a.f(b);100>a.b&&(a.b++,b.next=a.a,a.a=b)};function Ha(){this.b=this.a=null}var Ja=new Fa(function(){return new Ia},function(a){a.reset()});Ha.prototype.add=function(a,b){var c=Ja.get();c.set(a,b);this.b?this.b.next=c:this.a=c;this.b=c};function Ka(){var a=La,b=null;a.a&&(b=a.a,a.a=a.a.next,a.a||(a.b=null),b.next=null);return b}function Ia(){this.next=this.b=this.a=null}Ia.prototype.set=function(a,b){this.a=a;this.b=b;this.next=null};Ia.prototype.reset=function(){this.next=this.b=this.a=null};var Ma=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if("string"===typeof a)return"string"!==typeof b||1!=b.length?-1:a.indexOf(b,0);for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},w=Array.prototype.forEach?function(a,b,c){Array.prototype.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e="string"===typeof a?a.split(""):a,f=0;f<d;f++)f in e&&b.call(c,e[f],f,a)};
+function Na(a,b){for(var c="string"===typeof a?a.split(""):a,d=a.length-1;0<=d;--d)d in c&&b.call(void 0,c[d],d,a)}
+var Oa=Array.prototype.filter?function(a,b){return Array.prototype.filter.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=[],e=0,f="string"===typeof a?a.split(""):a,g=0;g<c;g++)if(g in f){var h=f[g];b.call(void 0,h,g,a)&&(d[e++]=h)}return d},Pa=Array.prototype.map?function(a,b){return Array.prototype.map.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=Array(c),e="string"===typeof a?a.split(""):a,f=0;f<c;f++)f in e&&(d[f]=b.call(void 0,e[f],f,a));return d},Qa=Array.prototype.some?function(a,
+b){return Array.prototype.some.call(a,b,void 0)}:function(a,b){for(var c=a.length,d="string"===typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a))return!0;return!1};function Ra(a){a:{var b=Sa;for(var c=a.length,d="string"===typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){b=e;break a}b=-1}return 0>b?null:"string"===typeof a?a.charAt(b):a[b]}function Ta(a,b){return 0<=Ma(a,b)}
+function Ua(a,b){b=Ma(a,b);var c;(c=0<=b)&&Array.prototype.splice.call(a,b,1);return c}function Va(a,b){var c=0;Na(a,function(d,e){b.call(void 0,d,e,a)&&1==Array.prototype.splice.call(a,e,1).length&&c++})}function Wa(a){return Array.prototype.concat.apply([],arguments)}function Xa(a){var b=a.length;if(0<b){for(var c=Array(b),d=0;d<b;d++)c[d]=a[d];return c}return[]};var Ya=String.prototype.trim?function(a){return a.trim()}:function(a){return/^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1]},Za=/&/g,$a=/</g,ab=/>/g,bb=/"/g,cb=/'/g,db=/\x00/g,eb=/[\x00&<>"']/;function x(a,b){return-1!=a.indexOf(b)}function fb(a,b){return a<b?-1:a>b?1:0};var gb;a:{var hb=l.navigator;if(hb){var ib=hb.userAgent;if(ib){gb=ib;break a}}gb=""}function y(a){return x(gb,a)};function jb(a,b){for(var c in a)b.call(void 0,a[c],c,a)}function kb(a){for(var b in a)return!1;return!0}function lb(a){var b={},c;for(c in a)b[c]=a[c];return b}var mb="constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ");function z(a,b){for(var c,d,e=1;e<arguments.length;e++){d=arguments[e];for(c in d)a[c]=d[c];for(var f=0;f<mb.length;f++)c=mb[f],Object.prototype.hasOwnProperty.call(d,c)&&(a[c]=d[c])}};function nb(a,b){a:{try{var c=a&&a.ownerDocument,d=c&&(c.defaultView||c.parentWindow);d=d||l;if(d.Element&&d.Location){var e=d;break a}}catch(g){}e=null}if(e&&"undefined"!=typeof e[b]&&(!a||!(a instanceof e[b])&&(a instanceof e.Location||a instanceof e.Element))){if(n(a))try{var f=a.constructor.displayName||a.constructor.name||Object.prototype.toString.call(a)}catch(g){f="<object could not be stringified>"}else f=void 0===a?"undefined":null===a?"null":typeof a;Ea("Argument is not a %s (or a non-Element, non-Location mock); got: %s",
+b,f)}};function ob(a,b){this.a=a===pb&&b||"";this.b=qb}ob.prototype.ra=!0;ob.prototype.qa=function(){return this.a};ob.prototype.toString=function(){return"Const{"+this.a+"}"};function rb(a){if(a instanceof ob&&a.constructor===ob&&a.b===qb)return a.a;Ea("expected object of type Const, got '"+a+"'");return"type_error:Const"}var qb={},pb={},sb=new ob(pb,"");function tb(a,b){this.a=a===ub&&b||"";this.b=vb}tb.prototype.ra=!0;tb.prototype.qa=function(){return this.a.toString()};tb.prototype.toString=function(){return"TrustedResourceUrl{"+this.a+"}"};function wb(a){if(a instanceof tb&&a.constructor===tb&&a.b===vb)return a.a;Ea("expected object of type TrustedResourceUrl, got '"+a+"' of type "+la(a));return"type_error:TrustedResourceUrl"}
+function xb(a,b){var c=rb(a);if(!yb.test(c))throw Error("Invalid TrustedResourceUrl format: "+c);a=c.replace(zb,function(d,e){if(!Object.prototype.hasOwnProperty.call(b,e))throw Error('Found marker, "'+e+'", in format string, "'+c+'", but no valid label mapping found in args: '+JSON.stringify(b));d=b[e];return d instanceof ob?rb(d):encodeURIComponent(String(d))});return new tb(ub,a)}
+var zb=/%{(\w+)}/g,yb=/^((https:)?\/\/[0-9a-z.:[\]-]+\/|\/[^/\\]|[^:/\\%]+\/|[^:/\\%]*[?#]|about:blank#)/i,vb={},ub={};function Ab(a,b){this.a=a===Bb&&b||"";this.b=Cb}Ab.prototype.ra=!0;Ab.prototype.qa=function(){return this.a.toString()};Ab.prototype.toString=function(){return"SafeUrl{"+this.a+"}"};function Db(a){if(a instanceof Ab&&a.constructor===Ab&&a.b===Cb)return a.a;Ea("expected object of type SafeUrl, got '"+a+"' of type "+la(a));return"type_error:SafeUrl"}var Eb=/^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;
+function Fb(a){if(a instanceof Ab)return a;a="object"==typeof a&&a.ra?a.qa():String(a);Eb.test(a)||(a="about:invalid#zClosurez");return new Ab(Bb,a)}var Cb={},Bb={};function Gb(){this.a="";this.b=Hb}Gb.prototype.ra=!0;Gb.prototype.qa=function(){return this.a.toString()};Gb.prototype.toString=function(){return"SafeHtml{"+this.a+"}"};function Ib(a){if(a instanceof Gb&&a.constructor===Gb&&a.b===Hb)return a.a;Ea("expected object of type SafeHtml, got '"+a+"' of type "+la(a));return"type_error:SafeHtml"}var Hb={};function Jb(a){var b=new Gb;b.a=a;return b}Jb("<!DOCTYPE html>");var Kb=Jb("");Jb("<br>");function Lb(a){var b=new tb(ub,rb(sb));nb(a,"HTMLIFrameElement");a.src=wb(b).toString()}function Mb(a,b){nb(a,"HTMLScriptElement");a.src=wb(b);if(null===ja)b:{b=l.document;if((b=b.querySelector&&b.querySelector("script[nonce]"))&&(b=b.nonce||b.getAttribute("nonce"))&&ia.test(b)){ja=b;break b}ja=""}b=ja;b&&a.setAttribute("nonce",b)};function Nb(a,b){for(var c=a.split("%s"),d="",e=Array.prototype.slice.call(arguments,1);e.length&&1<c.length;)d+=c.shift()+e.shift();return d+c.join("%s")}function Ob(a){eb.test(a)&&(-1!=a.indexOf("&")&&(a=a.replace(Za,"&amp;")),-1!=a.indexOf("<")&&(a=a.replace($a,"&lt;")),-1!=a.indexOf(">")&&(a=a.replace(ab,"&gt;")),-1!=a.indexOf('"')&&(a=a.replace(bb,"&quot;")),-1!=a.indexOf("'")&&(a=a.replace(cb,"&#39;")),-1!=a.indexOf("\x00")&&(a=a.replace(db,"&#0;")));return a};function Pb(a){Pb[" "](a);return a}Pb[" "]=ka;function Qb(a,b){var c=Rb;return Object.prototype.hasOwnProperty.call(c,a)?c[a]:c[a]=b(a)};var Sb=y("Opera"),Tb=y("Trident")||y("MSIE"),Ub=y("Edge"),Vb=Ub||Tb,Wb=y("Gecko")&&!(x(gb.toLowerCase(),"webkit")&&!y("Edge"))&&!(y("Trident")||y("MSIE"))&&!y("Edge"),Xb=x(gb.toLowerCase(),"webkit")&&!y("Edge");function Yb(){var a=l.document;return a?a.documentMode:void 0}var Zb;
+a:{var $b="",ac=function(){var a=gb;if(Wb)return/rv:([^\);]+)(\)|;)/.exec(a);if(Ub)return/Edge\/([\d\.]+)/.exec(a);if(Tb)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(Xb)return/WebKit\/(\S+)/.exec(a);if(Sb)return/(?:Version)[ \/]?(\S+)/.exec(a)}();ac&&($b=ac?ac[1]:"");if(Tb){var bc=Yb();if(null!=bc&&bc>parseFloat($b)){Zb=String(bc);break a}}Zb=$b}var Rb={};
+function cc(a){return Qb(a,function(){for(var b=0,c=Ya(String(Zb)).split("."),d=Ya(String(a)).split("."),e=Math.max(c.length,d.length),f=0;0==b&&f<e;f++){var g=c[f]||"",h=d[f]||"";do{g=/(\d*)(\D*)(.*)/.exec(g)||["","","",""];h=/(\d*)(\D*)(.*)/.exec(h)||["","","",""];if(0==g[0].length&&0==h[0].length)break;b=fb(0==g[1].length?0:parseInt(g[1],10),0==h[1].length?0:parseInt(h[1],10))||fb(0==g[2].length,0==h[2].length)||fb(g[2],h[2]);g=g[3];h=h[3]}while(0==b)}return 0<=b})}var dc;
+dc=l.document&&Tb?Yb():void 0;try{(new self.OffscreenCanvas(0,0)).getContext("2d")}catch(a){}var ec=!Tb||9<=Number(dc);function fc(a){var b=document;return"string"===typeof a?b.getElementById(a):a}function gc(a,b){jb(b,function(c,d){c&&"object"==typeof c&&c.ra&&(c=c.qa());"style"==d?a.style.cssText=c:"class"==d?a.className=c:"for"==d?a.htmlFor=c:hc.hasOwnProperty(d)?a.setAttribute(hc[d],c):0==d.lastIndexOf("aria-",0)||0==d.lastIndexOf("data-",0)?a.setAttribute(d,c):a[d]=c})}
+var hc={cellpadding:"cellPadding",cellspacing:"cellSpacing",colspan:"colSpan",frameborder:"frameBorder",height:"height",maxlength:"maxLength",nonce:"nonce",role:"role",rowspan:"rowSpan",type:"type",usemap:"useMap",valign:"vAlign",width:"width"};
+function ic(a,b,c){var d=arguments,e=document,f=String(d[0]),g=d[1];if(!ec&&g&&(g.name||g.type)){f=["<",f];g.name&&f.push(' name="',Ob(g.name),'"');if(g.type){f.push(' type="',Ob(g.type),'"');var h={};z(h,g);delete h.type;g=h}f.push(">");f=f.join("")}f=jc(e,f);g&&("string"===typeof g?f.className=g:Array.isArray(g)?f.className=g.join(" "):gc(f,g));2<d.length&&kc(e,f,d);return f}
+function kc(a,b,c){function d(g){g&&b.appendChild("string"===typeof g?a.createTextNode(g):g)}for(var e=2;e<c.length;e++){var f=c[e];!ma(f)||n(f)&&0<f.nodeType?d(f):w(lc(f)?Xa(f):f,d)}}function jc(a,b){b=String(b);"application/xhtml+xml"===a.contentType&&(b=b.toLowerCase());return a.createElement(b)}function lc(a){if(a&&"number"==typeof a.length){if(n(a))return"function"==typeof a.item||"string"==typeof a.item;if(na(a))return"function"==typeof a.item}return!1};function mc(a){l.setTimeout(function(){throw a;},0)}var nc;
+function oc(){var a=l.MessageChannel;"undefined"===typeof a&&"undefined"!==typeof window&&window.postMessage&&window.addEventListener&&!y("Presto")&&(a=function(){var e=jc(document,"IFRAME");e.style.display="none";Lb(e);document.documentElement.appendChild(e);var f=e.contentWindow;e=f.document;e.open();e.write(Ib(Kb));e.close();var g="callImmediate"+Math.random(),h="file:"==f.location.protocol?"*":f.location.protocol+"//"+f.location.host;e=q(function(m){if(("*"==h||m.origin==h)&&m.data==g)this.port1.onmessage()},
+this);f.addEventListener("message",e,!1);this.port1={};this.port2={postMessage:function(){f.postMessage(g,h)}}});if("undefined"!==typeof a&&!y("Trident")&&!y("MSIE")){var b=new a,c={},d=c;b.port1.onmessage=function(){if(void 0!==c.next){c=c.next;var e=c.Db;c.Db=null;e()}};return function(e){d.next={Db:e};d=d.next;b.port2.postMessage(0)}}return function(e){l.setTimeout(e,0)}};function pc(a,b){qc||rc();sc||(qc(),sc=!0);La.add(a,b)}var qc;function rc(){if(l.Promise&&l.Promise.resolve){var a=l.Promise.resolve(void 0);qc=function(){a.then(tc)}}else qc=function(){var b=tc;!na(l.setImmediate)||l.Window&&l.Window.prototype&&!y("Edge")&&l.Window.prototype.setImmediate==l.setImmediate?(nc||(nc=oc()),nc(b)):l.setImmediate(b)}}var sc=!1,La=new Ha;function tc(){for(var a;a=Ka();){try{a.a.call(a.b)}catch(b){mc(b)}Ga(Ja,a)}sc=!1};function B(a,b){this.a=uc;this.i=void 0;this.f=this.b=this.c=null;this.g=this.h=!1;if(a!=ka)try{var c=this;a.call(b,function(d){vc(c,wc,d)},function(d){if(!(d instanceof xc))try{if(d instanceof Error)throw d;throw Error("Promise rejected.");}catch(e){}vc(c,yc,d)})}catch(d){vc(this,yc,d)}}var uc=0,wc=2,yc=3;function zc(){this.next=this.f=this.b=this.g=this.a=null;this.c=!1}zc.prototype.reset=function(){this.f=this.b=this.g=this.a=null;this.c=!1};var Ac=new Fa(function(){return new zc},function(a){a.reset()});
+function Bc(a,b,c){var d=Ac.get();d.g=a;d.b=b;d.f=c;return d}function D(a){if(a instanceof B)return a;var b=new B(ka);vc(b,wc,a);return b}function E(a){return new B(function(b,c){c(a)})}function Cc(a,b,c){Dc(a,b,c,null)||pc(ta(b,a))}function Ec(a){return new B(function(b,c){var d=a.length,e=[];if(d)for(var f=function(p,v){d--;e[p]=v;0==d&&b(e)},g=function(p){c(p)},h=0,m;h<a.length;h++)m=a[h],Cc(m,ta(f,h),g);else b(e)})}
+function Fc(a){return new B(function(b){var c=a.length,d=[];if(c)for(var e=function(h,m,p){c--;d[h]=m?{Mb:!0,value:p}:{Mb:!1,reason:p};0==c&&b(d)},f=0,g;f<a.length;f++)g=a[f],Cc(g,ta(e,f,!0),ta(e,f,!1));else b(d)})}B.prototype.then=function(a,b,c){return Gc(this,na(a)?a:null,na(b)?b:null,c)};B.prototype.$goog_Thenable=!0;k=B.prototype;k.ma=function(a,b){a=Bc(a,a,b);a.c=!0;Hc(this,a);return this};k.o=function(a,b){return Gc(this,null,a,b)};
+k.cancel=function(a){if(this.a==uc){var b=new xc(a);pc(function(){Ic(this,b)},this)}};function Ic(a,b){if(a.a==uc)if(a.c){var c=a.c;if(c.b){for(var d=0,e=null,f=null,g=c.b;g&&(g.c||(d++,g.a==a&&(e=g),!(e&&1<d)));g=g.next)e||(f=g);e&&(c.a==uc&&1==d?Ic(c,b):(f?(d=f,d.next==c.f&&(c.f=d),d.next=d.next.next):Jc(c),Kc(c,e,yc,b)))}a.c=null}else vc(a,yc,b)}function Hc(a,b){a.b||a.a!=wc&&a.a!=yc||Lc(a);a.f?a.f.next=b:a.b=b;a.f=b}
+function Gc(a,b,c,d){var e=Bc(null,null,null);e.a=new B(function(f,g){e.g=b?function(h){try{var m=b.call(d,h);f(m)}catch(p){g(p)}}:f;e.b=c?function(h){try{var m=c.call(d,h);void 0===m&&h instanceof xc?g(h):f(m)}catch(p){g(p)}}:g});e.a.c=a;Hc(a,e);return e.a}k.Yc=function(a){this.a=uc;vc(this,wc,a)};k.Zc=function(a){this.a=uc;vc(this,yc,a)};
+function vc(a,b,c){a.a==uc&&(a===c&&(b=yc,c=new TypeError("Promise cannot resolve to itself")),a.a=1,Dc(c,a.Yc,a.Zc,a)||(a.i=c,a.a=b,a.c=null,Lc(a),b!=yc||c instanceof xc||Mc(a,c)))}function Dc(a,b,c,d){if(a instanceof B)return Hc(a,Bc(b||ka,c||null,d)),!0;if(Ca(a))return a.then(b,c,d),!0;if(n(a))try{var e=a.then;if(na(e))return Nc(a,e,b,c,d),!0}catch(f){return c.call(d,f),!0}return!1}
+function Nc(a,b,c,d,e){function f(m){h||(h=!0,d.call(e,m))}function g(m){h||(h=!0,c.call(e,m))}var h=!1;try{b.call(a,g,f)}catch(m){f(m)}}function Lc(a){a.h||(a.h=!0,pc(a.ec,a))}function Jc(a){var b=null;a.b&&(b=a.b,a.b=b.next,b.next=null);a.b||(a.f=null);return b}k.ec=function(){for(var a;a=Jc(this);)Kc(this,a,this.a,this.i);this.h=!1};
+function Kc(a,b,c,d){if(c==yc&&b.b&&!b.c)for(;a&&a.g;a=a.c)a.g=!1;if(b.a)b.a.c=null,Oc(b,c,d);else try{b.c?b.g.call(b.f):Oc(b,c,d)}catch(e){Pc.call(null,e)}Ga(Ac,b)}function Oc(a,b,c){b==wc?a.g.call(a.f,c):a.b&&a.b.call(a.f,c)}function Mc(a,b){a.g=!0;pc(function(){a.g&&Pc.call(null,b)})}var Pc=mc;function xc(a){u.call(this,a)}r(xc,u);xc.prototype.name="cancel";function Qc(){0!=Rc&&(Sc[oa(this)]=this);this.wa=this.wa;this.na=this.na}var Rc=0,Sc={};Qc.prototype.wa=!1;function Tc(a){if(!a.wa&&(a.wa=!0,a.Ba(),0!=Rc)){var b=oa(a);if(0!=Rc&&a.na&&0<a.na.length)throw Error(a+" did not empty its onDisposeCallbacks queue. This probably means it overrode dispose() or disposeInternal() without calling the superclass' method.");delete Sc[b]}}Qc.prototype.Ba=function(){if(this.na)for(;this.na.length;)this.na.shift()()};var Uc=Object.freeze||function(a){return a};var Vc=!Tb||9<=Number(dc),Wc=Tb&&!cc("9"),Xc=function(){if(!l.addEventListener||!Object.defineProperty)return!1;var a=!1,b=Object.defineProperty({},"passive",{get:function(){a=!0}});try{l.addEventListener("test",ka,b),l.removeEventListener("test",ka,b)}catch(c){}return a}();function F(a,b){this.type=a;this.b=this.target=b;this.defaultPrevented=!1}F.prototype.preventDefault=function(){this.defaultPrevented=!0};function Yc(a,b){F.call(this,a?a.type:"");this.relatedTarget=this.b=this.target=null;this.button=this.screenY=this.screenX=this.clientY=this.clientX=0;this.key="";this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.pointerId=0;this.pointerType="";this.a=null;if(a){var c=this.type=a.type,d=a.changedTouches&&a.changedTouches.length?a.changedTouches[0]:null;this.target=a.target||a.srcElement;this.b=b;if(b=a.relatedTarget){if(Wb){a:{try{Pb(b.nodeName);var e=!0;break a}catch(f){}e=!1}e||(b=null)}}else"mouseover"==
+c?b=a.fromElement:"mouseout"==c&&(b=a.toElement);this.relatedTarget=b;d?(this.clientX=void 0!==d.clientX?d.clientX:d.pageX,this.clientY=void 0!==d.clientY?d.clientY:d.pageY,this.screenX=d.screenX||0,this.screenY=d.screenY||0):(this.clientX=void 0!==a.clientX?a.clientX:a.pageX,this.clientY=void 0!==a.clientY?a.clientY:a.pageY,this.screenX=a.screenX||0,this.screenY=a.screenY||0);this.button=a.button;this.key=a.key||"";this.ctrlKey=a.ctrlKey;this.altKey=a.altKey;this.shiftKey=a.shiftKey;this.metaKey=
+a.metaKey;this.pointerId=a.pointerId||0;this.pointerType="string"===typeof a.pointerType?a.pointerType:Zc[a.pointerType]||"";this.a=a;a.defaultPrevented&&this.preventDefault()}}r(Yc,F);var Zc=Uc({2:"touch",3:"pen",4:"mouse"});Yc.prototype.preventDefault=function(){Yc.Za.preventDefault.call(this);var a=this.a;if(a.preventDefault)a.preventDefault();else if(a.returnValue=!1,Wc)try{if(a.ctrlKey||112<=a.keyCode&&123>=a.keyCode)a.keyCode=-1}catch(b){}};Yc.prototype.f=function(){return this.a};var $c="closure_listenable_"+(1E6*Math.random()|0),ad=0;function bd(a,b,c,d,e){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.Ta=e;this.key=++ad;this.ua=this.Na=!1}function cd(a){a.ua=!0;a.listener=null;a.proxy=null;a.src=null;a.Ta=null};function dd(a){this.src=a;this.a={};this.b=0}dd.prototype.add=function(a,b,c,d,e){var f=a.toString();a=this.a[f];a||(a=this.a[f]=[],this.b++);var g=ed(a,b,d,e);-1<g?(b=a[g],c||(b.Na=!1)):(b=new bd(b,this.src,f,!!d,e),b.Na=c,a.push(b));return b};function fd(a,b){var c=b.type;c in a.a&&Ua(a.a[c],b)&&(cd(b),0==a.a[c].length&&(delete a.a[c],a.b--))}function ed(a,b,c,d){for(var e=0;e<a.length;++e){var f=a[e];if(!f.ua&&f.listener==b&&f.capture==!!c&&f.Ta==d)return e}return-1};var gd="closure_lm_"+(1E6*Math.random()|0),hd={},id=0;function jd(a,b,c,d,e){if(d&&d.once)kd(a,b,c,d,e);else if(Array.isArray(b))for(var f=0;f<b.length;f++)jd(a,b[f],c,d,e);else c=ld(c),a&&a[$c]?md(a,b,c,n(d)?!!d.capture:!!d,e):nd(a,b,c,!1,d,e)}
+function nd(a,b,c,d,e,f){if(!b)throw Error("Invalid event type");var g=n(e)?!!e.capture:!!e,h=od(a);h||(a[gd]=h=new dd(a));c=h.add(b,c,d,g,f);if(!c.proxy){d=pd();c.proxy=d;d.src=a;d.listener=c;if(a.addEventListener)Xc||(e=g),void 0===e&&(e=!1),a.addEventListener(b.toString(),d,e);else if(a.attachEvent)a.attachEvent(qd(b.toString()),d);else if(a.addListener&&a.removeListener)a.addListener(d);else throw Error("addEventListener and attachEvent are unavailable.");id++}}
+function pd(){var a=rd,b=Vc?function(c){return a.call(b.src,b.listener,c)}:function(c){c=a.call(b.src,b.listener,c);if(!c)return c};return b}function kd(a,b,c,d,e){if(Array.isArray(b))for(var f=0;f<b.length;f++)kd(a,b[f],c,d,e);else c=ld(c),a&&a[$c]?sd(a,b,c,n(d)?!!d.capture:!!d,e):nd(a,b,c,!0,d,e)}
+function td(a,b,c,d,e){if(Array.isArray(b))for(var f=0;f<b.length;f++)td(a,b[f],c,d,e);else(d=n(d)?!!d.capture:!!d,c=ld(c),a&&a[$c])?(a=a.u,b=String(b).toString(),b in a.a&&(f=a.a[b],c=ed(f,c,d,e),-1<c&&(cd(f[c]),Array.prototype.splice.call(f,c,1),0==f.length&&(delete a.a[b],a.b--)))):a&&(a=od(a))&&(b=a.a[b.toString()],a=-1,b&&(a=ed(b,c,d,e)),(c=-1<a?b[a]:null)&&vd(c))}
+function vd(a){if("number"!==typeof a&&a&&!a.ua){var b=a.src;if(b&&b[$c])fd(b.u,a);else{var c=a.type,d=a.proxy;b.removeEventListener?b.removeEventListener(c,d,a.capture):b.detachEvent?b.detachEvent(qd(c),d):b.addListener&&b.removeListener&&b.removeListener(d);id--;(c=od(b))?(fd(c,a),0==c.b&&(c.src=null,b[gd]=null)):cd(a)}}}function qd(a){return a in hd?hd[a]:hd[a]="on"+a}
+function wd(a,b,c,d){var e=!0;if(a=od(a))if(b=a.a[b.toString()])for(b=b.concat(),a=0;a<b.length;a++){var f=b[a];f&&f.capture==c&&!f.ua&&(f=xd(f,d),e=e&&!1!==f)}return e}function xd(a,b){var c=a.listener,d=a.Ta||a.src;a.Na&&vd(a);return c.call(d,b)}
+function rd(a,b){if(a.ua)return!0;if(!Vc){if(!b)a:{b=["window","event"];for(var c=l,d=0;d<b.length;d++)if(c=c[b[d]],null==c){b=null;break a}b=c}d=b;b=new Yc(d,this);c=!0;if(!(0>d.keyCode||void 0!=d.returnValue)){a:{var e=!1;if(0==d.keyCode)try{d.keyCode=-1;break a}catch(g){e=!0}if(e||void 0==d.returnValue)d.returnValue=!0}d=[];for(e=b.b;e;e=e.parentNode)d.push(e);a=a.type;for(e=d.length-1;0<=e;e--){b.b=d[e];var f=wd(d[e],a,!0,b);c=c&&f}for(e=0;e<d.length;e++)b.b=d[e],f=wd(d[e],a,!1,b),c=c&&f}return c}return xd(a,
+new Yc(b,this))}function od(a){a=a[gd];return a instanceof dd?a:null}var yd="__closure_events_fn_"+(1E9*Math.random()>>>0);function ld(a){if(na(a))return a;a[yd]||(a[yd]=function(b){return a.handleEvent(b)});return a[yd]};function G(){Qc.call(this);this.u=new dd(this);this.Yb=this;this.eb=null}r(G,Qc);G.prototype[$c]=!0;G.prototype.addEventListener=function(a,b,c,d){jd(this,a,b,c,d)};G.prototype.removeEventListener=function(a,b,c,d){td(this,a,b,c,d)};
+G.prototype.dispatchEvent=function(a){var b,c=this.eb;if(c)for(b=[];c;c=c.eb)b.push(c);c=this.Yb;var d=a.type||a;if("string"===typeof a)a=new F(a,c);else if(a instanceof F)a.target=a.target||c;else{var e=a;a=new F(d,c);z(a,e)}e=!0;if(b)for(var f=b.length-1;0<=f;f--){var g=a.b=b[f];e=zd(g,d,!0,a)&&e}g=a.b=c;e=zd(g,d,!0,a)&&e;e=zd(g,d,!1,a)&&e;if(b)for(f=0;f<b.length;f++)g=a.b=b[f],e=zd(g,d,!1,a)&&e;return e};
+G.prototype.Ba=function(){G.Za.Ba.call(this);if(this.u){var a=this.u,b=0,c;for(c in a.a){for(var d=a.a[c],e=0;e<d.length;e++)++b,cd(d[e]);delete a.a[c];a.b--}}this.eb=null};function md(a,b,c,d,e){a.u.add(String(b),c,!1,d,e)}function sd(a,b,c,d,e){a.u.add(String(b),c,!0,d,e)}
+function zd(a,b,c,d){b=a.u.a[String(b)];if(!b)return!0;b=b.concat();for(var e=!0,f=0;f<b.length;++f){var g=b[f];if(g&&!g.ua&&g.capture==c){var h=g.listener,m=g.Ta||g.src;g.Na&&fd(a.u,g);e=!1!==h.call(m,d)&&e}}return e&&!d.defaultPrevented};function Ad(a,b,c){if(na(a))c&&(a=q(a,c));else if(a&&"function"==typeof a.handleEvent)a=q(a.handleEvent,a);else throw Error("Invalid listener argument");return 2147483647<Number(b)?-1:l.setTimeout(a,b||0)}function Bd(a){var b=null;return(new B(function(c,d){b=Ad(function(){c(void 0)},a);-1==b&&d(Error("Failed to schedule timer."))})).o(function(c){l.clearTimeout(b);throw c;})};function Cd(a){if(a.V&&"function"==typeof a.V)return a.V();if("string"===typeof a)return a.split("");if(ma(a)){for(var b=[],c=a.length,d=0;d<c;d++)b.push(a[d]);return b}b=[];c=0;for(d in a)b[c++]=a[d];return b}function Dd(a){if(a.X&&"function"==typeof a.X)return a.X();if(!a.V||"function"!=typeof a.V){if(ma(a)||"string"===typeof a){var b=[];a=a.length;for(var c=0;c<a;c++)b.push(c);return b}b=[];c=0;for(var d in a)b[c++]=d;return b}}
+function Ed(a,b){if(a.forEach&&"function"==typeof a.forEach)a.forEach(b,void 0);else if(ma(a)||"string"===typeof a)w(a,b,void 0);else for(var c=Dd(a),d=Cd(a),e=d.length,f=0;f<e;f++)b.call(void 0,d[f],c&&c[f],a)};function Fd(a,b){this.b={};this.a=[];this.c=0;var c=arguments.length;if(1<c){if(c%2)throw Error("Uneven number of arguments");for(var d=0;d<c;d+=2)this.set(arguments[d],arguments[d+1])}else if(a)if(a instanceof Fd)for(c=a.X(),d=0;d<c.length;d++)this.set(c[d],a.get(c[d]));else for(d in a)this.set(d,a[d])}k=Fd.prototype;k.V=function(){Gd(this);for(var a=[],b=0;b<this.a.length;b++)a.push(this.b[this.a[b]]);return a};k.X=function(){Gd(this);return this.a.concat()};
+k.clear=function(){this.b={};this.c=this.a.length=0};function Gd(a){if(a.c!=a.a.length){for(var b=0,c=0;b<a.a.length;){var d=a.a[b];Hd(a.b,d)&&(a.a[c++]=d);b++}a.a.length=c}if(a.c!=a.a.length){var e={};for(c=b=0;b<a.a.length;)d=a.a[b],Hd(e,d)||(a.a[c++]=d,e[d]=1),b++;a.a.length=c}}k.get=function(a,b){return Hd(this.b,a)?this.b[a]:b};k.set=function(a,b){Hd(this.b,a)||(this.c++,this.a.push(a));this.b[a]=b};
+k.forEach=function(a,b){for(var c=this.X(),d=0;d<c.length;d++){var e=c[d],f=this.get(e);a.call(b,f,e,this)}};function Hd(a,b){return Object.prototype.hasOwnProperty.call(a,b)};var Id=/^(?:([^:/?#.]+):)?(?:\/\/(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?=[/\\#?]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/;function Jd(a,b){if(a){a=a.split("&");for(var c=0;c<a.length;c++){var d=a[c].indexOf("="),e=null;if(0<=d){var f=a[c].substring(0,d);e=a[c].substring(d+1)}else f=a[c];b(f,e?decodeURIComponent(e.replace(/\+/g," ")):"")}}};function Kd(a,b){this.b=this.i=this.f="";this.l=null;this.g=this.c="";this.h=!1;var c;a instanceof Kd?(this.h=void 0!==b?b:a.h,Ld(this,a.f),this.i=a.i,this.b=a.b,Md(this,a.l),this.c=a.c,Nd(this,Od(a.a)),this.g=a.g):a&&(c=String(a).match(Id))?(this.h=!!b,Ld(this,c[1]||"",!0),this.i=Pd(c[2]||""),this.b=Pd(c[3]||"",!0),Md(this,c[4]),this.c=Pd(c[5]||"",!0),Nd(this,c[6]||"",!0),this.g=Pd(c[7]||"")):(this.h=!!b,this.a=new Qd(null,this.h))}
+Kd.prototype.toString=function(){var a=[],b=this.f;b&&a.push(Rd(b,Sd,!0),":");var c=this.b;if(c||"file"==b)a.push("//"),(b=this.i)&&a.push(Rd(b,Sd,!0),"@"),a.push(encodeURIComponent(String(c)).replace(/%25([0-9a-fA-F]{2})/g,"%$1")),c=this.l,null!=c&&a.push(":",String(c));if(c=this.c)this.b&&"/"!=c.charAt(0)&&a.push("/"),a.push(Rd(c,"/"==c.charAt(0)?Td:Ud,!0));(c=this.a.toString())&&a.push("?",c);(c=this.g)&&a.push("#",Rd(c,Vd));return a.join("")};
+Kd.prototype.resolve=function(a){var b=new Kd(this),c=!!a.f;c?Ld(b,a.f):c=!!a.i;c?b.i=a.i:c=!!a.b;c?b.b=a.b:c=null!=a.l;var d=a.c;if(c)Md(b,a.l);else if(c=!!a.c){if("/"!=d.charAt(0))if(this.b&&!this.c)d="/"+d;else{var e=b.c.lastIndexOf("/");-1!=e&&(d=b.c.substr(0,e+1)+d)}e=d;if(".."==e||"."==e)d="";else if(x(e,"./")||x(e,"/.")){d=0==e.lastIndexOf("/",0);e=e.split("/");for(var f=[],g=0;g<e.length;){var h=e[g++];"."==h?d&&g==e.length&&f.push(""):".."==h?((1<f.length||1==f.length&&""!=f[0])&&f.pop(),
+d&&g==e.length&&f.push("")):(f.push(h),d=!0)}d=f.join("/")}else d=e}c?b.c=d:c=""!==a.a.toString();c?Nd(b,Od(a.a)):c=!!a.g;c&&(b.g=a.g);return b};function Ld(a,b,c){a.f=c?Pd(b,!0):b;a.f&&(a.f=a.f.replace(/:$/,""))}function Md(a,b){if(b){b=Number(b);if(isNaN(b)||0>b)throw Error("Bad port number "+b);a.l=b}else a.l=null}function Nd(a,b,c){b instanceof Qd?(a.a=b,Wd(a.a,a.h)):(c||(b=Rd(b,Xd)),a.a=new Qd(b,a.h))}function H(a,b,c){a.a.set(b,c)}function Yd(a,b){return a.a.get(b)}
+function Zd(a){return a instanceof Kd?new Kd(a):new Kd(a,void 0)}function $d(a,b){var c=new Kd(null,void 0);Ld(c,"https");a&&(c.b=a);b&&(c.c=b);return c}function Pd(a,b){return a?b?decodeURI(a.replace(/%25/g,"%2525")):decodeURIComponent(a):""}function Rd(a,b,c){return"string"===typeof a?(a=encodeURI(a).replace(b,ae),c&&(a=a.replace(/%25([0-9a-fA-F]{2})/g,"%$1")),a):null}function ae(a){a=a.charCodeAt(0);return"%"+(a>>4&15).toString(16)+(a&15).toString(16)}
+var Sd=/[#\/\?@]/g,Ud=/[#\?:]/g,Td=/[#\?]/g,Xd=/[#\?@]/g,Vd=/#/g;function Qd(a,b){this.b=this.a=null;this.c=a||null;this.f=!!b}function be(a){a.a||(a.a=new Fd,a.b=0,a.c&&Jd(a.c,function(b,c){a.add(decodeURIComponent(b.replace(/\+/g," ")),c)}))}function ce(a){var b=Dd(a);if("undefined"==typeof b)throw Error("Keys are undefined");var c=new Qd(null,void 0);a=Cd(a);for(var d=0;d<b.length;d++){var e=b[d],f=a[d];Array.isArray(f)?de(c,e,f):c.add(e,f)}return c}k=Qd.prototype;
+k.add=function(a,b){be(this);this.c=null;a=ee(this,a);var c=this.a.get(a);c||this.a.set(a,c=[]);c.push(b);this.b+=1;return this};function fe(a,b){be(a);b=ee(a,b);Hd(a.a.b,b)&&(a.c=null,a.b-=a.a.get(b).length,a=a.a,Hd(a.b,b)&&(delete a.b[b],a.c--,a.a.length>2*a.c&&Gd(a)))}k.clear=function(){this.a=this.c=null;this.b=0};function ge(a,b){be(a);b=ee(a,b);return Hd(a.a.b,b)}k.forEach=function(a,b){be(this);this.a.forEach(function(c,d){w(c,function(e){a.call(b,e,d,this)},this)},this)};
+k.X=function(){be(this);for(var a=this.a.V(),b=this.a.X(),c=[],d=0;d<b.length;d++)for(var e=a[d],f=0;f<e.length;f++)c.push(b[d]);return c};k.V=function(a){be(this);var b=[];if("string"===typeof a)ge(this,a)&&(b=Wa(b,this.a.get(ee(this,a))));else{a=this.a.V();for(var c=0;c<a.length;c++)b=Wa(b,a[c])}return b};k.set=function(a,b){be(this);this.c=null;a=ee(this,a);ge(this,a)&&(this.b-=this.a.get(a).length);this.a.set(a,[b]);this.b+=1;return this};
+k.get=function(a,b){if(!a)return b;a=this.V(a);return 0<a.length?String(a[0]):b};function de(a,b,c){fe(a,b);0<c.length&&(a.c=null,a.a.set(ee(a,b),Xa(c)),a.b+=c.length)}k.toString=function(){if(this.c)return this.c;if(!this.a)return"";for(var a=[],b=this.a.X(),c=0;c<b.length;c++){var d=b[c],e=encodeURIComponent(String(d));d=this.V(d);for(var f=0;f<d.length;f++){var g=e;""!==d[f]&&(g+="="+encodeURIComponent(String(d[f])));a.push(g)}}return this.c=a.join("&")};
+function Od(a){var b=new Qd;b.c=a.c;a.a&&(b.a=new Fd(a.a),b.b=a.b);return b}function ee(a,b){b=String(b);a.f&&(b=b.toLowerCase());return b}function Wd(a,b){b&&!a.f&&(be(a),a.c=null,a.a.forEach(function(c,d){var e=d.toLowerCase();d!=e&&(fe(this,d),de(this,e,c))},a));a.f=b};function he(a){var b=[];ie(new je,a,b);return b.join("")}function je(){}
+function ie(a,b,c){if(null==b)c.push("null");else{if("object"==typeof b){if(Array.isArray(b)){var d=b;b=d.length;c.push("[");for(var e="",f=0;f<b;f++)c.push(e),ie(a,d[f],c),e=",";c.push("]");return}if(b instanceof String||b instanceof Number||b instanceof Boolean)b=b.valueOf();else{c.push("{");e="";for(d in b)Object.prototype.hasOwnProperty.call(b,d)&&(f=b[d],"function"!=typeof f&&(c.push(e),ke(d,c),c.push(":"),ie(a,f,c),e=","));c.push("}");return}}switch(typeof b){case "string":ke(b,c);break;case "number":c.push(isFinite(b)&&
+!isNaN(b)?String(b):"null");break;case "boolean":c.push(String(b));break;case "function":c.push("null");break;default:throw Error("Unknown type: "+typeof b);}}}var le={'"':'\\"',"\\":"\\\\","/":"\\/","\b":"\\b","\f":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\x0B":"\\u000b"},me=/\uffff/.test("\uffff")?/[\\"\x00-\x1f\x7f-\uffff]/g:/[\\"\x00-\x1f\x7f-\xff]/g;
+function ke(a,b){b.push('"',a.replace(me,function(c){var d=le[c];d||(d="\\u"+(c.charCodeAt(0)|65536).toString(16).substr(1),le[c]=d);return d}),'"')};function ne(){var a=I();return Tb&&!!dc&&11==dc||/Edge\/\d+/.test(a)}function oe(){return l.window&&l.window.location.href||self&&self.location&&self.location.href||""}function pe(a,b){b=b||l.window;var c="about:blank";a&&(c=Db(Fb(a)));b.location.href=c}function qe(a,b){var c=[],d;for(d in a)d in b?typeof a[d]!=typeof b[d]?c.push(d):"object"==typeof a[d]&&null!=a[d]&&null!=b[d]?0<qe(a[d],b[d]).length&&c.push(d):a[d]!==b[d]&&c.push(d):c.push(d);for(d in b)d in a||c.push(d);return c}
+function re(){var a=I();a=se(a)!=te?null:(a=a.match(/\sChrome\/(\d+)/i))&&2==a.length?parseInt(a[1],10):null;return a&&30>a?!1:!Tb||!dc||9<dc}function ue(a){a=(a||I()).toLowerCase();return a.match(/android/)||a.match(/webos/)||a.match(/iphone|ipad|ipod/)||a.match(/blackberry/)||a.match(/windows phone/)||a.match(/iemobile/)?!0:!1}function ve(a){a=a||l.window;try{a.close()}catch(b){}}
+function we(a,b,c){var d=Math.floor(1E9*Math.random()).toString();b=b||500;c=c||600;var e=(window.screen.availHeight-c)/2,f=(window.screen.availWidth-b)/2;b={width:b,height:c,top:0<e?e:0,left:0<f?f:0,location:!0,resizable:!0,statusbar:!0,toolbar:!1};c=I().toLowerCase();d&&(b.target=d,x(c,"crios/")&&(b.target="_blank"));se(I())==xe&&(a=a||"http://localhost",b.scrollbars=!0);c=a||"";(a=b)||(a={});d=window;b=c instanceof Ab?c:Fb("undefined"!=typeof c.href?c.href:String(c));c=a.target||c.target;e=[];
+for(g in a)switch(g){case "width":case "height":case "top":case "left":e.push(g+"="+a[g]);break;case "target":case "noopener":case "noreferrer":break;default:e.push(g+"="+(a[g]?1:0))}var g=e.join(",");if((y("iPhone")&&!y("iPod")&&!y("iPad")||y("iPad")||y("iPod"))&&d.navigator&&d.navigator.standalone&&c&&"_self"!=c)g=jc(document,"A"),nb(g,"HTMLAnchorElement"),b instanceof Ab||b instanceof Ab||(b="object"==typeof b&&b.ra?b.qa():String(b),Eb.test(b)||(b="about:invalid#zClosurez"),b=new Ab(Bb,b)),g.href=
+Db(b),g.setAttribute("target",c),a.noreferrer&&g.setAttribute("rel","noreferrer"),a=document.createEvent("MouseEvent"),a.initMouseEvent("click",!0,!0,d,1),g.dispatchEvent(a),g={};else if(a.noreferrer){if(g=d.open("",c,g),a=Db(b),g&&(Vb&&x(a,";")&&(a="'"+a.replace(/'/g,"%27")+"'"),g.opener=null,a=Jb('<meta name="referrer" content="no-referrer"><meta http-equiv="refresh" content="0; url='+Ob(a)+'">'),d=g.document))d.write(Ib(a)),d.close()}else(g=d.open(Db(b),c,g))&&a.noopener&&(g.opener=null);if(g)try{g.focus()}catch(h){}return g}
+function ye(a){return new B(function(b){function c(){Bd(2E3).then(function(){if(!a||a.closed)b();else return c()})}return c()})}var ze=/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/,Ae=/^[^@]+@[^@]+$/;function Be(){var a=null;return(new B(function(b){"complete"==l.document.readyState?b():(a=function(){b()},kd(window,"load",a))})).o(function(b){td(window,"load",a);throw b;})}
+function Ce(){return De(void 0)?Be().then(function(){return new B(function(a,b){var c=l.document,d=setTimeout(function(){b(Error("Cordova framework is not ready."))},1E3);c.addEventListener("deviceready",function(){clearTimeout(d);a()},!1)})}):E(Error("Cordova must run in an Android or iOS file scheme."))}function De(a){a=a||I();return!("file:"!==Ee()&&"ionic:"!==Ee()||!a.toLowerCase().match(/iphone|ipad|ipod|android/))}function Fe(){var a=l.window;try{return!(!a||a==a.top)}catch(b){return!1}}
+function Ge(){return"undefined"!==typeof l.WorkerGlobalScope&&"function"===typeof l.importScripts}function He(){return firebase.INTERNAL.hasOwnProperty("reactNative")?"ReactNative":firebase.INTERNAL.hasOwnProperty("node")?"Node":Ge()?"Worker":"Browser"}function Ie(){var a=He();return"ReactNative"===a||"Node"===a}function Je(){for(var a=50,b=[];0<a;)b.push("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(Math.floor(62*Math.random()))),a--;return b.join("")}
+var xe="Firefox",te="Chrome";
+function se(a){var b=a.toLowerCase();if(x(b,"opera/")||x(b,"opr/")||x(b,"opios/"))return"Opera";if(x(b,"iemobile"))return"IEMobile";if(x(b,"msie")||x(b,"trident/"))return"IE";if(x(b,"edge/"))return"Edge";if(x(b,"firefox/"))return xe;if(x(b,"silk/"))return"Silk";if(x(b,"blackberry"))return"Blackberry";if(x(b,"webos"))return"Webos";if(!x(b,"safari/")||x(b,"chrome/")||x(b,"crios/")||x(b,"android"))if(!x(b,"chrome/")&&!x(b,"crios/")||x(b,"edge/")){if(x(b,"android"))return"Android";if((a=a.match(/([a-zA-Z\d\.]+)\/[a-zA-Z\d\.]*$/))&&
+2==a.length)return a[1]}else return te;else return"Safari";return"Other"}var Ke={jd:"FirebaseCore-web",ld:"FirebaseUI-web"};function Le(a,b){b=b||[];var c=[],d={},e;for(e in Ke)d[Ke[e]]=!0;for(e=0;e<b.length;e++)"undefined"!==typeof d[b[e]]&&(delete d[b[e]],c.push(b[e]));c.sort();b=c;b.length||(b=["FirebaseCore-web"]);c=He();"Browser"===c?(d=I(),c=se(d)):"Worker"===c&&(d=I(),c=se(d)+"-"+c);return c+"/JsCore/"+a+"/"+b.join(",")}function I(){return l.navigator&&l.navigator.userAgent||""}
+function J(a,b){a=a.split(".");b=b||l;for(var c=0;c<a.length&&"object"==typeof b&&null!=b;c++)b=b[a[c]];c!=a.length&&(b=void 0);return b}function Me(){try{var a=l.localStorage,b=Ne();if(a)return a.setItem(b,"1"),a.removeItem(b),ne()?!!l.indexedDB:!0}catch(c){return Ge()&&!!l.indexedDB}return!1}function Oe(){return(Pe()||"chrome-extension:"===Ee()||De())&&!Ie()&&Me()&&!Ge()}function Pe(){return"http:"===Ee()||"https:"===Ee()}function Ee(){return l.location&&l.location.protocol||null}
+function Qe(a){a=a||I();return ue(a)||se(a)==xe?!1:!0}function Re(a){return"undefined"===typeof a?null:he(a)}function Se(a){var b={},c;for(c in a)a.hasOwnProperty(c)&&null!==a[c]&&void 0!==a[c]&&(b[c]=a[c]);return b}function Te(a){if(null!==a)return JSON.parse(a)}function Ne(a){return a?a:Math.floor(1E9*Math.random()).toString()}function Ue(a){a=a||I();return"Safari"==se(a)||a.toLowerCase().match(/iphone|ipad|ipod/)?!1:!0}
+function Ve(){var a=l.___jsl;if(a&&a.H)for(var b in a.H)if(a.H[b].r=a.H[b].r||[],a.H[b].L=a.H[b].L||[],a.H[b].r=a.H[b].L.concat(),a.CP)for(var c=0;c<a.CP.length;c++)a.CP[c]=null}function We(a,b){if(a>b)throw Error("Short delay should be less than long delay!");this.a=a;this.c=b;a=I();b=He();this.b=ue(a)||"ReactNative"===b}
+We.prototype.get=function(){var a=l.navigator;return(a&&"boolean"===typeof a.onLine&&(Pe()||"chrome-extension:"===Ee()||"undefined"!==typeof a.connection)?a.onLine:1)?this.b?this.c:this.a:Math.min(5E3,this.a)};function Xe(){var a=l.document;return a&&"undefined"!==typeof a.visibilityState?"visible"==a.visibilityState:!0}
+function Ye(){var a=l.document,b=null;return Xe()||!a?D():(new B(function(c){b=function(){Xe()&&(a.removeEventListener("visibilitychange",b,!1),c())};a.addEventListener("visibilitychange",b,!1)})).o(function(c){a.removeEventListener("visibilitychange",b,!1);throw c;})}function Ze(a){try{var b=new Date(parseInt(a,10));if(!isNaN(b.getTime())&&!/[^0-9]/.test(a))return b.toUTCString()}catch(c){}return null}function $e(){return!(!J("fireauth.oauthhelper",l)&&!J("fireauth.iframe",l))}
+function af(){var a=l.navigator;return a&&a.serviceWorker&&a.serviceWorker.controller||null}function bf(){var a=l.navigator;return a&&a.serviceWorker?D().then(function(){return a.serviceWorker.ready}).then(function(b){return b.active||null}).o(function(){return null}):D(null)};var cf={};function df(a){cf[a]||(cf[a]=!0,"undefined"!==typeof console&&"function"===typeof console.warn&&console.warn(a))};var ef;try{var ff={};Object.defineProperty(ff,"abcd",{configurable:!0,enumerable:!0,value:1});Object.defineProperty(ff,"abcd",{configurable:!0,enumerable:!0,value:2});ef=2==ff.abcd}catch(a){ef=!1}function K(a,b,c){ef?Object.defineProperty(a,b,{configurable:!0,enumerable:!0,value:c}):a[b]=c}function L(a,b){if(b)for(var c in b)b.hasOwnProperty(c)&&K(a,c,b[c])}function gf(a){var b={};L(b,a);return b}function hf(a){var b={},c;for(c in a)a.hasOwnProperty(c)&&(b[c]=a[c]);return b}
+function jf(a,b){if(!b||!b.length)return!0;if(!a)return!1;for(var c=0;c<b.length;c++){var d=a[b[c]];if(void 0===d||null===d||""===d)return!1}return!0}function kf(a){var b=a;if("object"==typeof a&&null!=a){b="length"in a?[]:{};for(var c in a)K(b,c,kf(a[c]))}return b};/*
+
+ Copyright 2019 Google Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function lf(a){var b=a&&(a[mf]?"phone":null);if(b&&a&&a[nf]){K(this,"uid",a[nf]);K(this,"displayName",a[of]||null);var c=null;a[pf]&&(c=(new Date(a[pf])).toUTCString());K(this,"enrollmentTime",c);K(this,"factorId",b)}else throw new t("internal-error","Internal assert: invalid MultiFactorInfo object");}lf.prototype.v=function(){return{uid:this.uid,displayName:this.displayName,factorId:this.factorId,enrollmentTime:this.enrollmentTime}};function qf(a){try{var b=new rf(a)}catch(c){b=null}return b}
+var of="displayName",pf="enrolledAt",nf="mfaEnrollmentId",mf="phoneInfo";function rf(a){lf.call(this,a);K(this,"phoneNumber",a[mf])}r(rf,lf);rf.prototype.v=function(){var a=rf.Za.v.call(this);a.phoneNumber=this.phoneNumber;return a};function sf(a){var b={},c=a[tf],d=a[uf],e=a[vf];a=qf(a[wf]);if(!e||e!=xf&&e!=yf&&!c||e==yf&&!d||e==zf&&!a)throw Error("Invalid checkActionCode response!");e==yf?(b[Af]=c||null,b[Bf]=c||null,b[Cf]=d):(b[Af]=d||null,b[Bf]=d||null,b[Cf]=c||null);b[Df]=a||null;K(this,Ef,e);K(this,Ff,kf(b))}
+var zf="REVERT_SECOND_FACTOR_ADDITION",xf="EMAIL_SIGNIN",yf="VERIFY_AND_CHANGE_EMAIL",tf="email",wf="mfaInfo",uf="newEmail",vf="requestType",Cf="email",Af="fromEmail",Df="multiFactorInfo",Bf="previousEmail",Ff="data",Ef="operation";function Gf(a){a=Zd(a);var b=Yd(a,Hf)||null,c=Yd(a,If)||null,d=Yd(a,Jf)||null;d=d?Kf[d]||null:null;if(!b||!c||!d)throw new t("argument-error",Hf+", "+If+"and "+Jf+" are required in a valid action code URL.");L(this,{apiKey:b,operation:d,code:c,continueUrl:Yd(a,Lf)||null,languageCode:Yd(a,Mf)||null,tenantId:Yd(a,Nf)||null})}
+var Hf="apiKey",If="oobCode",Lf="continueUrl",Mf="languageCode",Jf="mode",Nf="tenantId",Kf={recoverEmail:"RECOVER_EMAIL",resetPassword:"PASSWORD_RESET",revertSecondFactorAddition:zf,signIn:xf,verifyAndChangeEmail:yf,verifyEmail:"VERIFY_EMAIL"};function Of(a){try{return new Gf(a)}catch(b){return null}};function Pf(a){var b=a[Qf];if("undefined"===typeof b)throw new t("missing-continue-uri");if("string"!==typeof b||"string"===typeof b&&!b.length)throw new t("invalid-continue-uri");this.h=b;this.b=this.a=null;this.g=!1;var c=a[Rf];if(c&&"object"===typeof c){b=c[Sf];var d=c[Tf];c=c[Uf];if("string"===typeof b&&b.length){this.a=b;if("undefined"!==typeof d&&"boolean"!==typeof d)throw new t("argument-error",Tf+" property must be a boolean when specified.");this.g=!!d;if("undefined"!==typeof c&&("string"!==
+typeof c||"string"===typeof c&&!c.length))throw new t("argument-error",Uf+" property must be a non empty string when specified.");this.b=c||null}else{if("undefined"!==typeof b)throw new t("argument-error",Sf+" property must be a non empty string when specified.");if("undefined"!==typeof d||"undefined"!==typeof c)throw new t("missing-android-pkg-name");}}else if("undefined"!==typeof c)throw new t("argument-error",Rf+" property must be a non null object when specified.");this.f=null;if((b=a[Vf])&&"object"===
+typeof b)if(b=b[Wf],"string"===typeof b&&b.length)this.f=b;else{if("undefined"!==typeof b)throw new t("argument-error",Wf+" property must be a non empty string when specified.");}else if("undefined"!==typeof b)throw new t("argument-error",Vf+" property must be a non null object when specified.");b=a[Xf];if("undefined"!==typeof b&&"boolean"!==typeof b)throw new t("argument-error",Xf+" property must be a boolean when specified.");this.c=!!b;a=a[Yf];if("undefined"!==typeof a&&("string"!==typeof a||"string"===
+typeof a&&!a.length))throw new t("argument-error",Yf+" property must be a non empty string when specified.");this.i=a||null}var Rf="android",Yf="dynamicLinkDomain",Xf="handleCodeInApp",Vf="iOS",Qf="url",Tf="installApp",Uf="minimumVersion",Sf="packageName",Wf="bundleId";
+function Zf(a){var b={};b.continueUrl=a.h;b.canHandleCodeInApp=a.c;if(b.androidPackageName=a.a)b.androidMinimumVersion=a.b,b.androidInstallApp=a.g;b.iOSBundleId=a.f;b.dynamicLinkDomain=a.i;for(var c in b)null===b[c]&&delete b[c];return b};function $f(a){return Pa(a,function(b){b=b.toString(16);return 1<b.length?b:"0"+b}).join("")};var ag=null;function bg(a){var b="";cg(a,function(c){b+=String.fromCharCode(c)});return b}function cg(a,b){function c(m){for(;d<a.length;){var p=a.charAt(d++),v=ag[p];if(null!=v)return v;if(!/^[\s\xa0]*$/.test(p))throw Error("Unknown base64 encoding at char: "+p);}return m}dg();for(var d=0;;){var e=c(-1),f=c(0),g=c(64),h=c(64);if(64===h&&-1===e)break;b(e<<2|f>>4);64!=g&&(b(f<<4&240|g>>2),64!=h&&b(g<<6&192|h))}}
+function dg(){if(!ag){ag={};for(var a="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split(""),b=["+/=","+/","-_=","-_.","-_"],c=0;5>c;c++)for(var d=a.concat(b[c].split("")),e=0;e<d.length;e++){var f=d[e];void 0===ag[f]&&(ag[f]=e)}}};function eg(a){var b=fg(a);if(!(b&&b.sub&&b.iss&&b.aud&&b.exp))throw Error("Invalid JWT");this.g=a;this.c=b.exp;this.h=b.sub;ua();this.a=b.provider_id||b.firebase&&b.firebase.sign_in_provider||null;this.f=b.firebase&&b.firebase.tenant||null;this.b=!!b.is_anonymous||"anonymous"==this.a}eg.prototype.S=function(){return this.f};eg.prototype.i=function(){return this.b};eg.prototype.toString=function(){return this.g};function gg(a){try{return new eg(a)}catch(b){return null}}
+function fg(a){if(!a)return null;a=a.split(".");if(3!=a.length)return null;a=a[1];for(var b=(4-a.length%4)%4,c=0;c<b;c++)a+=".";try{return JSON.parse(bg(a))}catch(d){}return null};var hg="oauth_consumer_key oauth_nonce oauth_signature oauth_signature_method oauth_timestamp oauth_token oauth_version".split(" "),ig=["client_id","response_type","scope","redirect_uri","state"],jg={kd:{Ha:"locale",ta:700,sa:600,ea:"facebook.com",Va:ig},md:{Ha:null,ta:500,sa:750,ea:"github.com",Va:ig},nd:{Ha:"hl",ta:515,sa:680,ea:"google.com",Va:ig},td:{Ha:"lang",ta:485,sa:705,ea:"twitter.com",Va:hg},gd:{Ha:"locale",ta:640,sa:600,ea:"apple.com",Va:[]}};
+function kg(a){for(var b in jg)if(jg[b].ea==a)return jg[b];return null};function lg(a){var b={};b["facebook.com"]=mg;b["google.com"]=ng;b["github.com"]=og;b["twitter.com"]=pg;var c=a&&a[qg];try{if(c)return b[c]?new b[c](a):new rg(a);if("undefined"!==typeof a[sg])return new tg(a)}catch(d){}return null}var sg="idToken",qg="providerId";
+function tg(a){var b=a[qg];if(!b&&a[sg]){var c=gg(a[sg]);c&&c.a&&(b=c.a)}if(!b)throw Error("Invalid additional user info!");if("anonymous"==b||"custom"==b)b=null;c=!1;"undefined"!==typeof a.isNewUser?c=!!a.isNewUser:"identitytoolkit#SignupNewUserResponse"===a.kind&&(c=!0);K(this,"providerId",b);K(this,"isNewUser",c)}function rg(a){tg.call(this,a);a=Te(a.rawUserInfo||"{}");K(this,"profile",kf(a||{}))}r(rg,tg);
+function mg(a){rg.call(this,a);if("facebook.com"!=this.providerId)throw Error("Invalid provider ID!");}r(mg,rg);function og(a){rg.call(this,a);if("github.com"!=this.providerId)throw Error("Invalid provider ID!");K(this,"username",this.profile&&this.profile.login||null)}r(og,rg);function ng(a){rg.call(this,a);if("google.com"!=this.providerId)throw Error("Invalid provider ID!");}r(ng,rg);
+function pg(a){rg.call(this,a);if("twitter.com"!=this.providerId)throw Error("Invalid provider ID!");K(this,"username",a.screenName||null)}r(pg,rg);function ug(a){var b=Zd(a),c=Yd(b,"link"),d=Yd(Zd(c),"link");b=Yd(b,"deep_link_id");return Yd(Zd(b),"link")||b||d||c||a};function vg(a,b){if(!a&&!b)throw new t("internal-error","Internal assert: no raw session string available");if(a&&b)throw new t("internal-error","Internal assert: unable to determine the session type");this.a=a||null;this.b=b||null;this.type=this.a?wg:xg}var wg="enroll",xg="signin";vg.prototype.Fa=function(){return this.a?D(this.a):D(this.b)};vg.prototype.v=function(){return this.type==wg?{multiFactorSession:{idToken:this.a}}:{multiFactorSession:{pendingCredential:this.b}}};function yg(){}yg.prototype.ia=function(){};yg.prototype.b=function(){};yg.prototype.c=function(){};yg.prototype.v=function(){};function zg(a,b){return a.then(function(c){if(c[Ag]){var d=gg(c[Ag]);if(!d||b!=d.h)throw new t("user-mismatch");return c}throw new t("user-mismatch");}).o(function(c){throw c&&c.code&&c.code==va+"user-not-found"?new t("user-mismatch"):c;})}
+function Bg(a,b){if(b)this.a=b;else throw new t("internal-error","failed to construct a credential");K(this,"providerId",a);K(this,"signInMethod",a)}Bg.prototype.ia=function(a){return Cg(a,Dg(this))};Bg.prototype.b=function(a,b){var c=Dg(this);c.idToken=b;return Eg(a,c)};Bg.prototype.c=function(a,b){return zg(Fg(a,Dg(this)),b)};function Dg(a){return{pendingToken:a.a,requestUri:"http://localhost"}}Bg.prototype.v=function(){return{providerId:this.providerId,signInMethod:this.signInMethod,pendingToken:this.a}};
+function Gg(a){if(a&&a.providerId&&a.signInMethod&&0==a.providerId.indexOf("saml.")&&a.pendingToken)try{return new Bg(a.providerId,a.pendingToken)}catch(b){}return null}
+function Hg(a,b,c){this.a=null;if(b.idToken||b.accessToken)b.idToken&&K(this,"idToken",b.idToken),b.accessToken&&K(this,"accessToken",b.accessToken),b.nonce&&!b.pendingToken&&K(this,"nonce",b.nonce),b.pendingToken&&(this.a=b.pendingToken);else if(b.oauthToken&&b.oauthTokenSecret)K(this,"accessToken",b.oauthToken),K(this,"secret",b.oauthTokenSecret);else throw new t("internal-error","failed to construct a credential");K(this,"providerId",a);K(this,"signInMethod",c)}
+Hg.prototype.ia=function(a){return Cg(a,Ig(this))};Hg.prototype.b=function(a,b){var c=Ig(this);c.idToken=b;return Eg(a,c)};Hg.prototype.c=function(a,b){var c=Ig(this);return zg(Fg(a,c),b)};
+function Ig(a){var b={};a.idToken&&(b.id_token=a.idToken);a.accessToken&&(b.access_token=a.accessToken);a.secret&&(b.oauth_token_secret=a.secret);b.providerId=a.providerId;a.nonce&&!a.a&&(b.nonce=a.nonce);b={postBody:ce(b).toString(),requestUri:"http://localhost"};a.a&&(delete b.postBody,b.pendingToken=a.a);return b}
+Hg.prototype.v=function(){var a={providerId:this.providerId,signInMethod:this.signInMethod};this.idToken&&(a.oauthIdToken=this.idToken);this.accessToken&&(a.oauthAccessToken=this.accessToken);this.secret&&(a.oauthTokenSecret=this.secret);this.nonce&&(a.nonce=this.nonce);this.a&&(a.pendingToken=this.a);return a};
+function Jg(a){if(a&&a.providerId&&a.signInMethod){var b={idToken:a.oauthIdToken,accessToken:a.oauthTokenSecret?null:a.oauthAccessToken,oauthTokenSecret:a.oauthTokenSecret,oauthToken:a.oauthTokenSecret&&a.oauthAccessToken,nonce:a.nonce,pendingToken:a.pendingToken};try{return new Hg(a.providerId,b,a.signInMethod)}catch(c){}}return null}function Kg(a,b){this.Oc=b||[];L(this,{providerId:a,isOAuthProvider:!0});this.Fb={};this.lb=(kg(a)||{}).Ha||null;this.kb=null}
+Kg.prototype.Ia=function(a){this.Fb=lb(a);return this};function Lg(a){if("string"!==typeof a||0!=a.indexOf("saml."))throw new t("argument-error",'SAML provider IDs must be prefixed with "saml."');Kg.call(this,a,[])}r(Lg,Kg);function M(a){Kg.call(this,a,ig);this.a=[]}r(M,Kg);M.prototype.Aa=function(a){Ta(this.a,a)||this.a.push(a);return this};M.prototype.Nb=function(){return Xa(this.a)};
+M.prototype.credential=function(a,b){var c;n(a)?c={idToken:a.idToken||null,accessToken:a.accessToken||null,nonce:a.rawNonce||null}:c={idToken:a||null,accessToken:b||null};if(!c.idToken&&!c.accessToken)throw new t("argument-error","credential failed: must provide the ID token and/or the access token.");return new Hg(this.providerId,c,this.providerId)};function Mg(){M.call(this,"facebook.com")}r(Mg,M);K(Mg,"PROVIDER_ID","facebook.com");K(Mg,"FACEBOOK_SIGN_IN_METHOD","facebook.com");
+function Ng(a){if(!a)throw new t("argument-error","credential failed: expected 1 argument (the OAuth access token).");var b=a;n(a)&&(b=a.accessToken);return(new Mg).credential({accessToken:b})}function Og(){M.call(this,"github.com")}r(Og,M);K(Og,"PROVIDER_ID","github.com");K(Og,"GITHUB_SIGN_IN_METHOD","github.com");
+function Pg(a){if(!a)throw new t("argument-error","credential failed: expected 1 argument (the OAuth access token).");var b=a;n(a)&&(b=a.accessToken);return(new Og).credential({accessToken:b})}function Qg(){M.call(this,"google.com");this.Aa("profile")}r(Qg,M);K(Qg,"PROVIDER_ID","google.com");K(Qg,"GOOGLE_SIGN_IN_METHOD","google.com");function Rg(a,b){var c=a;n(a)&&(c=a.idToken,b=a.accessToken);return(new Qg).credential({idToken:c,accessToken:b})}function Sg(){Kg.call(this,"twitter.com",hg)}r(Sg,Kg);
+K(Sg,"PROVIDER_ID","twitter.com");K(Sg,"TWITTER_SIGN_IN_METHOD","twitter.com");function Tg(a,b){var c=a;n(c)||(c={oauthToken:a,oauthTokenSecret:b});if(!c.oauthToken||!c.oauthTokenSecret)throw new t("argument-error","credential failed: expected 2 arguments (the OAuth access token and secret).");return new Hg("twitter.com",c,"twitter.com")}
+function Ug(a,b,c){this.a=a;this.f=b;K(this,"providerId","password");K(this,"signInMethod",c===Vg.EMAIL_LINK_SIGN_IN_METHOD?Vg.EMAIL_LINK_SIGN_IN_METHOD:Vg.EMAIL_PASSWORD_SIGN_IN_METHOD)}Ug.prototype.ia=function(a){return this.signInMethod==Vg.EMAIL_LINK_SIGN_IN_METHOD?N(a,Wg,{email:this.a,oobCode:this.f}):N(a,Xg,{email:this.a,password:this.f})};
+Ug.prototype.b=function(a,b){return this.signInMethod==Vg.EMAIL_LINK_SIGN_IN_METHOD?N(a,Yg,{idToken:b,email:this.a,oobCode:this.f}):N(a,Zg,{idToken:b,email:this.a,password:this.f})};Ug.prototype.c=function(a,b){return zg(this.ia(a),b)};Ug.prototype.v=function(){return{email:this.a,password:this.f,signInMethod:this.signInMethod}};function $g(a){return a&&a.email&&a.password?new Ug(a.email,a.password,a.signInMethod):null}function Vg(){L(this,{providerId:"password",isOAuthProvider:!1})}
+function ah(a,b){b=bh(b);if(!b)throw new t("argument-error","Invalid email link!");return new Ug(a,b.code,Vg.EMAIL_LINK_SIGN_IN_METHOD)}function bh(a){a=ug(a);return(a=Of(a))&&a.operation===xf?a:null}L(Vg,{PROVIDER_ID:"password"});L(Vg,{EMAIL_LINK_SIGN_IN_METHOD:"emailLink"});L(Vg,{EMAIL_PASSWORD_SIGN_IN_METHOD:"password"});function ch(a){if(!(a.bb&&a.ab||a.Ja&&a.da))throw new t("internal-error");this.a=a;K(this,"providerId","phone");this.ea="phone";K(this,"signInMethod","phone")}
+ch.prototype.ia=function(a){return a.cb(dh(this))};ch.prototype.b=function(a,b){var c=dh(this);c.idToken=b;return N(a,eh,c)};ch.prototype.c=function(a,b){var c=dh(this);c.operation="REAUTH";a=N(a,fh,c);return zg(a,b)};ch.prototype.v=function(){var a={providerId:"phone"};this.a.bb&&(a.verificationId=this.a.bb);this.a.ab&&(a.verificationCode=this.a.ab);this.a.Ja&&(a.temporaryProof=this.a.Ja);this.a.da&&(a.phoneNumber=this.a.da);return a};
+function gh(a){if(a&&"phone"===a.providerId&&(a.verificationId&&a.verificationCode||a.temporaryProof&&a.phoneNumber)){var b={};w(["verificationId","verificationCode","temporaryProof","phoneNumber"],function(c){a[c]&&(b[c]=a[c])});return new ch(b)}return null}function dh(a){return a.a.Ja&&a.a.da?{temporaryProof:a.a.Ja,phoneNumber:a.a.da}:{sessionInfo:a.a.bb,code:a.a.ab}}
+function hh(a){try{this.a=a||firebase.auth()}catch(b){throw new t("argument-error","Either an instance of firebase.auth.Auth must be passed as an argument to the firebase.auth.PhoneAuthProvider constructor, or the default firebase App instance must be initialized via firebase.initializeApp().");}L(this,{providerId:"phone",isOAuthProvider:!1})}
+hh.prototype.cb=function(a,b){var c=this.a.b;return D(b.verify()).then(function(d){if("string"!==typeof d)throw new t("argument-error","An implementation of firebase.auth.ApplicationVerifier.prototype.verify() must return a firebase.Promise that resolves with a string.");switch(b.type){case "recaptcha":var e=n(a)?a.session:null,f=n(a)?a.phoneNumber:a,g;e&&e.type==wg?g=e.Fa().then(function(h){return ih(c,{idToken:h,phoneEnrollmentInfo:{phoneNumber:f,recaptchaToken:d}})}):e&&e.type==xg?g=e.Fa().then(function(h){return jh(c,
+{mfaPendingCredential:h,mfaEnrollmentId:a.multiFactorHint&&a.multiFactorHint.uid||a.multiFactorUid,phoneSignInInfo:{recaptchaToken:d}})}):g=kh(c,{phoneNumber:f,recaptchaToken:d});return g.then(function(h){"function"===typeof b.reset&&b.reset();return h},function(h){"function"===typeof b.reset&&b.reset();throw h;});default:throw new t("argument-error",'Only firebase.auth.ApplicationVerifiers with type="recaptcha" are currently supported.');}})};
+function lh(a,b){if(!a)throw new t("missing-verification-id");if(!b)throw new t("missing-verification-code");return new ch({bb:a,ab:b})}L(hh,{PROVIDER_ID:"phone"});L(hh,{PHONE_SIGN_IN_METHOD:"phone"});
+function mh(a){if(a.temporaryProof&&a.phoneNumber)return new ch({Ja:a.temporaryProof,da:a.phoneNumber});var b=a&&a.providerId;if(!b||"password"===b)return null;var c=a&&a.oauthAccessToken,d=a&&a.oauthTokenSecret,e=a&&a.nonce,f=a&&a.oauthIdToken,g=a&&a.pendingToken;try{switch(b){case "google.com":return Rg(f,c);case "facebook.com":return Ng(c);case "github.com":return Pg(c);case "twitter.com":return Tg(c,d);default:return c||d||f||g?g?0==b.indexOf("saml.")?new Bg(b,g):new Hg(b,{pendingToken:g,idToken:a.oauthIdToken,
+accessToken:a.oauthAccessToken},b):(new M(b)).credential({idToken:f,accessToken:c,rawNonce:e}):null}}catch(h){return null}}function nh(a){if(!a.isOAuthProvider)throw new t("invalid-oauth-provider");};function oh(a,b,c,d,e,f,g){this.c=a;this.b=b||null;this.g=c||null;this.f=d||null;this.i=f||null;this.h=g||null;this.a=e||null;if(this.g||this.a){if(this.g&&this.a)throw new t("invalid-auth-event");if(this.g&&!this.f)throw new t("invalid-auth-event");}else throw new t("invalid-auth-event");}oh.prototype.getUid=function(){var a=[];a.push(this.c);this.b&&a.push(this.b);this.f&&a.push(this.f);this.h&&a.push(this.h);return a.join("-")};oh.prototype.S=function(){return this.h};
+oh.prototype.v=function(){return{type:this.c,eventId:this.b,urlResponse:this.g,sessionId:this.f,postBody:this.i,tenantId:this.h,error:this.a&&this.a.v()}};function ph(a){a=a||{};return a.type?new oh(a.type,a.eventId,a.urlResponse,a.sessionId,a.error&&ya(a.error),a.postBody,a.tenantId):null};/*
+
+ Copyright 2018 Google Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function qh(){this.b=null;this.a=[]}var rh=null;function sh(a){var b=rh;b.a.push(a);b.b||(b.b=function(c){for(var d=0;d<b.a.length;d++)b.a[d](c)},a=J("universalLinks.subscribe",l),"function"===typeof a&&a(null,b.b))};function th(a){var b="unauthorized-domain",c=void 0,d=Zd(a);a=d.b;d=d.f;"chrome-extension"==d?c=Nb("This chrome extension ID (chrome-extension://%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.",a):"http"==d||"https"==d?c=Nb("This domain (%s) is not authorized to run this operation. Add it to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.",a):b="operation-not-supported-in-this-environment";
+t.call(this,b,c)}r(th,t);function uh(a,b,c){t.call(this,a,c);a=b||{};a.Gb&&K(this,"email",a.Gb);a.da&&K(this,"phoneNumber",a.da);a.credential&&K(this,"credential",a.credential);a.Wb&&K(this,"tenantId",a.Wb)}r(uh,t);uh.prototype.v=function(){var a={code:this.code,message:this.message};this.email&&(a.email=this.email);this.phoneNumber&&(a.phoneNumber=this.phoneNumber);this.tenantId&&(a.tenantId=this.tenantId);var b=this.credential&&this.credential.v();b&&z(a,b);return a};uh.prototype.toJSON=function(){return this.v()};
+function vh(a){if(a.code){var b=a.code||"";0==b.indexOf(va)&&(b=b.substring(va.length));var c={credential:mh(a),Wb:a.tenantId};if(a.email)c.Gb=a.email;else if(a.phoneNumber)c.da=a.phoneNumber;else if(!c.credential)return new t(b,a.message||void 0);return new uh(b,c,a.message)}return null};function wh(){}wh.prototype.c=null;function xh(a){return a.c||(a.c=a.b())};var yh;function zh(){}r(zh,wh);zh.prototype.a=function(){var a=Ah(this);return a?new ActiveXObject(a):new XMLHttpRequest};zh.prototype.b=function(){var a={};Ah(this)&&(a[0]=!0,a[1]=!0);return a};
+function Ah(a){if(!a.f&&"undefined"==typeof XMLHttpRequest&&"undefined"!=typeof ActiveXObject){for(var b=["MSXML2.XMLHTTP.6.0","MSXML2.XMLHTTP.3.0","MSXML2.XMLHTTP","Microsoft.XMLHTTP"],c=0;c<b.length;c++){var d=b[c];try{return new ActiveXObject(d),a.f=d}catch(e){}}throw Error("Could not create ActiveXObject. ActiveX might be disabled, or MSXML might not be installed");}return a.f}yh=new zh;function Bh(){}r(Bh,wh);Bh.prototype.a=function(){var a=new XMLHttpRequest;if("withCredentials"in a)return a;if("undefined"!=typeof XDomainRequest)return new Ch;throw Error("Unsupported browser");};Bh.prototype.b=function(){return{}};
+function Ch(){this.a=new XDomainRequest;this.readyState=0;this.onreadystatechange=null;this.responseType=this.responseText=this.response="";this.status=-1;this.statusText="";this.a.onload=q(this.oc,this);this.a.onerror=q(this.Pb,this);this.a.onprogress=q(this.pc,this);this.a.ontimeout=q(this.tc,this)}k=Ch.prototype;k.open=function(a,b,c){if(null!=c&&!c)throw Error("Only async requests are supported.");this.a.open(a,b)};
+k.send=function(a){if(a)if("string"==typeof a)this.a.send(a);else throw Error("Only string data is supported");else this.a.send()};k.abort=function(){this.a.abort()};k.setRequestHeader=function(){};k.getResponseHeader=function(a){return"content-type"==a.toLowerCase()?this.a.contentType:""};k.oc=function(){this.status=200;this.response=this.responseText=this.a.responseText;Dh(this,4)};k.Pb=function(){this.status=500;this.response=this.responseText="";Dh(this,4)};k.tc=function(){this.Pb()};
+k.pc=function(){this.status=200;Dh(this,1)};function Dh(a,b){a.readyState=b;if(a.onreadystatechange)a.onreadystatechange()}k.getAllResponseHeaders=function(){return"content-type: "+this.a.contentType};function Eh(a,b,c){this.reset(a,b,c,void 0,void 0)}Eh.prototype.a=null;var Fh=0;Eh.prototype.reset=function(a,b,c,d,e){"number"==typeof e||Fh++;d||ua();delete this.a};function Gh(a){this.f=a;this.b=this.c=this.a=null}function Hh(a,b){this.name=a;this.value=b}Hh.prototype.toString=function(){return this.name};var Ih=new Hh("SEVERE",1E3),Jh=new Hh("WARNING",900),Kh=new Hh("CONFIG",700),Lh=new Hh("FINE",500);function Mh(a){if(a.c)return a.c;if(a.a)return Mh(a.a);Ea("Root logger has no level set.");return null}Gh.prototype.log=function(a,b,c){if(a.value>=Mh(this).value)for(na(b)&&(b=b()),a=new Eh(a,String(b),this.f),c&&(a.a=c),c=this;c;)c=c.a};var Nh={},Oh=null;
+function Ph(a){Oh||(Oh=new Gh(""),Nh[""]=Oh,Oh.c=Kh);var b;if(!(b=Nh[a])){b=new Gh(a);var c=a.lastIndexOf("."),d=a.substr(c+1);c=Ph(a.substr(0,c));c.b||(c.b={});c.b[d]=b;b.a=c;Nh[a]=b}return b};function Qh(a,b){a&&a.log(Lh,b,void 0)};function Rh(a){this.f=a}r(Rh,wh);Rh.prototype.a=function(){return new Sh(this.f)};Rh.prototype.b=function(a){return function(){return a}}({});function Sh(a){G.call(this);this.s=a;this.readyState=Th;this.status=0;this.responseType=this.responseText=this.response=this.statusText="";this.onreadystatechange=null;this.i=new Headers;this.b=null;this.m="GET";this.g="";this.a=!1;this.h=Ph("goog.net.FetchXmlHttp");this.l=this.c=this.f=null}r(Sh,G);var Th=0;k=Sh.prototype;
+k.open=function(a,b){if(this.readyState!=Th)throw this.abort(),Error("Error reopening a connection");this.m=a;this.g=b;this.readyState=1;Uh(this)};k.send=function(a){if(1!=this.readyState)throw this.abort(),Error("need to call open() first. ");this.a=!0;var b={headers:this.i,method:this.m,credentials:void 0,cache:void 0};a&&(b.body=a);this.s.fetch(new Request(this.g,b)).then(this.sc.bind(this),this.Sa.bind(this))};
+k.abort=function(){this.response=this.responseText="";this.i=new Headers;this.status=0;this.c&&this.c.cancel("Request was aborted.");1<=this.readyState&&this.a&&4!=this.readyState&&(this.a=!1,Vh(this,!1));this.readyState=Th};
+k.sc=function(a){this.a&&(this.f=a,this.b||(this.b=a.headers,this.readyState=2,Uh(this)),this.a&&(this.readyState=3,Uh(this),this.a&&("arraybuffer"===this.responseType?a.arrayBuffer().then(this.qc.bind(this),this.Sa.bind(this)):"undefined"!==typeof l.ReadableStream&&"body"in a?(this.response=this.responseText="",this.c=a.body.getReader(),this.l=new TextDecoder,Wh(this)):a.text().then(this.rc.bind(this),this.Sa.bind(this)))))};function Wh(a){a.c.read().then(a.nc.bind(a)).catch(a.Sa.bind(a))}
+k.nc=function(a){if(this.a){var b=this.l.decode(a.value?a.value:new Uint8Array(0),{stream:!a.done});b&&(this.response=this.responseText+=b);a.done?Vh(this,!0):Uh(this);3==this.readyState&&Wh(this)}};k.rc=function(a){this.a&&(this.response=this.responseText=a,Vh(this,!0))};k.qc=function(a){this.a&&(this.response=a,Vh(this,!0))};k.Sa=function(a){var b=this.h;b&&b.log(Jh,"Failed to fetch url "+this.g,a instanceof Error?a:Error(a));this.a&&Vh(this,!0)};
+function Vh(a,b){b&&a.f&&(a.status=a.f.status,a.statusText=a.f.statusText);a.readyState=4;a.f=null;a.c=null;a.l=null;Uh(a)}k.setRequestHeader=function(a,b){this.i.append(a,b)};k.getResponseHeader=function(a){return this.b?this.b.get(a.toLowerCase())||"":((a=this.h)&&a.log(Jh,"Attempting to get response header but no headers have been received for url: "+this.g,void 0),"")};
+k.getAllResponseHeaders=function(){if(!this.b){var a=this.h;a&&a.log(Jh,"Attempting to get all response headers but no headers have been received for url: "+this.g,void 0);return""}a=[];for(var b=this.b.entries(),c=b.next();!c.done;)c=c.value,a.push(c[0]+": "+c[1]),c=b.next();return a.join("\r\n")};function Uh(a){a.onreadystatechange&&a.onreadystatechange.call(a)};function Xh(a){G.call(this);this.headers=new Fd;this.D=a||null;this.c=!1;this.B=this.a=null;this.h=this.P=this.l="";this.f=this.O=this.i=this.N=!1;this.g=0;this.s=null;this.m=Yh;this.w=this.R=!1}r(Xh,G);var Yh="";Xh.prototype.b=Ph("goog.net.XhrIo");var Zh=/^https?$/i,$h=["POST","PUT"];
+function ai(a,b,c,d,e){if(a.a)throw Error("[goog.net.XhrIo] Object is active with another request="+a.l+"; newUri="+b);c=c?c.toUpperCase():"GET";a.l=b;a.h="";a.P=c;a.N=!1;a.c=!0;a.a=a.D?a.D.a():yh.a();a.B=a.D?xh(a.D):xh(yh);a.a.onreadystatechange=q(a.Sb,a);try{Qh(a.b,bi(a,"Opening Xhr")),a.O=!0,a.a.open(c,String(b),!0),a.O=!1}catch(g){Qh(a.b,bi(a,"Error opening Xhr: "+g.message));ci(a,g);return}b=d||"";var f=new Fd(a.headers);e&&Ed(e,function(g,h){f.set(h,g)});e=Ra(f.X());d=l.FormData&&b instanceof
+l.FormData;!Ta($h,c)||e||d||f.set("Content-Type","application/x-www-form-urlencoded;charset=utf-8");f.forEach(function(g,h){this.a.setRequestHeader(h,g)},a);a.m&&(a.a.responseType=a.m);"withCredentials"in a.a&&a.a.withCredentials!==a.R&&(a.a.withCredentials=a.R);try{di(a),0<a.g&&(a.w=ei(a.a),Qh(a.b,bi(a,"Will abort after "+a.g+"ms if incomplete, xhr2 "+a.w)),a.w?(a.a.timeout=a.g,a.a.ontimeout=q(a.Ka,a)):a.s=Ad(a.Ka,a.g,a)),Qh(a.b,bi(a,"Sending request")),a.i=!0,a.a.send(b),a.i=!1}catch(g){Qh(a.b,
+bi(a,"Send error: "+g.message)),ci(a,g)}}function ei(a){return Tb&&cc(9)&&"number"===typeof a.timeout&&void 0!==a.ontimeout}function Sa(a){return"content-type"==a.toLowerCase()}k=Xh.prototype;k.Ka=function(){"undefined"!=typeof ha&&this.a&&(this.h="Timed out after "+this.g+"ms, aborting",Qh(this.b,bi(this,this.h)),this.dispatchEvent("timeout"),this.abort(8))};function ci(a,b){a.c=!1;a.a&&(a.f=!0,a.a.abort(),a.f=!1);a.h=b;fi(a);gi(a)}
+function fi(a){a.N||(a.N=!0,a.dispatchEvent("complete"),a.dispatchEvent("error"))}k.abort=function(){this.a&&this.c&&(Qh(this.b,bi(this,"Aborting")),this.c=!1,this.f=!0,this.a.abort(),this.f=!1,this.dispatchEvent("complete"),this.dispatchEvent("abort"),gi(this))};k.Ba=function(){this.a&&(this.c&&(this.c=!1,this.f=!0,this.a.abort(),this.f=!1),gi(this,!0));Xh.Za.Ba.call(this)};k.Sb=function(){this.wa||(this.O||this.i||this.f?hi(this):this.Hc())};k.Hc=function(){hi(this)};
+function hi(a){if(a.c&&"undefined"!=typeof ha)if(a.B[1]&&4==ii(a)&&2==ji(a))Qh(a.b,bi(a,"Local request error detected and ignored"));else if(a.i&&4==ii(a))Ad(a.Sb,0,a);else if(a.dispatchEvent("readystatechange"),4==ii(a)){Qh(a.b,bi(a,"Request complete"));a.c=!1;try{var b=ji(a);a:switch(b){case 200:case 201:case 202:case 204:case 206:case 304:case 1223:var c=!0;break a;default:c=!1}var d;if(!(d=c)){var e;if(e=0===b){var f=String(a.l).match(Id)[1]||null;if(!f&&l.self&&l.self.location){var g=l.self.location.protocol;
+f=g.substr(0,g.length-1)}e=!Zh.test(f?f.toLowerCase():"")}d=e}if(d)a.dispatchEvent("complete"),a.dispatchEvent("success");else{try{var h=2<ii(a)?a.a.statusText:""}catch(m){Qh(a.b,"Can not get status: "+m.message),h=""}a.h=h+" ["+ji(a)+"]";fi(a)}}finally{gi(a)}}}function gi(a,b){if(a.a){di(a);var c=a.a,d=a.B[0]?ka:null;a.a=null;a.B=null;b||a.dispatchEvent("ready");try{c.onreadystatechange=d}catch(e){(a=a.b)&&a.log(Ih,"Problem encountered resetting onreadystatechange: "+e.message,void 0)}}}
+function di(a){a.a&&a.w&&(a.a.ontimeout=null);a.s&&(l.clearTimeout(a.s),a.s=null)}function ii(a){return a.a?a.a.readyState:0}function ji(a){try{return 2<ii(a)?a.a.status:-1}catch(b){return-1}}function ki(a){try{return a.a?a.a.responseText:""}catch(b){return Qh(a.b,"Can not get responseText: "+b.message),""}}
+k.getResponse=function(){try{if(!this.a)return null;if("response"in this.a)return this.a.response;switch(this.m){case Yh:case "text":return this.a.responseText;case "arraybuffer":if("mozResponseArrayBuffer"in this.a)return this.a.mozResponseArrayBuffer}var a=this.b;a&&a.log(Ih,"Response type "+this.m+" is not supported on this browser",void 0);return null}catch(b){return Qh(this.b,"Can not get response: "+b.message),null}};function bi(a,b){return b+" ["+a.P+" "+a.l+" "+ji(a)+"]"};/*
+ Portions of this code are from MochiKit, received by
+ The Closure Authors under the MIT license. All other code is Copyright
+ 2005-2009 The Closure Authors. All Rights Reserved.
+*/
+function li(a){var b=mi;this.g=[];this.w=b;this.s=a||null;this.f=this.a=!1;this.c=void 0;this.u=this.B=this.i=!1;this.h=0;this.b=null;this.l=0}li.prototype.cancel=function(a){if(this.a)this.c instanceof li&&this.c.cancel();else{if(this.b){var b=this.b;delete this.b;a?b.cancel(a):(b.l--,0>=b.l&&b.cancel())}this.w?this.w.call(this.s,this):this.u=!0;this.a||(a=new ni(this),oi(this),pi(this,!1,a))}};li.prototype.m=function(a,b){this.i=!1;pi(this,a,b)};function pi(a,b,c){a.a=!0;a.c=c;a.f=!b;qi(a)}
+function oi(a){if(a.a){if(!a.u)throw new ri(a);a.u=!1}}function si(a,b){ti(a,null,b,void 0)}function ti(a,b,c,d){a.g.push([b,c,d]);a.a&&qi(a)}li.prototype.then=function(a,b,c){var d,e,f=new B(function(g,h){d=g;e=h});ti(this,d,function(g){g instanceof ni?f.cancel():e(g)});return f.then(a,b,c)};li.prototype.$goog_Thenable=!0;function ui(a){return Qa(a.g,function(b){return na(b[1])})}
+function qi(a){if(a.h&&a.a&&ui(a)){var b=a.h,c=vi[b];c&&(l.clearTimeout(c.a),delete vi[b]);a.h=0}a.b&&(a.b.l--,delete a.b);b=a.c;for(var d=c=!1;a.g.length&&!a.i;){var e=a.g.shift(),f=e[0],g=e[1];e=e[2];if(f=a.f?g:f)try{var h=f.call(e||a.s,b);void 0!==h&&(a.f=a.f&&(h==b||h instanceof Error),a.c=b=h);if(Ca(b)||"function"===typeof l.Promise&&b instanceof l.Promise)d=!0,a.i=!0}catch(m){b=m,a.f=!0,ui(a)||(c=!0)}}a.c=b;d&&(h=q(a.m,a,!0),d=q(a.m,a,!1),b instanceof li?(ti(b,h,d),b.B=!0):b.then(h,d));c&&(b=
+new wi(b),vi[b.a]=b,a.h=b.a)}function ri(){u.call(this)}r(ri,u);ri.prototype.message="Deferred has already fired";ri.prototype.name="AlreadyCalledError";function ni(){u.call(this)}r(ni,u);ni.prototype.message="Deferred was canceled";ni.prototype.name="CanceledError";function wi(a){this.a=l.setTimeout(q(this.c,this),0);this.b=a}wi.prototype.c=function(){delete vi[this.a];throw this.b;};var vi={};function xi(a){var b={},c=b.document||document,d=wb(a).toString(),e=jc(document,"SCRIPT"),f={Tb:e,Ka:void 0},g=new li(f),h=null,m=null!=b.timeout?b.timeout:5E3;0<m&&(h=window.setTimeout(function(){yi(e,!0);var p=new zi(Ai,"Timeout reached for loading script "+d);oi(g);pi(g,!1,p)},m),f.Ka=h);e.onload=e.onreadystatechange=function(){e.readyState&&"loaded"!=e.readyState&&"complete"!=e.readyState||(yi(e,b.ud||!1,h),oi(g),pi(g,!0,null))};e.onerror=function(){yi(e,!0,h);var p=new zi(Bi,"Error while loading script "+
+d);oi(g);pi(g,!1,p)};f=b.attributes||{};z(f,{type:"text/javascript",charset:"UTF-8"});gc(e,f);Mb(e,a);Ci(c).appendChild(e);return g}function Ci(a){var b;return(b=(a||document).getElementsByTagName("HEAD"))&&0!=b.length?b[0]:a.documentElement}function mi(){if(this&&this.Tb){var a=this.Tb;a&&"SCRIPT"==a.tagName&&yi(a,!0,this.Ka)}}
+function yi(a,b,c){null!=c&&l.clearTimeout(c);a.onload=ka;a.onerror=ka;a.onreadystatechange=ka;b&&window.setTimeout(function(){a&&a.parentNode&&a.parentNode.removeChild(a)},0)}var Bi=0,Ai=1;function zi(a,b){var c="Jsloader error (code #"+a+")";b&&(c+=": "+b);u.call(this,c);this.code=a}r(zi,u);function Di(a){this.f=a}r(Di,wh);Di.prototype.a=function(){return new this.f};Di.prototype.b=function(){return{}};
+function Ei(a,b,c){this.c=a;a=b||{};this.u=a.secureTokenEndpoint||"https://securetoken.googleapis.com/v1/token";this.m=a.secureTokenTimeout||Fi;this.g=lb(a.secureTokenHeaders||Gi);this.h=a.firebaseEndpoint||"https://www.googleapis.com/identitytoolkit/v3/relyingparty/";this.l=a.identityPlatformEndpoint||"https://identitytoolkit.googleapis.com/v2/";this.i=a.firebaseTimeout||Hi;this.a=lb(a.firebaseHeaders||Ii);c&&(this.a["X-Client-Version"]=c,this.g["X-Client-Version"]=c);c="Node"==He();c=l.XMLHttpRequest||
+c&&firebase.INTERNAL.node&&firebase.INTERNAL.node.XMLHttpRequest;if(!c&&!Ge())throw new t("internal-error","The XMLHttpRequest compatibility library was not found.");this.f=void 0;Ge()?this.f=new Rh(self):Ie()?this.f=new Di(c):this.f=new Bh;this.b=null}var Ji,Ag="idToken",Fi=new We(3E4,6E4),Gi={"Content-Type":"application/x-www-form-urlencoded"},Hi=new We(3E4,6E4),Ii={"Content-Type":"application/json"};function Ki(a,b){b?a.a["X-Firebase-Locale"]=b:delete a.a["X-Firebase-Locale"]}
+function Li(a,b){b?(a.a["X-Client-Version"]=b,a.g["X-Client-Version"]=b):(delete a.a["X-Client-Version"],delete a.g["X-Client-Version"])}Ei.prototype.S=function(){return this.b};function Mi(a,b,c,d,e,f,g){re()||Ge()?a=q(a.w,a):(Ji||(Ji=new B(function(h,m){Ni(h,m)})),a=q(a.s,a));a(b,c,d,e,f,g)}
+Ei.prototype.w=function(a,b,c,d,e,f){if(Ge()&&("undefined"===typeof l.fetch||"undefined"===typeof l.Headers||"undefined"===typeof l.Request))throw new t("operation-not-supported-in-this-environment","fetch, Headers and Request native APIs or equivalent Polyfills must be available to support HTTP requests from a Worker environment.");var g=new Xh(this.f);if(f){g.g=Math.max(0,f);var h=setTimeout(function(){g.dispatchEvent("timeout")},f)}md(g,"complete",function(){h&&clearTimeout(h);var m=null;try{m=
+JSON.parse(ki(this))||null}catch(p){m=null}b&&b(m)});sd(g,"ready",function(){h&&clearTimeout(h);Tc(this)});sd(g,"timeout",function(){h&&clearTimeout(h);Tc(this);b&&b(null)});ai(g,a,c,d,e)};var Oi=new ob(pb,"https://apis.google.com/js/client.js?onload=%{onload}"),Pi="__fcb"+Math.floor(1E6*Math.random()).toString();
+function Ni(a,b){if(((window.gapi||{}).client||{}).request)a();else{l[Pi]=function(){((window.gapi||{}).client||{}).request?a():b(Error("CORS_UNSUPPORTED"))};var c=xb(Oi,{onload:Pi});si(xi(c),function(){b(Error("CORS_UNSUPPORTED"))})}}
+Ei.prototype.s=function(a,b,c,d,e){var f=this;Ji.then(function(){window.gapi.client.setApiKey(f.c);var g=window.gapi.auth.getToken();window.gapi.auth.setToken(null);window.gapi.client.request({path:a,method:c,body:d,headers:e,authType:"none",callback:function(h){window.gapi.auth.setToken(g);b&&b(h)}})}).o(function(g){b&&b({error:{message:g&&g.message||"CORS_UNSUPPORTED"}})})};
+function Qi(a,b){return new B(function(c,d){"refresh_token"==b.grant_type&&b.refresh_token||"authorization_code"==b.grant_type&&b.code?Mi(a,a.u+"?key="+encodeURIComponent(a.c),function(e){e?e.error?d(Ri(e)):e.access_token&&e.refresh_token?c(e):d(new t("internal-error")):d(new t("network-request-failed"))},"POST",ce(b).toString(),a.g,a.m.get()):d(new t("internal-error"))})}
+function Si(a,b,c,d,e,f,g){var h=Zd(b+c);H(h,"key",a.c);g&&H(h,"cb",ua().toString());var m="GET"==d;if(m)for(var p in e)e.hasOwnProperty(p)&&H(h,p,e[p]);return new B(function(v,C){Mi(a,h.toString(),function(A){A?A.error?C(Ri(A,f||{})):v(A):C(new t("network-request-failed"))},d,m?void 0:he(Se(e)),a.a,a.i.get())})}function Ti(a){a=a.email;if("string"!==typeof a||!Ae.test(a))throw new t("invalid-email");}function Ui(a){"email"in a&&Ti(a)}
+function Vi(a,b){return N(a,Wi,{identifier:b,continueUri:Pe()?oe():"http://localhost"}).then(function(c){return c.signinMethods||[]})}function Xi(a){return N(a,Yi,{}).then(function(b){return b.authorizedDomains||[]})}function O(a){if(!a[Ag]){if(a.mfaPendingCredential)throw new t("multi-factor-auth-required",null,lb(a));throw new t("internal-error");}}
+function Zi(a){if(a.phoneNumber||a.temporaryProof){if(!a.phoneNumber||!a.temporaryProof)throw new t("internal-error");}else{if(!a.sessionInfo)throw new t("missing-verification-id");if(!a.code)throw new t("missing-verification-code");}}Ei.prototype.vb=function(){return N(this,$i,{})};Ei.prototype.xb=function(a,b){return N(this,aj,{idToken:a,email:b})};Ei.prototype.yb=function(a,b){return N(this,Zg,{idToken:a,password:b})};var bj={displayName:"DISPLAY_NAME",photoUrl:"PHOTO_URL"};k=Ei.prototype;
+k.zb=function(a,b){var c={idToken:a},d=[];jb(bj,function(e,f){var g=b[f];null===g?d.push(e):f in b&&(c[f]=g)});d.length&&(c.deleteAttribute=d);return N(this,aj,c)};k.rb=function(a,b){a={requestType:"PASSWORD_RESET",email:a};z(a,b);return N(this,cj,a)};k.sb=function(a,b){a={requestType:"EMAIL_SIGNIN",email:a};z(a,b);return N(this,dj,a)};k.qb=function(a,b){a={requestType:"VERIFY_EMAIL",idToken:a};z(a,b);return N(this,ej,a)};
+k.Ab=function(a,b,c){a={requestType:"VERIFY_AND_CHANGE_EMAIL",idToken:a,newEmail:b};z(a,c);return N(this,fj,a)};function kh(a,b){return N(a,gj,b)}k.cb=function(a){return N(this,hj,a)};function ih(a,b){return N(a,ij,b).then(function(c){return c.phoneSessionInfo.sessionInfo})}
+function jj(a){if(!a.phoneVerificationInfo)throw new t("internal-error");if(!a.phoneVerificationInfo.sessionInfo)throw new t("missing-verification-id");if(!a.phoneVerificationInfo.code)throw new t("missing-verification-code");}function jh(a,b){return N(a,kj,b).then(function(c){return c.phoneResponseInfo.sessionInfo})}function lj(a,b,c){return N(a,mj,{idToken:b,deleteProvider:c})}function nj(a){if(!a.requestUri||!a.sessionId&&!a.postBody&&!a.pendingToken)throw new t("internal-error");}
+function oj(a,b){b.oauthIdToken&&b.providerId&&0==b.providerId.indexOf("oidc.")&&!b.pendingToken&&(a.sessionId?b.nonce=a.sessionId:a.postBody&&(a=new Qd(a.postBody),ge(a,"nonce")&&(b.nonce=a.get("nonce"))));return b}
+function pj(a){var b=null;a.needConfirmation?(a.code="account-exists-with-different-credential",b=vh(a)):"FEDERATED_USER_ID_ALREADY_LINKED"==a.errorMessage?(a.code="credential-already-in-use",b=vh(a)):"EMAIL_EXISTS"==a.errorMessage?(a.code="email-already-in-use",b=vh(a)):a.errorMessage&&(b=qj(a.errorMessage));if(b)throw b;O(a)}function Cg(a,b){b.returnIdpCredential=!0;return N(a,rj,b)}function Eg(a,b){b.returnIdpCredential=!0;return N(a,sj,b)}
+function Fg(a,b){b.returnIdpCredential=!0;b.autoCreate=!1;return N(a,tj,b)}function uj(a){if(!a.oobCode)throw new t("invalid-action-code");}k.jb=function(a,b){return N(this,vj,{oobCode:a,newPassword:b})};k.Pa=function(a){return N(this,wj,{oobCode:a})};k.fb=function(a){return N(this,xj,{oobCode:a})};
+var xj={endpoint:"setAccountInfo",A:uj,Y:"email",C:!0},wj={endpoint:"resetPassword",A:uj,G:function(a){var b=a.requestType;if(!b||!a.email&&"EMAIL_SIGNIN"!=b&&"VERIFY_AND_CHANGE_EMAIL"!=b)throw new t("internal-error");},C:!0},yj={endpoint:"signupNewUser",A:function(a){Ti(a);if(!a.password)throw new t("weak-password");},G:O,U:!0,C:!0},Wi={endpoint:"createAuthUri",C:!0},zj={endpoint:"deleteAccount",M:["idToken"]},mj={endpoint:"setAccountInfo",M:["idToken","deleteProvider"],A:function(a){if("array"!=
+la(a.deleteProvider))throw new t("internal-error");}},Wg={endpoint:"emailLinkSignin",M:["email","oobCode"],A:Ti,G:O,U:!0,C:!0},Yg={endpoint:"emailLinkSignin",M:["idToken","email","oobCode"],A:Ti,G:O,U:!0},Aj={endpoint:"accounts/mfaEnrollment:finalize",M:["idToken","phoneVerificationInfo"],A:jj,G:O,C:!0,La:!0},Bj={endpoint:"accounts/mfaSignIn:finalize",M:["mfaPendingCredential","phoneVerificationInfo"],A:jj,G:O,C:!0,La:!0},Cj={endpoint:"getAccountInfo"},dj={endpoint:"getOobConfirmationCode",M:["requestType"],
+A:function(a){if("EMAIL_SIGNIN"!=a.requestType)throw new t("internal-error");Ti(a)},Y:"email",C:!0},ej={endpoint:"getOobConfirmationCode",M:["idToken","requestType"],A:function(a){if("VERIFY_EMAIL"!=a.requestType)throw new t("internal-error");},Y:"email",C:!0},fj={endpoint:"getOobConfirmationCode",M:["idToken","newEmail","requestType"],A:function(a){if("VERIFY_AND_CHANGE_EMAIL"!=a.requestType)throw new t("internal-error");},Y:"email",C:!0},cj={endpoint:"getOobConfirmationCode",M:["requestType"],A:function(a){if("PASSWORD_RESET"!=
+a.requestType)throw new t("internal-error");Ti(a)},Y:"email",C:!0},Yi={hb:!0,endpoint:"getProjectConfig",Rb:"GET"},Dj={hb:!0,endpoint:"getRecaptchaParam",Rb:"GET",G:function(a){if(!a.recaptchaSiteKey)throw new t("internal-error");}},vj={endpoint:"resetPassword",A:uj,Y:"email",C:!0},gj={endpoint:"sendVerificationCode",M:["phoneNumber","recaptchaToken"],Y:"sessionInfo",C:!0},aj={endpoint:"setAccountInfo",M:["idToken"],A:Ui,U:!0},Zg={endpoint:"setAccountInfo",M:["idToken"],A:function(a){Ui(a);if(!a.password)throw new t("weak-password");
+},G:O,U:!0},$i={endpoint:"signupNewUser",G:O,U:!0,C:!0},ij={endpoint:"accounts/mfaEnrollment:start",M:["idToken","phoneEnrollmentInfo"],A:function(a){if(!a.phoneEnrollmentInfo)throw new t("internal-error");if(!a.phoneEnrollmentInfo.phoneNumber)throw new t("missing-phone-number");if(!a.phoneEnrollmentInfo.recaptchaToken)throw new t("missing-app-credential");},G:function(a){if(!a.phoneSessionInfo||!a.phoneSessionInfo.sessionInfo)throw new t("internal-error");},C:!0,La:!0},kj={endpoint:"accounts/mfaSignIn:start",
+M:["mfaPendingCredential","mfaEnrollmentId","phoneSignInInfo"],A:function(a){if(!a.phoneSignInInfo||!a.phoneSignInInfo.recaptchaToken)throw new t("missing-app-credential");},G:function(a){if(!a.phoneResponseInfo||!a.phoneResponseInfo.sessionInfo)throw new t("internal-error");},C:!0,La:!0},rj={endpoint:"verifyAssertion",A:nj,Wa:oj,G:pj,U:!0,C:!0},tj={endpoint:"verifyAssertion",A:nj,Wa:oj,G:function(a){if(a.errorMessage&&"USER_NOT_FOUND"==a.errorMessage)throw new t("user-not-found");if(a.errorMessage)throw qj(a.errorMessage);
+O(a)},U:!0,C:!0},sj={endpoint:"verifyAssertion",A:function(a){nj(a);if(!a.idToken)throw new t("internal-error");},Wa:oj,G:pj,U:!0},Ej={endpoint:"verifyCustomToken",A:function(a){if(!a.token)throw new t("invalid-custom-token");},G:O,U:!0,C:!0},Xg={endpoint:"verifyPassword",A:function(a){Ti(a);if(!a.password)throw new t("wrong-password");},G:O,U:!0,C:!0},hj={endpoint:"verifyPhoneNumber",A:Zi,G:O,C:!0},eh={endpoint:"verifyPhoneNumber",A:function(a){if(!a.idToken)throw new t("internal-error");Zi(a)},
+G:function(a){if(a.temporaryProof)throw a.code="credential-already-in-use",vh(a);O(a)}},fh={Eb:{USER_NOT_FOUND:"user-not-found"},endpoint:"verifyPhoneNumber",A:Zi,G:O,C:!0},Fj={endpoint:"accounts/mfaEnrollment:withdraw",M:["idToken","mfaEnrollmentId"],G:function(a){if(!!a[Ag]^!!a.refreshToken)throw new t("internal-error");},C:!0,La:!0};
+function N(a,b,c){if(!jf(c,b.M))return E(new t("internal-error"));var d=!!b.La,e=b.Rb||"POST",f;return D(c).then(b.A).then(function(){b.U&&(c.returnSecureToken=!0);b.C&&a.b&&"undefined"===typeof c.tenantId&&(c.tenantId=a.b);return d?Si(a,a.l,b.endpoint,e,c,b.Eb,b.hb||!1):Si(a,a.h,b.endpoint,e,c,b.Eb,b.hb||!1)}).then(function(g){f=g;return b.Wa?b.Wa(c,f):f}).then(b.G).then(function(){if(!b.Y)return f;if(!(b.Y in f))throw new t("internal-error");return f[b.Y]})}
+function qj(a){return Ri({error:{errors:[{message:a}],code:400,message:a}})}
+function Ri(a,b){var c=(a.error&&a.error.errors&&a.error.errors[0]||{}).reason||"";var d={keyInvalid:"invalid-api-key",ipRefererBlocked:"app-not-authorized"};if(c=d[c]?new t(d[c]):null)return c;c=a.error&&a.error.message||"";d={INVALID_CUSTOM_TOKEN:"invalid-custom-token",CREDENTIAL_MISMATCH:"custom-token-mismatch",MISSING_CUSTOM_TOKEN:"internal-error",INVALID_IDENTIFIER:"invalid-email",MISSING_CONTINUE_URI:"internal-error",INVALID_EMAIL:"invalid-email",INVALID_PASSWORD:"wrong-password",USER_DISABLED:"user-disabled",
+MISSING_PASSWORD:"internal-error",EMAIL_EXISTS:"email-already-in-use",PASSWORD_LOGIN_DISABLED:"operation-not-allowed",INVALID_IDP_RESPONSE:"invalid-credential",INVALID_PENDING_TOKEN:"invalid-credential",FEDERATED_USER_ID_ALREADY_LINKED:"credential-already-in-use",MISSING_OR_INVALID_NONCE:"missing-or-invalid-nonce",INVALID_MESSAGE_PAYLOAD:"invalid-message-payload",INVALID_RECIPIENT_EMAIL:"invalid-recipient-email",INVALID_SENDER:"invalid-sender",EMAIL_NOT_FOUND:"user-not-found",RESET_PASSWORD_EXCEED_LIMIT:"too-many-requests",
+EXPIRED_OOB_CODE:"expired-action-code",INVALID_OOB_CODE:"invalid-action-code",MISSING_OOB_CODE:"internal-error",INVALID_PROVIDER_ID:"invalid-provider-id",CREDENTIAL_TOO_OLD_LOGIN_AGAIN:"requires-recent-login",INVALID_ID_TOKEN:"invalid-user-token",TOKEN_EXPIRED:"user-token-expired",USER_NOT_FOUND:"user-token-expired",CORS_UNSUPPORTED:"cors-unsupported",DYNAMIC_LINK_NOT_ACTIVATED:"dynamic-link-not-activated",INVALID_APP_ID:"invalid-app-id",TOO_MANY_ATTEMPTS_TRY_LATER:"too-many-requests",WEAK_PASSWORD:"weak-password",
+OPERATION_NOT_ALLOWED:"operation-not-allowed",USER_CANCELLED:"user-cancelled",CAPTCHA_CHECK_FAILED:"captcha-check-failed",INVALID_APP_CREDENTIAL:"invalid-app-credential",INVALID_CODE:"invalid-verification-code",INVALID_PHONE_NUMBER:"invalid-phone-number",INVALID_SESSION_INFO:"invalid-verification-id",INVALID_TEMPORARY_PROOF:"invalid-credential",MISSING_APP_CREDENTIAL:"missing-app-credential",MISSING_CODE:"missing-verification-code",MISSING_PHONE_NUMBER:"missing-phone-number",MISSING_SESSION_INFO:"missing-verification-id",
+QUOTA_EXCEEDED:"quota-exceeded",SESSION_EXPIRED:"code-expired",REJECTED_CREDENTIAL:"rejected-credential",INVALID_CONTINUE_URI:"invalid-continue-uri",MISSING_ANDROID_PACKAGE_NAME:"missing-android-pkg-name",MISSING_IOS_BUNDLE_ID:"missing-ios-bundle-id",UNAUTHORIZED_DOMAIN:"unauthorized-continue-uri",INVALID_DYNAMIC_LINK_DOMAIN:"invalid-dynamic-link-domain",INVALID_OAUTH_CLIENT_ID:"invalid-oauth-client-id",INVALID_CERT_HASH:"invalid-cert-hash",UNSUPPORTED_TENANT_OPERATION:"unsupported-tenant-operation",
+INVALID_TENANT_ID:"invalid-tenant-id",TENANT_ID_MISMATCH:"tenant-id-mismatch",ADMIN_ONLY_OPERATION:"admin-restricted-operation",INVALID_MFA_PENDING_CREDENTIAL:"invalid-multi-factor-session",MFA_ENROLLMENT_NOT_FOUND:"multi-factor-info-not-found",MISSING_MFA_PENDING_CREDENTIAL:"missing-multi-factor-session",MISSING_MFA_ENROLLMENT_ID:"missing-multi-factor-info",EMAIL_CHANGE_NEEDS_VERIFICATION:"email-change-needs-verification",SECOND_FACTOR_EXISTS:"second-factor-already-in-use",SECOND_FACTOR_LIMIT_EXCEEDED:"maximum-second-factor-count-exceeded",
+UNSUPPORTED_FIRST_FACTOR:"unsupported-first-factor",UNVERIFIED_EMAIL:"unverified-email"};z(d,b||{});b=(b=c.match(/^[^\s]+\s*:\s*([\s\S]*)$/))&&1<b.length?b[1]:void 0;for(var e in d)if(0===c.indexOf(e))return new t(d[e],b);!b&&a&&(b=Re(a));return new t("internal-error",b)};function Gj(a){this.b=a;this.a=null;this.nb=Hj(this)}
+function Hj(a){return Ij().then(function(){return new B(function(b,c){J("gapi.iframes.getContext")().open({where:document.body,url:a.b,messageHandlersFilter:J("gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER"),attributes:{style:{position:"absolute",top:"-100px",width:"1px",height:"1px"}},dontclear:!0},function(d){function e(){clearTimeout(f);b()}a.a=d;a.a.restyle({setHideOnLeave:!1});var f=setTimeout(function(){c(Error("Network Error"))},Jj.get());d.ping(e).then(e,function(){c(Error("Network Error"))})})})})}
+function Kj(a,b){return a.nb.then(function(){return new B(function(c){a.a.send(b.type,b,c,J("gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER"))})})}function Lj(a,b){a.nb.then(function(){a.a.register("authEvent",b,J("gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER"))})}var Mj=new ob(pb,"https://apis.google.com/js/api.js?onload=%{onload}"),Nj=new We(3E4,6E4),Jj=new We(5E3,15E3),Oj=null;
+function Ij(){return Oj?Oj:Oj=(new B(function(a,b){function c(){Ve();J("gapi.load")("gapi.iframes",{callback:a,ontimeout:function(){Ve();b(Error("Network Error"))},timeout:Nj.get()})}if(J("gapi.iframes.Iframe"))a();else if(J("gapi.load"))c();else{var d="__iframefcb"+Math.floor(1E6*Math.random()).toString();l[d]=function(){J("gapi.load")?c():b(Error("Network Error"))};d=xb(Mj,{onload:d});D(xi(d)).o(function(){b(Error("Network Error"))})}})).o(function(a){Oj=null;throw a;})};function Pj(a,b,c){this.i=a;this.g=b;this.h=c;this.f=null;this.a=$d(this.i,"/__/auth/iframe");H(this.a,"apiKey",this.g);H(this.a,"appName",this.h);this.b=null;this.c=[]}Pj.prototype.toString=function(){this.f?H(this.a,"v",this.f):fe(this.a.a,"v");this.b?H(this.a,"eid",this.b):fe(this.a.a,"eid");this.c.length?H(this.a,"fw",this.c.join(",")):fe(this.a.a,"fw");return this.a.toString()};function Qj(a,b,c,d,e){this.s=a;this.m=b;this.c=c;this.u=d;this.i=this.g=this.l=null;this.a=e;this.h=this.f=null}
+Qj.prototype.ub=function(a){this.h=a;return this};
+Qj.prototype.toString=function(){var a=$d(this.s,"/__/auth/handler");H(a,"apiKey",this.m);H(a,"appName",this.c);H(a,"authType",this.u);if(this.a.isOAuthProvider){var b=this.a;try{var c=firebase.app(this.c).auth().ja()}catch(h){c=null}b.kb=c;H(a,"providerId",this.a.providerId);b=this.a;c=Se(b.Fb);for(var d in c)c[d]=c[d].toString();d=b.Oc;c=lb(c);for(var e=0;e<d.length;e++){var f=d[e];f in c&&delete c[f]}b.lb&&b.kb&&!c[b.lb]&&(c[b.lb]=b.kb);kb(c)||H(a,"customParameters",Re(c))}"function"===typeof this.a.Nb&&
+(b=this.a.Nb(),b.length&&H(a,"scopes",b.join(",")));this.l?H(a,"redirectUrl",this.l):fe(a.a,"redirectUrl");this.g?H(a,"eventId",this.g):fe(a.a,"eventId");this.i?H(a,"v",this.i):fe(a.a,"v");if(this.b)for(var g in this.b)this.b.hasOwnProperty(g)&&!Yd(a,g)&&H(a,g,this.b[g]);this.h?H(a,"tid",this.h):fe(a.a,"tid");this.f?H(a,"eid",this.f):fe(a.a,"eid");g=Rj(this.c);g.length&&H(a,"fw",g.join(","));return a.toString()};function Rj(a){try{return firebase.app(a).auth().Ea()}catch(b){return[]}}
+function Sj(a,b,c,d,e){this.u=a;this.f=b;this.b=c;this.c=d||null;this.h=e||null;this.m=this.s=this.w=null;this.g=[];this.l=this.a=null}
+function Tj(a){var b=oe();return Xi(a).then(function(c){a:{var d=Zd(b),e=d.f;d=d.b;for(var f=0;f<c.length;f++){var g=c[f];var h=d;var m=e;0==g.indexOf("chrome-extension://")?h=Zd(g).b==h&&"chrome-extension"==m:"http"!=m&&"https"!=m?h=!1:ze.test(g)?h=h==g:(g=g.split(".").join("\\."),h=(new RegExp("^(.+\\."+g+"|"+g+")$","i")).test(h));if(h){c=!0;break a}}c=!1}if(!c)throw new th(oe());})}
+function Uj(a){if(a.l)return a.l;a.l=Be().then(function(){if(!a.s){var b=a.c,c=a.h,d=Rj(a.b),e=new Pj(a.u,a.f,a.b);e.f=b;e.b=c;e.c=Xa(d||[]);a.s=e.toString()}a.i=new Gj(a.s);Vj(a)});return a.l}k=Sj.prototype;k.Lb=function(a,b,c){var d=new t("popup-closed-by-user"),e=new t("web-storage-unsupported"),f=this,g=!1;return this.ka().then(function(){Wj(f).then(function(h){h||(a&&ve(a),b(e),g=!0)})}).o(function(){}).then(function(){if(!g)return ye(a)}).then(function(){if(!g)return Bd(c).then(function(){b(d)})})};
+k.Ub=function(){var a=I();return!Qe(a)&&!Ue(a)};k.Qb=function(){return!1};
+k.Jb=function(a,b,c,d,e,f,g,h){if(!a)return E(new t("popup-blocked"));if(g&&!Qe())return this.ka().o(function(p){ve(a);e(p)}),d(),D();this.a||(this.a=Tj(Xj(this)));var m=this;return this.a.then(function(){var p=m.ka().o(function(v){ve(a);e(v);throw v;});d();return p}).then(function(){nh(c);if(!g){var p=Yj(m.u,m.f,m.b,b,c,null,f,m.c,void 0,m.h,h);pe(p,a)}}).o(function(p){"auth/network-request-failed"==p.code&&(m.a=null);throw p;})};
+function Xj(a){a.m||(a.w=a.c?Le(a.c,Rj(a.b)):null,a.m=new Ei(a.f,Aa(a.h),a.w));return a.m}k.Kb=function(a,b,c,d){this.a||(this.a=Tj(Xj(this)));var e=this;return this.a.then(function(){nh(b);var f=Yj(e.u,e.f,e.b,a,b,oe(),c,e.c,void 0,e.h,d);pe(f)}).o(function(f){"auth/network-request-failed"==f.code&&(e.a=null);throw f;})};k.ka=function(){var a=this;return Uj(this).then(function(){return a.i.nb}).o(function(){a.a=null;throw new t("network-request-failed");})};k.Xb=function(){return!0};
+function Yj(a,b,c,d,e,f,g,h,m,p,v){a=new Qj(a,b,c,d,e);a.l=f;a.g=g;a.i=h;a.b=lb(m||null);a.f=p;return a.ub(v).toString()}function Vj(a){if(!a.i)throw Error("IfcHandler must be initialized!");Lj(a.i,function(b){var c={};if(b&&b.authEvent){var d=!1;b=ph(b.authEvent);for(c=0;c<a.g.length;c++)d=a.g[c](b)||d;c={};c.status=d?"ACK":"ERROR";return D(c)}c.status="ERROR";return D(c)})}
+function Wj(a){var b={type:"webStorageSupport"};return Uj(a).then(function(){return Kj(a.i,b)}).then(function(c){if(c&&c.length&&"undefined"!==typeof c[0].webStorageSupport)return c[0].webStorageSupport;throw Error();})}k.Ca=function(a){this.g.push(a)};k.Qa=function(a){Va(this.g,function(b){return b==a})};function Zj(a){this.a=a||firebase.INTERNAL.reactNative&&firebase.INTERNAL.reactNative.AsyncStorage;if(!this.a)throw new t("internal-error","The React Native compatibility library was not found.");this.type="asyncStorage"}k=Zj.prototype;k.get=function(a){return D(this.a.getItem(a)).then(function(b){return b&&Te(b)})};k.set=function(a,b){return D(this.a.setItem(a,Re(b)))};k.T=function(a){return D(this.a.removeItem(a))};k.ba=function(){};k.ha=function(){};function ak(a){this.b=a;this.a={};this.f=q(this.c,this)}var bk=[];function ck(){var a=Ge()?self:null;w(bk,function(c){c.b==a&&(b=c)});if(!b){var b=new ak(a);bk.push(b)}return b}
+ak.prototype.c=function(a){var b=a.data.eventType,c=a.data.eventId,d=this.a[b];if(d&&0<d.length){a.ports[0].postMessage({status:"ack",eventId:c,eventType:b,response:null});var e=[];w(d,function(f){e.push(D().then(function(){return f(a.origin,a.data.data)}))});Fc(e).then(function(f){var g=[];w(f,function(h){g.push({fulfilled:h.Mb,value:h.value,reason:h.reason?h.reason.message:void 0})});w(g,function(h){for(var m in h)"undefined"===typeof h[m]&&delete h[m]});a.ports[0].postMessage({status:"done",eventId:c,
+eventType:b,response:g})})}};function dk(a,b,c){kb(a.a)&&a.b.addEventListener("message",a.f);"undefined"===typeof a.a[b]&&(a.a[b]=[]);a.a[b].push(c)};function ek(a){this.a=a}ek.prototype.postMessage=function(a,b){this.a.postMessage(a,b)};function fk(a){this.c=a;this.b=!1;this.a=[]}
+function gk(a,b,c,d){var e,f=c||{},g,h,m,p=null;if(a.b)return E(Error("connection_unavailable"));var v=d?800:50,C="undefined"!==typeof MessageChannel?new MessageChannel:null;return(new B(function(A,Q){C?(e=Math.floor(Math.random()*Math.pow(10,20)).toString(),C.port1.start(),h=setTimeout(function(){Q(Error("unsupported_event"))},v),g=function(wa){wa.data.eventId===e&&("ack"===wa.data.status?(clearTimeout(h),m=setTimeout(function(){Q(Error("timeout"))},3E3)):"done"===wa.data.status?(clearTimeout(m),
+"undefined"!==typeof wa.data.response?A(wa.data.response):Q(Error("unknown_error"))):(clearTimeout(h),clearTimeout(m),Q(Error("invalid_response"))))},p={messageChannel:C,onMessage:g},a.a.push(p),C.port1.addEventListener("message",g),a.c.postMessage({eventType:b,eventId:e,data:f},[C.port2])):Q(Error("connection_unavailable"))})).then(function(A){hk(a,p);return A}).o(function(A){hk(a,p);throw A;})}
+function hk(a,b){if(b){var c=b.messageChannel,d=b.onMessage;c&&(c.port1.removeEventListener("message",d),c.port1.close());Va(a.a,function(e){return e==b})}}fk.prototype.close=function(){for(;0<this.a.length;)hk(this,this.a[0]);this.b=!0};function ik(){if(!jk())throw new t("web-storage-unsupported");this.c={};this.a=[];this.b=0;this.u=l.indexedDB;this.type="indexedDB";this.g=this.l=this.f=this.i=null;this.s=!1;this.h=null;var a=this;Ge()&&self?(this.l=ck(),dk(this.l,"keyChanged",function(b,c){return kk(a).then(function(d){0<d.length&&w(a.a,function(e){e(d)});return{keyProcessed:Ta(d,c.key)}})}),dk(this.l,"ping",function(){return D(["keyChanged"])})):bf().then(function(b){if(a.h=b)a.g=new fk(new ek(b)),gk(a.g,"ping",null,!0).then(function(c){c[0].fulfilled&&
+Ta(c[0].value,"keyChanged")&&(a.s=!0)}).o(function(){})})}var lk;function mk(a){return new B(function(b,c){var d=a.u.deleteDatabase("firebaseLocalStorageDb");d.onsuccess=function(){b()};d.onerror=function(e){c(Error(e.target.error))}})}
+function nk(a){return new B(function(b,c){var d=a.u.open("firebaseLocalStorageDb",1);d.onerror=function(e){try{e.preventDefault()}catch(f){}c(Error(e.target.error))};d.onupgradeneeded=function(e){e=e.target.result;try{e.createObjectStore("firebaseLocalStorage",{keyPath:"fbase_key"})}catch(f){c(f)}};d.onsuccess=function(e){e=e.target.result;e.objectStoreNames.contains("firebaseLocalStorage")?b(e):mk(a).then(function(){return nk(a)}).then(function(f){b(f)}).o(function(f){c(f)})}})}
+function ok(a){a.m||(a.m=nk(a));return a.m}function jk(){try{return!!l.indexedDB}catch(a){return!1}}function pk(a){return a.objectStore("firebaseLocalStorage")}function qk(a,b){return a.transaction(["firebaseLocalStorage"],b?"readwrite":"readonly")}function rk(a){return new B(function(b,c){a.onsuccess=function(d){d&&d.target?b(d.target.result):b()};a.onerror=function(d){c(d.target.error)}})}k=ik.prototype;
+k.set=function(a,b){var c=!1,d,e=this;return ok(this).then(function(f){d=f;f=pk(qk(d,!0));return rk(f.get(a))}).then(function(f){var g=pk(qk(d,!0));if(f)return f.value=b,rk(g.put(f));e.b++;c=!0;f={};f.fbase_key=a;f.value=b;return rk(g.add(f))}).then(function(){e.c[a]=b;return sk(e,a)}).ma(function(){c&&e.b--})};function sk(a,b){return a.g&&a.h&&af()===a.h?gk(a.g,"keyChanged",{key:b},a.s).then(function(){}).o(function(){}):D()}
+k.get=function(a){return ok(this).then(function(b){return rk(pk(qk(b,!1)).get(a))}).then(function(b){return b&&b.value})};k.T=function(a){var b=!1,c=this;return ok(this).then(function(d){b=!0;c.b++;return rk(pk(qk(d,!0))["delete"](a))}).then(function(){delete c.c[a];return sk(c,a)}).ma(function(){b&&c.b--})};
+function kk(a){return ok(a).then(function(b){var c=pk(qk(b,!1));return c.getAll?rk(c.getAll()):new B(function(d,e){var f=[],g=c.openCursor();g.onsuccess=function(h){(h=h.target.result)?(f.push(h.value),h["continue"]()):d(f)};g.onerror=function(h){e(h.target.error)}})}).then(function(b){var c={},d=[];if(0==a.b){for(d=0;d<b.length;d++)c[b[d].fbase_key]=b[d].value;d=qe(a.c,c);a.c=c}return d})}k.ba=function(a){0==this.a.length&&tk(this);this.a.push(a)};
+k.ha=function(a){Va(this.a,function(b){return b==a});0==this.a.length&&uk(this)};function tk(a){function b(){a.f=setTimeout(function(){a.i=kk(a).then(function(c){0<c.length&&w(a.a,function(d){d(c)})}).then(function(){b()}).o(function(c){"STOP_EVENT"!=c.message&&b()})},800)}uk(a);b()}function uk(a){a.i&&a.i.cancel("STOP_EVENT");a.f&&(clearTimeout(a.f),a.f=null)};function vk(a){var b=this,c=null;this.a=[];this.type="indexedDB";this.c=a;this.b=D().then(function(){if(jk()){var d=Ne(),e="__sak"+d;lk||(lk=new ik);c=lk;return c.set(e,d).then(function(){return c.get(e)}).then(function(f){if(f!==d)throw Error("indexedDB not supported!");return c.T(e)}).then(function(){return c}).o(function(){return b.c})}return b.c}).then(function(d){b.type=d.type;d.ba(function(e){w(b.a,function(f){f(e)})});return d})}k=vk.prototype;k.get=function(a){return this.b.then(function(b){return b.get(a)})};
+k.set=function(a,b){return this.b.then(function(c){return c.set(a,b)})};k.T=function(a){return this.b.then(function(b){return b.T(a)})};k.ba=function(a){this.a.push(a)};k.ha=function(a){Va(this.a,function(b){return b==a})};function wk(){this.a={};this.type="inMemory"}k=wk.prototype;k.get=function(a){return D(this.a[a])};k.set=function(a,b){this.a[a]=b;return D()};k.T=function(a){delete this.a[a];return D()};k.ba=function(){};k.ha=function(){};function xk(){if(!yk()){if("Node"==He())throw new t("internal-error","The LocalStorage compatibility library was not found.");throw new t("web-storage-unsupported");}this.a=zk()||firebase.INTERNAL.node.localStorage;this.type="localStorage"}function zk(){try{var a=l.localStorage,b=Ne();a&&(a.setItem(b,"1"),a.removeItem(b));return a}catch(c){return null}}
+function yk(){var a="Node"==He();a=zk()||a&&firebase.INTERNAL.node&&firebase.INTERNAL.node.localStorage;if(!a)return!1;try{return a.setItem("__sak","1"),a.removeItem("__sak"),!0}catch(b){return!1}}k=xk.prototype;k.get=function(a){var b=this;return D().then(function(){var c=b.a.getItem(a);return Te(c)})};k.set=function(a,b){var c=this;return D().then(function(){var d=Re(b);null===d?c.T(a):c.a.setItem(a,d)})};k.T=function(a){var b=this;return D().then(function(){b.a.removeItem(a)})};
+k.ba=function(a){l.window&&jd(l.window,"storage",a)};k.ha=function(a){l.window&&td(l.window,"storage",a)};function Ak(){this.type="nullStorage"}k=Ak.prototype;k.get=function(){return D(null)};k.set=function(){return D()};k.T=function(){return D()};k.ba=function(){};k.ha=function(){};function Bk(){if(!Ck()){if("Node"==He())throw new t("internal-error","The SessionStorage compatibility library was not found.");throw new t("web-storage-unsupported");}this.a=Dk()||firebase.INTERNAL.node.sessionStorage;this.type="sessionStorage"}function Dk(){try{var a=l.sessionStorage,b=Ne();a&&(a.setItem(b,"1"),a.removeItem(b));return a}catch(c){return null}}
+function Ck(){var a="Node"==He();a=Dk()||a&&firebase.INTERNAL.node&&firebase.INTERNAL.node.sessionStorage;if(!a)return!1;try{return a.setItem("__sak","1"),a.removeItem("__sak"),!0}catch(b){return!1}}k=Bk.prototype;k.get=function(a){var b=this;return D().then(function(){var c=b.a.getItem(a);return Te(c)})};k.set=function(a,b){var c=this;return D().then(function(){var d=Re(b);null===d?c.T(a):c.a.setItem(a,d)})};k.T=function(a){var b=this;return D().then(function(){b.a.removeItem(a)})};k.ba=function(){};
+k.ha=function(){};function Ek(){var a={};a.Browser=Fk;a.Node=Gk;a.ReactNative=Hk;a.Worker=Ik;this.a=a[He()]}var Jk,Fk={F:xk,$a:Bk},Gk={F:xk,$a:Bk},Hk={F:Zj,$a:Ak},Ik={F:xk,$a:Ak};/*
+
+ Copyright 2017 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+var Kk={od:"local",NONE:"none",qd:"session"};function Lk(a){var b=new t("invalid-persistence-type"),c=new t("unsupported-persistence-type");a:{for(d in Kk)if(Kk[d]==a){var d=!0;break a}d=!1}if(!d||"string"!==typeof a)throw b;switch(He()){case "ReactNative":if("session"===a)throw c;break;case "Node":if("none"!==a)throw c;break;case "Worker":if("session"===a||!jk()&&"none"!==a)throw c;break;default:if(!Me()&&"none"!==a)throw c;}}
+function Mk(){var a=!Ue(I())&&Fe()?!0:!1,b=Qe(),c=Me();this.m=a;this.h=b;this.l=c;this.a={};Jk||(Jk=new Ek);a=Jk;try{this.g=!ne()&&$e()||!l.indexedDB?new a.a.F:new vk(Ge()?new wk:new a.a.F)}catch(d){this.g=new wk,this.h=!0}try{this.i=new a.a.$a}catch(d){this.i=new wk}this.u=new wk;this.f=q(this.Vb,this);this.b={}}var Nk;function Ok(){Nk||(Nk=new Mk);return Nk}function Pk(a,b){switch(b){case "session":return a.i;case "none":return a.u;default:return a.g}}
+function Qk(a,b){return"firebase:"+a.name+(b?":"+b:"")}function Rk(a,b,c){var d=Qk(b,c),e=Pk(a,b.F);return a.get(b,c).then(function(f){var g=null;try{g=Te(l.localStorage.getItem(d))}catch(h){}if(g&&!f)return l.localStorage.removeItem(d),a.set(b,g,c);g&&f&&"localStorage"!=e.type&&l.localStorage.removeItem(d)})}k=Mk.prototype;k.get=function(a,b){return Pk(this,a.F).get(Qk(a,b))};function Sk(a,b,c){c=Qk(b,c);"local"==b.F&&(a.b[c]=null);return Pk(a,b.F).T(c)}
+k.set=function(a,b,c){var d=Qk(a,c),e=this,f=Pk(this,a.F);return f.set(d,b).then(function(){return f.get(d)}).then(function(g){"local"==a.F&&(e.b[d]=g)})};k.addListener=function(a,b,c){a=Qk(a,b);this.l&&(this.b[a]=l.localStorage.getItem(a));kb(this.a)&&(Pk(this,"local").ba(this.f),this.h||(ne()||!$e())&&l.indexedDB||!this.l||Tk(this));this.a[a]||(this.a[a]=[]);this.a[a].push(c)};
+k.removeListener=function(a,b,c){a=Qk(a,b);this.a[a]&&(Va(this.a[a],function(d){return d==c}),0==this.a[a].length&&delete this.a[a]);kb(this.a)&&(Pk(this,"local").ha(this.f),Uk(this))};function Tk(a){Uk(a);a.c=setInterval(function(){for(var b in a.a){var c=l.localStorage.getItem(b),d=a.b[b];c!=d&&(a.b[b]=c,c=new Yc({type:"storage",key:b,target:window,oldValue:d,newValue:c,a:!0}),a.Vb(c))}},1E3)}function Uk(a){a.c&&(clearInterval(a.c),a.c=null)}
+k.Vb=function(a){if(a&&a.f){var b=a.a.key;if(null==b)for(var c in this.a){var d=this.b[c];"undefined"===typeof d&&(d=null);var e=l.localStorage.getItem(c);e!==d&&(this.b[c]=e,this.ib(c))}else if(0==b.indexOf("firebase:")&&this.a[b]){"undefined"!==typeof a.a.a?Pk(this,"local").ha(this.f):Uk(this);if(this.m)if(c=l.localStorage.getItem(b),d=a.a.newValue,d!==c)null!==d?l.localStorage.setItem(b,d):l.localStorage.removeItem(b);else if(this.b[b]===d&&"undefined"===typeof a.a.a)return;var f=this;c=function(){if("undefined"!==
+typeof a.a.a||f.b[b]!==l.localStorage.getItem(b))f.b[b]=l.localStorage.getItem(b),f.ib(b)};Tb&&dc&&10==dc&&l.localStorage.getItem(b)!==a.a.newValue&&a.a.newValue!==a.a.oldValue?setTimeout(c,10):c()}}else w(a,q(this.ib,this))};k.ib=function(a){this.a[a]&&w(this.a[a],function(b){b()})};function Vk(a){this.a=a;this.b=Ok()}var Wk={name:"authEvent",F:"local"};function Xk(a){return a.b.get(Wk,a.a).then(function(b){return ph(b)})};function Yk(){this.a=Ok()};function Zk(){this.b=-1};function $k(a,b){this.b=al;this.f=l.Uint8Array?new Uint8Array(this.b):Array(this.b);this.g=this.c=0;this.a=[];this.i=a;this.h=b;this.l=l.Int32Array?new Int32Array(64):Array(64);void 0===bl&&(l.Int32Array?bl=new Int32Array(cl):bl=cl);this.reset()}var bl;r($k,Zk);for(var al=64,dl=al-1,el=[],fl=0;fl<dl;fl++)el[fl]=0;var gl=Wa(128,el);$k.prototype.reset=function(){this.g=this.c=0;this.a=l.Int32Array?new Int32Array(this.h):Xa(this.h)};
+function hl(a){for(var b=a.f,c=a.l,d=0,e=0;e<b.length;)c[d++]=b[e]<<24|b[e+1]<<16|b[e+2]<<8|b[e+3],e=4*d;for(b=16;64>b;b++){e=c[b-15]|0;d=c[b-2]|0;var f=(c[b-16]|0)+((e>>>7|e<<25)^(e>>>18|e<<14)^e>>>3)|0,g=(c[b-7]|0)+((d>>>17|d<<15)^(d>>>19|d<<13)^d>>>10)|0;c[b]=f+g|0}d=a.a[0]|0;e=a.a[1]|0;var h=a.a[2]|0,m=a.a[3]|0,p=a.a[4]|0,v=a.a[5]|0,C=a.a[6]|0;f=a.a[7]|0;for(b=0;64>b;b++){var A=((d>>>2|d<<30)^(d>>>13|d<<19)^(d>>>22|d<<10))+(d&e^d&h^e&h)|0;g=p&v^~p&C;f=f+((p>>>6|p<<26)^(p>>>11|p<<21)^(p>>>25|p<<
+7))|0;g=g+(bl[b]|0)|0;g=f+(g+(c[b]|0)|0)|0;f=C;C=v;v=p;p=m+g|0;m=h;h=e;e=d;d=g+A|0}a.a[0]=a.a[0]+d|0;a.a[1]=a.a[1]+e|0;a.a[2]=a.a[2]+h|0;a.a[3]=a.a[3]+m|0;a.a[4]=a.a[4]+p|0;a.a[5]=a.a[5]+v|0;a.a[6]=a.a[6]+C|0;a.a[7]=a.a[7]+f|0}
+function il(a,b,c){void 0===c&&(c=b.length);var d=0,e=a.c;if("string"===typeof b)for(;d<c;)a.f[e++]=b.charCodeAt(d++),e==a.b&&(hl(a),e=0);else if(ma(b))for(;d<c;){var f=b[d++];if(!("number"==typeof f&&0<=f&&255>=f&&f==(f|0)))throw Error("message must be a byte array");a.f[e++]=f;e==a.b&&(hl(a),e=0)}else throw Error("message must be string or array");a.c=e;a.g+=c}
+var cl=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,
+4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298];function jl(){$k.call(this,8,kl)}r(jl,$k);var kl=[1779033703,3144134277,1013904242,2773480762,1359893119,2600822924,528734635,1541459225];function ll(a,b,c,d,e){this.u=a;this.i=b;this.l=c;this.m=d||null;this.s=e||null;this.h=b+":"+c;this.w=new Yk;this.g=new Vk(this.h);this.f=null;this.b=[];this.a=this.c=null}function ml(a){return new t("invalid-cordova-configuration",a)}k=ll.prototype;
+k.ka=function(){return this.Ga?this.Ga:this.Ga=Ce().then(function(){if("function"!==typeof J("universalLinks.subscribe",l))throw ml("cordova-universal-links-plugin-fix is not installed");if("undefined"===typeof J("BuildInfo.packageName",l))throw ml("cordova-plugin-buildinfo is not installed");if("function"!==typeof J("cordova.plugins.browsertab.openUrl",l))throw ml("cordova-plugin-browsertab is not installed");if("function"!==typeof J("cordova.InAppBrowser.open",l))throw ml("cordova-plugin-inappbrowser is not installed");
+},function(){throw new t("cordova-not-ready");})};function nl(){for(var a=20,b=[];0<a;)b.push("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(Math.floor(62*Math.random()))),a--;return b.join("")}function ol(a){var b=new jl;il(b,a);a=[];var c=8*b.g;56>b.c?il(b,gl,56-b.c):il(b,gl,b.b-(b.c-56));for(var d=63;56<=d;d--)b.f[d]=c&255,c/=256;hl(b);for(d=c=0;d<b.i;d++)for(var e=24;0<=e;e-=8)a[c++]=b.a[d]>>e&255;return $f(a)}
+k.Lb=function(a,b){b(new t("operation-not-supported-in-this-environment"));return D()};k.Jb=function(){return E(new t("operation-not-supported-in-this-environment"))};k.Xb=function(){return!1};k.Ub=function(){return!0};k.Qb=function(){return!0};
+k.Kb=function(a,b,c,d){if(this.c)return E(new t("redirect-operation-pending"));var e=this,f=l.document,g=null,h=null,m=null,p=null;return this.c=D().then(function(){nh(b);return pl(e)}).then(function(){return ql(e,a,b,c,d)}).then(function(){return(new B(function(v,C){h=function(){var A=J("cordova.plugins.browsertab.close",l);v();"function"===typeof A&&A();e.a&&"function"===typeof e.a.close&&(e.a.close(),e.a=null);return!1};e.Ca(h);m=function(){g||(g=Bd(2E3).then(function(){C(new t("redirect-cancelled-by-user"))}))};
+p=function(){Xe()&&m()};f.addEventListener("resume",m,!1);I().toLowerCase().match(/android/)||f.addEventListener("visibilitychange",p,!1)})).o(function(v){return rl(e).then(function(){throw v;})})}).ma(function(){m&&f.removeEventListener("resume",m,!1);p&&f.removeEventListener("visibilitychange",p,!1);g&&g.cancel();h&&e.Qa(h);e.c=null})};
+function ql(a,b,c,d,e){var f=nl(),g=new oh(b,d,null,f,new t("no-auth-event"),null,e),h=J("BuildInfo.packageName",l);if("string"!==typeof h)throw new t("invalid-cordova-configuration");var m=J("BuildInfo.displayName",l),p={};if(I().toLowerCase().match(/iphone|ipad|ipod/))p.ibi=h;else if(I().toLowerCase().match(/android/))p.apn=h;else return E(new t("operation-not-supported-in-this-environment"));m&&(p.appDisplayName=m);f=ol(f);p.sessionId=f;var v=Yj(a.u,a.i,a.l,b,c,null,d,a.m,p,a.s,e);return a.ka().then(function(){var C=
+a.h;return a.w.a.set(Wk,g.v(),C)}).then(function(){var C=J("cordova.plugins.browsertab.isAvailable",l);if("function"!==typeof C)throw new t("invalid-cordova-configuration");var A=null;C(function(Q){if(Q){A=J("cordova.plugins.browsertab.openUrl",l);if("function"!==typeof A)throw new t("invalid-cordova-configuration");A(v)}else{A=J("cordova.InAppBrowser.open",l);if("function"!==typeof A)throw new t("invalid-cordova-configuration");Q=I();a.a=A(v,Q.match(/(iPad|iPhone|iPod).*OS 7_\d/i)||Q.match(/(iPad|iPhone|iPod).*OS 8_\d/i)?
+"_blank":"_system","location=yes")}})})}function sl(a,b){for(var c=0;c<a.b.length;c++)try{a.b[c](b)}catch(d){}}function pl(a){a.f||(a.f=a.ka().then(function(){return new B(function(b){function c(d){b(d);a.Qa(c);return!1}a.Ca(c);tl(a)})}));return a.f}function rl(a){var b=null;return Xk(a.g).then(function(c){b=c;c=a.g;return Sk(c.b,Wk,c.a)}).then(function(){return b})}
+function tl(a){function b(g){d=!0;e&&e.cancel();rl(a).then(function(h){var m=c;if(h&&g&&g.url){var p=null;m=ug(g.url);-1!=m.indexOf("/__/auth/callback")&&(p=Zd(m),p=Te(Yd(p,"firebaseError")||null),p=(p="object"===typeof p?ya(p):null)?new oh(h.c,h.b,null,null,p,null,h.S()):new oh(h.c,h.b,m,h.f,null,null,h.S()));m=p||c}sl(a,m)})}var c=new oh("unknown",null,null,null,new t("no-auth-event")),d=!1,e=Bd(500).then(function(){return rl(a).then(function(){d||sl(a,c)})}),f=l.handleOpenURL;l.handleOpenURL=function(g){0==
+g.toLowerCase().indexOf(J("BuildInfo.packageName",l).toLowerCase()+"://")&&b({url:g});if("function"===typeof f)try{f(g)}catch(h){console.error(h)}};rh||(rh=new qh);sh(b)}k.Ca=function(a){this.b.push(a);pl(this).o(function(b){"auth/invalid-cordova-configuration"===b.code&&(b=new oh("unknown",null,null,null,new t("no-auth-event")),a(b))})};k.Qa=function(a){Va(this.b,function(b){return b==a})};function ul(a){this.a=a;this.b=Ok()}var vl={name:"pendingRedirect",F:"session"};function wl(a){return a.b.set(vl,"pending",a.a)}function xl(a){return Sk(a.b,vl,a.a)}function yl(a){return a.b.get(vl,a.a).then(function(b){return"pending"==b})};function zl(a,b,c){this.i={};this.w=0;this.D=a;this.u=b;this.m=c;this.h=[];this.f=!1;this.l=q(this.s,this);this.b=new Al;this.B=new Bl;this.g=new ul(this.u+":"+this.m);this.c={};this.c.unknown=this.b;this.c.signInViaRedirect=this.b;this.c.linkViaRedirect=this.b;this.c.reauthViaRedirect=this.b;this.c.signInViaPopup=this.B;this.c.linkViaPopup=this.B;this.c.reauthViaPopup=this.B;this.a=Cl(this.D,this.u,this.m,Ba)}
+function Cl(a,b,c,d){var e=firebase.SDK_VERSION||null;return De()?new ll(a,b,c,e,d):new Sj(a,b,c,e,d)}zl.prototype.reset=function(){this.f=!1;this.a.Qa(this.l);this.a=Cl(this.D,this.u,this.m);this.i={}};function Dl(a){a.f||(a.f=!0,a.a.Ca(a.l));var b=a.a;return a.a.ka().o(function(c){a.a==b&&a.reset();throw c;})}function El(a){a.a.Ub()&&Dl(a).o(function(b){var c=new oh("unknown",null,null,null,new t("operation-not-supported-in-this-environment"));Fl(b)&&a.s(c)});a.a.Qb()||Gl(a.b)}
+function Hl(a,b){Ta(a.h,b)||a.h.push(b);a.f||yl(a.g).then(function(c){c?xl(a.g).then(function(){Dl(a).o(function(d){var e=new oh("unknown",null,null,null,new t("operation-not-supported-in-this-environment"));Fl(d)&&a.s(e)})}):El(a)}).o(function(){El(a)})}function Il(a,b){Va(a.h,function(c){return c==b})}
+zl.prototype.s=function(a){if(!a)throw new t("invalid-auth-event");6E5<=ua()-this.w&&(this.i={},this.w=0);if(a&&a.getUid()&&this.i.hasOwnProperty(a.getUid()))return!1;for(var b=!1,c=0;c<this.h.length;c++){var d=this.h[c];if(d.Cb(a.c,a.b)){if(b=this.c[a.c])b.h(a,d),a&&(a.f||a.b)&&(this.i[a.getUid()]=!0,this.w=ua());b=!0;break}}Gl(this.b);return b};var Jl=new We(2E3,1E4),Kl=new We(3E4,6E4);zl.prototype.pa=function(){return this.b.pa()};
+function Ll(a,b,c,d,e,f,g){return a.a.Jb(b,c,d,function(){a.f||(a.f=!0,a.a.Ca(a.l))},function(){a.reset()},e,f,g)}function Fl(a){return a&&"auth/cordova-not-ready"==a.code?!0:!1}
+function Ml(a,b,c,d,e){var f;return wl(a.g).then(function(){return a.a.Kb(b,c,d,e).o(function(g){if(Fl(g))throw new t("operation-not-supported-in-this-environment");f=g;return xl(a.g).then(function(){throw f;})}).then(function(){return a.a.Xb()?new B(function(){}):xl(a.g).then(function(){return a.pa()}).then(function(){}).o(function(){})})})}function Nl(a,b,c,d,e){return a.a.Lb(d,function(f){b.la(c,null,f,e)},Jl.get())}var Ol={};
+function Pl(a,b,c){var d=b+":"+c;Ol[d]||(Ol[d]=new zl(a,b,c));return Ol[d]}function Al(){this.b=null;this.f=[];this.c=[];this.a=null;this.i=this.g=!1}Al.prototype.reset=function(){this.b=null;this.a&&(this.a.cancel(),this.a=null)};
+Al.prototype.h=function(a,b){if(a){this.reset();this.g=!0;var c=a.c,d=a.b,e=a.a&&"auth/web-storage-unsupported"==a.a.code,f=a.a&&"auth/operation-not-supported-in-this-environment"==a.a.code;this.i=!(!e&&!f);"unknown"!=c||e||f?a.a?(Ql(this,!0,null,a.a),D()):b.Da(c,d)?Rl(this,a,b):E(new t("invalid-auth-event")):(Ql(this,!1,null,null),D())}else E(new t("invalid-auth-event"))};function Gl(a){a.g||(a.g=!0,Ql(a,!1,null,null))}function Sl(a){a.g&&!a.i&&Ql(a,!1,null,null)}
+function Rl(a,b,c){c=c.Da(b.c,b.b);var d=b.g,e=b.f,f=b.i,g=b.S(),h=!!b.c.match(/Redirect$/);c(d,e,g,f).then(function(m){Ql(a,h,m,null)}).o(function(m){Ql(a,h,null,m)})}function Tl(a,b){a.b=function(){return E(b)};if(a.c.length)for(var c=0;c<a.c.length;c++)a.c[c](b)}function Ul(a,b){a.b=function(){return D(b)};if(a.f.length)for(var c=0;c<a.f.length;c++)a.f[c](b)}function Ql(a,b,c,d){b?d?Tl(a,d):Ul(a,c):Ul(a,{user:null});a.f=[];a.c=[]}
+Al.prototype.pa=function(){var a=this;return new B(function(b,c){a.b?a.b().then(b,c):(a.f.push(b),a.c.push(c),Vl(a))})};function Vl(a){var b=new t("timeout");a.a&&a.a.cancel();a.a=Bd(Kl.get()).then(function(){a.b||(a.g=!0,Ql(a,!0,null,b))})}function Bl(){}Bl.prototype.h=function(a,b){if(a){var c=a.c,d=a.b;a.a?(b.la(a.c,null,a.a,a.b),D()):b.Da(c,d)?Wl(a,b):E(new t("invalid-auth-event"))}else E(new t("invalid-auth-event"))};
+function Wl(a,b){var c=a.b,d=a.c;b.Da(d,c)(a.g,a.f,a.S(),a.i).then(function(e){b.la(d,e,null,c)}).o(function(e){b.la(d,null,e,c)})};function Xl(){this.Bb=!1;Object.defineProperty(this,"appVerificationDisabled",{get:function(){return this.Bb},set:function(a){this.Bb=a},enumerable:!1})};function Yl(a,b){this.a=b;K(this,"verificationId",a)}Yl.prototype.confirm=function(a){a=lh(this.verificationId,a);return this.a(a)};function Zl(a,b,c,d){return(new hh(a)).cb(b,c).then(function(e){return new Yl(e,d)})};function $l(a){var b=fg(a);if(!(b&&b.exp&&b.auth_time&&b.iat))throw new t("internal-error","An internal error occurred. The token obtained by Firebase appears to be malformed. Please retry the operation.");L(this,{token:a,expirationTime:Ze(1E3*b.exp),authTime:Ze(1E3*b.auth_time),issuedAtTime:Ze(1E3*b.iat),signInProvider:b.firebase&&b.firebase.sign_in_provider?b.firebase.sign_in_provider:null,signInSecondFactor:b.firebase&&b.firebase.sign_in_second_factor?b.firebase.sign_in_second_factor:null,claims:b})}
+;function am(a,b,c){var d=b&&b[bm];if(!d)throw new t("argument-error","Internal assert: Invalid MultiFactorResolver");this.a=a;this.f=lb(b);this.g=c;this.c=new vg(null,d);this.b=[];var e=this;w(b[cm]||[],function(f){(f=qf(f))&&e.b.push(f)});K(this,"auth",this.a);K(this,"session",this.c);K(this,"hints",this.b)}var cm="mfaInfo",bm="mfaPendingCredential";am.prototype.Pc=function(a){var b=this;return a.ob(this.a.b,this.c).then(function(c){var d=lb(b.f);delete d[cm];delete d[bm];z(d,c);return b.g(d)})};function dm(a,b,c,d){t.call(this,"multi-factor-auth-required",d,b);this.b=new am(a,b,c);K(this,"resolver",this.b)}r(dm,t);function em(a,b,c){if(a&&n(a.serverResponse)&&"auth/multi-factor-auth-required"===a.code)try{return new dm(b,a.serverResponse,c,a.message)}catch(d){}return null};function fm(){}fm.prototype.ob=function(a,b,c){return b.type==wg?gm(this,a,b,c):hm(this,a,b)};function gm(a,b,c,d){return c.Fa().then(function(e){e={idToken:e};"undefined"!==typeof d&&(e.displayName=d);z(e,{phoneVerificationInfo:dh(a.a)});return N(b,Aj,e)})}function hm(a,b,c){return c.Fa().then(function(d){d={mfaPendingCredential:d};z(d,{phoneVerificationInfo:dh(a.a)});return N(b,Bj,d)})}function im(a){K(this,"factorId",a.ea);this.a=a}r(im,fm);
+function jm(a){im.call(this,a);if(this.a.ea!=hh.PROVIDER_ID)throw new t("argument-error","firebase.auth.PhoneMultiFactorAssertion requires a valid firebase.auth.PhoneAuthCredential");}r(jm,im);function km(a,b){F.call(this,a);for(var c in b)this[c]=b[c]}r(km,F);function lm(a,b){this.a=a;this.b=[];this.c=q(this.wc,this);jd(this.a,"userReloaded",this.c);var c=[];b&&b.multiFactor&&b.multiFactor.enrolledFactors&&w(b.multiFactor.enrolledFactors,function(d){var e=null,f={};if(d){d.uid&&(f[nf]=d.uid);d.displayName&&(f[of]=d.displayName);d.enrollmentTime&&(f[pf]=(new Date(d.enrollmentTime)).toISOString());d.phoneNumber&&(f[mf]=d.phoneNumber);try{e=new rf(f)}catch(g){}d=e}else d=null;d&&c.push(d)});mm(this,c)}
+function nm(a){var b=[];w(a.mfaInfo||[],function(c){(c=qf(c))&&b.push(c)});return b}k=lm.prototype;k.wc=function(a){mm(this,nm(a.ed))};function mm(a,b){a.b=b;K(a,"enrolledFactors",b)}k.Ob=function(){return this.a.I().then(function(a){return new vg(a,null)})};k.dc=function(a,b){var c=this,d=this.a.a;return this.Ob().then(function(e){return a.ob(d,e,b)}).then(function(e){om(c.a,e);return c.a.reload()})};
+k.$c=function(a){var b=this,c="string"===typeof a?a:a.uid,d=this.a.a;return this.a.I().then(function(e){return N(d,Fj,{idToken:e,mfaEnrollmentId:c})}).then(function(e){var f=Oa(b.b,function(g){return g.uid!=c});mm(b,f);om(b.a,e);return b.a.reload().o(function(g){if("auth/user-token-expired"!=g.code)throw g;})})};k.v=function(){return{multiFactor:{enrolledFactors:Pa(this.b,function(a){return a.v()})}}};function pm(a,b,c){this.h=a;this.i=b;this.g=c;this.c=3E4;this.f=96E4;this.b=null;this.a=this.c;if(this.f<this.c)throw Error("Proactive refresh lower bound greater than upper bound!");}pm.prototype.start=function(){this.a=this.c;qm(this,!0)};function rm(a,b){if(b)return a.a=a.c,a.g();b=a.a;a.a*=2;a.a>a.f&&(a.a=a.f);return b}function qm(a,b){a.stop();a.b=Bd(rm(a,b)).then(function(){return Ye()}).then(function(){return a.h()}).then(function(){qm(a,!0)}).o(function(c){a.i(c)&&qm(a,!1)})}
+pm.prototype.stop=function(){this.b&&(this.b.cancel(),this.b=null)};function sm(a){this.c=a;this.b=this.a=null}sm.prototype.v=function(){return{apiKey:this.c.c,refreshToken:this.a,accessToken:this.b&&this.b.toString(),expirationTime:tm(this)}};function tm(a){return a.b&&1E3*a.b.c||0}function um(a,b){var c=b.refreshToken;a.b=gg(b[Ag]||"");a.a=c}function vm(a,b){a.b=b.b;a.a=b.a}
+function wm(a,b){return Qi(a.c,b).then(function(c){a.b=gg(c.access_token);a.a=c.refresh_token;return{accessToken:a.b.toString(),refreshToken:a.a}}).o(function(c){"auth/user-token-expired"==c.code&&(a.a=null);throw c;})}sm.prototype.getToken=function(a){a=!!a;return this.b&&!this.a?E(new t("user-token-expired")):a||!this.b||ua()>tm(this)-3E4?this.a?wm(this,{grant_type:"refresh_token",refresh_token:this.a}):D(null):D({accessToken:this.b.toString(),refreshToken:this.a})};function xm(a,b){this.a=a||null;this.b=b||null;L(this,{lastSignInTime:Ze(b||null),creationTime:Ze(a||null)})}function ym(a){return new xm(a.a,a.b)}xm.prototype.v=function(){return{lastLoginAt:this.b,createdAt:this.a}};function zm(a,b,c,d,e,f){L(this,{uid:a,displayName:d||null,photoURL:e||null,email:c||null,phoneNumber:f||null,providerId:b})}
+function P(a,b,c){this.N=[];this.l=a.apiKey;this.m=a.appName;this.s=a.authDomain||null;a=firebase.SDK_VERSION?Le(firebase.SDK_VERSION):null;this.a=new Ei(this.l,Aa(Ba),a);this.b=new sm(this.a);Am(this,b[Ag]);um(this.b,b);K(this,"refreshToken",this.b.a);Bm(this,c||{});G.call(this);this.P=!1;this.s&&Oe()&&(this.i=Pl(this.s,this.l,this.m));this.R=[];this.h=null;this.B=Cm(this);this.Z=q(this.Ma,this);var d=this;this.oa=null;this.za=function(e){d.va(e.g)};this.aa=null;this.W=[];this.ya=function(e){Dm(d,
+e.c)};this.$=null;this.O=new lm(this,c);K(this,"multiFactor",this.O)}r(P,G);P.prototype.va=function(a){this.oa=a;Ki(this.a,a)};P.prototype.ja=function(){return this.oa};function Em(a,b){a.aa&&td(a.aa,"languageCodeChanged",a.za);(a.aa=b)&&jd(b,"languageCodeChanged",a.za)}function Dm(a,b){a.W=b;Li(a.a,firebase.SDK_VERSION?Le(firebase.SDK_VERSION,a.W):null)}P.prototype.Ea=function(){return Xa(this.W)};function Fm(a,b){a.$&&td(a.$,"frameworkChanged",a.ya);(a.$=b)&&jd(b,"frameworkChanged",a.ya)}
+P.prototype.Ma=function(){this.B.b&&(this.B.stop(),this.B.start())};function Gm(a){try{return firebase.app(a.m).auth()}catch(b){throw new t("internal-error","No firebase.auth.Auth instance is available for the Firebase App '"+a.m+"'!");}}function Cm(a){return new pm(function(){return a.I(!0)},function(b){return b&&"auth/network-request-failed"==b.code?!0:!1},function(){var b=tm(a.b)-ua()-3E5;return 0<b?b:0})}
+function Hm(a){a.D||a.B.b||(a.B.start(),td(a,"tokenChanged",a.Z),jd(a,"tokenChanged",a.Z))}function Im(a){td(a,"tokenChanged",a.Z);a.B.stop()}function Am(a,b){a.xa=b;K(a,"_lat",b)}function Jm(a,b){Va(a.R,function(c){return c==b})}function Km(a){for(var b=[],c=0;c<a.R.length;c++)b.push(a.R[c](a));return Fc(b).then(function(){return a})}function Lm(a){a.i&&!a.P&&(a.P=!0,Hl(a.i,a))}
+function Bm(a,b){L(a,{uid:b.uid,displayName:b.displayName||null,photoURL:b.photoURL||null,email:b.email||null,emailVerified:b.emailVerified||!1,phoneNumber:b.phoneNumber||null,isAnonymous:b.isAnonymous||!1,tenantId:b.tenantId||null,metadata:new xm(b.createdAt,b.lastLoginAt),providerData:[]});a.a.b=a.tenantId}K(P.prototype,"providerId","firebase");function Mm(){}function Nm(a){return D().then(function(){if(a.D)throw new t("app-deleted");})}
+function Om(a){return Pa(a.providerData,function(b){return b.providerId})}function Pm(a,b){b&&(Qm(a,b.providerId),a.providerData.push(b))}function Qm(a,b){Va(a.providerData,function(c){return c.providerId==b})}function Rm(a,b,c){("uid"!=b||c)&&a.hasOwnProperty(b)&&K(a,b,c)}
+function Sm(a,b){a!=b&&(L(a,{uid:b.uid,displayName:b.displayName,photoURL:b.photoURL,email:b.email,emailVerified:b.emailVerified,phoneNumber:b.phoneNumber,isAnonymous:b.isAnonymous,tenantId:b.tenantId,providerData:[]}),b.metadata?K(a,"metadata",ym(b.metadata)):K(a,"metadata",new xm),w(b.providerData,function(c){Pm(a,c)}),vm(a.b,b.b),K(a,"refreshToken",a.b.a),mm(a.O,b.O.b))}k=P.prototype;k.reload=function(){var a=this;return R(this,Nm(this).then(function(){return Tm(a).then(function(){return Km(a)}).then(Mm)}))};
+function Tm(a){return a.I().then(function(b){var c=a.isAnonymous;return Um(a,b).then(function(){c||Rm(a,"isAnonymous",!1);return b})})}k.mc=function(a){return this.I(a).then(function(b){return new $l(b)})};k.I=function(a){var b=this;return R(this,Nm(this).then(function(){return b.b.getToken(a)}).then(function(c){if(!c)throw new t("internal-error");c.accessToken!=b.xa&&(Am(b,c.accessToken),b.dispatchEvent(new km("tokenChanged")));Rm(b,"refreshToken",c.refreshToken);return c.accessToken}))};
+function om(a,b){b[Ag]&&a.xa!=b[Ag]&&(um(a.b,b),a.dispatchEvent(new km("tokenChanged")),Am(a,b[Ag]),Rm(a,"refreshToken",a.b.a))}function Um(a,b){return N(a.a,Cj,{idToken:b}).then(q(a.Ic,a))}
+k.Ic=function(a){a=a.users;if(!a||!a.length)throw new t("internal-error");a=a[0];Bm(this,{uid:a.localId,displayName:a.displayName,photoURL:a.photoUrl,email:a.email,emailVerified:!!a.emailVerified,phoneNumber:a.phoneNumber,lastLoginAt:a.lastLoginAt,createdAt:a.createdAt,tenantId:a.tenantId});for(var b=Vm(a),c=0;c<b.length;c++)Pm(this,b[c]);Rm(this,"isAnonymous",!(this.email&&a.passwordHash)&&!(this.providerData&&this.providerData.length));this.dispatchEvent(new km("userReloaded",{ed:a}))};
+function Vm(a){return(a=a.providerUserInfo)&&a.length?Pa(a,function(b){return new zm(b.rawId,b.providerId,b.email,b.displayName,b.photoUrl,b.phoneNumber)}):[]}k.Jc=function(a){df("firebase.User.prototype.reauthenticateAndRetrieveDataWithCredential is deprecated. Please use firebase.User.prototype.reauthenticateWithCredential instead.");return this.pb(a)};
+k.pb=function(a){var b=this,c=null;return R(this,a.c(this.a,this.uid).then(function(d){om(b,d);c=Wm(b,d,"reauthenticate");b.h=null;return b.reload()}).then(function(){return c}),!0)};function Xm(a,b){return Tm(a).then(function(){if(Ta(Om(a),b))return Km(a).then(function(){throw new t("provider-already-linked");})})}k.Ac=function(a){df("firebase.User.prototype.linkAndRetrieveDataWithCredential is deprecated. Please use firebase.User.prototype.linkWithCredential instead.");return this.mb(a)};
+k.mb=function(a){var b=this,c=null;return R(this,Xm(this,a.providerId).then(function(){return b.I()}).then(function(d){return a.b(b.a,d)}).then(function(d){c=Wm(b,d,"link");return Ym(b,d)}).then(function(){return c}))};k.Bc=function(a,b){var c=this;return R(this,Xm(this,"phone").then(function(){return Zl(Gm(c),a,b,q(c.mb,c))}))};k.Kc=function(a,b){var c=this;return R(this,D().then(function(){return Zl(Gm(c),a,b,q(c.pb,c))}),!0)};
+function Wm(a,b,c){var d=mh(b);b=lg(b);return gf({user:a,credential:d,additionalUserInfo:b,operationType:c})}function Ym(a,b){om(a,b);return a.reload().then(function(){return a})}k.xb=function(a){var b=this;return R(this,this.I().then(function(c){return b.a.xb(c,a)}).then(function(c){om(b,c);return b.reload()}))};k.cd=function(a){var b=this;return R(this,this.I().then(function(c){return a.b(b.a,c)}).then(function(c){om(b,c);return b.reload()}))};
+k.yb=function(a){var b=this;return R(this,this.I().then(function(c){return b.a.yb(c,a)}).then(function(c){om(b,c);return b.reload()}))};
+k.zb=function(a){if(void 0===a.displayName&&void 0===a.photoURL)return Nm(this);var b=this;return R(this,this.I().then(function(c){return b.a.zb(c,{displayName:a.displayName,photoUrl:a.photoURL})}).then(function(c){om(b,c);Rm(b,"displayName",c.displayName||null);Rm(b,"photoURL",c.photoUrl||null);w(b.providerData,function(d){"password"===d.providerId&&(K(d,"displayName",b.displayName),K(d,"photoURL",b.photoURL))});return Km(b)}).then(Mm))};
+k.ad=function(a){var b=this;return R(this,Tm(this).then(function(c){return Ta(Om(b),a)?lj(b.a,c,[a]).then(function(d){var e={};w(d.providerUserInfo||[],function(f){e[f.providerId]=!0});w(Om(b),function(f){e[f]||Qm(b,f)});e[hh.PROVIDER_ID]||K(b,"phoneNumber",null);return Km(b)}):Km(b).then(function(){throw new t("no-such-provider");})}))};
+k.delete=function(){var a=this;return R(this,this.I().then(function(b){return N(a.a,zj,{idToken:b})}).then(function(){a.dispatchEvent(new km("userDeleted"))})).then(function(){for(var b=0;b<a.N.length;b++)a.N[b].cancel("app-deleted");Em(a,null);Fm(a,null);a.N=[];a.D=!0;Im(a);K(a,"refreshToken",null);a.i&&Il(a.i,a)})};
+k.Cb=function(a,b){return"linkViaPopup"==a&&(this.g||null)==b&&this.f||"reauthViaPopup"==a&&(this.g||null)==b&&this.f||"linkViaRedirect"==a&&(this.fa||null)==b||"reauthViaRedirect"==a&&(this.fa||null)==b?!0:!1};k.la=function(a,b,c,d){"linkViaPopup"!=a&&"reauthViaPopup"!=a||d!=(this.g||null)||(c&&this.w?this.w(c):b&&!c&&this.f&&this.f(b),this.c&&(this.c.cancel(),this.c=null),delete this.f,delete this.w)};
+k.Da=function(a,b){return"linkViaPopup"==a&&b==(this.g||null)?q(this.Hb,this):"reauthViaPopup"==a&&b==(this.g||null)?q(this.Ib,this):"linkViaRedirect"==a&&(this.fa||null)==b?q(this.Hb,this):"reauthViaRedirect"==a&&(this.fa||null)==b?q(this.Ib,this):null};k.Cc=function(a){var b=this;return Zm(this,"linkViaPopup",a,function(){return Xm(b,a.providerId).then(function(){return Km(b)})},!1)};k.Lc=function(a){return Zm(this,"reauthViaPopup",a,function(){return D()},!0)};
+function Zm(a,b,c,d,e){if(!Oe())return E(new t("operation-not-supported-in-this-environment"));if(a.h&&!e)return E(a.h);var f=kg(c.providerId),g=Ne(a.uid+":::"),h=null;(!Qe()||Fe())&&a.s&&c.isOAuthProvider&&(h=Yj(a.s,a.l,a.m,b,c,null,g,firebase.SDK_VERSION||null,null,null,a.tenantId));var m=we(h,f&&f.ta,f&&f.sa);d=d().then(function(){$m(a);if(!e)return a.I().then(function(){})}).then(function(){return Ll(a.i,m,b,c,g,!!h,a.tenantId)}).then(function(){return new B(function(p,v){a.la(b,null,new t("cancelled-popup-request"),
+a.g||null);a.f=p;a.w=v;a.g=g;a.c=Nl(a.i,a,b,m,g)})}).then(function(p){m&&ve(m);return p?gf(p):null}).o(function(p){m&&ve(m);throw p;});return R(a,d,e)}k.Dc=function(a){var b=this;return an(this,"linkViaRedirect",a,function(){return Xm(b,a.providerId)},!1)};k.Mc=function(a){return an(this,"reauthViaRedirect",a,function(){return D()},!0)};
+function an(a,b,c,d,e){if(!Oe())return E(new t("operation-not-supported-in-this-environment"));if(a.h&&!e)return E(a.h);var f=null,g=Ne(a.uid+":::");d=d().then(function(){$m(a);if(!e)return a.I().then(function(){})}).then(function(){a.fa=g;return Km(a)}).then(function(h){a.ga&&(h=a.ga,h=h.b.set(bn,a.v(),h.a));return h}).then(function(){return Ml(a.i,b,c,g,a.tenantId)}).o(function(h){f=h;if(a.ga)return cn(a.ga);throw f;}).then(function(){if(f)throw f;});return R(a,d,e)}
+function $m(a){if(!a.i||!a.P){if(a.i&&!a.P)throw new t("internal-error");throw new t("auth-domain-config-required");}}k.Hb=function(a,b,c,d){var e=this;this.c&&(this.c.cancel(),this.c=null);var f=null;c=this.I().then(function(g){return Eg(e.a,{requestUri:a,postBody:d,sessionId:b,idToken:g})}).then(function(g){f=Wm(e,g,"link");return Ym(e,g)}).then(function(){return f});return R(this,c)};
+k.Ib=function(a,b,c,d){var e=this;this.c&&(this.c.cancel(),this.c=null);var f=null,g=D().then(function(){return zg(Fg(e.a,{requestUri:a,sessionId:b,postBody:d,tenantId:c}),e.uid)}).then(function(h){f=Wm(e,h,"reauthenticate");om(e,h);e.h=null;return e.reload()}).then(function(){return f});return R(this,g,!0)};
+k.qb=function(a){var b=this,c=null;return R(this,this.I().then(function(d){c=d;return"undefined"===typeof a||kb(a)?{}:Zf(new Pf(a))}).then(function(d){return b.a.qb(c,d)}).then(function(d){if(b.email!=d)return b.reload()}).then(function(){}))};k.Ab=function(a,b){var c=this,d=null;return R(this,this.I().then(function(e){d=e;return"undefined"===typeof b||kb(b)?{}:Zf(new Pf(b))}).then(function(e){return c.a.Ab(d,a,e)}).then(function(e){if(c.email!=e)return c.reload()}).then(function(){}))};
+function R(a,b,c){var d=dn(a,b,c);a.N.push(d);d.ma(function(){Ua(a.N,d)});return d.o(function(e){var f=null;e&&"auth/multi-factor-auth-required"===e.code&&(f=em(e.v(),Gm(a),q(a.hc,a)));throw f||e;})}k.hc=function(a){var b=null,c=this;a=zg(D(a),c.uid).then(function(d){b=Wm(c,d,"reauthenticate");om(c,d);c.h=null;return c.reload()}).then(function(){return b});return R(this,a,!0)};
+function dn(a,b,c){return a.h&&!c?(b.cancel(),E(a.h)):b.o(function(d){!d||"auth/user-disabled"!=d.code&&"auth/user-token-expired"!=d.code||(a.h||a.dispatchEvent(new km("userInvalidated")),a.h=d);throw d;})}k.toJSON=function(){return this.v()};
+k.v=function(){var a={uid:this.uid,displayName:this.displayName,photoURL:this.photoURL,email:this.email,emailVerified:this.emailVerified,phoneNumber:this.phoneNumber,isAnonymous:this.isAnonymous,tenantId:this.tenantId,providerData:[],apiKey:this.l,appName:this.m,authDomain:this.s,stsTokenManager:this.b.v(),redirectEventId:this.fa||null};this.metadata&&z(a,this.metadata.v());w(this.providerData,function(b){a.providerData.push(hf(b))});z(a,this.O.v());return a};
+function en(a){if(!a.apiKey)return null;var b={apiKey:a.apiKey,authDomain:a.authDomain,appName:a.appName},c={};if(a.stsTokenManager&&a.stsTokenManager.accessToken)c[Ag]=a.stsTokenManager.accessToken,c.refreshToken=a.stsTokenManager.refreshToken||null;else return null;var d=new P(b,c,a);a.providerData&&w(a.providerData,function(e){e&&Pm(d,gf(e))});a.redirectEventId&&(d.fa=a.redirectEventId);return d}
+function fn(a,b,c,d){var e=new P(a,b);c&&(e.ga=c);d&&Dm(e,d);return e.reload().then(function(){return e})}function gn(a,b,c,d){var e=a.b,f={};f[Ag]=e.b&&e.b.toString();f.refreshToken=e.a;b=new P(b||{apiKey:a.l,authDomain:a.s,appName:a.m},f);c&&(b.ga=c);d&&Dm(b,d);Sm(b,a);return b};function hn(a){this.a=a;this.b=Ok()}var bn={name:"redirectUser",F:"session"};function cn(a){return Sk(a.b,bn,a.a)}function jn(a,b){return a.b.get(bn,a.a).then(function(c){c&&b&&(c.authDomain=b);return en(c||{})})};function kn(a){this.a=a;this.b=Ok();this.c=null;this.f=ln(this);this.b.addListener(mn("local"),this.a,q(this.g,this))}kn.prototype.g=function(){var a=this,b=mn("local");nn(this,function(){return D().then(function(){return a.c&&"local"!=a.c.F?a.b.get(b,a.a):null}).then(function(c){if(c)return on(a,"local").then(function(){a.c=b})})})};function on(a,b){var c=[],d;for(d in Kk)Kk[d]!==b&&c.push(Sk(a.b,mn(Kk[d]),a.a));c.push(Sk(a.b,pn,a.a));return Ec(c)}
+function ln(a){var b=mn("local"),c=mn("session"),d=mn("none");return Rk(a.b,b,a.a).then(function(){return a.b.get(c,a.a)}).then(function(e){return e?c:a.b.get(d,a.a).then(function(f){return f?d:a.b.get(b,a.a).then(function(g){return g?b:a.b.get(pn,a.a).then(function(h){return h?mn(h):b})})})}).then(function(e){a.c=e;return on(a,e.F)}).o(function(){a.c||(a.c=b)})}var pn={name:"persistence",F:"session"};function mn(a){return{name:"authUser",F:a}}
+kn.prototype.tb=function(a){var b=null,c=this;Lk(a);return nn(this,function(){return a!=c.c.F?c.b.get(c.c,c.a).then(function(d){b=d;return on(c,a)}).then(function(){c.c=mn(a);if(b)return c.b.set(c.c,b,c.a)}):D()})};function qn(a){return nn(a,function(){return a.b.set(pn,a.c.F,a.a)})}function rn(a,b){return nn(a,function(){return a.b.set(a.c,b.v(),a.a)})}function sn(a){return nn(a,function(){return Sk(a.b,a.c,a.a)})}
+function tn(a,b){return nn(a,function(){return a.b.get(a.c,a.a).then(function(c){c&&b&&(c.authDomain=b);return en(c||{})})})}function nn(a,b){a.f=a.f.then(b,b);return a.f};function un(a){this.l=!1;K(this,"settings",new Xl);K(this,"app",a);if(S(this).options&&S(this).options.apiKey)a=firebase.SDK_VERSION?Le(firebase.SDK_VERSION):null,this.b=new Ei(S(this).options&&S(this).options.apiKey,Aa(Ba),a);else throw new t("invalid-api-key");this.P=[];this.m=[];this.O=[];this.$b=firebase.INTERNAL.createSubscribe(q(this.xc,this));this.W=void 0;this.ac=firebase.INTERNAL.createSubscribe(q(this.yc,this));vn(this,null);this.i=new kn(S(this).options.apiKey+":"+S(this).name);this.B=
+new hn(S(this).options.apiKey+":"+S(this).name);this.Z=T(this,wn(this));this.h=T(this,xn(this));this.aa=!1;this.oa=q(this.Xc,this);this.Ma=q(this.ca,this);this.xa=q(this.jc,this);this.ya=q(this.uc,this);this.za=q(this.vc,this);this.a=null;yn(this);this.INTERNAL={};this.INTERNAL["delete"]=q(this.delete,this);this.INTERNAL.logFramework=q(this.Ec,this);this.s=0;G.call(this);zn(this);this.N=[]}r(un,G);function An(a){F.call(this,"languageCodeChanged");this.g=a}r(An,F);
+function Bn(a){F.call(this,"frameworkChanged");this.c=a}r(Bn,F);k=un.prototype;k.tb=function(a){a=this.i.tb(a);return T(this,a)};k.va=function(a){this.$===a||this.l||(this.$=a,Ki(this.b,this.$),this.dispatchEvent(new An(this.ja())))};k.ja=function(){return this.$};k.dd=function(){var a=l.navigator;this.va(a?a.languages&&a.languages[0]||a.language||a.userLanguage||null:null)};k.Ec=function(a){this.N.push(a);Li(this.b,firebase.SDK_VERSION?Le(firebase.SDK_VERSION,this.N):null);this.dispatchEvent(new Bn(this.N))};
+k.Ea=function(){return Xa(this.N)};k.ub=function(a){this.R===a||this.l||(this.R=a,this.b.b=this.R)};k.S=function(){return this.R};function zn(a){Object.defineProperty(a,"lc",{get:function(){return this.ja()},set:function(b){this.va(b)},enumerable:!1});a.$=null;Object.defineProperty(a,"ti",{get:function(){return this.S()},set:function(b){this.ub(b)},enumerable:!1});a.R=null}
+k.toJSON=function(){return{apiKey:S(this).options.apiKey,authDomain:S(this).options.authDomain,appName:S(this).name,currentUser:U(this)&&U(this).v()}};function Cn(a){return a.Zb||E(new t("auth-domain-config-required"))}function yn(a){var b=S(a).options.authDomain,c=S(a).options.apiKey;b&&Oe()&&(a.Zb=a.Z.then(function(){if(!a.l){a.a=Pl(b,c,S(a).name);Hl(a.a,a);U(a)&&Lm(U(a));if(a.D){Lm(a.D);var d=a.D;d.va(a.ja());Em(d,a);d=a.D;Dm(d,a.N);Fm(d,a);a.D=null}return a.a}}))}
+k.Cb=function(a,b){switch(a){case "unknown":case "signInViaRedirect":return!0;case "signInViaPopup":return this.g==b&&!!this.f;default:return!1}};k.la=function(a,b,c,d){"signInViaPopup"==a&&this.g==d&&(c&&this.w?this.w(c):b&&!c&&this.f&&this.f(b),this.c&&(this.c.cancel(),this.c=null),delete this.f,delete this.w)};k.Da=function(a,b){return"signInViaRedirect"==a||"signInViaPopup"==a&&this.g==b&&this.f?q(this.gc,this):null};
+k.gc=function(a,b,c,d){var e=this,f={requestUri:a,postBody:d,sessionId:b,tenantId:c};this.c&&(this.c.cancel(),this.c=null);return e.Z.then(function(){return Dn(e,Cg(e.b,f))})};
+k.Vc=function(a){if(!Oe())return E(new t("operation-not-supported-in-this-environment"));var b=this,c=kg(a.providerId),d=Ne(),e=null;(!Qe()||Fe())&&S(this).options.authDomain&&a.isOAuthProvider&&(e=Yj(S(this).options.authDomain,S(this).options.apiKey,S(this).name,"signInViaPopup",a,null,d,firebase.SDK_VERSION||null,null,null,this.S()));var f=we(e,c&&c.ta,c&&c.sa);c=Cn(this).then(function(g){return Ll(g,f,"signInViaPopup",a,d,!!e,b.S())}).then(function(){return new B(function(g,h){b.la("signInViaPopup",
+null,new t("cancelled-popup-request"),b.g);b.f=g;b.w=h;b.g=d;b.c=Nl(b.a,b,"signInViaPopup",f,d)})}).then(function(g){f&&ve(f);return g?gf(g):null}).o(function(g){f&&ve(f);throw g;});return T(this,c)};k.Wc=function(a){if(!Oe())return E(new t("operation-not-supported-in-this-environment"));var b=this,c=Cn(this).then(function(){return qn(b.i)}).then(function(){return Ml(b.a,"signInViaRedirect",a,void 0,b.S())});return T(this,c)};
+function En(a){if(!Oe())return E(new t("operation-not-supported-in-this-environment"));var b=Cn(a).then(function(){return a.a.pa()}).then(function(c){return c?gf(c):null});return T(a,b)}k.pa=function(){var a=this;return En(this).then(function(b){a.a&&Sl(a.a.b);return b}).o(function(b){a.a&&Sl(a.a.b);throw b;})};
+k.bd=function(a){if(!a)return E(new t("null-user"));if(this.R!=a.tenantId)return E(new t("tenant-id-mismatch"));var b=this,c={};c.apiKey=S(this).options.apiKey;c.authDomain=S(this).options.authDomain;c.appName=S(this).name;var d=gn(a,c,b.B,b.Ea());return T(this,this.h.then(function(){if(S(b).options.apiKey!=a.l)return d.reload()}).then(function(){if(U(b)&&a.uid==U(b).uid)return Sm(U(b),a),b.ca(a);vn(b,d);Lm(d);return b.ca(d)}).then(function(){Fn(b)}))};
+function Gn(a,b){var c={};c.apiKey=S(a).options.apiKey;c.authDomain=S(a).options.authDomain;c.appName=S(a).name;return a.Z.then(function(){return fn(c,b,a.B,a.Ea())}).then(function(d){if(U(a)&&d.uid==U(a).uid)return Sm(U(a),d),a.ca(d);vn(a,d);Lm(d);return a.ca(d)}).then(function(){Fn(a)})}
+function vn(a,b){U(a)&&(Jm(U(a),a.Ma),td(U(a),"tokenChanged",a.xa),td(U(a),"userDeleted",a.ya),td(U(a),"userInvalidated",a.za),Im(U(a)));b&&(b.R.push(a.Ma),jd(b,"tokenChanged",a.xa),jd(b,"userDeleted",a.ya),jd(b,"userInvalidated",a.za),0<a.s&&Hm(b));K(a,"currentUser",b);b&&(b.va(a.ja()),Em(b,a),Dm(b,a.N),Fm(b,a))}k.wb=function(){var a=this,b=this.h.then(function(){a.a&&Sl(a.a.b);if(!U(a))return D();vn(a,null);return sn(a.i).then(function(){Fn(a)})});return T(this,b)};
+function Hn(a){var b=jn(a.B,S(a).options.authDomain).then(function(c){if(a.D=c)c.ga=a.B;return cn(a.B)});return T(a,b)}function wn(a){var b=S(a).options.authDomain,c=Hn(a).then(function(){return tn(a.i,b)}).then(function(d){return d?(d.ga=a.B,a.D&&(a.D.fa||null)==(d.fa||null)?d:d.reload().then(function(){return rn(a.i,d).then(function(){return d})}).o(function(e){return"auth/network-request-failed"==e.code?d:sn(a.i)})):null}).then(function(d){vn(a,d||null)});return T(a,c)}
+function xn(a){return a.Z.then(function(){return En(a)}).o(function(){}).then(function(){if(!a.l)return a.oa()}).o(function(){}).then(function(){if(!a.l){a.aa=!0;var b=a.i;b.b.addListener(mn("local"),b.a,a.oa)}})}
+k.Xc=function(){var a=this;return tn(this.i,S(this).options.authDomain).then(function(b){if(!a.l){var c;if(c=U(a)&&b){c=U(a).uid;var d=b.uid;c=void 0===c||null===c||""===c||void 0===d||null===d||""===d?!1:c==d}if(c)return Sm(U(a),b),U(a).I();if(U(a)||b)vn(a,b),b&&(Lm(b),b.ga=a.B),a.a&&Hl(a.a,a),Fn(a)}})};k.ca=function(a){return rn(this.i,a)};k.jc=function(){Fn(this);this.ca(U(this))};k.uc=function(){this.wb()};k.vc=function(){this.wb()};
+function Dn(a,b){var c=null,d=null;return T(a,b.then(function(e){c=mh(e);d=lg(e);return Gn(a,e)},function(e){var f=null;e&&"auth/multi-factor-auth-required"===e.code&&(f=em(e.v(),a,q(a.ic,a)));throw f||e;}).then(function(){return gf({user:U(a),credential:c,additionalUserInfo:d,operationType:"signIn"})}))}k.ic=function(a){var b=this;return this.h.then(function(){return Dn(b,D(a))})};k.xc=function(a){var b=this;this.addAuthTokenListener(function(){a.next(U(b))})};
+k.yc=function(a){var b=this;In(this,function(){a.next(U(b))})};k.Gc=function(a,b,c){var d=this;this.aa&&Promise.resolve().then(function(){"function"===typeof a?a(U(d)):"function"===typeof a.next&&a.next(U(d))});return this.$b(a,b,c)};k.Fc=function(a,b,c){var d=this;this.aa&&Promise.resolve().then(function(){d.W=d.getUid();"function"===typeof a?a(U(d)):"function"===typeof a.next&&a.next(U(d))});return this.ac(a,b,c)};
+k.kc=function(a){var b=this,c=this.h.then(function(){return U(b)?U(b).I(a).then(function(d){return{accessToken:d}}):null});return T(this,c)};k.Rc=function(a){var b=this;return this.h.then(function(){return Dn(b,N(b.b,Ej,{token:a}))}).then(function(c){var d=c.user;Rm(d,"isAnonymous",!1);b.ca(d);return c})};k.Sc=function(a,b){var c=this;return this.h.then(function(){return Dn(c,N(c.b,Xg,{email:a,password:b}))})};
+k.cc=function(a,b){var c=this;return this.h.then(function(){return Dn(c,N(c.b,yj,{email:a,password:b}))})};k.Ya=function(a){var b=this;return this.h.then(function(){return Dn(b,a.ia(b.b))})};k.Qc=function(a){df("firebase.auth.Auth.prototype.signInAndRetrieveDataWithCredential is deprecated. Please use firebase.auth.Auth.prototype.signInWithCredential instead.");return this.Ya(a)};
+k.vb=function(){var a=this;return this.h.then(function(){var b=U(a);if(b&&b.isAnonymous){var c=gf({providerId:null,isNewUser:!1});return gf({user:b,credential:null,additionalUserInfo:c,operationType:"signIn"})}return Dn(a,a.b.vb()).then(function(d){var e=d.user;Rm(e,"isAnonymous",!0);a.ca(e);return d})})};function S(a){return a.app}function U(a){return a.currentUser}k.getUid=function(){return U(this)&&U(this).uid||null};function Jn(a){return U(a)&&U(a)._lat||null}
+function Fn(a){if(a.aa){for(var b=0;b<a.m.length;b++)if(a.m[b])a.m[b](Jn(a));if(a.W!==a.getUid()&&a.O.length)for(a.W=a.getUid(),b=0;b<a.O.length;b++)if(a.O[b])a.O[b](Jn(a))}}k.bc=function(a){this.addAuthTokenListener(a);this.s++;0<this.s&&U(this)&&Hm(U(this))};k.Nc=function(a){var b=this;w(this.m,function(c){c==a&&b.s--});0>this.s&&(this.s=0);0==this.s&&U(this)&&Im(U(this));this.removeAuthTokenListener(a)};
+k.addAuthTokenListener=function(a){var b=this;this.m.push(a);T(this,this.h.then(function(){b.l||Ta(b.m,a)&&a(Jn(b))}))};k.removeAuthTokenListener=function(a){Va(this.m,function(b){return b==a})};function In(a,b){a.O.push(b);T(a,a.h.then(function(){!a.l&&Ta(a.O,b)&&a.W!==a.getUid()&&(a.W=a.getUid(),b(Jn(a)))}))}
+k.delete=function(){this.l=!0;for(var a=0;a<this.P.length;a++)this.P[a].cancel("app-deleted");this.P=[];this.i&&(a=this.i,a.b.removeListener(mn("local"),a.a,this.oa));this.a&&(Il(this.a,this),Sl(this.a.b));return Promise.resolve()};function T(a,b){a.P.push(b);b.ma(function(){Ua(a.P,b)});return b}k.fc=function(a){return T(this,Vi(this.b,a))};k.zc=function(a){return!!bh(a)};
+k.sb=function(a,b){var c=this;return T(this,D().then(function(){var d=new Pf(b);if(!d.c)throw new t("argument-error",Xf+" must be true when sending sign in link to email");return Zf(d)}).then(function(d){return c.b.sb(a,d)}).then(function(){}))};k.fd=function(a){return this.Pa(a).then(function(b){return b.data.email})};k.jb=function(a,b){return T(this,this.b.jb(a,b).then(function(){}))};k.Pa=function(a){return T(this,this.b.Pa(a).then(function(b){return new sf(b)}))};
+k.fb=function(a){return T(this,this.b.fb(a).then(function(){}))};k.rb=function(a,b){var c=this;return T(this,D().then(function(){return"undefined"===typeof b||kb(b)?{}:Zf(new Pf(b))}).then(function(d){return c.b.rb(a,d)}).then(function(){}))};k.Uc=function(a,b){return T(this,Zl(this,a,b,q(this.Ya,this)))};
+k.Tc=function(a,b){var c=this;return T(this,D().then(function(){var d=b||oe(),e=ah(a,d);d=bh(d);if(!d)throw new t("argument-error","Invalid email link!");if(d.tenantId!==c.S())throw new t("tenant-id-mismatch");return c.Ya(e)}))};function Kn(){}Kn.prototype.render=function(){};Kn.prototype.reset=function(){};Kn.prototype.getResponse=function(){};Kn.prototype.execute=function(){};function Ln(){this.a={};this.b=1E12}var Mn=null;Ln.prototype.render=function(a,b){this.a[this.b.toString()]=new Nn(a,b);return this.b++};Ln.prototype.reset=function(a){var b=On(this,a);a=Pn(a);b&&a&&(b.delete(),delete this.a[a])};Ln.prototype.getResponse=function(a){return(a=On(this,a))?a.getResponse():null};Ln.prototype.execute=function(a){(a=On(this,a))&&a.execute()};function On(a,b){return(b=Pn(b))?a.a[b]||null:null}function Pn(a){return(a="undefined"===typeof a?1E12:a)?a.toString():null}
+function Nn(a,b){this.g=!1;this.c=b;this.a=this.b=null;this.h="invisible"!==this.c.size;this.f=fc(a);var c=this;this.i=function(){c.execute()};this.h?this.execute():jd(this.f,"click",this.i)}Nn.prototype.getResponse=function(){Qn(this);return this.b};
+Nn.prototype.execute=function(){Qn(this);var a=this;this.a||(this.a=setTimeout(function(){a.b=Je();var b=a.c.callback,c=a.c["expired-callback"];if(b)try{b(a.b)}catch(d){}a.a=setTimeout(function(){a.a=null;a.b=null;if(c)try{c()}catch(d){}a.h&&a.execute()},6E4)},500))};Nn.prototype.delete=function(){Qn(this);this.g=!0;clearTimeout(this.a);this.a=null;td(this.f,"click",this.i)};function Qn(a){if(a.g)throw Error("reCAPTCHA mock was already deleted!");};function Rn(){}K(Rn,"FACTOR_ID","phone");function Sn(){}Sn.prototype.g=function(){Mn||(Mn=new Ln);return D(Mn)};Sn.prototype.c=function(){};var Tn=null;function Un(){this.b=l.grecaptcha?Infinity:0;this.f=null;this.a="__rcb"+Math.floor(1E6*Math.random()).toString()}var Vn=new ob(pb,"https://www.google.com/recaptcha/api.js?onload=%{onload}&render=explicit&hl=%{hl}"),Wn=new We(3E4,6E4);
+Un.prototype.g=function(a){var b=this;return new B(function(c,d){var e=setTimeout(function(){d(new t("network-request-failed"))},Wn.get());if(!l.grecaptcha||a!==b.f&&!b.b){l[b.a]=function(){if(l.grecaptcha){b.f=a;var g=l.grecaptcha.render;l.grecaptcha.render=function(h,m){h=g(h,m);b.b++;return h};clearTimeout(e);c(l.grecaptcha)}else clearTimeout(e),d(new t("internal-error"));delete l[b.a]};var f=xb(Vn,{onload:b.a,hl:a||""});D(xi(f)).o(function(){clearTimeout(e);d(new t("internal-error","Unable to load external reCAPTCHA dependencies!"))})}else clearTimeout(e),
+c(l.grecaptcha)})};Un.prototype.c=function(){this.b--};var Xn=null;function Yn(a,b,c,d,e,f,g){K(this,"type","recaptcha");this.c=this.f=null;this.D=!1;this.u=b;this.g=null;g?(Tn||(Tn=new Sn),g=Tn):(Xn||(Xn=new Un),g=Xn);this.m=g;this.a=c||{theme:"light",type:"image"};this.h=[];if(this.a[Zn])throw new t("argument-error","sitekey should not be provided for reCAPTCHA as one is automatically provisioned for the current project.");this.i="invisible"===this.a[$n];if(!l.document)throw new t("operation-not-supported-in-this-environment","RecaptchaVerifier is only supported in a browser HTTP/HTTPS environment with DOM support.");
+if(!fc(b)||!this.i&&fc(b).hasChildNodes())throw new t("argument-error","reCAPTCHA container is either not found or already contains inner elements!");this.s=new Ei(a,f||null,e||null);this.w=d||function(){return null};var h=this;this.l=[];var m=this.a[ao];this.a[ao]=function(v){bo(h,v);if("function"===typeof m)m(v);else if("string"===typeof m){var C=J(m,l);"function"===typeof C&&C(v)}};var p=this.a[co];this.a[co]=function(){bo(h,null);if("function"===typeof p)p();else if("string"===typeof p){var v=
+J(p,l);"function"===typeof v&&v()}}}var ao="callback",co="expired-callback",Zn="sitekey",$n="size";function bo(a,b){for(var c=0;c<a.l.length;c++)try{a.l[c](b)}catch(d){}}function eo(a,b){Va(a.l,function(c){return c==b})}function fo(a,b){a.h.push(b);b.ma(function(){Ua(a.h,b)});return b}k=Yn.prototype;
+k.Ga=function(){var a=this;return this.f?this.f:this.f=fo(this,D().then(function(){if(Pe()&&!Ge())return Be();throw new t("operation-not-supported-in-this-environment","RecaptchaVerifier is only supported in a browser HTTP/HTTPS environment.");}).then(function(){return a.m.g(a.w())}).then(function(b){a.g=b;return N(a.s,Dj,{})}).then(function(b){a.a[Zn]=b.recaptchaSiteKey}).o(function(b){a.f=null;throw b;}))};
+k.render=function(){go(this);var a=this;return fo(this,this.Ga().then(function(){if(null===a.c){var b=a.u;if(!a.i){var c=fc(b);b=ic("DIV");c.appendChild(b)}a.c=a.g.render(b,a.a)}return a.c}))};k.verify=function(){go(this);var a=this;return fo(this,this.render().then(function(b){return new B(function(c){var d=a.g.getResponse(b);if(d)c(d);else{var e=function(f){f&&(eo(a,e),c(f))};a.l.push(e);a.i&&a.g.execute(a.c)}})}))};k.reset=function(){go(this);null!==this.c&&this.g.reset(this.c)};
+function go(a){if(a.D)throw new t("internal-error","RecaptchaVerifier instance has been destroyed.");}k.clear=function(){go(this);this.D=!0;this.m.c();for(var a=0;a<this.h.length;a++)this.h[a].cancel("RecaptchaVerifier instance has been destroyed.");if(!this.i){a=fc(this.u);for(var b;b=a.firstChild;)a.removeChild(b)}};
+function ho(a,b,c){var d=!1;try{this.b=c||firebase.app()}catch(g){throw new t("argument-error","No firebase.app.App instance is currently initialized.");}if(this.b.options&&this.b.options.apiKey)c=this.b.options.apiKey;else throw new t("invalid-api-key");var e=this,f=null;try{f=this.b.auth().Ea()}catch(g){}try{d=this.b.auth().settings.appVerificationDisabledForTesting}catch(g){}f=firebase.SDK_VERSION?Le(firebase.SDK_VERSION,f):null;Yn.call(this,c,a,b,function(){try{var g=e.b.auth().ja()}catch(h){g=
+null}return g},f,Aa(Ba),d)}r(ho,Yn);function io(a,b,c,d){a:{c=Array.prototype.slice.call(c);var e=0;for(var f=!1,g=0;g<b.length;g++)if(b[g].optional)f=!0;else{if(f)throw new t("internal-error","Argument validator encountered a required argument after an optional argument.");e++}f=b.length;if(c.length<e||f<c.length)d="Expected "+(e==f?1==e?"1 argument":e+" arguments":e+"-"+f+" arguments")+" but got "+c.length+".";else{for(e=0;e<c.length;e++)if(f=b[e].optional&&void 0===c[e],!b[e].K(c[e])&&!f){b=b[e];if(0>e||e>=jo.length)throw new t("internal-error",
+"Argument validator received an unsupported number of arguments.");c=jo[e];d=(d?"":c+" argument ")+(b.name?'"'+b.name+'" ':"")+"must be "+b.J+".";break a}d=null}}if(d)throw new t("argument-error",a+" failed: "+d);}var jo="First Second Third Fourth Fifth Sixth Seventh Eighth Ninth".split(" ");function V(a,b){return{name:a||"",J:"a valid string",optional:!!b,K:function(c){return"string"===typeof c}}}
+function ko(a,b){return{name:a||"",J:"a boolean",optional:!!b,K:function(c){return"boolean"===typeof c}}}function W(a,b){return{name:a||"",J:"a valid object",optional:!!b,K:n}}function lo(a,b){return{name:a||"",J:"a function",optional:!!b,K:function(c){return"function"===typeof c}}}function mo(a,b){return{name:a||"",J:"null",optional:!!b,K:function(c){return null===c}}}function no(){return{name:"",J:"an HTML element",optional:!1,K:function(a){return!!(a&&a instanceof Element)}}}
+function oo(){return{name:"auth",J:"an instance of Firebase Auth",optional:!0,K:function(a){return!!(a&&a instanceof un)}}}function po(){return{name:"app",J:"an instance of Firebase App",optional:!0,K:function(a){return!!(a&&a instanceof firebase.app.App)}}}function qo(a){return{name:a?a+"Credential":"credential",J:a?"a valid "+a+" credential":"a valid credential",optional:!1,K:function(b){if(!b)return!1;var c=!a||b.providerId===a;return!(!b.ia||!c)}}}
+function ro(){return{name:"multiFactorAssertion",J:"a valid multiFactorAssertion",optional:!1,K:function(a){return a?!!a.ob:!1}}}function so(){return{name:"authProvider",J:"a valid Auth provider",optional:!1,K:function(a){return!!(a&&a.providerId&&a.hasOwnProperty&&a.hasOwnProperty("isOAuthProvider"))}}}function to(a,b){return n(a)&&"string"===typeof a.type&&a.type===b&&"function"===typeof a.Fa}function uo(a){return n(a)&&"string"===typeof a.uid}
+function vo(){return{name:"applicationVerifier",J:"an implementation of firebase.auth.ApplicationVerifier",optional:!1,K:function(a){return!(!a||"string"!==typeof a.type||"function"!==typeof a.verify)}}}function X(a,b,c,d){return{name:c||"",J:a.J+" or "+b.J,optional:!!d,K:function(e){return a.K(e)||b.K(e)}}};function Y(a,b){for(var c in b){var d=b[c].name;a[d]=wo(d,a[c],b[c].j)}}function xo(a,b){for(var c in b){var d=b[c].name;d!==c&&Object.defineProperty(a,d,{get:ta(function(e){return this[e]},c),set:ta(function(e,f,g,h){io(e,[g],[h],!0);this[f]=h},d,c,b[c].gb),enumerable:!0})}}function Z(a,b,c,d){a[b]=wo(b,c,d)}
+function wo(a,b,c){function d(){var g=Array.prototype.slice.call(arguments);io(e,c,g);return b.apply(this,g)}if(!c)return b;var e=yo(a),f;for(f in b)d[f]=b[f];for(f in b.prototype)d.prototype[f]=b.prototype[f];return d}function yo(a){a=a.split(".");return a[a.length-1]};Y(un.prototype,{fb:{name:"applyActionCode",j:[V("code")]},Pa:{name:"checkActionCode",j:[V("code")]},jb:{name:"confirmPasswordReset",j:[V("code"),V("newPassword")]},cc:{name:"createUserWithEmailAndPassword",j:[V("email"),V("password")]},fc:{name:"fetchSignInMethodsForEmail",j:[V("email")]},pa:{name:"getRedirectResult",j:[]},zc:{name:"isSignInWithEmailLink",j:[V("emailLink")]},Fc:{name:"onAuthStateChanged",j:[X(W(),lo(),"nextOrObserver"),lo("opt_error",!0),lo("opt_completed",!0)]},Gc:{name:"onIdTokenChanged",
+j:[X(W(),lo(),"nextOrObserver"),lo("opt_error",!0),lo("opt_completed",!0)]},rb:{name:"sendPasswordResetEmail",j:[V("email"),X(W("opt_actionCodeSettings",!0),mo(null,!0),"opt_actionCodeSettings",!0)]},sb:{name:"sendSignInLinkToEmail",j:[V("email"),W("actionCodeSettings")]},tb:{name:"setPersistence",j:[V("persistence")]},Qc:{name:"signInAndRetrieveDataWithCredential",j:[qo()]},vb:{name:"signInAnonymously",j:[]},Ya:{name:"signInWithCredential",j:[qo()]},Rc:{name:"signInWithCustomToken",j:[V("token")]},
+Sc:{name:"signInWithEmailAndPassword",j:[V("email"),V("password")]},Tc:{name:"signInWithEmailLink",j:[V("email"),V("emailLink",!0)]},Uc:{name:"signInWithPhoneNumber",j:[V("phoneNumber"),vo()]},Vc:{name:"signInWithPopup",j:[so()]},Wc:{name:"signInWithRedirect",j:[so()]},bd:{name:"updateCurrentUser",j:[X(function(a){return{name:"user",J:"an instance of Firebase User",optional:!!a,K:function(b){return!!(b&&b instanceof P)}}}(),mo(),"user")]},wb:{name:"signOut",j:[]},toJSON:{name:"toJSON",j:[V(null,!0)]},
+dd:{name:"useDeviceLanguage",j:[]},fd:{name:"verifyPasswordResetCode",j:[V("code")]}});xo(un.prototype,{lc:{name:"languageCode",gb:X(V(),mo(),"languageCode")},ti:{name:"tenantId",gb:X(V(),mo(),"tenantId")}});un.Persistence=Kk;un.Persistence.LOCAL="local";un.Persistence.SESSION="session";un.Persistence.NONE="none";
+Y(P.prototype,{"delete":{name:"delete",j:[]},mc:{name:"getIdTokenResult",j:[ko("opt_forceRefresh",!0)]},I:{name:"getIdToken",j:[ko("opt_forceRefresh",!0)]},Ac:{name:"linkAndRetrieveDataWithCredential",j:[qo()]},mb:{name:"linkWithCredential",j:[qo()]},Bc:{name:"linkWithPhoneNumber",j:[V("phoneNumber"),vo()]},Cc:{name:"linkWithPopup",j:[so()]},Dc:{name:"linkWithRedirect",j:[so()]},Jc:{name:"reauthenticateAndRetrieveDataWithCredential",j:[qo()]},pb:{name:"reauthenticateWithCredential",j:[qo()]},Kc:{name:"reauthenticateWithPhoneNumber",
+j:[V("phoneNumber"),vo()]},Lc:{name:"reauthenticateWithPopup",j:[so()]},Mc:{name:"reauthenticateWithRedirect",j:[so()]},reload:{name:"reload",j:[]},qb:{name:"sendEmailVerification",j:[X(W("opt_actionCodeSettings",!0),mo(null,!0),"opt_actionCodeSettings",!0)]},toJSON:{name:"toJSON",j:[V(null,!0)]},ad:{name:"unlink",j:[V("provider")]},xb:{name:"updateEmail",j:[V("email")]},yb:{name:"updatePassword",j:[V("password")]},cd:{name:"updatePhoneNumber",j:[qo("phone")]},zb:{name:"updateProfile",j:[W("profile")]},
+Ab:{name:"verifyBeforeUpdateEmail",j:[V("email"),X(W("opt_actionCodeSettings",!0),mo(null,!0),"opt_actionCodeSettings",!0)]}});Y(Ln.prototype,{execute:{name:"execute"},render:{name:"render"},reset:{name:"reset"},getResponse:{name:"getResponse"}});Y(Kn.prototype,{execute:{name:"execute"},render:{name:"render"},reset:{name:"reset"},getResponse:{name:"getResponse"}});Y(B.prototype,{ma:{name:"finally"},o:{name:"catch"},then:{name:"then"}});
+xo(Xl.prototype,{appVerificationDisabled:{name:"appVerificationDisabledForTesting",gb:ko("appVerificationDisabledForTesting")}});Y(Yl.prototype,{confirm:{name:"confirm",j:[V("verificationCode")]}});Z(yg,"fromJSON",function(a){a="string"===typeof a?JSON.parse(a):a;for(var b,c=[Jg,$g,gh,Gg],d=0;d<c.length;d++)if(b=c[d](a))return b;return null},[X(V(),W(),"json")]);Z(Vg,"credential",function(a,b){return new Ug(a,b)},[V("email"),V("password")]);Y(Ug.prototype,{v:{name:"toJSON",j:[V(null,!0)]}});
+Y(Mg.prototype,{Aa:{name:"addScope",j:[V("scope")]},Ia:{name:"setCustomParameters",j:[W("customOAuthParameters")]}});Z(Mg,"credential",Ng,[X(V(),W(),"token")]);Z(Vg,"credentialWithLink",ah,[V("email"),V("emailLink")]);Y(Og.prototype,{Aa:{name:"addScope",j:[V("scope")]},Ia:{name:"setCustomParameters",j:[W("customOAuthParameters")]}});Z(Og,"credential",Pg,[X(V(),W(),"token")]);Y(Qg.prototype,{Aa:{name:"addScope",j:[V("scope")]},Ia:{name:"setCustomParameters",j:[W("customOAuthParameters")]}});
+Z(Qg,"credential",Rg,[X(V(),X(W(),mo()),"idToken"),X(V(),mo(),"accessToken",!0)]);Y(Sg.prototype,{Ia:{name:"setCustomParameters",j:[W("customOAuthParameters")]}});Z(Sg,"credential",Tg,[X(V(),W(),"token"),V("secret",!0)]);Y(M.prototype,{Aa:{name:"addScope",j:[V("scope")]},credential:{name:"credential",j:[X(V(),X(W(),mo()),"optionsOrIdToken"),X(V(),mo(),"accessToken",!0)]},Ia:{name:"setCustomParameters",j:[W("customOAuthParameters")]}});Y(Hg.prototype,{v:{name:"toJSON",j:[V(null,!0)]}});
+Y(Bg.prototype,{v:{name:"toJSON",j:[V(null,!0)]}});Z(hh,"credential",lh,[V("verificationId"),V("verificationCode")]);
+Y(hh.prototype,{cb:{name:"verifyPhoneNumber",j:[X(V(),function(a,b){return{name:a||"phoneInfoOptions",J:"valid phone info options",optional:!!b,K:function(c){return c?c.session&&c.phoneNumber?to(c.session,wg)&&"string"===typeof c.phoneNumber:c.session&&c.multiFactorHint?to(c.session,xg)&&uo(c.multiFactorHint):c.session&&c.multiFactorUid?to(c.session,xg)&&"string"===typeof c.multiFactorUid:c.phoneNumber?"string"===typeof c.phoneNumber:!1:!1}}}(),"phoneInfoOptions"),vo()]}});
+Y(ch.prototype,{v:{name:"toJSON",j:[V(null,!0)]}});Y(t.prototype,{toJSON:{name:"toJSON",j:[V(null,!0)]}});Y(uh.prototype,{toJSON:{name:"toJSON",j:[V(null,!0)]}});Y(th.prototype,{toJSON:{name:"toJSON",j:[V(null,!0)]}});Y(dm.prototype,{toJSON:{name:"toJSON",j:[V(null,!0)]}});Y(am.prototype,{Pc:{name:"resolveSignIn",j:[ro()]}});
+Y(lm.prototype,{Ob:{name:"getSession",j:[]},dc:{name:"enroll",j:[ro(),V("displayName",!0)]},$c:{name:"unenroll",j:[X({name:"multiFactorInfo",J:"a valid multiFactorInfo",optional:!1,K:uo},V(),"multiFactorInfoIdentifier")]}});Y(ho.prototype,{clear:{name:"clear",j:[]},render:{name:"render",j:[]},verify:{name:"verify",j:[]}});Z(Gf,"parseLink",Of,[V("link")]);Z(Rn,"assertion",function(a){return new jm(a)},[qo("phone")]);
+(function(){if("undefined"!==typeof firebase&&firebase.INTERNAL&&firebase.INTERNAL.registerComponent){var a={ActionCodeInfo:{Operation:{EMAIL_SIGNIN:xf,PASSWORD_RESET:"PASSWORD_RESET",RECOVER_EMAIL:"RECOVER_EMAIL",REVERT_SECOND_FACTOR_ADDITION:zf,VERIFY_AND_CHANGE_EMAIL:yf,VERIFY_EMAIL:"VERIFY_EMAIL"}},Auth:un,AuthCredential:yg,Error:t};Z(a,"EmailAuthProvider",Vg,[]);Z(a,"FacebookAuthProvider",Mg,[]);Z(a,"GithubAuthProvider",Og,[]);Z(a,"GoogleAuthProvider",Qg,[]);Z(a,"TwitterAuthProvider",Sg,[]);
+Z(a,"OAuthProvider",M,[V("providerId")]);Z(a,"SAMLAuthProvider",Lg,[V("providerId")]);Z(a,"PhoneAuthProvider",hh,[oo()]);Z(a,"RecaptchaVerifier",ho,[X(V(),no(),"recaptchaContainer"),W("recaptchaParameters",!0),po()]);Z(a,"ActionCodeURL",Gf,[]);Z(a,"PhoneMultiFactorGenerator",Rn,[]);firebase.INTERNAL.registerComponent({name:"auth",instanceFactory:function(b){b=b.getProvider("app").getImmediate();return new un(b)},multipleInstances:!1,serviceProps:a,instantiationMode:"LAZY",type:"PUBLIC"});firebase.INTERNAL.registerComponent({name:"auth-internal",
+instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return{getUid:q(b.getUid,b),getToken:q(b.kc,b),addAuthTokenListener:q(b.bc,b),removeAuthTokenListener:q(b.Nc,b)}},multipleInstances:!1,instantiationMode:"LAZY",type:"PRIVATE"});firebase.registerVersion("@firebase/auth","0.14.9");firebase.INTERNAL.extendNamespace({User:P})}else throw Error("Cannot find the firebase namespace; be sure to include firebase-app.js before this library.");})();}).apply(typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : {});
+
+//# sourceMappingURL=auth.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/component/dist/index.cjs.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@firebase/component/dist/index.cjs.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var tslib = __webpack_require__(/*! tslib */ "./node_modules/@firebase/app/node_modules/tslib/tslib.es6.js");
+var util = __webpack_require__(/*! @firebase/util */ "./node_modules/@firebase/util/dist/index.cjs.js");
+
+/**
+ * Component for service name T, e.g. `auth`, `auth-internal`
+ */
+var Component = /** @class */ (function () {
+    /**
+     *
+     * @param name The public service name, e.g. app, auth, firestore, database
+     * @param instanceFactory Service factory responsible for creating the public interface
+     * @param type whether the service provided by the component is public or private
+     */
+    function Component(name, instanceFactory, type) {
+        this.name = name;
+        this.instanceFactory = instanceFactory;
+        this.type = type;
+        this.multipleInstances = false;
+        /**
+         * Properties to be added to the service namespace
+         */
+        this.serviceProps = {};
+        this.instantiationMode = "LAZY" /* LAZY */;
+    }
+    Component.prototype.setInstantiationMode = function (mode) {
+        this.instantiationMode = mode;
+        return this;
+    };
+    Component.prototype.setMultipleInstances = function (multipleInstances) {
+        this.multipleInstances = multipleInstances;
+        return this;
+    };
+    Component.prototype.setServiceProps = function (props) {
+        this.serviceProps = props;
+        return this;
+    };
+    return Component;
+}());
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var DEFAULT_ENTRY_NAME = '[DEFAULT]';
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Provider for instance for service name T, e.g. 'auth', 'auth-internal'
+ * NameServiceMapping[T] is an alias for the type of the instance
+ */
+var Provider = /** @class */ (function () {
+    function Provider(name, container) {
+        this.name = name;
+        this.container = container;
+        this.component = null;
+        this.instances = new Map();
+        this.instancesDeferred = new Map();
+    }
+    /**
+     * @param identifier A provider can provide mulitple instances of a service
+     * if this.component.multipleInstances is true.
+     */
+    Provider.prototype.get = function (identifier) {
+        if (identifier === void 0) { identifier = DEFAULT_ENTRY_NAME; }
+        // if multipleInstances is not supported, use the default name
+        var normalizedIdentifier = this.normalizeInstanceIdentifier(identifier);
+        if (!this.instancesDeferred.has(normalizedIdentifier)) {
+            var deferred = new util.Deferred();
+            this.instancesDeferred.set(normalizedIdentifier, deferred);
+            // If the service instance is available, resolve the promise with it immediately
+            try {
+                var instance = this.getOrInitializeService(normalizedIdentifier);
+                if (instance) {
+                    deferred.resolve(instance);
+                }
+            }
+            catch (e) {
+                // when the instance factory throws an exception during get(), it should not cause
+                // a fatal error. We just return the unresolved promise in this case.
+            }
+        }
+        return this.instancesDeferred.get(normalizedIdentifier).promise;
+    };
+    Provider.prototype.getImmediate = function (options) {
+        var _a = tslib.__assign({ identifier: DEFAULT_ENTRY_NAME, optional: false }, options), identifier = _a.identifier, optional = _a.optional;
+        // if multipleInstances is not supported, use the default name
+        var normalizedIdentifier = this.normalizeInstanceIdentifier(identifier);
+        try {
+            var instance = this.getOrInitializeService(normalizedIdentifier);
+            if (!instance) {
+                if (optional) {
+                    return null;
+                }
+                throw Error("Service " + this.name + " is not available");
+            }
+            return instance;
+        }
+        catch (e) {
+            if (optional) {
+                return null;
+            }
+            else {
+                throw e;
+            }
+        }
+    };
+    Provider.prototype.getComponent = function () {
+        return this.component;
+    };
+    Provider.prototype.setComponent = function (component) {
+        var e_1, _a;
+        if (component.name !== this.name) {
+            throw Error("Mismatching Component " + component.name + " for Provider " + this.name + ".");
+        }
+        if (this.component) {
+            throw Error("Component for " + this.name + " has already been provided");
+        }
+        this.component = component;
+        // if the service is eager, initialize the default instance
+        if (isComponentEager(component)) {
+            try {
+                this.getOrInitializeService(DEFAULT_ENTRY_NAME);
+            }
+            catch (e) {
+                // when the instance factory for an eager Component throws an exception during the eager
+                // initialization, it should not cause a fatal error.
+                // TODO: Investigate if we need to make it configurable, because some component may want to cause
+                // a fatal error in this case?
+            }
+        }
+        try {
+            // Create service instances for the pending promises and resolve them
+            // NOTE: if this.multipleInstances is false, only the default instance will be created
+            // and all promises with resolve with it regardless of the identifier.
+            for (var _b = tslib.__values(this.instancesDeferred.entries()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var _d = tslib.__read(_c.value, 2), instanceIdentifier = _d[0], instanceDeferred = _d[1];
+                var normalizedIdentifier = this.normalizeInstanceIdentifier(instanceIdentifier);
+                try {
+                    // `getOrInitializeService()` should always return a valid instance since a component is guaranteed. use ! to make typescript happy.
+                    var instance = this.getOrInitializeService(normalizedIdentifier);
+                    instanceDeferred.resolve(instance);
+                }
+                catch (e) {
+                    // when the instance factory throws an exception, it should not cause
+                    // a fatal error. We just leave the promise unresolved.
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    };
+    Provider.prototype.clearInstance = function (identifier) {
+        if (identifier === void 0) { identifier = DEFAULT_ENTRY_NAME; }
+        this.instancesDeferred.delete(identifier);
+        this.instances.delete(identifier);
+    };
+    // app.delete() will call this method on every provider to delete the services
+    // TODO: should we mark the provider as deleted?
+    Provider.prototype.delete = function () {
+        return tslib.__awaiter(this, void 0, void 0, function () {
+            var services;
+            return tslib.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        services = Array.from(this.instances.values());
+                        return [4 /*yield*/, Promise.all(tslib.__spread(services
+                                .filter(function (service) { return 'INTERNAL' in service; }) // legacy services
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                .map(function (service) { return service.INTERNAL.delete(); }), services
+                                .filter(function (service) { return '_delete' in service; }) // modularized services
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                .map(function (service) { return service._delete(); })))];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    Provider.prototype.isComponentSet = function () {
+        return this.component != null;
+    };
+    Provider.prototype.getOrInitializeService = function (identifier) {
+        var instance = this.instances.get(identifier);
+        if (!instance && this.component) {
+            instance = this.component.instanceFactory(this.container, normalizeIdentifierForFactory(identifier));
+            this.instances.set(identifier, instance);
+        }
+        return instance || null;
+    };
+    Provider.prototype.normalizeInstanceIdentifier = function (identifier) {
+        if (this.component) {
+            return this.component.multipleInstances ? identifier : DEFAULT_ENTRY_NAME;
+        }
+        else {
+            return identifier; // assume multiple instances are supported before the component is provided.
+        }
+    };
+    return Provider;
+}());
+// undefined should be passed to the service factory for the default instance
+function normalizeIdentifierForFactory(identifier) {
+    return identifier === DEFAULT_ENTRY_NAME ? undefined : identifier;
+}
+function isComponentEager(component) {
+    return component.instantiationMode === "EAGER" /* EAGER */;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * ComponentContainer that provides Providers for service name T, e.g. `auth`, `auth-internal`
+ */
+var ComponentContainer = /** @class */ (function () {
+    function ComponentContainer(name) {
+        this.name = name;
+        this.providers = new Map();
+    }
+    /**
+     *
+     * @param component Component being added
+     * @param overwrite When a component with the same name has already been registered,
+     * if overwrite is true: overwrite the existing component with the new component and create a new
+     * provider with the new component. It can be useful in tests where you want to use different mocks
+     * for different tests.
+     * if overwrite is false: throw an exception
+     */
+    ComponentContainer.prototype.addComponent = function (component) {
+        var provider = this.getProvider(component.name);
+        if (provider.isComponentSet()) {
+            throw new Error("Component " + component.name + " has already been registered with " + this.name);
+        }
+        provider.setComponent(component);
+    };
+    ComponentContainer.prototype.addOrOverwriteComponent = function (component) {
+        var provider = this.getProvider(component.name);
+        if (provider.isComponentSet()) {
+            // delete the existing provider from the container, so we can register the new component
+            this.providers.delete(component.name);
+        }
+        this.addComponent(component);
+    };
+    /**
+     * getProvider provides a type safe interface where it can only be called with a field name
+     * present in NameServiceMapping interface.
+     *
+     * Firebase SDKs providing services should extend NameServiceMapping interface to register
+     * themselves.
+     */
+    ComponentContainer.prototype.getProvider = function (name) {
+        if (this.providers.has(name)) {
+            return this.providers.get(name);
+        }
+        // create a Provider for a service that hasn't registered with Firebase
+        var provider = new Provider(name, this);
+        this.providers.set(name, provider);
+        return provider;
+    };
+    ComponentContainer.prototype.getProviders = function () {
+        return Array.from(this.providers.values());
+    };
+    return ComponentContainer;
+}());
+
+exports.Component = Component;
+exports.ComponentContainer = ComponentContainer;
+exports.Provider = Provider;
+//# sourceMappingURL=index.cjs.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/logger/dist/index.esm.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@firebase/logger/dist/index.esm.js ***!
+  \*********************************************************/
+/*! exports provided: LogLevel, Logger, setLogLevel, setUserLogHandler */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogLevel", function() { return LogLevel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Logger", function() { return Logger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLogLevel", function() { return setLogLevel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUserLogHandler", function() { return setUserLogHandler; });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var _a;
+/**
+ * A container for all of the Logger instances
+ */
+var instances = [];
+/**
+ * The JS SDK supports 5 log levels and also allows a user the ability to
+ * silence the logs altogether.
+ *
+ * The order is a follows:
+ * DEBUG < VERBOSE < INFO < WARN < ERROR
+ *
+ * All of the log types above the current log level will be captured (i.e. if
+ * you set the log level to `INFO`, errors will still be logged, but `DEBUG` and
+ * `VERBOSE` logs will not)
+ */
+var LogLevel;
+(function (LogLevel) {
+    LogLevel[LogLevel["DEBUG"] = 0] = "DEBUG";
+    LogLevel[LogLevel["VERBOSE"] = 1] = "VERBOSE";
+    LogLevel[LogLevel["INFO"] = 2] = "INFO";
+    LogLevel[LogLevel["WARN"] = 3] = "WARN";
+    LogLevel[LogLevel["ERROR"] = 4] = "ERROR";
+    LogLevel[LogLevel["SILENT"] = 5] = "SILENT";
+})(LogLevel || (LogLevel = {}));
+var levelStringToEnum = {
+    'debug': LogLevel.DEBUG,
+    'verbose': LogLevel.VERBOSE,
+    'info': LogLevel.INFO,
+    'warn': LogLevel.WARN,
+    'error': LogLevel.ERROR,
+    'silent': LogLevel.SILENT
+};
+/**
+ * The default log level
+ */
+var defaultLogLevel = LogLevel.INFO;
+/**
+ * By default, `console.debug` is not displayed in the developer console (in
+ * chrome). To avoid forcing users to have to opt-in to these logs twice
+ * (i.e. once for firebase, and once in the console), we are sending `DEBUG`
+ * logs to the `console.log` function.
+ */
+var ConsoleMethod = (_a = {},
+    _a[LogLevel.DEBUG] = 'log',
+    _a[LogLevel.VERBOSE] = 'log',
+    _a[LogLevel.INFO] = 'info',
+    _a[LogLevel.WARN] = 'warn',
+    _a[LogLevel.ERROR] = 'error',
+    _a);
+/**
+ * The default log handler will forward DEBUG, VERBOSE, INFO, WARN, and ERROR
+ * messages on to their corresponding console counterparts (if the log method
+ * is supported by the current log level)
+ */
+var defaultLogHandler = function (instance, logType) {
+    var args = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        args[_i - 2] = arguments[_i];
+    }
+    if (logType < instance.logLevel) {
+        return;
+    }
+    var now = new Date().toISOString();
+    var method = ConsoleMethod[logType];
+    if (method) {
+        console[method].apply(console, __spreadArrays(["[" + now + "]  " + instance.name + ":"], args));
+    }
+    else {
+        throw new Error("Attempted to log a message with an invalid logType (value: " + logType + ")");
+    }
+};
+var Logger = /** @class */ (function () {
+    /**
+     * Gives you an instance of a Logger to capture messages according to
+     * Firebase's logging scheme.
+     *
+     * @param name The name that the logs will be associated with
+     */
+    function Logger(name) {
+        this.name = name;
+        /**
+         * The log level of the given Logger instance.
+         */
+        this._logLevel = defaultLogLevel;
+        /**
+         * The main (internal) log handler for the Logger instance.
+         * Can be set to a new function in internal package code but not by user.
+         */
+        this._logHandler = defaultLogHandler;
+        /**
+         * The optional, additional, user-defined log handler for the Logger instance.
+         */
+        this._userLogHandler = null;
+        /**
+         * Capture the current instance for later use
+         */
+        instances.push(this);
+    }
+    Object.defineProperty(Logger.prototype, "logLevel", {
+        get: function () {
+            return this._logLevel;
+        },
+        set: function (val) {
+            if (!(val in LogLevel)) {
+                throw new TypeError("Invalid value \"" + val + "\" assigned to `logLevel`");
+            }
+            this._logLevel = val;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    // Workaround for setter/getter having to be the same type.
+    Logger.prototype.setLogLevel = function (val) {
+        this._logLevel = typeof val === 'string' ? levelStringToEnum[val] : val;
+    };
+    Object.defineProperty(Logger.prototype, "logHandler", {
+        get: function () {
+            return this._logHandler;
+        },
+        set: function (val) {
+            if (typeof val !== 'function') {
+                throw new TypeError('Value assigned to `logHandler` must be a function');
+            }
+            this._logHandler = val;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Logger.prototype, "userLogHandler", {
+        get: function () {
+            return this._userLogHandler;
+        },
+        set: function (val) {
+            this._userLogHandler = val;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    /**
+     * The functions below are all based on the `console` interface
+     */
+    Logger.prototype.debug = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this._userLogHandler && this._userLogHandler.apply(this, __spreadArrays([this, LogLevel.DEBUG], args));
+        this._logHandler.apply(this, __spreadArrays([this, LogLevel.DEBUG], args));
+    };
+    Logger.prototype.log = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this._userLogHandler && this._userLogHandler.apply(this, __spreadArrays([this, LogLevel.VERBOSE], args));
+        this._logHandler.apply(this, __spreadArrays([this, LogLevel.VERBOSE], args));
+    };
+    Logger.prototype.info = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this._userLogHandler && this._userLogHandler.apply(this, __spreadArrays([this, LogLevel.INFO], args));
+        this._logHandler.apply(this, __spreadArrays([this, LogLevel.INFO], args));
+    };
+    Logger.prototype.warn = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this._userLogHandler && this._userLogHandler.apply(this, __spreadArrays([this, LogLevel.WARN], args));
+        this._logHandler.apply(this, __spreadArrays([this, LogLevel.WARN], args));
+    };
+    Logger.prototype.error = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this._userLogHandler && this._userLogHandler.apply(this, __spreadArrays([this, LogLevel.ERROR], args));
+        this._logHandler.apply(this, __spreadArrays([this, LogLevel.ERROR], args));
+    };
+    return Logger;
+}());
+function setLogLevel(level) {
+    instances.forEach(function (inst) {
+        inst.setLogLevel(level);
+    });
+}
+function setUserLogHandler(logCallback, options) {
+    var _loop_1 = function (instance) {
+        var customLogLevel = null;
+        if (options && options.level) {
+            customLogLevel = levelStringToEnum[options.level];
+        }
+        if (logCallback === null) {
+            instance.userLogHandler = null;
+        }
+        else {
+            instance.userLogHandler = function (instance, level) {
+                var args = [];
+                for (var _i = 2; _i < arguments.length; _i++) {
+                    args[_i - 2] = arguments[_i];
+                }
+                var message = args
+                    .map(function (arg) {
+                    if (arg == null) {
+                        return null;
+                    }
+                    else if (typeof arg === 'string') {
+                        return arg;
+                    }
+                    else if (typeof arg === 'number' || typeof arg === 'boolean') {
+                        return arg.toString();
+                    }
+                    else if (arg instanceof Error) {
+                        return arg.message;
+                    }
+                    else {
+                        try {
+                            return JSON.stringify(arg);
+                        }
+                        catch (ignored) {
+                            return null;
+                        }
+                    }
+                })
+                    .filter(function (arg) { return arg; })
+                    .join(' ');
+                if (level >= (customLogLevel !== null && customLogLevel !== void 0 ? customLogLevel : instance.logLevel)) {
+                    logCallback({
+                        level: LogLevel[level].toLowerCase(),
+                        message: message,
+                        args: args,
+                        type: instance.name
+                    });
+                }
+            };
+        }
+    };
+    for (var _i = 0, instances_1 = instances; _i < instances_1.length; _i++) {
+        var instance = instances_1[_i];
+        _loop_1(instance);
+    }
+}
+
+
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/util/dist/index.cjs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@firebase/util/dist/index.cjs.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var tslib = __webpack_require__(/*! tslib */ "./node_modules/@firebase/app/node_modules/tslib/tslib.es6.js");
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @fileoverview Firebase constants.  Some of these (@defines) can be overridden at compile-time.
+ */
+var CONSTANTS = {
+    /**
+     * @define {boolean} Whether this is the client Node.js SDK.
+     */
+    NODE_CLIENT: false,
+    /**
+     * @define {boolean} Whether this is the Admin Node.js SDK.
+     */
+    NODE_ADMIN: false,
+    /**
+     * Firebase SDK Version
+     */
+    SDK_VERSION: '${JSCORE_VERSION}'
+};
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Throws an error if the provided assertion is falsy
+ */
+var assert = function (assertion, message) {
+    if (!assertion) {
+        throw assertionError(message);
+    }
+};
+/**
+ * Returns an Error object suitable for throwing.
+ */
+var assertionError = function (message) {
+    return new Error('Firebase Database (' +
+        CONSTANTS.SDK_VERSION +
+        ') INTERNAL ASSERT FAILED: ' +
+        message);
+};
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var stringToByteArray = function (str) {
+    // TODO(user): Use native implementations if/when available
+    var out = [];
+    var p = 0;
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        if (c < 128) {
+            out[p++] = c;
+        }
+        else if (c < 2048) {
+            out[p++] = (c >> 6) | 192;
+            out[p++] = (c & 63) | 128;
+        }
+        else if ((c & 0xfc00) === 0xd800 &&
+            i + 1 < str.length &&
+            (str.charCodeAt(i + 1) & 0xfc00) === 0xdc00) {
+            // Surrogate Pair
+            c = 0x10000 + ((c & 0x03ff) << 10) + (str.charCodeAt(++i) & 0x03ff);
+            out[p++] = (c >> 18) | 240;
+            out[p++] = ((c >> 12) & 63) | 128;
+            out[p++] = ((c >> 6) & 63) | 128;
+            out[p++] = (c & 63) | 128;
+        }
+        else {
+            out[p++] = (c >> 12) | 224;
+            out[p++] = ((c >> 6) & 63) | 128;
+            out[p++] = (c & 63) | 128;
+        }
+    }
+    return out;
+};
+/**
+ * Turns an array of numbers into the string given by the concatenation of the
+ * characters to which the numbers correspond.
+ * @param bytes Array of numbers representing characters.
+ * @return Stringification of the array.
+ */
+var byteArrayToString = function (bytes) {
+    // TODO(user): Use native implementations if/when available
+    var out = [];
+    var pos = 0, c = 0;
+    while (pos < bytes.length) {
+        var c1 = bytes[pos++];
+        if (c1 < 128) {
+            out[c++] = String.fromCharCode(c1);
+        }
+        else if (c1 > 191 && c1 < 224) {
+            var c2 = bytes[pos++];
+            out[c++] = String.fromCharCode(((c1 & 31) << 6) | (c2 & 63));
+        }
+        else if (c1 > 239 && c1 < 365) {
+            // Surrogate Pair
+            var c2 = bytes[pos++];
+            var c3 = bytes[pos++];
+            var c4 = bytes[pos++];
+            var u = (((c1 & 7) << 18) | ((c2 & 63) << 12) | ((c3 & 63) << 6) | (c4 & 63)) -
+                0x10000;
+            out[c++] = String.fromCharCode(0xd800 + (u >> 10));
+            out[c++] = String.fromCharCode(0xdc00 + (u & 1023));
+        }
+        else {
+            var c2 = bytes[pos++];
+            var c3 = bytes[pos++];
+            out[c++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+        }
+    }
+    return out.join('');
+};
+// We define it as an object literal instead of a class because a class compiled down to es5 can't
+// be treeshaked. https://github.com/rollup/rollup/issues/1691
+// Static lookup maps, lazily populated by init_()
+var base64 = {
+    /**
+     * Maps bytes to characters.
+     */
+    byteToCharMap_: null,
+    /**
+     * Maps characters to bytes.
+     */
+    charToByteMap_: null,
+    /**
+     * Maps bytes to websafe characters.
+     * @private
+     */
+    byteToCharMapWebSafe_: null,
+    /**
+     * Maps websafe characters to bytes.
+     * @private
+     */
+    charToByteMapWebSafe_: null,
+    /**
+     * Our default alphabet, shared between
+     * ENCODED_VALS and ENCODED_VALS_WEBSAFE
+     */
+    ENCODED_VALS_BASE: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz' + '0123456789',
+    /**
+     * Our default alphabet. Value 64 (=) is special; it means "nothing."
+     */
+    get ENCODED_VALS() {
+        return this.ENCODED_VALS_BASE + '+/=';
+    },
+    /**
+     * Our websafe alphabet.
+     */
+    get ENCODED_VALS_WEBSAFE() {
+        return this.ENCODED_VALS_BASE + '-_.';
+    },
+    /**
+     * Whether this browser supports the atob and btoa functions. This extension
+     * started at Mozilla but is now implemented by many browsers. We use the
+     * ASSUME_* variables to avoid pulling in the full useragent detection library
+     * but still allowing the standard per-browser compilations.
+     *
+     */
+    HAS_NATIVE_SUPPORT: typeof atob === 'function',
+    /**
+     * Base64-encode an array of bytes.
+     *
+     * @param input An array of bytes (numbers with
+     *     value in [0, 255]) to encode.
+     * @param webSafe Boolean indicating we should use the
+     *     alternative alphabet.
+     * @return The base64 encoded string.
+     */
+    encodeByteArray: function (input, webSafe) {
+        if (!Array.isArray(input)) {
+            throw Error('encodeByteArray takes an array as a parameter');
+        }
+        this.init_();
+        var byteToCharMap = webSafe
+            ? this.byteToCharMapWebSafe_
+            : this.byteToCharMap_;
+        var output = [];
+        for (var i = 0; i < input.length; i += 3) {
+            var byte1 = input[i];
+            var haveByte2 = i + 1 < input.length;
+            var byte2 = haveByte2 ? input[i + 1] : 0;
+            var haveByte3 = i + 2 < input.length;
+            var byte3 = haveByte3 ? input[i + 2] : 0;
+            var outByte1 = byte1 >> 2;
+            var outByte2 = ((byte1 & 0x03) << 4) | (byte2 >> 4);
+            var outByte3 = ((byte2 & 0x0f) << 2) | (byte3 >> 6);
+            var outByte4 = byte3 & 0x3f;
+            if (!haveByte3) {
+                outByte4 = 64;
+                if (!haveByte2) {
+                    outByte3 = 64;
+                }
+            }
+            output.push(byteToCharMap[outByte1], byteToCharMap[outByte2], byteToCharMap[outByte3], byteToCharMap[outByte4]);
+        }
+        return output.join('');
+    },
+    /**
+     * Base64-encode a string.
+     *
+     * @param input A string to encode.
+     * @param webSafe If true, we should use the
+     *     alternative alphabet.
+     * @return The base64 encoded string.
+     */
+    encodeString: function (input, webSafe) {
+        // Shortcut for Mozilla browsers that implement
+        // a native base64 encoder in the form of "btoa/atob"
+        if (this.HAS_NATIVE_SUPPORT && !webSafe) {
+            return btoa(input);
+        }
+        return this.encodeByteArray(stringToByteArray(input), webSafe);
+    },
+    /**
+     * Base64-decode a string.
+     *
+     * @param input to decode.
+     * @param webSafe True if we should use the
+     *     alternative alphabet.
+     * @return string representing the decoded value.
+     */
+    decodeString: function (input, webSafe) {
+        // Shortcut for Mozilla browsers that implement
+        // a native base64 encoder in the form of "btoa/atob"
+        if (this.HAS_NATIVE_SUPPORT && !webSafe) {
+            return atob(input);
+        }
+        return byteArrayToString(this.decodeStringToByteArray(input, webSafe));
+    },
+    /**
+     * Base64-decode a string.
+     *
+     * In base-64 decoding, groups of four characters are converted into three
+     * bytes.  If the encoder did not apply padding, the input length may not
+     * be a multiple of 4.
+     *
+     * In this case, the last group will have fewer than 4 characters, and
+     * padding will be inferred.  If the group has one or two characters, it decodes
+     * to one byte.  If the group has three characters, it decodes to two bytes.
+     *
+     * @param input Input to decode.
+     * @param webSafe True if we should use the web-safe alphabet.
+     * @return bytes representing the decoded value.
+     */
+    decodeStringToByteArray: function (input, webSafe) {
+        this.init_();
+        var charToByteMap = webSafe
+            ? this.charToByteMapWebSafe_
+            : this.charToByteMap_;
+        var output = [];
+        for (var i = 0; i < input.length;) {
+            var byte1 = charToByteMap[input.charAt(i++)];
+            var haveByte2 = i < input.length;
+            var byte2 = haveByte2 ? charToByteMap[input.charAt(i)] : 0;
+            ++i;
+            var haveByte3 = i < input.length;
+            var byte3 = haveByte3 ? charToByteMap[input.charAt(i)] : 64;
+            ++i;
+            var haveByte4 = i < input.length;
+            var byte4 = haveByte4 ? charToByteMap[input.charAt(i)] : 64;
+            ++i;
+            if (byte1 == null || byte2 == null || byte3 == null || byte4 == null) {
+                throw Error();
+            }
+            var outByte1 = (byte1 << 2) | (byte2 >> 4);
+            output.push(outByte1);
+            if (byte3 !== 64) {
+                var outByte2 = ((byte2 << 4) & 0xf0) | (byte3 >> 2);
+                output.push(outByte2);
+                if (byte4 !== 64) {
+                    var outByte3 = ((byte3 << 6) & 0xc0) | byte4;
+                    output.push(outByte3);
+                }
+            }
+        }
+        return output;
+    },
+    /**
+     * Lazy static initialization function. Called before
+     * accessing any of the static map variables.
+     * @private
+     */
+    init_: function () {
+        if (!this.byteToCharMap_) {
+            this.byteToCharMap_ = {};
+            this.charToByteMap_ = {};
+            this.byteToCharMapWebSafe_ = {};
+            this.charToByteMapWebSafe_ = {};
+            // We want quick mappings back and forth, so we precompute two maps.
+            for (var i = 0; i < this.ENCODED_VALS.length; i++) {
+                this.byteToCharMap_[i] = this.ENCODED_VALS.charAt(i);
+                this.charToByteMap_[this.byteToCharMap_[i]] = i;
+                this.byteToCharMapWebSafe_[i] = this.ENCODED_VALS_WEBSAFE.charAt(i);
+                this.charToByteMapWebSafe_[this.byteToCharMapWebSafe_[i]] = i;
+                // Be forgiving when decoding and correctly decode both encodings.
+                if (i >= this.ENCODED_VALS_BASE.length) {
+                    this.charToByteMap_[this.ENCODED_VALS_WEBSAFE.charAt(i)] = i;
+                    this.charToByteMapWebSafe_[this.ENCODED_VALS.charAt(i)] = i;
+                }
+            }
+        }
+    }
+};
+/**
+ * URL-safe base64 encoding
+ */
+var base64Encode = function (str) {
+    var utf8Bytes = stringToByteArray(str);
+    return base64.encodeByteArray(utf8Bytes, true);
+};
+/**
+ * URL-safe base64 decoding
+ *
+ * NOTE: DO NOT use the global atob() function - it does NOT support the
+ * base64Url variant encoding.
+ *
+ * @param str To be decoded
+ * @return Decoded result, if possible
+ */
+var base64Decode = function (str) {
+    try {
+        return base64.decodeString(str, true);
+    }
+    catch (e) {
+        console.error('base64Decode failed: ', e);
+    }
+    return null;
+};
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Do a deep-copy of basic JavaScript Objects or Arrays.
+ */
+function deepCopy(value) {
+    return deepExtend(undefined, value);
+}
+/**
+ * Copy properties from source to target (recursively allows extension
+ * of Objects and Arrays).  Scalar values in the target are over-written.
+ * If target is undefined, an object of the appropriate type will be created
+ * (and returned).
+ *
+ * We recursively copy all child properties of plain Objects in the source- so
+ * that namespace- like dictionaries are merged.
+ *
+ * Note that the target can be a function, in which case the properties in
+ * the source Object are copied onto it as static properties of the Function.
+ */
+function deepExtend(target, source) {
+    if (!(source instanceof Object)) {
+        return source;
+    }
+    switch (source.constructor) {
+        case Date:
+            // Treat Dates like scalars; if the target date object had any child
+            // properties - they will be lost!
+            var dateValue = source;
+            return new Date(dateValue.getTime());
+        case Object:
+            if (target === undefined) {
+                target = {};
+            }
+            break;
+        case Array:
+            // Always copy the array source and overwrite the target.
+            target = [];
+            break;
+        default:
+            // Not a plain Object - treat it as a scalar.
+            return source;
+    }
+    for (var prop in source) {
+        if (!source.hasOwnProperty(prop)) {
+            continue;
+        }
+        target[prop] = deepExtend(target[prop], source[prop]);
+    }
+    return target;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var Deferred = /** @class */ (function () {
+    function Deferred() {
+        var _this = this;
+        this.reject = function () { };
+        this.resolve = function () { };
+        this.promise = new Promise(function (resolve, reject) {
+            _this.resolve = resolve;
+            _this.reject = reject;
+        });
+    }
+    /**
+     * Our API internals are not promiseified and cannot because our callback APIs have subtle expectations around
+     * invoking promises inline, which Promises are forbidden to do. This method accepts an optional node-style callback
+     * and returns a node-style callback which will resolve or reject the Deferred's promise.
+     */
+    Deferred.prototype.wrapCallback = function (callback) {
+        var _this = this;
+        return function (error, value) {
+            if (error) {
+                _this.reject(error);
+            }
+            else {
+                _this.resolve(value);
+            }
+            if (typeof callback === 'function') {
+                // Attaching noop handler just in case developer wasn't expecting
+                // promises
+                _this.promise.catch(function () { });
+                // Some of our callbacks don't expect a value and our own tests
+                // assert that the parameter length is 1
+                if (callback.length === 1) {
+                    callback(error);
+                }
+                else {
+                    callback(error, value);
+                }
+            }
+        };
+    };
+    return Deferred;
+}());
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Returns navigator.userAgent string or '' if it's not defined.
+ * @return user agent string
+ */
+function getUA() {
+    if (typeof navigator !== 'undefined' &&
+        typeof navigator['userAgent'] === 'string') {
+        return navigator['userAgent'];
+    }
+    else {
+        return '';
+    }
+}
+/**
+ * Detect Cordova / PhoneGap / Ionic frameworks on a mobile device.
+ *
+ * Deliberately does not rely on checking `file://` URLs (as this fails PhoneGap
+ * in the Ripple emulator) nor Cordova `onDeviceReady`, which would normally
+ * wait for a callback.
+ */
+function isMobileCordova() {
+    return (typeof window !== 'undefined' &&
+        // @ts-ignore Setting up an broadly applicable index signature for Window
+        // just to deal with this case would probably be a bad idea.
+        !!(window['cordova'] || window['phonegap'] || window['PhoneGap']) &&
+        /ios|iphone|ipod|ipad|android|blackberry|iemobile/i.test(getUA()));
+}
+/**
+ * Detect Node.js.
+ *
+ * @return true if Node.js environment is detected.
+ */
+// Node detection logic from: https://github.com/iliakan/detect-node/
+function isNode() {
+    try {
+        return (Object.prototype.toString.call(global.process) === '[object process]');
+    }
+    catch (e) {
+        return false;
+    }
+}
+/**
+ * Detect Browser Environment
+ */
+function isBrowser() {
+    return typeof self === 'object' && self.self === self;
+}
+function isBrowserExtension() {
+    var runtime = typeof chrome === 'object'
+        ? chrome.runtime
+        : typeof browser === 'object'
+            ? browser.runtime
+            : undefined;
+    return typeof runtime === 'object' && runtime.id !== undefined;
+}
+/**
+ * Detect React Native.
+ *
+ * @return true if ReactNative environment is detected.
+ */
+function isReactNative() {
+    return (typeof navigator === 'object' && navigator['product'] === 'ReactNative');
+}
+/** Detects Electron apps. */
+function isElectron() {
+    return getUA().indexOf('Electron/') >= 0;
+}
+/** Detects Internet Explorer. */
+function isIE() {
+    var ua = getUA();
+    return ua.indexOf('MSIE ') >= 0 || ua.indexOf('Trident/') >= 0;
+}
+/** Detects Universal Windows Platform apps. */
+function isUWP() {
+    return getUA().indexOf('MSAppHost/') >= 0;
+}
+/**
+ * Detect whether the current SDK build is the Node version.
+ *
+ * @return true if it's the Node SDK build.
+ */
+function isNodeSdk() {
+    return CONSTANTS.NODE_CLIENT === true || CONSTANTS.NODE_ADMIN === true;
+}
+/** Returns true if we are running in Safari. */
+function isSafari() {
+    return (!isNode() &&
+        navigator.userAgent.includes('Safari') &&
+        !navigator.userAgent.includes('Chrome'));
+}
+/**
+ * This method checks if indexedDB is supported by current browser/service worker context
+ * @return true if indexedDB is supported by current browser/service worker context
+ */
+function isIndexedDBAvailable() {
+    return 'indexedDB' in self && indexedDB != null;
+}
+/**
+ * This method validates browser context for indexedDB by opening a dummy indexedDB database and reject
+ * if errors occur during the database open operation.
+ */
+function validateIndexedDBOpenable() {
+    return new Promise(function (resolve, reject) {
+        try {
+            var preExist_1 = true;
+            var DB_CHECK_NAME_1 = 'validate-browser-context-for-indexeddb-analytics-module';
+            var request_1 = window.indexedDB.open(DB_CHECK_NAME_1);
+            request_1.onsuccess = function () {
+                request_1.result.close();
+                // delete database only when it doesn't pre-exist
+                if (!preExist_1) {
+                    window.indexedDB.deleteDatabase(DB_CHECK_NAME_1);
+                }
+                resolve(true);
+            };
+            request_1.onupgradeneeded = function () {
+                preExist_1 = false;
+            };
+            request_1.onerror = function () {
+                var _a;
+                reject(((_a = request_1.error) === null || _a === void 0 ? void 0 : _a.message) || '');
+            };
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+/**
+ *
+ * This method checks whether cookie is enabled within current browser
+ * @return true if cookie is enabled within current browser
+ */
+function areCookiesEnabled() {
+    if (!navigator || !navigator.cookieEnabled) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var ERROR_NAME = 'FirebaseError';
+// Based on code from:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
+var FirebaseError = /** @class */ (function (_super) {
+    tslib.__extends(FirebaseError, _super);
+    function FirebaseError(code, message) {
+        var _this = _super.call(this, message) || this;
+        _this.code = code;
+        _this.name = ERROR_NAME;
+        // Fix For ES5
+        // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
+        Object.setPrototypeOf(_this, FirebaseError.prototype);
+        // Maintains proper stack trace for where our error was thrown.
+        // Only available on V8.
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(_this, ErrorFactory.prototype.create);
+        }
+        return _this;
+    }
+    return FirebaseError;
+}(Error));
+var ErrorFactory = /** @class */ (function () {
+    function ErrorFactory(service, serviceName, errors) {
+        this.service = service;
+        this.serviceName = serviceName;
+        this.errors = errors;
+    }
+    ErrorFactory.prototype.create = function (code) {
+        var data = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            data[_i - 1] = arguments[_i];
+        }
+        var customData = data[0] || {};
+        var fullCode = this.service + "/" + code;
+        var template = this.errors[code];
+        var message = template ? replaceTemplate(template, customData) : 'Error';
+        // Service Name: Error message (service/code).
+        var fullMessage = this.serviceName + ": " + message + " (" + fullCode + ").";
+        var error = new FirebaseError(fullCode, fullMessage);
+        // Keys with an underscore at the end of their name are not included in
+        // error.data for some reason.
+        // TODO: Replace with Object.entries when lib is updated to es2017.
+        for (var _a = 0, _b = Object.keys(customData); _a < _b.length; _a++) {
+            var key = _b[_a];
+            if (key.slice(-1) !== '_') {
+                if (key in error) {
+                    console.warn("Overwriting FirebaseError base field \"" + key + "\" can cause unexpected behavior.");
+                }
+                error[key] = customData[key];
+            }
+        }
+        return error;
+    };
+    return ErrorFactory;
+}());
+function replaceTemplate(template, data) {
+    return template.replace(PATTERN, function (_, key) {
+        var value = data[key];
+        return value != null ? String(value) : "<" + key + "?>";
+    });
+}
+var PATTERN = /\{\$([^}]+)}/g;
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Evaluates a JSON string into a javascript object.
+ *
+ * @param {string} str A string containing JSON.
+ * @return {*} The javascript object representing the specified JSON.
+ */
+function jsonEval(str) {
+    return JSON.parse(str);
+}
+/**
+ * Returns JSON representing a javascript object.
+ * @param {*} data Javascript object to be stringified.
+ * @return {string} The JSON contents of the object.
+ */
+function stringify(data) {
+    return JSON.stringify(data);
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Decodes a Firebase auth. token into constituent parts.
+ *
+ * Notes:
+ * - May return with invalid / incomplete claims if there's no native base64 decoding support.
+ * - Doesn't check if the token is actually valid.
+ */
+var decode = function (token) {
+    var header = {}, claims = {}, data = {}, signature = '';
+    try {
+        var parts = token.split('.');
+        header = jsonEval(base64Decode(parts[0]) || '');
+        claims = jsonEval(base64Decode(parts[1]) || '');
+        signature = parts[2];
+        data = claims['d'] || {};
+        delete claims['d'];
+    }
+    catch (e) { }
+    return {
+        header: header,
+        claims: claims,
+        data: data,
+        signature: signature
+    };
+};
+/**
+ * Decodes a Firebase auth. token and checks the validity of its time-based claims. Will return true if the
+ * token is within the time window authorized by the 'nbf' (not-before) and 'iat' (issued-at) claims.
+ *
+ * Notes:
+ * - May return a false negative if there's no native base64 decoding support.
+ * - Doesn't check if the token is actually valid.
+ */
+var isValidTimestamp = function (token) {
+    var claims = decode(token).claims;
+    var now = Math.floor(new Date().getTime() / 1000);
+    var validSince = 0, validUntil = 0;
+    if (typeof claims === 'object') {
+        if (claims.hasOwnProperty('nbf')) {
+            validSince = claims['nbf'];
+        }
+        else if (claims.hasOwnProperty('iat')) {
+            validSince = claims['iat'];
+        }
+        if (claims.hasOwnProperty('exp')) {
+            validUntil = claims['exp'];
+        }
+        else {
+            // token will expire after 24h by default
+            validUntil = validSince + 86400;
+        }
+    }
+    return (!!now &&
+        !!validSince &&
+        !!validUntil &&
+        now >= validSince &&
+        now <= validUntil);
+};
+/**
+ * Decodes a Firebase auth. token and returns its issued at time if valid, null otherwise.
+ *
+ * Notes:
+ * - May return null if there's no native base64 decoding support.
+ * - Doesn't check if the token is actually valid.
+ */
+var issuedAtTime = function (token) {
+    var claims = decode(token).claims;
+    if (typeof claims === 'object' && claims.hasOwnProperty('iat')) {
+        return claims['iat'];
+    }
+    return null;
+};
+/**
+ * Decodes a Firebase auth. token and checks the validity of its format. Expects a valid issued-at time.
+ *
+ * Notes:
+ * - May return a false negative if there's no native base64 decoding support.
+ * - Doesn't check if the token is actually valid.
+ */
+var isValidFormat = function (token) {
+    var decoded = decode(token), claims = decoded.claims;
+    return !!claims && typeof claims === 'object' && claims.hasOwnProperty('iat');
+};
+/**
+ * Attempts to peer into an auth token and determine if it's an admin auth token by looking at the claims portion.
+ *
+ * Notes:
+ * - May return a false negative if there's no native base64 decoding support.
+ * - Doesn't check if the token is actually valid.
+ */
+var isAdmin = function (token) {
+    var claims = decode(token).claims;
+    return typeof claims === 'object' && claims['admin'] === true;
+};
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function contains(obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj, key);
+}
+function safeGet(obj, key) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        return obj[key];
+    }
+    else {
+        return undefined;
+    }
+}
+function isEmpty(obj) {
+    for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            return false;
+        }
+    }
+    return true;
+}
+function map(obj, fn, contextObj) {
+    var res = {};
+    for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            res[key] = fn.call(contextObj, obj[key], key, obj);
+        }
+    }
+    return res;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Returns a querystring-formatted string (e.g. &arg=val&arg2=val2) from a
+ * params object (e.g. {arg: 'val', arg2: 'val2'})
+ * Note: You must prepend it with ? when adding it to a URL.
+ */
+function querystring(querystringParams) {
+    var params = [];
+    var _loop_1 = function (key, value) {
+        if (Array.isArray(value)) {
+            value.forEach(function (arrayVal) {
+                params.push(encodeURIComponent(key) + '=' + encodeURIComponent(arrayVal));
+            });
+        }
+        else {
+            params.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+        }
+    };
+    for (var _i = 0, _a = Object.entries(querystringParams); _i < _a.length; _i++) {
+        var _b = _a[_i], key = _b[0], value = _b[1];
+        _loop_1(key, value);
+    }
+    return params.length ? '&' + params.join('&') : '';
+}
+/**
+ * Decodes a querystring (e.g. ?arg=val&arg2=val2) into a params object
+ * (e.g. {arg: 'val', arg2: 'val2'})
+ */
+function querystringDecode(querystring) {
+    var obj = {};
+    var tokens = querystring.replace(/^\?/, '').split('&');
+    tokens.forEach(function (token) {
+        if (token) {
+            var key = token.split('=');
+            obj[key[0]] = key[1];
+        }
+    });
+    return obj;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @fileoverview SHA-1 cryptographic hash.
+ * Variable names follow the notation in FIPS PUB 180-3:
+ * http://csrc.nist.gov/publications/fips/fips180-3/fips180-3_final.pdf.
+ *
+ * Usage:
+ *   var sha1 = new sha1();
+ *   sha1.update(bytes);
+ *   var hash = sha1.digest();
+ *
+ * Performance:
+ *   Chrome 23:   ~400 Mbit/s
+ *   Firefox 16:  ~250 Mbit/s
+ *
+ */
+/**
+ * SHA-1 cryptographic hash constructor.
+ *
+ * The properties declared here are discussed in the above algorithm document.
+ * @constructor
+ * @final
+ * @struct
+ */
+var Sha1 = /** @class */ (function () {
+    function Sha1() {
+        /**
+         * Holds the previous values of accumulated variables a-e in the compress_
+         * function.
+         * @private
+         */
+        this.chain_ = [];
+        /**
+         * A buffer holding the partially computed hash result.
+         * @private
+         */
+        this.buf_ = [];
+        /**
+         * An array of 80 bytes, each a part of the message to be hashed.  Referred to
+         * as the message schedule in the docs.
+         * @private
+         */
+        this.W_ = [];
+        /**
+         * Contains data needed to pad messages less than 64 bytes.
+         * @private
+         */
+        this.pad_ = [];
+        /**
+         * @private {number}
+         */
+        this.inbuf_ = 0;
+        /**
+         * @private {number}
+         */
+        this.total_ = 0;
+        this.blockSize = 512 / 8;
+        this.pad_[0] = 128;
+        for (var i = 1; i < this.blockSize; ++i) {
+            this.pad_[i] = 0;
+        }
+        this.reset();
+    }
+    Sha1.prototype.reset = function () {
+        this.chain_[0] = 0x67452301;
+        this.chain_[1] = 0xefcdab89;
+        this.chain_[2] = 0x98badcfe;
+        this.chain_[3] = 0x10325476;
+        this.chain_[4] = 0xc3d2e1f0;
+        this.inbuf_ = 0;
+        this.total_ = 0;
+    };
+    /**
+     * Internal compress helper function.
+     * @param buf Block to compress.
+     * @param offset Offset of the block in the buffer.
+     * @private
+     */
+    Sha1.prototype.compress_ = function (buf, offset) {
+        if (!offset) {
+            offset = 0;
+        }
+        var W = this.W_;
+        // get 16 big endian words
+        if (typeof buf === 'string') {
+            for (var i = 0; i < 16; i++) {
+                // TODO(user): [bug 8140122] Recent versions of Safari for Mac OS and iOS
+                // have a bug that turns the post-increment ++ operator into pre-increment
+                // during JIT compilation.  We have code that depends heavily on SHA-1 for
+                // correctness and which is affected by this bug, so I've removed all uses
+                // of post-increment ++ in which the result value is used.  We can revert
+                // this change once the Safari bug
+                // (https://bugs.webkit.org/show_bug.cgi?id=109036) has been fixed and
+                // most clients have been updated.
+                W[i] =
+                    (buf.charCodeAt(offset) << 24) |
+                        (buf.charCodeAt(offset + 1) << 16) |
+                        (buf.charCodeAt(offset + 2) << 8) |
+                        buf.charCodeAt(offset + 3);
+                offset += 4;
+            }
+        }
+        else {
+            for (var i = 0; i < 16; i++) {
+                W[i] =
+                    (buf[offset] << 24) |
+                        (buf[offset + 1] << 16) |
+                        (buf[offset + 2] << 8) |
+                        buf[offset + 3];
+                offset += 4;
+            }
+        }
+        // expand to 80 words
+        for (var i = 16; i < 80; i++) {
+            var t = W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16];
+            W[i] = ((t << 1) | (t >>> 31)) & 0xffffffff;
+        }
+        var a = this.chain_[0];
+        var b = this.chain_[1];
+        var c = this.chain_[2];
+        var d = this.chain_[3];
+        var e = this.chain_[4];
+        var f, k;
+        // TODO(user): Try to unroll this loop to speed up the computation.
+        for (var i = 0; i < 80; i++) {
+            if (i < 40) {
+                if (i < 20) {
+                    f = d ^ (b & (c ^ d));
+                    k = 0x5a827999;
+                }
+                else {
+                    f = b ^ c ^ d;
+                    k = 0x6ed9eba1;
+                }
+            }
+            else {
+                if (i < 60) {
+                    f = (b & c) | (d & (b | c));
+                    k = 0x8f1bbcdc;
+                }
+                else {
+                    f = b ^ c ^ d;
+                    k = 0xca62c1d6;
+                }
+            }
+            var t = (((a << 5) | (a >>> 27)) + f + e + k + W[i]) & 0xffffffff;
+            e = d;
+            d = c;
+            c = ((b << 30) | (b >>> 2)) & 0xffffffff;
+            b = a;
+            a = t;
+        }
+        this.chain_[0] = (this.chain_[0] + a) & 0xffffffff;
+        this.chain_[1] = (this.chain_[1] + b) & 0xffffffff;
+        this.chain_[2] = (this.chain_[2] + c) & 0xffffffff;
+        this.chain_[3] = (this.chain_[3] + d) & 0xffffffff;
+        this.chain_[4] = (this.chain_[4] + e) & 0xffffffff;
+    };
+    Sha1.prototype.update = function (bytes, length) {
+        // TODO(johnlenz): tighten the function signature and remove this check
+        if (bytes == null) {
+            return;
+        }
+        if (length === undefined) {
+            length = bytes.length;
+        }
+        var lengthMinusBlock = length - this.blockSize;
+        var n = 0;
+        // Using local instead of member variables gives ~5% speedup on Firefox 16.
+        var buf = this.buf_;
+        var inbuf = this.inbuf_;
+        // The outer while loop should execute at most twice.
+        while (n < length) {
+            // When we have no data in the block to top up, we can directly process the
+            // input buffer (assuming it contains sufficient data). This gives ~25%
+            // speedup on Chrome 23 and ~15% speedup on Firefox 16, but requires that
+            // the data is provided in large chunks (or in multiples of 64 bytes).
+            if (inbuf === 0) {
+                while (n <= lengthMinusBlock) {
+                    this.compress_(bytes, n);
+                    n += this.blockSize;
+                }
+            }
+            if (typeof bytes === 'string') {
+                while (n < length) {
+                    buf[inbuf] = bytes.charCodeAt(n);
+                    ++inbuf;
+                    ++n;
+                    if (inbuf === this.blockSize) {
+                        this.compress_(buf);
+                        inbuf = 0;
+                        // Jump to the outer loop so we use the full-block optimization.
+                        break;
+                    }
+                }
+            }
+            else {
+                while (n < length) {
+                    buf[inbuf] = bytes[n];
+                    ++inbuf;
+                    ++n;
+                    if (inbuf === this.blockSize) {
+                        this.compress_(buf);
+                        inbuf = 0;
+                        // Jump to the outer loop so we use the full-block optimization.
+                        break;
+                    }
+                }
+            }
+        }
+        this.inbuf_ = inbuf;
+        this.total_ += length;
+    };
+    /** @override */
+    Sha1.prototype.digest = function () {
+        var digest = [];
+        var totalBits = this.total_ * 8;
+        // Add pad 0x80 0x00*.
+        if (this.inbuf_ < 56) {
+            this.update(this.pad_, 56 - this.inbuf_);
+        }
+        else {
+            this.update(this.pad_, this.blockSize - (this.inbuf_ - 56));
+        }
+        // Add # bits.
+        for (var i = this.blockSize - 1; i >= 56; i--) {
+            this.buf_[i] = totalBits & 255;
+            totalBits /= 256; // Don't use bit-shifting here!
+        }
+        this.compress_(this.buf_);
+        var n = 0;
+        for (var i = 0; i < 5; i++) {
+            for (var j = 24; j >= 0; j -= 8) {
+                digest[n] = (this.chain_[i] >> j) & 255;
+                ++n;
+            }
+        }
+        return digest;
+    };
+    return Sha1;
+}());
+
+/**
+ * Helper to make a Subscribe function (just like Promise helps make a
+ * Thenable).
+ *
+ * @param executor Function which can make calls to a single Observer
+ *     as a proxy.
+ * @param onNoObservers Callback when count of Observers goes to zero.
+ */
+function createSubscribe(executor, onNoObservers) {
+    var proxy = new ObserverProxy(executor, onNoObservers);
+    return proxy.subscribe.bind(proxy);
+}
+/**
+ * Implement fan-out for any number of Observers attached via a subscribe
+ * function.
+ */
+var ObserverProxy = /** @class */ (function () {
+    /**
+     * @param executor Function which can make calls to a single Observer
+     *     as a proxy.
+     * @param onNoObservers Callback when count of Observers goes to zero.
+     */
+    function ObserverProxy(executor, onNoObservers) {
+        var _this = this;
+        this.observers = [];
+        this.unsubscribes = [];
+        this.observerCount = 0;
+        // Micro-task scheduling by calling task.then().
+        this.task = Promise.resolve();
+        this.finalized = false;
+        this.onNoObservers = onNoObservers;
+        // Call the executor asynchronously so subscribers that are called
+        // synchronously after the creation of the subscribe function
+        // can still receive the very first value generated in the executor.
+        this.task
+            .then(function () {
+            executor(_this);
+        })
+            .catch(function (e) {
+            _this.error(e);
+        });
+    }
+    ObserverProxy.prototype.next = function (value) {
+        this.forEachObserver(function (observer) {
+            observer.next(value);
+        });
+    };
+    ObserverProxy.prototype.error = function (error) {
+        this.forEachObserver(function (observer) {
+            observer.error(error);
+        });
+        this.close(error);
+    };
+    ObserverProxy.prototype.complete = function () {
+        this.forEachObserver(function (observer) {
+            observer.complete();
+        });
+        this.close();
+    };
+    /**
+     * Subscribe function that can be used to add an Observer to the fan-out list.
+     *
+     * - We require that no event is sent to a subscriber sychronously to their
+     *   call to subscribe().
+     */
+    ObserverProxy.prototype.subscribe = function (nextOrObserver, error, complete) {
+        var _this = this;
+        var observer;
+        if (nextOrObserver === undefined &&
+            error === undefined &&
+            complete === undefined) {
+            throw new Error('Missing Observer.');
+        }
+        // Assemble an Observer object when passed as callback functions.
+        if (implementsAnyMethods(nextOrObserver, [
+            'next',
+            'error',
+            'complete'
+        ])) {
+            observer = nextOrObserver;
+        }
+        else {
+            observer = {
+                next: nextOrObserver,
+                error: error,
+                complete: complete
+            };
+        }
+        if (observer.next === undefined) {
+            observer.next = noop;
+        }
+        if (observer.error === undefined) {
+            observer.error = noop;
+        }
+        if (observer.complete === undefined) {
+            observer.complete = noop;
+        }
+        var unsub = this.unsubscribeOne.bind(this, this.observers.length);
+        // Attempt to subscribe to a terminated Observable - we
+        // just respond to the Observer with the final error or complete
+        // event.
+        if (this.finalized) {
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            this.task.then(function () {
+                try {
+                    if (_this.finalError) {
+                        observer.error(_this.finalError);
+                    }
+                    else {
+                        observer.complete();
+                    }
+                }
+                catch (e) {
+                    // nothing
+                }
+                return;
+            });
+        }
+        this.observers.push(observer);
+        return unsub;
+    };
+    // Unsubscribe is synchronous - we guarantee that no events are sent to
+    // any unsubscribed Observer.
+    ObserverProxy.prototype.unsubscribeOne = function (i) {
+        if (this.observers === undefined || this.observers[i] === undefined) {
+            return;
+        }
+        delete this.observers[i];
+        this.observerCount -= 1;
+        if (this.observerCount === 0 && this.onNoObservers !== undefined) {
+            this.onNoObservers(this);
+        }
+    };
+    ObserverProxy.prototype.forEachObserver = function (fn) {
+        if (this.finalized) {
+            // Already closed by previous event....just eat the additional values.
+            return;
+        }
+        // Since sendOne calls asynchronously - there is no chance that
+        // this.observers will become undefined.
+        for (var i = 0; i < this.observers.length; i++) {
+            this.sendOne(i, fn);
+        }
+    };
+    // Call the Observer via one of it's callback function. We are careful to
+    // confirm that the observe has not been unsubscribed since this asynchronous
+    // function had been queued.
+    ObserverProxy.prototype.sendOne = function (i, fn) {
+        var _this = this;
+        // Execute the callback asynchronously
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        this.task.then(function () {
+            if (_this.observers !== undefined && _this.observers[i] !== undefined) {
+                try {
+                    fn(_this.observers[i]);
+                }
+                catch (e) {
+                    // Ignore exceptions raised in Observers or missing methods of an
+                    // Observer.
+                    // Log error to console. b/31404806
+                    if (typeof console !== 'undefined' && console.error) {
+                        console.error(e);
+                    }
+                }
+            }
+        });
+    };
+    ObserverProxy.prototype.close = function (err) {
+        var _this = this;
+        if (this.finalized) {
+            return;
+        }
+        this.finalized = true;
+        if (err !== undefined) {
+            this.finalError = err;
+        }
+        // Proxy is no longer needed - garbage collect references
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        this.task.then(function () {
+            _this.observers = undefined;
+            _this.onNoObservers = undefined;
+        });
+    };
+    return ObserverProxy;
+}());
+/** Turn synchronous function into one called asynchronously. */
+// eslint-disable-next-line @typescript-eslint/ban-types
+function async(fn, onError) {
+    return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        Promise.resolve(true)
+            .then(function () {
+            fn.apply(void 0, args);
+        })
+            .catch(function (error) {
+            if (onError) {
+                onError(error);
+            }
+        });
+    };
+}
+/**
+ * Return true if the object passed in implements any of the named methods.
+ */
+function implementsAnyMethods(obj, methods) {
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
+    for (var _i = 0, methods_1 = methods; _i < methods_1.length; _i++) {
+        var method = methods_1[_i];
+        if (method in obj && typeof obj[method] === 'function') {
+            return true;
+        }
+    }
+    return false;
+}
+function noop() {
+    // do nothing
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Check to make sure the appropriate number of arguments are provided for a public function.
+ * Throws an error if it fails.
+ *
+ * @param fnName The function name
+ * @param minCount The minimum number of arguments to allow for the function call
+ * @param maxCount The maximum number of argument to allow for the function call
+ * @param argCount The actual number of arguments provided.
+ */
+var validateArgCount = function (fnName, minCount, maxCount, argCount) {
+    var argError;
+    if (argCount < minCount) {
+        argError = 'at least ' + minCount;
+    }
+    else if (argCount > maxCount) {
+        argError = maxCount === 0 ? 'none' : 'no more than ' + maxCount;
+    }
+    if (argError) {
+        var error = fnName +
+            ' failed: Was called with ' +
+            argCount +
+            (argCount === 1 ? ' argument.' : ' arguments.') +
+            ' Expects ' +
+            argError +
+            '.';
+        throw new Error(error);
+    }
+};
+/**
+ * Generates a string to prefix an error message about failed argument validation
+ *
+ * @param fnName The function name
+ * @param argumentNumber The index of the argument
+ * @param optional Whether or not the argument is optional
+ * @return The prefix to add to the error thrown for validation.
+ */
+function errorPrefix(fnName, argumentNumber, optional) {
+    var argName = '';
+    switch (argumentNumber) {
+        case 1:
+            argName = optional ? 'first' : 'First';
+            break;
+        case 2:
+            argName = optional ? 'second' : 'Second';
+            break;
+        case 3:
+            argName = optional ? 'third' : 'Third';
+            break;
+        case 4:
+            argName = optional ? 'fourth' : 'Fourth';
+            break;
+        default:
+            throw new Error('errorPrefix called with argumentNumber > 4.  Need to update it?');
+    }
+    var error = fnName + ' failed: ';
+    error += argName + ' argument ';
+    return error;
+}
+/**
+ * @param fnName
+ * @param argumentNumber
+ * @param namespace
+ * @param optional
+ */
+function validateNamespace(fnName, argumentNumber, namespace, optional) {
+    if (optional && !namespace) {
+        return;
+    }
+    if (typeof namespace !== 'string') {
+        //TODO: I should do more validation here. We only allow certain chars in namespaces.
+        throw new Error(errorPrefix(fnName, argumentNumber, optional) +
+            'must be a valid firebase namespace.');
+    }
+}
+function validateCallback(fnName, argumentNumber, 
+// eslint-disable-next-line @typescript-eslint/ban-types
+callback, optional) {
+    if (optional && !callback) {
+        return;
+    }
+    if (typeof callback !== 'function') {
+        throw new Error(errorPrefix(fnName, argumentNumber, optional) +
+            'must be a valid function.');
+    }
+}
+function validateContextObject(fnName, argumentNumber, context, optional) {
+    if (optional && !context) {
+        return;
+    }
+    if (typeof context !== 'object' || context === null) {
+        throw new Error(errorPrefix(fnName, argumentNumber, optional) +
+            'must be a valid context object.');
+    }
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// Code originally came from goog.crypt.stringToUtf8ByteArray, but for some reason they
+// automatically replaced '\r\n' with '\n', and they didn't handle surrogate pairs,
+// so it's been modified.
+// Note that not all Unicode characters appear as single characters in JavaScript strings.
+// fromCharCode returns the UTF-16 encoding of a character - so some Unicode characters
+// use 2 characters in Javascript.  All 4-byte UTF-8 characters begin with a first
+// character in the range 0xD800 - 0xDBFF (the first character of a so-called surrogate
+// pair).
+// See http://www.ecma-international.org/ecma-262/5.1/#sec-15.1.3
+/**
+ * @param {string} str
+ * @return {Array}
+ */
+var stringToByteArray$1 = function (str) {
+    var out = [];
+    var p = 0;
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        // Is this the lead surrogate in a surrogate pair?
+        if (c >= 0xd800 && c <= 0xdbff) {
+            var high = c - 0xd800; // the high 10 bits.
+            i++;
+            assert(i < str.length, 'Surrogate pair missing trail surrogate.');
+            var low = str.charCodeAt(i) - 0xdc00; // the low 10 bits.
+            c = 0x10000 + (high << 10) + low;
+        }
+        if (c < 128) {
+            out[p++] = c;
+        }
+        else if (c < 2048) {
+            out[p++] = (c >> 6) | 192;
+            out[p++] = (c & 63) | 128;
+        }
+        else if (c < 65536) {
+            out[p++] = (c >> 12) | 224;
+            out[p++] = ((c >> 6) & 63) | 128;
+            out[p++] = (c & 63) | 128;
+        }
+        else {
+            out[p++] = (c >> 18) | 240;
+            out[p++] = ((c >> 12) & 63) | 128;
+            out[p++] = ((c >> 6) & 63) | 128;
+            out[p++] = (c & 63) | 128;
+        }
+    }
+    return out;
+};
+/**
+ * Calculate length without actually converting; useful for doing cheaper validation.
+ * @param {string} str
+ * @return {number}
+ */
+var stringLength = function (str) {
+    var p = 0;
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        if (c < 128) {
+            p++;
+        }
+        else if (c < 2048) {
+            p += 2;
+        }
+        else if (c >= 0xd800 && c <= 0xdbff) {
+            // Lead surrogate of a surrogate pair.  The pair together will take 4 bytes to represent.
+            p += 4;
+            i++; // skip trail surrogate.
+        }
+        else {
+            p += 3;
+        }
+    }
+    return p;
+};
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * The amount of milliseconds to exponentially increase.
+ */
+var DEFAULT_INTERVAL_MILLIS = 1000;
+/**
+ * The factor to backoff by.
+ * Should be a number greater than 1.
+ */
+var DEFAULT_BACKOFF_FACTOR = 2;
+/**
+ * The maximum milliseconds to increase to.
+ *
+ * <p>Visible for testing
+ */
+var MAX_VALUE_MILLIS = 4 * 60 * 60 * 1000; // Four hours, like iOS and Android.
+/**
+ * The percentage of backoff time to randomize by.
+ * See
+ * http://go/safe-client-behavior#step-1-determine-the-appropriate-retry-interval-to-handle-spike-traffic
+ * for context.
+ *
+ * <p>Visible for testing
+ */
+var RANDOM_FACTOR = 0.5;
+/**
+ * Based on the backoff method from
+ * https://github.com/google/closure-library/blob/master/closure/goog/math/exponentialbackoff.js.
+ * Extracted here so we don't need to pass metadata and a stateful ExponentialBackoff object around.
+ */
+function calculateBackoffMillis(backoffCount, intervalMillis, backoffFactor) {
+    if (intervalMillis === void 0) { intervalMillis = DEFAULT_INTERVAL_MILLIS; }
+    if (backoffFactor === void 0) { backoffFactor = DEFAULT_BACKOFF_FACTOR; }
+    // Calculates an exponentially increasing value.
+    // Deviation: calculates value from count and a constant interval, so we only need to save value
+    // and count to restore state.
+    var currBaseValue = intervalMillis * Math.pow(backoffFactor, backoffCount);
+    // A random "fuzz" to avoid waves of retries.
+    // Deviation: randomFactor is required.
+    var randomWait = Math.round(
+    // A fraction of the backoff value to add/subtract.
+    // Deviation: changes multiplication order to improve readability.
+    RANDOM_FACTOR *
+        currBaseValue *
+        // A random float (rounded to int by Math.round above) in the range [-1, 1]. Determines
+        // if we add or subtract.
+        (Math.random() - 0.5) *
+        2);
+    // Limits backoff to max to avoid effectively permanent backoff.
+    return Math.min(MAX_VALUE_MILLIS, currBaseValue + randomWait);
+}
+
+exports.CONSTANTS = CONSTANTS;
+exports.Deferred = Deferred;
+exports.ErrorFactory = ErrorFactory;
+exports.FirebaseError = FirebaseError;
+exports.MAX_VALUE_MILLIS = MAX_VALUE_MILLIS;
+exports.RANDOM_FACTOR = RANDOM_FACTOR;
+exports.Sha1 = Sha1;
+exports.areCookiesEnabled = areCookiesEnabled;
+exports.assert = assert;
+exports.assertionError = assertionError;
+exports.async = async;
+exports.base64 = base64;
+exports.base64Decode = base64Decode;
+exports.base64Encode = base64Encode;
+exports.calculateBackoffMillis = calculateBackoffMillis;
+exports.contains = contains;
+exports.createSubscribe = createSubscribe;
+exports.decode = decode;
+exports.deepCopy = deepCopy;
+exports.deepExtend = deepExtend;
+exports.errorPrefix = errorPrefix;
+exports.getUA = getUA;
+exports.isAdmin = isAdmin;
+exports.isBrowser = isBrowser;
+exports.isBrowserExtension = isBrowserExtension;
+exports.isElectron = isElectron;
+exports.isEmpty = isEmpty;
+exports.isIE = isIE;
+exports.isIndexedDBAvailable = isIndexedDBAvailable;
+exports.isMobileCordova = isMobileCordova;
+exports.isNode = isNode;
+exports.isNodeSdk = isNodeSdk;
+exports.isReactNative = isReactNative;
+exports.isSafari = isSafari;
+exports.isUWP = isUWP;
+exports.isValidFormat = isValidFormat;
+exports.isValidTimestamp = isValidTimestamp;
+exports.issuedAtTime = issuedAtTime;
+exports.jsonEval = jsonEval;
+exports.map = map;
+exports.querystring = querystring;
+exports.querystringDecode = querystringDecode;
+exports.safeGet = safeGet;
+exports.stringLength = stringLength;
+exports.stringToByteArray = stringToByteArray$1;
+exports.stringify = stringify;
+exports.validateArgCount = validateArgCount;
+exports.validateCallback = validateCallback;
+exports.validateContextObject = validateContextObject;
+exports.validateIndexedDBOpenable = validateIndexedDBOpenable;
+exports.validateNamespace = validateNamespace;
+//# sourceMappingURL=index.cjs.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/dialog-polyfill/dialog-polyfill.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/dialog-polyfill/dialog-polyfill.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;(function() {
+
+  // nb. This is for IE10 and lower _only_.
+  var supportCustomEvent = window.CustomEvent;
+  if (!supportCustomEvent || typeof supportCustomEvent === 'object') {
+    supportCustomEvent = function CustomEvent(event, x) {
+      x = x || {};
+      var ev = document.createEvent('CustomEvent');
+      ev.initCustomEvent(event, !!x.bubbles, !!x.cancelable, x.detail || null);
+      return ev;
+    };
+    supportCustomEvent.prototype = window.Event.prototype;
+  }
+
+  /**
+   * @param {Element} el to check for stacking context
+   * @return {boolean} whether this el or its parents creates a stacking context
+   */
+  function createsStackingContext(el) {
+    while (el && el !== document.body) {
+      var s = window.getComputedStyle(el);
+      var invalid = function(k, ok) {
+        return !(s[k] === undefined || s[k] === ok);
+      }
+      if (s.opacity < 1 ||
+          invalid('zIndex', 'auto') ||
+          invalid('transform', 'none') ||
+          invalid('mixBlendMode', 'normal') ||
+          invalid('filter', 'none') ||
+          invalid('perspective', 'none') ||
+          s['isolation'] === 'isolate' ||
+          s.position === 'fixed' ||
+          s.webkitOverflowScrolling === 'touch') {
+        return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  /**
+   * Finds the nearest <dialog> from the passed element.
+   *
+   * @param {Element} el to search from
+   * @return {HTMLDialogElement} dialog found
+   */
+  function findNearestDialog(el) {
+    while (el) {
+      if (el.localName === 'dialog') {
+        return /** @type {HTMLDialogElement} */ (el);
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+
+  /**
+   * Blur the specified element, as long as it's not the HTML body element.
+   * This works around an IE9/10 bug - blurring the body causes Windows to
+   * blur the whole application.
+   *
+   * @param {Element} el to blur
+   */
+  function safeBlur(el) {
+    if (el && el.blur && el !== document.body) {
+      el.blur();
+    }
+  }
+
+  /**
+   * @param {!NodeList} nodeList to search
+   * @param {Node} node to find
+   * @return {boolean} whether node is inside nodeList
+   */
+  function inNodeList(nodeList, node) {
+    for (var i = 0; i < nodeList.length; ++i) {
+      if (nodeList[i] === node) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * @param {HTMLFormElement} el to check
+   * @return {boolean} whether this form has method="dialog"
+   */
+  function isFormMethodDialog(el) {
+    if (!el || !el.hasAttribute('method')) {
+      return false;
+    }
+    return el.getAttribute('method').toLowerCase() === 'dialog';
+  }
+
+  /**
+   * @param {!HTMLDialogElement} dialog to upgrade
+   * @constructor
+   */
+  function dialogPolyfillInfo(dialog) {
+    this.dialog_ = dialog;
+    this.replacedStyleTop_ = false;
+    this.openAsModal_ = false;
+
+    // Set a11y role. Browsers that support dialog implicitly know this already.
+    if (!dialog.hasAttribute('role')) {
+      dialog.setAttribute('role', 'dialog');
+    }
+
+    dialog.show = this.show.bind(this);
+    dialog.showModal = this.showModal.bind(this);
+    dialog.close = this.close.bind(this);
+
+    if (!('returnValue' in dialog)) {
+      dialog.returnValue = '';
+    }
+
+    if ('MutationObserver' in window) {
+      var mo = new MutationObserver(this.maybeHideModal.bind(this));
+      mo.observe(dialog, {attributes: true, attributeFilter: ['open']});
+    } else {
+      // IE10 and below support. Note that DOMNodeRemoved etc fire _before_ removal. They also
+      // seem to fire even if the element was removed as part of a parent removal. Use the removed
+      // events to force downgrade (useful if removed/immediately added).
+      var removed = false;
+      var cb = function() {
+        removed ? this.downgradeModal() : this.maybeHideModal();
+        removed = false;
+      }.bind(this);
+      var timeout;
+      var delayModel = function(ev) {
+        if (ev.target !== dialog) { return; }  // not for a child element
+        var cand = 'DOMNodeRemoved';
+        removed |= (ev.type.substr(0, cand.length) === cand);
+        window.clearTimeout(timeout);
+        timeout = window.setTimeout(cb, 0);
+      };
+      ['DOMAttrModified', 'DOMNodeRemoved', 'DOMNodeRemovedFromDocument'].forEach(function(name) {
+        dialog.addEventListener(name, delayModel);
+      });
+    }
+    // Note that the DOM is observed inside DialogManager while any dialog
+    // is being displayed as a modal, to catch modal removal from the DOM.
+
+    Object.defineProperty(dialog, 'open', {
+      set: this.setOpen.bind(this),
+      get: dialog.hasAttribute.bind(dialog, 'open')
+    });
+
+    this.backdrop_ = document.createElement('div');
+    this.backdrop_.className = 'backdrop';
+    this.backdrop_.addEventListener('click', this.backdropClick_.bind(this));
+  }
+
+  dialogPolyfillInfo.prototype = {
+
+    get dialog() {
+      return this.dialog_;
+    },
+
+    /**
+     * Maybe remove this dialog from the modal top layer. This is called when
+     * a modal dialog may no longer be tenable, e.g., when the dialog is no
+     * longer open or is no longer part of the DOM.
+     */
+    maybeHideModal: function() {
+      if (this.dialog_.hasAttribute('open') && document.body.contains(this.dialog_)) { return; }
+      this.downgradeModal();
+    },
+
+    /**
+     * Remove this dialog from the modal top layer, leaving it as a non-modal.
+     */
+    downgradeModal: function() {
+      if (!this.openAsModal_) { return; }
+      this.openAsModal_ = false;
+      this.dialog_.style.zIndex = '';
+
+      // This won't match the native <dialog> exactly because if the user set top on a centered
+      // polyfill dialog, that top gets thrown away when the dialog is closed. Not sure it's
+      // possible to polyfill this perfectly.
+      if (this.replacedStyleTop_) {
+        this.dialog_.style.top = '';
+        this.replacedStyleTop_ = false;
+      }
+
+      // Clear the backdrop and remove from the manager.
+      this.backdrop_.parentNode && this.backdrop_.parentNode.removeChild(this.backdrop_);
+      dialogPolyfill.dm.removeDialog(this);
+    },
+
+    /**
+     * @param {boolean} value whether to open or close this dialog
+     */
+    setOpen: function(value) {
+      if (value) {
+        this.dialog_.hasAttribute('open') || this.dialog_.setAttribute('open', '');
+      } else {
+        this.dialog_.removeAttribute('open');
+        this.maybeHideModal();  // nb. redundant with MutationObserver
+      }
+    },
+
+    /**
+     * Handles clicks on the fake .backdrop element, redirecting them as if
+     * they were on the dialog itself.
+     *
+     * @param {!Event} e to redirect
+     */
+    backdropClick_: function(e) {
+      if (!this.dialog_.hasAttribute('tabindex')) {
+        // Clicking on the backdrop should move the implicit cursor, even if dialog cannot be
+        // focused. Create a fake thing to focus on. If the backdrop was _before_ the dialog, this
+        // would not be needed - clicks would move the implicit cursor there.
+        var fake = document.createElement('div');
+        this.dialog_.insertBefore(fake, this.dialog_.firstChild);
+        fake.tabIndex = -1;
+        fake.focus();
+        this.dialog_.removeChild(fake);
+      } else {
+        this.dialog_.focus();
+      }
+
+      var redirectedEvent = document.createEvent('MouseEvents');
+      redirectedEvent.initMouseEvent(e.type, e.bubbles, e.cancelable, window,
+          e.detail, e.screenX, e.screenY, e.clientX, e.clientY, e.ctrlKey,
+          e.altKey, e.shiftKey, e.metaKey, e.button, e.relatedTarget);
+      this.dialog_.dispatchEvent(redirectedEvent);
+      e.stopPropagation();
+    },
+
+    /**
+     * Focuses on the first focusable element within the dialog. This will always blur the current
+     * focus, even if nothing within the dialog is found.
+     */
+    focus_: function() {
+      // Find element with `autofocus` attribute, or fall back to the first form/tabindex control.
+      var target = this.dialog_.querySelector('[autofocus]:not([disabled])');
+      if (!target && this.dialog_.tabIndex >= 0) {
+        target = this.dialog_;
+      }
+      if (!target) {
+        // Note that this is 'any focusable area'. This list is probably not exhaustive, but the
+        // alternative involves stepping through and trying to focus everything.
+        var opts = ['button', 'input', 'keygen', 'select', 'textarea'];
+        var query = opts.map(function(el) {
+          return el + ':not([disabled])';
+        });
+        // TODO(samthor): tabindex values that are not numeric are not focusable.
+        query.push('[tabindex]:not([disabled]):not([tabindex=""])');  // tabindex != "", not disabled
+        target = this.dialog_.querySelector(query.join(', '));
+      }
+      safeBlur(document.activeElement);
+      target && target.focus();
+    },
+
+    /**
+     * Sets the zIndex for the backdrop and dialog.
+     *
+     * @param {number} dialogZ
+     * @param {number} backdropZ
+     */
+    updateZIndex: function(dialogZ, backdropZ) {
+      if (dialogZ < backdropZ) {
+        throw new Error('dialogZ should never be < backdropZ');
+      }
+      this.dialog_.style.zIndex = dialogZ;
+      this.backdrop_.style.zIndex = backdropZ;
+    },
+
+    /**
+     * Shows the dialog. If the dialog is already open, this does nothing.
+     */
+    show: function() {
+      if (!this.dialog_.open) {
+        this.setOpen(true);
+        this.focus_();
+      }
+    },
+
+    /**
+     * Show this dialog modally.
+     */
+    showModal: function() {
+      if (this.dialog_.hasAttribute('open')) {
+        throw new Error('Failed to execute \'showModal\' on dialog: The element is already open, and therefore cannot be opened modally.');
+      }
+      if (!document.body.contains(this.dialog_)) {
+        throw new Error('Failed to execute \'showModal\' on dialog: The element is not in a Document.');
+      }
+      if (!dialogPolyfill.dm.pushDialog(this)) {
+        throw new Error('Failed to execute \'showModal\' on dialog: There are too many open modal dialogs.');
+      }
+
+      if (createsStackingContext(this.dialog_.parentElement)) {
+        console.warn('A dialog is being shown inside a stacking context. ' +
+            'This may cause it to be unusable. For more information, see this link: ' +
+            'https://github.com/GoogleChrome/dialog-polyfill/#stacking-context');
+      }
+
+      this.setOpen(true);
+      this.openAsModal_ = true;
+
+      // Optionally center vertically, relative to the current viewport.
+      if (dialogPolyfill.needsCentering(this.dialog_)) {
+        dialogPolyfill.reposition(this.dialog_);
+        this.replacedStyleTop_ = true;
+      } else {
+        this.replacedStyleTop_ = false;
+      }
+
+      // Insert backdrop.
+      this.dialog_.parentNode.insertBefore(this.backdrop_, this.dialog_.nextSibling);
+
+      // Focus on whatever inside the dialog.
+      this.focus_();
+    },
+
+    /**
+     * Closes this HTMLDialogElement. This is optional vs clearing the open
+     * attribute, however this fires a 'close' event.
+     *
+     * @param {string=} opt_returnValue to use as the returnValue
+     */
+    close: function(opt_returnValue) {
+      if (!this.dialog_.hasAttribute('open')) {
+        throw new Error('Failed to execute \'close\' on dialog: The element does not have an \'open\' attribute, and therefore cannot be closed.');
+      }
+      this.setOpen(false);
+
+      // Leave returnValue untouched in case it was set directly on the element
+      if (opt_returnValue !== undefined) {
+        this.dialog_.returnValue = opt_returnValue;
+      }
+
+      // Triggering "close" event for any attached listeners on the <dialog>.
+      var closeEvent = new supportCustomEvent('close', {
+        bubbles: false,
+        cancelable: false
+      });
+      this.dialog_.dispatchEvent(closeEvent);
+    }
+
+  };
+
+  var dialogPolyfill = {};
+
+  dialogPolyfill.reposition = function(element) {
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    var topValue = scrollTop + (window.innerHeight - element.offsetHeight) / 2;
+    element.style.top = Math.max(scrollTop, topValue) + 'px';
+  };
+
+  dialogPolyfill.isInlinePositionSetByStylesheet = function(element) {
+    for (var i = 0; i < document.styleSheets.length; ++i) {
+      var styleSheet = document.styleSheets[i];
+      var cssRules = null;
+      // Some browsers throw on cssRules.
+      try {
+        cssRules = styleSheet.cssRules;
+      } catch (e) {}
+      if (!cssRules) { continue; }
+      for (var j = 0; j < cssRules.length; ++j) {
+        var rule = cssRules[j];
+        var selectedNodes = null;
+        // Ignore errors on invalid selector texts.
+        try {
+          selectedNodes = document.querySelectorAll(rule.selectorText);
+        } catch(e) {}
+        if (!selectedNodes || !inNodeList(selectedNodes, element)) {
+          continue;
+        }
+        var cssTop = rule.style.getPropertyValue('top');
+        var cssBottom = rule.style.getPropertyValue('bottom');
+        if ((cssTop && cssTop !== 'auto') || (cssBottom && cssBottom !== 'auto')) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  dialogPolyfill.needsCentering = function(dialog) {
+    var computedStyle = window.getComputedStyle(dialog);
+    if (computedStyle.position !== 'absolute') {
+      return false;
+    }
+
+    // We must determine whether the top/bottom specified value is non-auto.  In
+    // WebKit/Blink, checking computedStyle.top == 'auto' is sufficient, but
+    // Firefox returns the used value. So we do this crazy thing instead: check
+    // the inline style and then go through CSS rules.
+    if ((dialog.style.top !== 'auto' && dialog.style.top !== '') ||
+        (dialog.style.bottom !== 'auto' && dialog.style.bottom !== '')) {
+      return false;
+    }
+    return !dialogPolyfill.isInlinePositionSetByStylesheet(dialog);
+  };
+
+  /**
+   * @param {!Element} element to force upgrade
+   */
+  dialogPolyfill.forceRegisterDialog = function(element) {
+    if (window.HTMLDialogElement || element.showModal) {
+      console.warn('This browser already supports <dialog>, the polyfill ' +
+          'may not work correctly', element);
+    }
+    if (element.localName !== 'dialog') {
+      throw new Error('Failed to register dialog: The element is not a dialog.');
+    }
+    new dialogPolyfillInfo(/** @type {!HTMLDialogElement} */ (element));
+  };
+
+  /**
+   * @param {!Element} element to upgrade, if necessary
+   */
+  dialogPolyfill.registerDialog = function(element) {
+    if (!element.showModal) {
+      dialogPolyfill.forceRegisterDialog(element);
+    }
+  };
+
+  /**
+   * @constructor
+   */
+  dialogPolyfill.DialogManager = function() {
+    /** @type {!Array<!dialogPolyfillInfo>} */
+    this.pendingDialogStack = [];
+
+    var checkDOM = this.checkDOM_.bind(this);
+
+    // The overlay is used to simulate how a modal dialog blocks the document.
+    // The blocking dialog is positioned on top of the overlay, and the rest of
+    // the dialogs on the pending dialog stack are positioned below it. In the
+    // actual implementation, the modal dialog stacking is controlled by the
+    // top layer, where z-index has no effect.
+    this.overlay = document.createElement('div');
+    this.overlay.className = '_dialog_overlay';
+    this.overlay.addEventListener('click', function(e) {
+      this.forwardTab_ = undefined;
+      e.stopPropagation();
+      checkDOM([]);  // sanity-check DOM
+    }.bind(this));
+
+    this.handleKey_ = this.handleKey_.bind(this);
+    this.handleFocus_ = this.handleFocus_.bind(this);
+
+    this.zIndexLow_ = 100000;
+    this.zIndexHigh_ = 100000 + 150;
+
+    this.forwardTab_ = undefined;
+
+    if ('MutationObserver' in window) {
+      this.mo_ = new MutationObserver(function(records) {
+        var removed = [];
+        records.forEach(function(rec) {
+          for (var i = 0, c; c = rec.removedNodes[i]; ++i) {
+            if (!(c instanceof Element)) {
+              continue;
+            } else if (c.localName === 'dialog') {
+              removed.push(c);
+            }
+            removed = removed.concat(c.querySelectorAll('dialog'));
+          }
+        });
+        removed.length && checkDOM(removed);
+      });
+    }
+  };
+
+  /**
+   * Called on the first modal dialog being shown. Adds the overlay and related
+   * handlers.
+   */
+  dialogPolyfill.DialogManager.prototype.blockDocument = function() {
+    document.documentElement.addEventListener('focus', this.handleFocus_, true);
+    document.addEventListener('keydown', this.handleKey_);
+    this.mo_ && this.mo_.observe(document, {childList: true, subtree: true});
+  };
+
+  /**
+   * Called on the first modal dialog being removed, i.e., when no more modal
+   * dialogs are visible.
+   */
+  dialogPolyfill.DialogManager.prototype.unblockDocument = function() {
+    document.documentElement.removeEventListener('focus', this.handleFocus_, true);
+    document.removeEventListener('keydown', this.handleKey_);
+    this.mo_ && this.mo_.disconnect();
+  };
+
+  /**
+   * Updates the stacking of all known dialogs.
+   */
+  dialogPolyfill.DialogManager.prototype.updateStacking = function() {
+    var zIndex = this.zIndexHigh_;
+
+    for (var i = 0, dpi; dpi = this.pendingDialogStack[i]; ++i) {
+      dpi.updateZIndex(--zIndex, --zIndex);
+      if (i === 0) {
+        this.overlay.style.zIndex = --zIndex;
+      }
+    }
+
+    // Make the overlay a sibling of the dialog itself.
+    var last = this.pendingDialogStack[0];
+    if (last) {
+      var p = last.dialog.parentNode || document.body;
+      p.appendChild(this.overlay);
+    } else if (this.overlay.parentNode) {
+      this.overlay.parentNode.removeChild(this.overlay);
+    }
+  };
+
+  /**
+   * @param {Element} candidate to check if contained or is the top-most modal dialog
+   * @return {boolean} whether candidate is contained in top dialog
+   */
+  dialogPolyfill.DialogManager.prototype.containedByTopDialog_ = function(candidate) {
+    while (candidate = findNearestDialog(candidate)) {
+      for (var i = 0, dpi; dpi = this.pendingDialogStack[i]; ++i) {
+        if (dpi.dialog === candidate) {
+          return i === 0;  // only valid if top-most
+        }
+      }
+      candidate = candidate.parentElement;
+    }
+    return false;
+  };
+
+  dialogPolyfill.DialogManager.prototype.handleFocus_ = function(event) {
+    if (this.containedByTopDialog_(event.target)) { return; }
+
+    event.preventDefault();
+    event.stopPropagation();
+    safeBlur(/** @type {Element} */ (event.target));
+
+    if (this.forwardTab_ === undefined) { return; }  // move focus only from a tab key
+
+    var dpi = this.pendingDialogStack[0];
+    var dialog = dpi.dialog;
+    var position = dialog.compareDocumentPosition(event.target);
+    if (position & Node.DOCUMENT_POSITION_PRECEDING) {
+      if (this.forwardTab_) {  // forward
+        dpi.focus_();
+      } else {  // backwards
+        document.documentElement.focus();
+      }
+    } else {
+      // TODO: Focus after the dialog, is ignored.
+    }
+
+    return false;
+  };
+
+  dialogPolyfill.DialogManager.prototype.handleKey_ = function(event) {
+    this.forwardTab_ = undefined;
+    if (event.keyCode === 27) {
+      event.preventDefault();
+      event.stopPropagation();
+      var cancelEvent = new supportCustomEvent('cancel', {
+        bubbles: false,
+        cancelable: true
+      });
+      var dpi = this.pendingDialogStack[0];
+      if (dpi && dpi.dialog.dispatchEvent(cancelEvent)) {
+        dpi.dialog.close();
+      }
+    } else if (event.keyCode === 9) {
+      this.forwardTab_ = !event.shiftKey;
+    }
+  };
+
+  /**
+   * Finds and downgrades any known modal dialogs that are no longer displayed. Dialogs that are
+   * removed and immediately readded don't stay modal, they become normal.
+   *
+   * @param {!Array<!HTMLDialogElement>} removed that have definitely been removed
+   */
+  dialogPolyfill.DialogManager.prototype.checkDOM_ = function(removed) {
+    // This operates on a clone because it may cause it to change. Each change also calls
+    // updateStacking, which only actually needs to happen once. But who removes many modal dialogs
+    // at a time?!
+    var clone = this.pendingDialogStack.slice();
+    clone.forEach(function(dpi) {
+      if (removed.indexOf(dpi.dialog) !== -1) {
+        dpi.downgradeModal();
+      } else {
+        dpi.maybeHideModal();
+      }
+    });
+  };
+
+  /**
+   * @param {!dialogPolyfillInfo} dpi
+   * @return {boolean} whether the dialog was allowed
+   */
+  dialogPolyfill.DialogManager.prototype.pushDialog = function(dpi) {
+    var allowed = (this.zIndexHigh_ - this.zIndexLow_) / 2 - 1;
+    if (this.pendingDialogStack.length >= allowed) {
+      return false;
+    }
+    if (this.pendingDialogStack.unshift(dpi) === 1) {
+      this.blockDocument();
+    }
+    this.updateStacking();
+    return true;
+  };
+
+  /**
+   * @param {!dialogPolyfillInfo} dpi
+   */
+  dialogPolyfill.DialogManager.prototype.removeDialog = function(dpi) {
+    var index = this.pendingDialogStack.indexOf(dpi);
+    if (index === -1) { return; }
+
+    this.pendingDialogStack.splice(index, 1);
+    if (this.pendingDialogStack.length === 0) {
+      this.unblockDocument();
+    }
+    this.updateStacking();
+  };
+
+  dialogPolyfill.dm = new dialogPolyfill.DialogManager();
+  dialogPolyfill.formSubmitter = null;
+  dialogPolyfill.useValue = null;
+
+  /**
+   * Installs global handlers, such as click listers and native method overrides. These are needed
+   * even if a no dialog is registered, as they deal with <form method="dialog">.
+   */
+  if (window.HTMLDialogElement === undefined) {
+
+    /**
+     * If HTMLFormElement translates method="DIALOG" into 'get', then replace the descriptor with
+     * one that returns the correct value.
+     */
+    var testForm = document.createElement('form');
+    testForm.setAttribute('method', 'dialog');
+    if (testForm.method !== 'dialog') {
+      var methodDescriptor = Object.getOwnPropertyDescriptor(HTMLFormElement.prototype, 'method');
+      if (methodDescriptor) {
+        // nb. Some older iOS and older PhantomJS fail to return the descriptor. Don't do anything
+        // and don't bother to update the element.
+        var realGet = methodDescriptor.get;
+        methodDescriptor.get = function() {
+          if (isFormMethodDialog(this)) {
+            return 'dialog';
+          }
+          return realGet.call(this);
+        };
+        var realSet = methodDescriptor.set;
+        methodDescriptor.set = function(v) {
+          if (typeof v === 'string' && v.toLowerCase() === 'dialog') {
+            return this.setAttribute('method', v);
+          }
+          return realSet.call(this, v);
+        };
+        Object.defineProperty(HTMLFormElement.prototype, 'method', methodDescriptor);
+      }
+    }
+
+    /**
+     * Global 'click' handler, to capture the <input type="submit"> or <button> element which has
+     * submitted a <form method="dialog">. Needed as Safari and others don't report this inside
+     * document.activeElement.
+     */
+    document.addEventListener('click', function(ev) {
+      dialogPolyfill.formSubmitter = null;
+      dialogPolyfill.useValue = null;
+      if (ev.defaultPrevented) { return; }  // e.g. a submit which prevents default submission
+
+      var target = /** @type {Element} */ (ev.target);
+      if (!target || !isFormMethodDialog(target.form)) { return; }
+
+      var valid = (target.type === 'submit' && ['button', 'input'].indexOf(target.localName) > -1);
+      if (!valid) {
+        if (!(target.localName === 'input' && target.type === 'image')) { return; }
+        // this is a <input type="image">, which can submit forms
+        dialogPolyfill.useValue = ev.offsetX + ',' + ev.offsetY;
+      }
+
+      var dialog = findNearestDialog(target);
+      if (!dialog) { return; }
+
+      dialogPolyfill.formSubmitter = target;
+    }, false);
+
+    /**
+     * Replace the native HTMLFormElement.submit() method, as it won't fire the
+     * submit event and give us a chance to respond.
+     */
+    var nativeFormSubmit = HTMLFormElement.prototype.submit;
+    var replacementFormSubmit = function () {
+      if (!isFormMethodDialog(this)) {
+        return nativeFormSubmit.call(this);
+      }
+      var dialog = findNearestDialog(this);
+      dialog && dialog.close();
+    };
+    HTMLFormElement.prototype.submit = replacementFormSubmit;
+
+    /**
+     * Global form 'dialog' method handler. Closes a dialog correctly on submit
+     * and possibly sets its return value.
+     */
+    document.addEventListener('submit', function(ev) {
+      var form = /** @type {HTMLFormElement} */ (ev.target);
+      if (!isFormMethodDialog(form)) { return; }
+      ev.preventDefault();
+
+      var dialog = findNearestDialog(form);
+      if (!dialog) { return; }
+
+      // Forms can only be submitted via .submit() or a click (?), but anyway: sanity-check that
+      // the submitter is correct before using its value as .returnValue.
+      var s = dialogPolyfill.formSubmitter;
+      if (s && s.form === form) {
+        dialog.close(dialogPolyfill.useValue || s.value);
+      } else {
+        dialog.close();
+      }
+      dialogPolyfill.formSubmitter = null;
+    }, true);
+  }
+
+  dialogPolyfill['forceRegisterDialog'] = dialogPolyfill.forceRegisterDialog;
+  dialogPolyfill['registerDialog'] = dialogPolyfill.registerDialog;
+
+  if ( true && 'amd' in __webpack_require__(/*! !webpack amd define */ "./node_modules/webpack/buildin/amd-define.js")) {
+    // AMD support
+    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function() { return dialogPolyfill; }).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( true && typeof module['exports'] === 'object') {
+    // CommonJS support
+    module['exports'] = dialogPolyfill;
+  } else {
+    // all others
+    window['dialogPolyfill'] = dialogPolyfill;
+  }
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/firebase/app/dist/index.cjs.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/firebase/app/dist/index.cjs.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var firebase = __webpack_require__(/*! @firebase/app */ "./node_modules/@firebase/app/dist/index.cjs.js");
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var firebase__default = /*#__PURE__*/_interopDefaultLegacy(firebase);
+
+var name = "firebase";
+var version = "7.20.0";
+
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+firebase__default['default'].registerVersion(name, version, 'app');
+
+module.exports = firebase__default['default'];
+//# sourceMappingURL=index.cjs.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/firebase/auth/dist/index.esm.js":
+/*!******************************************************!*\
+  !*** ./node_modules/firebase/auth/dist/index.esm.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @firebase/auth */ "./node_modules/@firebase/auth/dist/auth.js");
+/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_auth__WEBPACK_IMPORTED_MODULE_0__);
+
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js ***!
+  \*************************************************************************************/
+/*! exports provided: FirebaseUIModule, FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult, FirebaseuiAngularLibraryComponent, FirebaseuiAngularLibraryService, firebase, firebaseui */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseUIModule", function() { return FirebaseUIModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseUISignInFailure", function() { return FirebaseUISignInFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseUISignInSuccessWithAuthResult", function() { return FirebaseUISignInSuccessWithAuthResult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseuiAngularLibraryComponent", function() { return FirebaseuiAngularLibraryComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseuiAngularLibraryService", function() { return FirebaseuiAngularLibraryService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firebase", function() { return firebase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firebaseui", function() { return firebaseui; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+
+
+
+
+
+
+
+
+
+
+
+let FirebaseuiAngularLibraryService = class FirebaseuiAngularLibraryService {
+    constructor(options, nameOrConfig, zone) {
+        // noinspection JSNonASCIINames
+        const app = Object(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["ɵfirebaseAppFactory"])(options, zone, nameOrConfig);
+        // store the firebaseui instance on the window object to prevent double initialization
+        if (!window.firebaseUiInstance) {
+            window.firebaseUiInstance = new firebaseui__WEBPACK_IMPORTED_MODULE_2__["auth"].AuthUI(app.auth());
+        }
+        this.firebaseUiInstance = window.firebaseUiInstance;
+    }
+};
+FirebaseuiAngularLibraryService.ɵfac = function FirebaseuiAngularLibraryService_Factory(t) { return new (t || FirebaseuiAngularLibraryService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"])); };
+FirebaseuiAngularLibraryService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: FirebaseuiAngularLibraryService, factory: function (t) { return FirebaseuiAngularLibraryService.ɵfac(t); } });
+FirebaseuiAngularLibraryService.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"],] }] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"],] }] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+FirebaseuiAngularLibraryService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, Object, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], FirebaseuiAngularLibraryService);
+
+var FirebaseuiAngularLibraryComponent_1;
+let FirebaseuiAngularLibraryComponent = FirebaseuiAngularLibraryComponent_1 = class FirebaseuiAngularLibraryComponent {
+    constructor(angularFireAuth, _firebaseUiConfig, _firebaseUiConfig_Feature, ngZone, firebaseUIService) {
+        this.angularFireAuth = angularFireAuth;
+        this._firebaseUiConfig = _firebaseUiConfig;
+        this._firebaseUiConfig_Feature = _firebaseUiConfig_Feature;
+        this.ngZone = ngZone;
+        this.firebaseUIService = firebaseUIService;
+        this.signInSuccessWithAuthResultCallback = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](); // tslint:disable-line
+        this.signInFailureCallback = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](); // tslint:disable-line
+        this.uiShownCallback = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](); // tslint:disable-line
+    }
+    get firebaseUiConfig() {
+        return Object.assign(Object.assign({}, this._firebaseUiConfig), this._firebaseUiConfig_Feature);
+    }
+    ngOnInit() {
+        this.subscription = this.angularFireAuth.authState.subscribe((value) => {
+            if ((value && value.isAnonymous) || !value) {
+                if (this.firebaseUiConfig.signInOptions.length !== 0) {
+                    this.firebaseUIPopup();
+                }
+                else {
+                    throw new Error('There must be at least one AuthProvider.');
+                }
+            }
+        });
+    }
+    ngOnDestroy() {
+        if (!!this.subscription) {
+            this.subscription.unsubscribe();
+        }
+    }
+    getUIAuthConfig() {
+        if (!this.firebaseUiConfig.callbacks) {
+            this._firebaseUiConfig[FirebaseuiAngularLibraryComponent_1.COMPUTED_CALLBACKS] = true;
+            this._firebaseUiConfig.callbacks = this.getCallbacks();
+        }
+        return this.firebaseUiConfig;
+    }
+    firebaseUIPopup() {
+        const firebaseUiInstance = this.firebaseUIService.firebaseUiInstance;
+        const uiAuthConfig = this.getUIAuthConfig();
+        // Check if callbacks got computed to reset them again after providing the to firebaseui.
+        // Necessary for allowing updating the firebaseui config during runtime.
+        let resetCallbacks = false;
+        if (uiAuthConfig[FirebaseuiAngularLibraryComponent_1.COMPUTED_CALLBACKS]) {
+            resetCallbacks = true;
+            delete uiAuthConfig[FirebaseuiAngularLibraryComponent_1.COMPUTED_CALLBACKS];
+        }
+        // show the firebaseui
+        firebaseUiInstance.start('#firebaseui-auth-container', uiAuthConfig);
+        if (resetCallbacks) {
+            this._firebaseUiConfig.callbacks = null;
+        }
+    }
+    getCallbacks() {
+        const signInSuccessWithAuthResultCallback = (authResult, redirectUrl) => {
+            this.ngZone.run(() => {
+                this.signInSuccessWithAuthResultCallback.emit({
+                    authResult,
+                    redirectUrl
+                });
+            });
+            return this.firebaseUiConfig.signInSuccessUrl;
+        };
+        const signInFailureCallback = (error) => {
+            this.ngZone.run(() => {
+                this.signInFailureCallback.emit({
+                    code: error.code,
+                    credential: error.credential
+                });
+            });
+            return Promise.reject();
+        };
+        const uiShownCallback = () => {
+            this.ngZone.run(() => {
+                this.uiShownCallback.emit();
+            });
+        };
+        return {
+            signInSuccessWithAuthResult: signInSuccessWithAuthResultCallback,
+            signInFailure: signInFailureCallback,
+            uiShown: uiShownCallback
+        };
+    }
+};
+FirebaseuiAngularLibraryComponent.ɵfac = function FirebaseuiAngularLibraryComponent_Factory(t) { return new (t || FirebaseuiAngularLibraryComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"]('firebaseUIAuthConfig'), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"]('firebaseUIAuthConfigFeature'), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FirebaseuiAngularLibraryService)); };
+FirebaseuiAngularLibraryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: FirebaseuiAngularLibraryComponent, selectors: [["firebase-ui"]], outputs: { signInSuccessWithAuthResultCallback: "signInSuccessWithAuthResult", signInFailureCallback: "signInFailure", uiShownCallback: "uiShown" }, decls: 1, vars: 0, consts: [["id", "firebaseui-auth-container"]], template: function FirebaseuiAngularLibraryComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "div", 0);
+    } }, encapsulation: 2 });
+FirebaseuiAngularLibraryComponent.COMPUTED_CALLBACKS = 'COMPUTED_CALLBACKS';
+FirebaseuiAngularLibraryComponent.ctorParameters = () => [
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: ['firebaseUIAuthConfig',] }] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: ['firebaseUIAuthConfigFeature',] }] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
+    { type: FirebaseuiAngularLibraryService }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])('signInSuccessWithAuthResult'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], FirebaseuiAngularLibraryComponent.prototype, "signInSuccessWithAuthResultCallback", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])('signInFailure'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], FirebaseuiAngularLibraryComponent.prototype, "signInFailureCallback", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])('uiShown'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], FirebaseuiAngularLibraryComponent.prototype, "uiShownCallback", void 0);
+FirebaseuiAngularLibraryComponent = FirebaseuiAngularLibraryComponent_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])('firebaseUIAuthConfig')),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])('firebaseUIAuthConfigFeature')),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"], Object, Object, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"],
+        FirebaseuiAngularLibraryService])
+], FirebaseuiAngularLibraryComponent);
+
+/*
+ * Created by Raphael Jenni
+ * Copyright (c) 2017 Raphael Jenni
+ */
+const firebase = firebase_app__WEBPACK_IMPORTED_MODULE_6__;
+const firebaseui = firebaseui__WEBPACK_IMPORTED_MODULE_2__;
+class FirebaseUISignInSuccessWithAuthResult {
+}
+class FirebaseUISignInFailure {
+}
+
+var FirebaseUIModule_1;
+let FirebaseUIModule = FirebaseUIModule_1 = class FirebaseUIModule {
+    static forRoot(firebaseUiAuthConfig) {
+        return {
+            ngModule: FirebaseUIModule_1,
+            providers: [
+                { provide: 'firebaseUIAuthConfig', useValue: firebaseUiAuthConfig },
+                { provide: 'firebaseUIAuthConfigFeature', useValue: {} }
+            ]
+        };
+    }
+    static forFeature(firebaseUIAuthConfig) {
+        return {
+            ngModule: FirebaseUIModule_1,
+            providers: [
+                { provide: 'firebaseUIAuthConfigFeature', useValue: firebaseUIAuthConfig }
+            ]
+        };
+    }
+};
+FirebaseUIModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: FirebaseUIModule });
+FirebaseUIModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function FirebaseUIModule_Factory(t) { return new (t || FirebaseUIModule)(); }, providers: [FirebaseuiAngularLibraryService], imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"]
+        ]] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FirebaseuiAngularLibraryService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+    }], function () { return [{ type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+                args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_OPTIONS"]]
+            }] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+            }, {
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+                args: [_angular_fire__WEBPACK_IMPORTED_MODULE_3__["FIREBASE_APP_NAME"]]
+            }] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }]; }, null); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FirebaseuiAngularLibraryComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+                selector: 'firebase-ui',
+                template: '<div id="firebaseui-auth-container"></div>'
+            }]
+    }], function () { return [{ type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+                args: ['firebaseUIAuthConfig']
+            }] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+                args: ['firebaseUIAuthConfigFeature']
+            }] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }, { type: FirebaseuiAngularLibraryService }]; }, { signInSuccessWithAuthResultCallback: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"],
+            args: ['signInSuccessWithAuthResult']
+        }], signInFailureCallback: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"],
+            args: ['signInFailure']
+        }], uiShownCallback: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"],
+            args: ['uiShown']
+        }] }); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](FirebaseUIModule, { declarations: function () { return [FirebaseuiAngularLibraryComponent]; }, imports: function () { return [_angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"]]; }, exports: function () { return [FirebaseuiAngularLibraryComponent]; } }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FirebaseUIModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
+        args: [{
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_7__["CommonModule"]
+                ],
+                declarations: [FirebaseuiAngularLibraryComponent],
+                providers: [FirebaseuiAngularLibraryService],
+                exports: [FirebaseuiAngularLibraryComponent]
+            }]
+    }], null, null); })();
+
+/*
+ * Public API Surface of firebaseui-angular-library
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=firebaseui-angular.js.map
+
+/***/ }),
+
+/***/ "./node_modules/firebaseui/dist/esm.js":
+/*!*********************************************!*\
+  !*** ./node_modules/firebaseui/dist/esm.js ***!
+  \*********************************************/
+/*! exports provided: auth */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+/* harmony import */ var dialog_polyfill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dialog-polyfill */ "./node_modules/dialog-polyfill/dialog-polyfill.js");
+/* harmony import */ var dialog_polyfill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dialog_polyfill__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var material_design_lite_src_mdlComponentHandler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! material-design-lite/src/mdlComponentHandler */ "./node_modules/material-design-lite/src/mdlComponentHandler.js");
+/* harmony import */ var material_design_lite_src_mdlComponentHandler__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(material_design_lite_src_mdlComponentHandler__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var material_design_lite_src_button_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! material-design-lite/src/button/button */ "./node_modules/material-design-lite/src/button/button.js");
+/* harmony import */ var material_design_lite_src_button_button__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(material_design_lite_src_button_button__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var material_design_lite_src_progress_progress__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! material-design-lite/src/progress/progress */ "./node_modules/material-design-lite/src/progress/progress.js");
+/* harmony import */ var material_design_lite_src_progress_progress__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(material_design_lite_src_progress_progress__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var material_design_lite_src_spinner_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-design-lite/src/spinner/spinner */ "./node_modules/material-design-lite/src/spinner/spinner.js");
+/* harmony import */ var material_design_lite_src_spinner_spinner__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(material_design_lite_src_spinner_spinner__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var material_design_lite_src_textfield_textfield__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! material-design-lite/src/textfield/textfield */ "./node_modules/material-design-lite/src/textfield/textfield.js");
+/* harmony import */ var material_design_lite_src_textfield_textfield__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(material_design_lite_src_textfield_textfield__WEBPACK_IMPORTED_MODULE_7__);
+(function() {(function(){var l,aa="function"==typeof Object.create?Object.create:function(a){function b(){}b.prototype=a;return new b},ba;if("function"==typeof Object.setPrototypeOf)ba=Object.setPrototypeOf;else{var ca;a:{var da={yb:!0},ea={};try{ea.__proto__=da;ca=ea.yb;break a}catch(a){}ca=!1}ba=ca?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var fa=ba;function m(a,b){a.prototype=aa(b.prototype);a.prototype.constructor=a;if(fa)fa(a,b);else for(var c in b)if("prototype"!=
+c)if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.K=b.prototype}var ha="function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){a!=Array.prototype&&a!=Object.prototype&&(a[b]=c.value)},ia="undefined"!=typeof window&&window===this?this:"undefined"!=typeof global&&null!=global?global:this;function ja(a,b){if(b){var c=ia;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];e in c||(c[e]={});c=c[e]}a=a[a.length-
+1];d=c[a];b=b(d);b!=d&&null!=b&&ha(c,a,{configurable:!0,writable:!0,value:b})}}ja("Object.is",function(a){return a?a:function(b,c){return b===c?0!==b||1/b===1/c:b!==b&&c!==c}});ja("Array.prototype.includes",function(a){return a?a:function(b,c){var d=this;d instanceof String&&(d=String(d));var e=d.length;c=c||0;for(0>c&&(c=Math.max(c+e,0));c<e;c++){var f=d[c];if(f===b||Object.is(f,b))return!0}return!1}});var n=this;function ka(a){return void 0!==a}function q(a){return"string"==typeof a}var la=/^[\w+/_-]+[=]{0,2}$/,
+ma=null;function na(){}function oa(a){a.W=void 0;a.Ya=function(){return a.W?a.W:a.W=new a}}function pa(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=
+typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function qa(a){return"array"==pa(a)}function ra(a){var b=pa(a);return"array"==b||"object"==b&&"number"==typeof a.length}function sa(a){return"function"==pa(a)}function ta(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}var ua="closure_uid_"+(1E9*Math.random()>>>0),va=0;function wa(a,b,c){return a.call.apply(a.bind,
+arguments)}function xa(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var e=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(e,d);return a.apply(b,e)}}return function(){return a.apply(b,arguments)}}function t(a,b,c){Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?t=wa:t=xa;return t.apply(null,arguments)}function ya(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var d=
+c.slice();d.push.apply(d,arguments);return a.apply(this,d)}}function u(a,b){for(var c in b)a[c]=b[c]}var Aa=Date.now||function(){return+new Date};function v(a,b){a=a.split(".");var c=n;a[0]in c||"undefined"==typeof c.execScript||c.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)!a.length&&ka(b)?c[d]=b:c[d]&&c[d]!==Object.prototype[d]?c=c[d]:c=c[d]={}}function w(a,b){function c(){}c.prototype=b.prototype;a.K=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.uc=function(d,e,f){for(var g=
+Array(arguments.length-2),h=2;h<arguments.length;h++)g[h-2]=arguments[h];return b.prototype[e].apply(d,g)}}function Ba(a){if(Error.captureStackTrace)Error.captureStackTrace(this,Ba);else{var b=Error().stack;b&&(this.stack=b)}a&&(this.message=String(a))}w(Ba,Error);Ba.prototype.name="CustomError";var Ca;function Ea(a,b){a=a.split("%s");for(var c="",d=a.length-1,e=0;e<d;e++)c+=a[e]+(e<b.length?b[e]:"%s");Ba.call(this,c+a[d])}w(Ea,Ba);Ea.prototype.name="AssertionError";function Fa(a,b){throw new Ea("Failure"+
+(a?": "+a:""),Array.prototype.slice.call(arguments,1));}var Ga=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if(q(a))return q(b)&&1==b.length?a.indexOf(b,0):-1;for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},Ha=Array.prototype.forEach?function(a,b,c){Array.prototype.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=q(a)?a.split(""):a,f=0;f<d;f++)f in e&&b.call(c,e[f],f,a)};function Ia(a,b){for(var c=q(a)?a.split(""):
+a,d=a.length-1;0<=d;--d)d in c&&b.call(void 0,c[d],d,a)}var Ja=Array.prototype.filter?function(a,b){return Array.prototype.filter.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=[],e=0,f=q(a)?a.split(""):a,g=0;g<c;g++)if(g in f){var h=f[g];b.call(void 0,h,g,a)&&(d[e++]=h)}return d},Ka=Array.prototype.map?function(a,b){return Array.prototype.map.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=Array(c),e=q(a)?a.split(""):a,f=0;f<c;f++)f in e&&(d[f]=b.call(void 0,e[f],f,a));return d},La=Array.prototype.some?
+function(a,b){return Array.prototype.some.call(a,b,void 0)}:function(a,b){for(var c=a.length,d=q(a)?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a))return!0;return!1};function Ma(a,b,c){for(var d=a.length,e=q(a)?a.split(""):a,f=0;f<d;f++)if(f in e&&b.call(c,e[f],f,a))return f;return-1}function Na(a,b){return 0<=Ga(a,b)}function Oa(a,b){b=Ga(a,b);var c;(c=0<=b)&&Pa(a,b);return c}function Pa(a,b){return 1==Array.prototype.splice.call(a,b,1).length}function Qa(a,b){b=Ma(a,b,void 0);0<=b&&
+Pa(a,b)}function Ra(a,b){var c=0;Ia(a,function(d,e){b.call(void 0,d,e,a)&&Pa(a,e)&&c++})}function Sa(a){return Array.prototype.concat.apply([],arguments)}function Ta(a){var b=a.length;if(0<b){for(var c=Array(b),d=0;d<b;d++)c[d]=a[d];return c}return[]}function Ua(a,b,c,d){return Array.prototype.splice.apply(a,Va(arguments,1))}function Va(a,b,c){return 2>=arguments.length?Array.prototype.slice.call(a,b):Array.prototype.slice.call(a,b,c)}var Wa=String.prototype.trim?function(a){return a.trim()}:function(a){return/^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1]},
+Xa=/&/g,Ya=/</g,Za=/>/g,$a=/"/g,ab=/'/g,bb=/\x00/g,cb=/[\x00&<>"']/;function db(a,b){return a<b?-1:a>b?1:0}function eb(a){cb.test(a)&&(-1!=a.indexOf("&")&&(a=a.replace(Xa,"&amp;")),-1!=a.indexOf("<")&&(a=a.replace(Ya,"&lt;")),-1!=a.indexOf(">")&&(a=a.replace(Za,"&gt;")),-1!=a.indexOf('"')&&(a=a.replace($a,"&quot;")),-1!=a.indexOf("'")&&(a=a.replace(ab,"&#39;")),-1!=a.indexOf("\x00")&&(a=a.replace(bb,"&#0;")));return a}function fb(a,b,c){for(var d in a)b.call(c,a[d],d,a)}function gb(a){var b={},c;
+for(c in a)b[c]=a[c];return b}var hb="constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ");function ib(a,b){for(var c,d,e=1;e<arguments.length;e++){d=arguments[e];for(c in d)a[c]=d[c];for(var f=0;f<hb.length;f++)c=hb[f],Object.prototype.hasOwnProperty.call(d,c)&&(a[c]=d[c])}}var jb="StopIteration"in n?n.StopIteration:{message:"StopIteration",stack:""};function kb(){}kb.prototype.next=function(){throw jb;};kb.prototype.ia=function(){return this};
+function lb(a){if(a instanceof kb)return a;if("function"==typeof a.ia)return a.ia(!1);if(ra(a)){var b=0,c=new kb;c.next=function(){for(;;){if(b>=a.length)throw jb;if(b in a)return a[b++];b++}};return c}throw Error("Not implemented");}function mb(a,b){if(ra(a))try{Ha(a,b,void 0)}catch(c){if(c!==jb)throw c;}else{a=lb(a);try{for(;;)b.call(void 0,a.next(),void 0,a)}catch(c$0){if(c$0!==jb)throw c$0;}}}function nb(a){if(ra(a))return Ta(a);a=lb(a);var b=[];mb(a,function(c){b.push(c)});return b}function ob(a,
+b){this.g={};this.a=[];this.j=this.h=0;var c=arguments.length;if(1<c){if(c%2)throw Error("Uneven number of arguments");for(var d=0;d<c;d+=2)this.set(arguments[d],arguments[d+1])}else if(a)if(a instanceof ob)for(c=a.ka(),d=0;d<c.length;d++)this.set(c[d],a.get(c[d]));else for(d in a)this.set(d,a[d])}l=ob.prototype;l.ma=function(){pb(this);for(var a=[],b=0;b<this.a.length;b++)a.push(this.g[this.a[b]]);return a};l.ka=function(){pb(this);return this.a.concat()};l.clear=function(){this.g={};this.j=this.h=
+this.a.length=0};function pb(a){if(a.h!=a.a.length){for(var b=0,c=0;b<a.a.length;){var d=a.a[b];qb(a.g,d)&&(a.a[c++]=d);b++}a.a.length=c}if(a.h!=a.a.length){var e={};for(c=b=0;b<a.a.length;)d=a.a[b],qb(e,d)||(a.a[c++]=d,e[d]=1),b++;a.a.length=c}}l.get=function(a,b){return qb(this.g,a)?this.g[a]:b};l.set=function(a,b){qb(this.g,a)||(this.h++,this.a.push(a),this.j++);this.g[a]=b};l.forEach=function(a,b){for(var c=this.ka(),d=0;d<c.length;d++){var e=c[d],f=this.get(e);a.call(b,f,e,this)}};l.ia=function(a){pb(this);
+var b=0,c=this.j,d=this,e=new kb;e.next=function(){if(c!=d.j)throw Error("The map has changed since the iterator was created");if(b>=d.a.length)throw jb;var f=d.a[b++];return a?f:d.g[f]};return e};function qb(a,b){return Object.prototype.hasOwnProperty.call(a,b)}var rb=/^(?:([^:/?#.]+):)?(?:\/\/(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?=[/#?]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/;function sb(a,b){if(a){a=a.split("&");for(var c=0;c<a.length;c++){var d=a[c].indexOf("="),e=null;if(0<=d){var f=
+a[c].substring(0,d);e=a[c].substring(d+1)}else f=a[c];b(f,e?decodeURIComponent(e.replace(/\+/g," ")):"")}}}function tb(a,b,c,d){for(var e=c.length;0<=(b=a.indexOf(c,b))&&b<d;){var f=a.charCodeAt(b-1);if(38==f||63==f)if(f=a.charCodeAt(b+e),!f||61==f||38==f||35==f)return b;b+=e+1}return-1}var ub=/#|$/;function vb(a,b){var c=a.search(ub),d=tb(a,0,b,c);if(0>d)return null;var e=a.indexOf("&",d);if(0>e||e>c)e=c;d+=b.length+1;return decodeURIComponent(a.substr(d,e-d).replace(/\+/g," "))}var wb=/[?&]($|#)/;
+function xb(a,b){this.h=this.A=this.j="";this.C=null;this.s=this.g="";this.i=!1;var c;a instanceof xb?(this.i=ka(b)?b:a.i,yb(this,a.j),this.A=a.A,this.h=a.h,zb(this,a.C),this.g=a.g,Ab(this,Bb(a.a)),this.s=a.s):a&&(c=String(a).match(rb))?(this.i=!!b,yb(this,c[1]||"",!0),this.A=Cb(c[2]||""),this.h=Cb(c[3]||"",!0),zb(this,c[4]),this.g=Cb(c[5]||"",!0),Ab(this,c[6]||"",!0),this.s=Cb(c[7]||"")):(this.i=!!b,this.a=new Db(null,this.i))}xb.prototype.toString=function(){var a=[],b=this.j;b&&a.push(Eb(b,Fb,
+!0),":");var c=this.h;if(c||"file"==b)a.push("//"),(b=this.A)&&a.push(Eb(b,Fb,!0),"@"),a.push(encodeURIComponent(String(c)).replace(/%25([0-9a-fA-F]{2})/g,"%$1")),c=this.C,null!=c&&a.push(":",String(c));if(c=this.g)this.h&&"/"!=c.charAt(0)&&a.push("/"),a.push(Eb(c,"/"==c.charAt(0)?Gb:Hb,!0));(c=this.a.toString())&&a.push("?",c);(c=this.s)&&a.push("#",Eb(c,Ib));return a.join("")};function yb(a,b,c){a.j=c?Cb(b,!0):b;a.j&&(a.j=a.j.replace(/:$/,""))}function zb(a,b){if(b){b=Number(b);if(isNaN(b)||0>b)throw Error("Bad port number "+
+b);a.C=b}else a.C=null}function Ab(a,b,c){b instanceof Db?(a.a=b,Jb(a.a,a.i)):(c||(b=Eb(b,Kb)),a.a=new Db(b,a.i))}function Lb(a){return a instanceof xb?new xb(a):new xb(a,void 0)}function Mb(a,b){a instanceof xb||(a=Lb(a));b instanceof xb||(b=Lb(b));var c=a;a=new xb(c);var d=!!b.j;d?yb(a,b.j):d=!!b.A;d?a.A=b.A:d=!!b.h;d?a.h=b.h:d=null!=b.C;var e=b.g;if(d)zb(a,b.C);else if(d=!!b.g)if("/"!=e.charAt(0)&&(c.h&&!c.g?e="/"+e:(c=a.g.lastIndexOf("/"),-1!=c&&(e=a.g.substr(0,c+1)+e))),".."==e||"."==e)e="";
+else if(-1!=e.indexOf("./")||-1!=e.indexOf("/.")){c=0==e.lastIndexOf("/",0);e=e.split("/");for(var f=[],g=0;g<e.length;){var h=e[g++];"."==h?c&&g==e.length&&f.push(""):".."==h?((1<f.length||1==f.length&&""!=f[0])&&f.pop(),c&&g==e.length&&f.push("")):(f.push(h),c=!0)}e=f.join("/")}d?a.g=e:d=""!==b.a.toString();d?Ab(a,Bb(b.a)):d=!!b.s;d&&(a.s=b.s);return a}function Cb(a,b){return a?b?decodeURI(a.replace(/%25/g,"%2525")):decodeURIComponent(a):""}function Eb(a,b,c){return q(a)?(a=encodeURI(a).replace(b,
+Nb),c&&(a=a.replace(/%25([0-9a-fA-F]{2})/g,"%$1")),a):null}function Nb(a){a=a.charCodeAt(0);return"%"+(a>>4&15).toString(16)+(a&15).toString(16)}var Fb=/[#\/\?@]/g,Hb=/[#\?:]/g,Gb=/[#\?]/g,Kb=/[#\?@]/g,Ib=/#/g;function Db(a,b){this.g=this.a=null;this.h=a||null;this.j=!!b}function Ob(a){a.a||(a.a=new ob,a.g=0,a.h&&sb(a.h,function(b,c){a.add(decodeURIComponent(b.replace(/\+/g," ")),c)}))}l=Db.prototype;l.add=function(a,b){Ob(this);this.h=null;a=Pb(this,a);var c=this.a.get(a);c||this.a.set(a,c=[]);c.push(b);
+this.g+=1;return this};function Qb(a,b){Ob(a);b=Pb(a,b);qb(a.a.g,b)&&(a.h=null,a.g-=a.a.get(b).length,a=a.a,qb(a.g,b)&&(delete a.g[b],a.h--,a.j++,a.a.length>2*a.h&&pb(a)))}l.clear=function(){this.a=this.h=null;this.g=0};function Rb(a,b){Ob(a);b=Pb(a,b);return qb(a.a.g,b)}l.forEach=function(a,b){Ob(this);this.a.forEach(function(c,d){Ha(c,function(e){a.call(b,e,d,this)},this)},this)};l.ka=function(){Ob(this);for(var a=this.a.ma(),b=this.a.ka(),c=[],d=0;d<b.length;d++)for(var e=a[d],f=0;f<e.length;f++)c.push(b[d]);
+return c};l.ma=function(a){Ob(this);var b=[];if(q(a))Rb(this,a)&&(b=Sa(b,this.a.get(Pb(this,a))));else{a=this.a.ma();for(var c=0;c<a.length;c++)b=Sa(b,a[c])}return b};l.set=function(a,b){Ob(this);this.h=null;a=Pb(this,a);Rb(this,a)&&(this.g-=this.a.get(a).length);this.a.set(a,[b]);this.g+=1;return this};l.get=function(a,b){if(!a)return b;a=this.ma(a);return 0<a.length?String(a[0]):b};l.toString=function(){if(this.h)return this.h;if(!this.a)return"";for(var a=[],b=this.a.ka(),c=0;c<b.length;c++){var d=
+b[c],e=encodeURIComponent(String(d));d=this.ma(d);for(var f=0;f<d.length;f++){var g=e;""!==d[f]&&(g+="="+encodeURIComponent(String(d[f])));a.push(g)}}return this.h=a.join("&")};function Bb(a){var b=new Db;b.h=a.h;a.a&&(b.a=new ob(a.a),b.g=a.g);return b}function Pb(a,b){b=String(b);a.j&&(b=b.toLowerCase());return b}function Jb(a,b){b&&!a.j&&(Ob(a),a.h=null,a.a.forEach(function(c,d){var e=d.toLowerCase();d!=e&&(Qb(this,d),Qb(this,e),0<c.length&&(this.h=null,this.a.set(Pb(this,e),Ta(c)),this.g+=c.length))},
+a));a.j=b}function Sb(a){this.a=Lb(a)}function Tb(a,b){b?a.a.a.set(x.Ta,b):Qb(a.a.a,x.Ta)}function Ub(a,b){null!==b?a.a.a.set(x.Ra,b?"1":"0"):Qb(a.a.a,x.Ra)}function Vb(a){return a.a.a.get(x.Qa)||null}function Wb(a,b){b?a.a.a.set(x.PROVIDER_ID,b):Qb(a.a.a,x.PROVIDER_ID)}Sb.prototype.toString=function(){return this.a.toString()};var x={Qa:"ui_auid",kc:"apiKey",Ra:"ui_sd",vb:"mode",ab:"oobCode",PROVIDER_ID:"ui_pid",Ta:"ui_sid",wb:"tenantId"};var Xb;a:{var Yb=n.navigator;if(Yb){var Zb=Yb.userAgent;if(Zb){Xb=
+Zb;break a}}Xb=""}function y(a){return-1!=Xb.indexOf(a)}function $b(){return(y("Chrome")||y("CriOS"))&&!y("Edge")}function ac(a){ac[" "](a);return a}ac[" "]=na;function bc(a,b){var c=cc;return Object.prototype.hasOwnProperty.call(c,a)?c[a]:c[a]=b(a)}var dc=y("Opera"),z=y("Trident")||y("MSIE"),ec=y("Edge"),fc=ec||z,gc=y("Gecko")&&!(-1!=Xb.toLowerCase().indexOf("webkit")&&!y("Edge"))&&!(y("Trident")||y("MSIE"))&&!y("Edge"),hc=-1!=Xb.toLowerCase().indexOf("webkit")&&!y("Edge"),ic=hc&&y("Mobile"),jc=
+y("Macintosh");function kc(){var a=n.document;return a?a.documentMode:void 0}var lc;a:{var mc="",nc=function(){var a=Xb;if(gc)return/rv:([^\);]+)(\)|;)/.exec(a);if(ec)return/Edge\/([\d\.]+)/.exec(a);if(z)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(hc)return/WebKit\/(\S+)/.exec(a);if(dc)return/(?:Version)[ \/]?(\S+)/.exec(a)}();nc&&(mc=nc?nc[1]:"");if(z){var oc=kc();if(null!=oc&&oc>parseFloat(mc)){lc=String(oc);break a}}lc=mc}var cc={};function pc(a){return bc(a,function(){for(var b=0,c=Wa(String(lc)).split("."),
+d=Wa(String(a)).split("."),e=Math.max(c.length,d.length),f=0;0==b&&f<e;f++){var g=c[f]||"",h=d[f]||"";do{g=/(\d*)(\D*)(.*)/.exec(g)||["","","",""];h=/(\d*)(\D*)(.*)/.exec(h)||["","","",""];if(0==g[0].length&&0==h[0].length)break;b=db(0==g[1].length?0:parseInt(g[1],10),0==h[1].length?0:parseInt(h[1],10))||db(0==g[2].length,0==h[2].length)||db(g[2],h[2]);g=g[3];h=h[3]}while(0==b)}return 0<=b})}var qc;var rc=n.document;qc=rc&&z?kc()||("CSS1Compat"==rc.compatMode?parseInt(lc,10):5):void 0;function sc(a,
+b){this.a=a===tc&&b||"";this.g=uc}sc.prototype.na=!0;sc.prototype.la=function(){return this.a};sc.prototype.toString=function(){return"Const{"+this.a+"}"};function vc(a){if(a instanceof sc&&a.constructor===sc&&a.g===uc)return a.a;Fa("expected object of type Const, got '"+a+"'");return"type_error:Const"}var uc={},tc={};function wc(){this.a="";this.h=xc}wc.prototype.na=!0;wc.prototype.la=function(){return this.a.toString()};wc.prototype.g=function(){return 1};wc.prototype.toString=function(){return"TrustedResourceUrl{"+
+this.a+"}"};function yc(a){if(a instanceof wc&&a.constructor===wc&&a.h===xc)return a.a;Fa("expected object of type TrustedResourceUrl, got '"+a+"' of type "+pa(a));return"type_error:TrustedResourceUrl"}var xc={};function zc(a){var b=new wc;b.a=a;return b}function Ac(){this.a="";this.h=Bc}Ac.prototype.na=!0;Ac.prototype.la=function(){return this.a.toString()};Ac.prototype.g=function(){return 1};Ac.prototype.toString=function(){return"SafeUrl{"+this.a+"}"};function Cc(a){return Dc(a).toString()}function Dc(a){if(a instanceof
+Ac&&a.constructor===Ac&&a.h===Bc)return a.a;Fa("expected object of type SafeUrl, got '"+a+"' of type "+pa(a));return"type_error:SafeUrl"}var Ec=/^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;function Fc(a){if(a instanceof Ac)return a;a="object"==typeof a&&a.na?a.la():String(a);Ec.test(a)||(a="about:invalid#zClosurez");return Gc(a)}var Bc={};function Gc(a){var b=new Ac;b.a=a;return b}Gc("about:blank");function Hc(){this.a="";this.g=Ic}Hc.prototype.na=!0;var Ic={};Hc.prototype.la=function(){return this.a};
+Hc.prototype.toString=function(){return"SafeStyle{"+this.a+"}"};function Jc(){this.a="";this.j=Kc;this.h=null}Jc.prototype.g=function(){return this.h};Jc.prototype.na=!0;Jc.prototype.la=function(){return this.a.toString()};Jc.prototype.toString=function(){return"SafeHtml{"+this.a+"}"};function Lc(a){if(a instanceof Jc&&a.constructor===Jc&&a.j===Kc)return a.a;Fa("expected object of type SafeHtml, got '"+a+"' of type "+pa(a));return"type_error:SafeHtml"}var Kc={};function Mc(a,b){var c=new Jc;c.a=a;
+c.h=b;return c}Mc("<!DOCTYPE html>",0);var Nc=Mc("",0);Mc("<br>",0);var Oc=function(a){var b=!1,c;return function(){b||(c=a(),b=!0);return c}}(function(){if("undefined"===typeof document)return!1;var a=document.createElement("div"),b=document.createElement("div");b.appendChild(document.createElement("div"));a.appendChild(b);if(!a.firstChild)return!1;b=a.firstChild.firstChild;a.innerHTML=Lc(Nc);return!b.parentElement});function Pc(a,b){a.src=yc(b);if(null===ma)b:{b=n.document;if((b=b.querySelector&&
+b.querySelector("script[nonce]"))&&(b=b.nonce||b.getAttribute("nonce"))&&la.test(b)){ma=b;break b}ma=""}b=ma;b&&a.setAttribute("nonce",b)}function Qc(a,b){this.a=ka(a)?a:0;this.g=ka(b)?b:0}Qc.prototype.toString=function(){return"("+this.a+", "+this.g+")"};Qc.prototype.ceil=function(){this.a=Math.ceil(this.a);this.g=Math.ceil(this.g);return this};Qc.prototype.floor=function(){this.a=Math.floor(this.a);this.g=Math.floor(this.g);return this};Qc.prototype.round=function(){this.a=Math.round(this.a);this.g=
+Math.round(this.g);return this};function Rc(a,b){this.width=a;this.height=b}l=Rc.prototype;l.toString=function(){return"("+this.width+" x "+this.height+")"};l.aspectRatio=function(){return this.width/this.height};l.ceil=function(){this.width=Math.ceil(this.width);this.height=Math.ceil(this.height);return this};l.floor=function(){this.width=Math.floor(this.width);this.height=Math.floor(this.height);return this};l.round=function(){this.width=Math.round(this.width);this.height=Math.round(this.height);
+return this};function Sc(a){return a?new Tc(Uc(a)):Ca||(Ca=new Tc)}function Vc(a,b){var c=b||document;return c.querySelectorAll&&c.querySelector?c.querySelectorAll("."+a):Wc(document,a,b)}function Xc(a,b){var c=b||document;if(c.getElementsByClassName)a=c.getElementsByClassName(a)[0];else{c=document;var d=b||c;a=d.querySelectorAll&&d.querySelector&&a?d.querySelector(a?"."+a:""):Wc(c,a,b)[0]||null}return a||null}function Wc(a,b,c){var d;a=c||a;if(a.querySelectorAll&&a.querySelector&&b)return a.querySelectorAll(b?
+"."+b:"");if(b&&a.getElementsByClassName){var e=a.getElementsByClassName(b);return e}e=a.getElementsByTagName("*");if(b){var f={};for(c=d=0;a=e[c];c++){var g=a.className;"function"==typeof g.split&&Na(g.split(/\s+/),b)&&(f[d++]=a)}f.length=d;return f}return e}function Yc(a,b){fb(b,function(c,d){c&&"object"==typeof c&&c.na&&(c=c.la());"style"==d?a.style.cssText=c:"class"==d?a.className=c:"for"==d?a.htmlFor=c:Zc.hasOwnProperty(d)?a.setAttribute(Zc[d],c):0==d.lastIndexOf("aria-",0)||0==d.lastIndexOf("data-",
+0)?a.setAttribute(d,c):a[d]=c})}var Zc={cellpadding:"cellPadding",cellspacing:"cellSpacing",colspan:"colSpan",frameborder:"frameBorder",height:"height",maxlength:"maxLength",nonce:"nonce",role:"role",rowspan:"rowSpan",type:"type",usemap:"useMap",valign:"vAlign",width:"width"};function $c(a){return a.scrollingElement?a.scrollingElement:hc||"CSS1Compat"!=a.compatMode?a.body||a.documentElement:a.documentElement}function ad(a){a&&a.parentNode&&a.parentNode.removeChild(a)}function Uc(a){return 9==a.nodeType?
+a:a.ownerDocument||a.document}function bd(a,b){if("textContent"in a)a.textContent=b;else if(3==a.nodeType)a.data=String(b);else if(a.firstChild&&3==a.firstChild.nodeType){for(;a.lastChild!=a.firstChild;)a.removeChild(a.lastChild);a.firstChild.data=String(b)}else{for(var c;c=a.firstChild;)a.removeChild(c);a.appendChild(Uc(a).createTextNode(String(b)))}}function cd(a,b){return b?dd(a,function(c){return!b||q(c.className)&&Na(c.className.split(/\s+/),b)}):null}function dd(a,b){for(var c=0;a;){if(b(a))return a;
+a=a.parentNode;c++}return null}function Tc(a){this.a=a||n.document||document}Tc.prototype.N=function(){return q(void 0)?this.a.getElementById(void 0):void 0};var ed={Ec:!0},fd={Gc:!0},gd={Dc:!0},hd={Fc:!0};function id(){throw Error("Do not instantiate directly");}id.prototype.xa=null;id.prototype.toString=function(){return this.content};function jd(a,b,c,d){a=a(b||kd,void 0,c);d=(d||Sc()).a.createElement("DIV");a=ld(a);a.match(md);a=Mc(a,null);if(Oc())for(;d.lastChild;)d.removeChild(d.lastChild);
+d.innerHTML=Lc(a);1==d.childNodes.length&&(a=d.firstChild,1==a.nodeType&&(d=a));return d}function ld(a){if(!ta(a))return eb(String(a));if(a instanceof id){if(a.ga===ed)return a.content;if(a.ga===hd)return eb(a.content)}Fa("Soy template output is unsafe for use as HTML: "+a);return"zSoyz"}var md=/^<(body|caption|col|colgroup|head|html|tr|td|th|tbody|thead|tfoot)>/i,kd={};function nd(a){if(null!=a)switch(a.xa){case 1:return 1;case -1:return-1;case 0:return 0}return null}function od(){id.call(this)}
+w(od,id);od.prototype.ga=ed;function A(a){return null!=a&&a.ga===ed?a:a instanceof Jc?B(Lc(a).toString(),a.g()):B(eb(String(String(a))),nd(a))}function pd(){id.call(this)}w(pd,id);pd.prototype.ga=fd;pd.prototype.xa=1;function qd(a,b){this.content=String(a);this.xa=null!=b?b:null}w(qd,id);qd.prototype.ga=hd;function C(a){return new qd(a,void 0)}var B=function(a){function b(c){this.content=c}b.prototype=a.prototype;return function(c,d){c=new b(String(c));void 0!==d&&(c.xa=d);return c}}(od),rd=function(a){function b(c){this.content=
+c}b.prototype=a.prototype;return function(c){return new b(String(c))}}(pd);function ud(a){function b(){}var c={label:D("New password")};b.prototype=a;a=new b;for(var d in c)a[d]=c[d];return a}function D(a){return(a=String(a))?new qd(a,void 0):""}var vd=function(a){function b(c){this.content=c}b.prototype=a.prototype;return function(c,d){c=String(c);if(!c)return"";c=new b(c);void 0!==d&&(c.xa=d);return c}}(od);function wd(a){return null!=a&&a.ga===ed?String(String(a.content).replace(xd,"").replace(yd,
+"&lt;")).replace(zd,Ad):eb(String(a))}function Bd(a){null!=a&&a.ga===fd?a=String(a).replace(Cd,Dd):a instanceof Ac?a=String(Cc(a)).replace(Cd,Dd):(a=String(a),Ed.test(a)?a=a.replace(Cd,Dd):(Fa("Bad value `%s` for |filterNormalizeUri",[a]),a="#zSoyz"));return a}function Fd(a){null!=a&&a.ga===gd?a=a.content:null==a?a="":a instanceof Hc?a instanceof Hc&&a.constructor===Hc&&a.g===Ic?a=a.a:(Fa("expected object of type SafeStyle, got '"+a+"' of type "+pa(a)),a="type_error:SafeStyle"):(a=String(a),Gd.test(a)||
+(Fa("Bad value `%s` for |filterCssValue",[a]),a="zSoyz"));return a}var Hd={"\x00":"&#0;","\t":"&#9;","\n":"&#10;","\x0B":"&#11;","\f":"&#12;","\r":"&#13;"," ":"&#32;",'"':"&quot;","&":"&amp;","'":"&#39;","-":"&#45;","/":"&#47;","<":"&lt;","=":"&#61;",">":"&gt;","`":"&#96;","\u0085":"&#133;","\u00a0":"&#160;","\u2028":"&#8232;","\u2029":"&#8233;"};function Ad(a){return Hd[a]}var Id={"\x00":"%00","\u0001":"%01","\u0002":"%02","\u0003":"%03","\u0004":"%04","\u0005":"%05","\u0006":"%06","\u0007":"%07",
+"\b":"%08","\t":"%09","\n":"%0A","\x0B":"%0B","\f":"%0C","\r":"%0D","\u000e":"%0E","\u000f":"%0F","\u0010":"%10","\u0011":"%11","\u0012":"%12","\u0013":"%13","\u0014":"%14","\u0015":"%15","\u0016":"%16","\u0017":"%17","\u0018":"%18","\u0019":"%19","\u001a":"%1A","\u001b":"%1B","\u001c":"%1C","\u001d":"%1D","\u001e":"%1E","\u001f":"%1F"," ":"%20",'"':"%22","'":"%27","(":"%28",")":"%29","<":"%3C",">":"%3E","\\":"%5C","{":"%7B","}":"%7D","\u007f":"%7F","\u0085":"%C2%85","\u00a0":"%C2%A0","\u2028":"%E2%80%A8",
+"\u2029":"%E2%80%A9","\uff01":"%EF%BC%81","\uff03":"%EF%BC%83","\uff04":"%EF%BC%84","\uff06":"%EF%BC%86","\uff07":"%EF%BC%87","\uff08":"%EF%BC%88","\uff09":"%EF%BC%89","\uff0a":"%EF%BC%8A","\uff0b":"%EF%BC%8B","\uff0c":"%EF%BC%8C","\uff0f":"%EF%BC%8F","\uff1a":"%EF%BC%9A","\uff1b":"%EF%BC%9B","\uff1d":"%EF%BC%9D","\uff1f":"%EF%BC%9F","\uff20":"%EF%BC%A0","\uff3b":"%EF%BC%BB","\uff3d":"%EF%BC%BD"};function Dd(a){return Id[a]}var zd=/[\x00\x22\x27\x3c\x3e]/g,Cd=/[\x00- \x22\x27-\x29\x3c\x3e\\\x7b\x7d\x7f\x85\xa0\u2028\u2029\uff01\uff03\uff04\uff06-\uff0c\uff0f\uff1a\uff1b\uff1d\uff1f\uff20\uff3b\uff3d]/g,
+Gd=/^(?!-*(?:expression|(?:moz-)?binding))(?:[.#]?-?(?:[_a-z0-9-]+)(?:-[_a-z0-9-]+)*-?|-?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[a-z]{1,2}|%)?|!important|)$/i,Ed=/^(?![^#?]*\/(?:\.|%2E){2}(?:[\/?#]|$))(?:(?:https?|mailto):|[^&:\/?#]*(?:[\/?#]|$))/i,xd=/<(?:!|\/?([a-zA-Z][a-zA-Z0-9:\-]*))(?:[^>'"]|"[^"]*"|'[^']*')*>/g,yd=/</g;function Jd(){return C("Enter a valid phone number")}function Kd(){return C("Unable to send password reset code to specified email")}function Ld(){return C("Something went wrong. Please try again.")}
+function Md(){return C("This email already exists without any means of sign-in. Please reset the password to recover.")}function Nd(a){a=a||{};var b="";switch(a.code){case "invalid-argument":b+="Client specified an invalid argument.";break;case "invalid-configuration":b+="Client specified an invalid project configuration.";break;case "failed-precondition":b+="Request can not be executed in the current system state.";break;case "out-of-range":b+="Client specified an invalid range.";break;case "unauthenticated":b+=
+"Request not authenticated due to missing, invalid, or expired OAuth token.";break;case "permission-denied":b+="Client does not have sufficient permission.";break;case "not-found":b+="Specified resource is not found.";break;case "aborted":b+="Concurrency conflict, such as read-modify-write conflict.";break;case "already-exists":b+="The resource that a client tried to create already exists.";break;case "resource-exhausted":b+="Either out of resource quota or reaching rate limiting.";break;case "cancelled":b+=
+"Request cancelled by the client.";break;case "data-loss":b+="Unrecoverable data loss or data corruption.";break;case "unknown":b+="Unknown server error.";break;case "internal":b+="Internal server error.";break;case "not-implemented":b+="API method not implemented by the server.";break;case "unavailable":b+="Service unavailable.";break;case "deadline-exceeded":b+="Request deadline exceeded.";break;case "auth/user-disabled":b+="The user account has been disabled by an administrator.";break;case "auth/timeout":b+=
+"The operation has timed out.";break;case "auth/too-many-requests":b+="We have blocked all requests from this device due to unusual activity. Try again later.";break;case "auth/quota-exceeded":b+="The quota for this operation has been exceeded. Try again later.";break;case "auth/network-request-failed":b+="A network error has occurred. Try again later.";break;case "restart-process":b+="An issue was encountered when authenticating your request. Please visit the URL that redirected you to this page again to restart the authentication process.";
+break;case "no-matching-tenant-for-email":b+="No sign-in provider is available for the given email, please try with a different email."}return C(b)}function Od(){return C("Please login again to perform this operation")}function Pd(a,b,c){var d=Error.call(this);this.message=d.message;"stack"in d&&(this.stack=d.stack);this.code=Qd+a;if(!(a=b)){a="";switch(this.code){case "firebaseui/merge-conflict":a+="The current anonymous user failed to upgrade. The non-anonymous credential is already associated with a different user account.";
+break;default:a+=Ld()}a=C(a).toString()}this.message=a||"";this.credential=c||null}m(Pd,Error);Pd.prototype.ba=function(){return{code:this.code,message:this.message}};Pd.prototype.toJSON=function(){return this.ba()};var Qd="firebaseui/";function Rd(){0!=Sd&&(Td[this[ua]||(this[ua]=++va)]=this);this.T=this.T;this.C=this.C}var Sd=0,Td={};Rd.prototype.T=!1;Rd.prototype.o=function(){if(!this.T&&(this.T=!0,this.m(),0!=Sd)){var a=this[ua]||(this[ua]=++va);if(0!=Sd&&this.C&&0<this.C.length)throw Error(this+
+" did not empty its onDisposeCallbacks queue. This probably means it overrode dispose() or disposeInternal() without calling the superclass' method.");delete Td[a]}};function Ud(a,b){a.T?ka(void 0)?b.call(void 0):b():(a.C||(a.C=[]),a.C.push(ka(void 0)?t(b,void 0):b))}Rd.prototype.m=function(){if(this.C)for(;this.C.length;)this.C.shift()()};function Vd(a){a&&"function"==typeof a.o&&a.o()}var Wd=Object.freeze||function(a){return a};var Xd=!z||9<=Number(qc),Yd=z&&!pc("9"),Zd=function(){if(!n.addEventListener||
+!Object.defineProperty)return!1;var a=!1,b=Object.defineProperty({},"passive",{get:function(){a=!0}});try{n.addEventListener("test",na,b),n.removeEventListener("test",na,b)}catch(c){}return a}();function $d(a,b){this.type=a;this.g=this.target=b;this.h=!1;this.rb=!0}$d.prototype.stopPropagation=function(){this.h=!0};$d.prototype.preventDefault=function(){this.rb=!1};function ae(a,b){$d.call(this,a?a.type:"");this.relatedTarget=this.g=this.target=null;this.button=this.screenY=this.screenX=this.clientY=
+this.clientX=0;this.key="";this.j=this.keyCode=0;this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.pointerId=0;this.pointerType="";this.a=null;if(a){var c=this.type=a.type,d=a.changedTouches&&a.changedTouches.length?a.changedTouches[0]:null;this.target=a.target||a.srcElement;this.g=b;if(b=a.relatedTarget){if(gc){a:{try{ac(b.nodeName);var e=!0;break a}catch(f){}e=!1}e||(b=null)}}else"mouseover"==c?b=a.fromElement:"mouseout"==c&&(b=a.toElement);this.relatedTarget=b;d?(this.clientX=void 0!==
+d.clientX?d.clientX:d.pageX,this.clientY=void 0!==d.clientY?d.clientY:d.pageY,this.screenX=d.screenX||0,this.screenY=d.screenY||0):(this.clientX=void 0!==a.clientX?a.clientX:a.pageX,this.clientY=void 0!==a.clientY?a.clientY:a.pageY,this.screenX=a.screenX||0,this.screenY=a.screenY||0);this.button=a.button;this.keyCode=a.keyCode||0;this.key=a.key||"";this.j=a.charCode||("keypress"==c?a.keyCode:0);this.ctrlKey=a.ctrlKey;this.altKey=a.altKey;this.shiftKey=a.shiftKey;this.metaKey=a.metaKey;this.pointerId=
+a.pointerId||0;this.pointerType=q(a.pointerType)?a.pointerType:be[a.pointerType]||"";this.a=a;a.defaultPrevented&&this.preventDefault()}}w(ae,$d);var be=Wd({2:"touch",3:"pen",4:"mouse"});ae.prototype.stopPropagation=function(){ae.K.stopPropagation.call(this);this.a.stopPropagation?this.a.stopPropagation():this.a.cancelBubble=!0};ae.prototype.preventDefault=function(){ae.K.preventDefault.call(this);var a=this.a;if(a.preventDefault)a.preventDefault();else if(a.returnValue=!1,Yd)try{if(a.ctrlKey||112<=
+a.keyCode&&123>=a.keyCode)a.keyCode=-1}catch(b){}};var ce="closure_listenable_"+(1E6*Math.random()|0),de=0;function ee(a,b,c,d,e){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.Ma=e;this.key=++de;this.ta=this.Ja=!1}function fe(a){a.ta=!0;a.listener=null;a.proxy=null;a.src=null;a.Ma=null}function ge(a){this.src=a;this.a={};this.g=0}ge.prototype.add=function(a,b,c,d,e){var f=a.toString();a=this.a[f];a||(a=this.a[f]=[],this.g++);var g=he(a,b,d,e);-1<g?(b=a[g],c||(b.Ja=!1)):
+(b=new ee(b,this.src,f,!!d,e),b.Ja=c,a.push(b));return b};function ie(a,b){var c=b.type;c in a.a&&Oa(a.a[c],b)&&(fe(b),0==a.a[c].length&&(delete a.a[c],a.g--))}function he(a,b,c,d){for(var e=0;e<a.length;++e){var f=a[e];if(!f.ta&&f.listener==b&&f.capture==!!c&&f.Ma==d)return e}return-1}var je="closure_lm_"+(1E6*Math.random()|0),ke={},le=0;function me(a,b,c,d,e){if(d&&d.once)return ne(a,b,c,d,e);if(qa(b)){for(var f=0;f<b.length;f++)me(a,b[f],c,d,e);return null}c=oe(c);return a&&a[ce]?a.J.add(String(b),
+c,!1,ta(d)?!!d.capture:!!d,e):pe(a,b,c,!1,d,e)}function pe(a,b,c,d,e,f){if(!b)throw Error("Invalid event type");var g=ta(e)?!!e.capture:!!e,h=qe(a);h||(a[je]=h=new ge(a));c=h.add(b,c,d,g,f);if(c.proxy)return c;d=re();c.proxy=d;d.src=a;d.listener=c;if(a.addEventListener)Zd||(e=g),void 0===e&&(e=!1),a.addEventListener(b.toString(),d,e);else if(a.attachEvent)a.attachEvent(se(b.toString()),d);else if(a.addListener&&a.removeListener)a.addListener(d);else throw Error("addEventListener and attachEvent are unavailable.");
+le++;return c}function re(){var a=te,b=Xd?function(c){return a.call(b.src,b.listener,c)}:function(c){c=a.call(b.src,b.listener,c);if(!c)return c};return b}function ne(a,b,c,d,e){if(qa(b)){for(var f=0;f<b.length;f++)ne(a,b[f],c,d,e);return null}c=oe(c);return a&&a[ce]?a.J.add(String(b),c,!0,ta(d)?!!d.capture:!!d,e):pe(a,b,c,!0,d,e)}function ue(a,b,c,d,e){if(qa(b))for(var f=0;f<b.length;f++)ue(a,b[f],c,d,e);else(d=ta(d)?!!d.capture:!!d,c=oe(c),a&&a[ce])?(a=a.J,b=String(b).toString(),b in a.a&&(f=a.a[b],
+c=he(f,c,d,e),-1<c&&(fe(f[c]),Pa(f,c),0==f.length&&(delete a.a[b],a.g--)))):a&&(a=qe(a))&&(b=a.a[b.toString()],a=-1,b&&(a=he(b,c,d,e)),(c=-1<a?b[a]:null)&&ve(c))}function ve(a){if("number"!=typeof a&&a&&!a.ta){var b=a.src;if(b&&b[ce])ie(b.J,a);else{var c=a.type,d=a.proxy;b.removeEventListener?b.removeEventListener(c,d,a.capture):b.detachEvent?b.detachEvent(se(c),d):b.addListener&&b.removeListener&&b.removeListener(d);le--;(c=qe(b))?(ie(c,a),0==c.g&&(c.src=null,b[je]=null)):fe(a)}}}function se(a){return a in
+ke?ke[a]:ke[a]="on"+a}function we(a,b,c,d){var e=!0;if(a=qe(a))if(b=a.a[b.toString()])for(b=b.concat(),a=0;a<b.length;a++){var f=b[a];f&&f.capture==c&&!f.ta&&(f=xe(f,d),e=e&&!1!==f)}return e}function xe(a,b){var c=a.listener,d=a.Ma||a.src;a.Ja&&ve(a);return c.call(d,b)}function te(a,b){if(a.ta)return!0;if(!Xd){if(!b)a:{b=["window","event"];for(var c=n,d=0;d<b.length;d++)if(c=c[b[d]],null==c){b=null;break a}b=c}d=b;b=new ae(d,this);c=!0;if(!(0>d.keyCode||void 0!=d.returnValue)){a:{var e=!1;if(0==d.keyCode)try{d.keyCode=
+-1;break a}catch(g){e=!0}if(e||void 0==d.returnValue)d.returnValue=!0}d=[];for(e=b.g;e;e=e.parentNode)d.push(e);a=a.type;for(e=d.length-1;!b.h&&0<=e;e--){b.g=d[e];var f=we(d[e],a,!0,b);c=c&&f}for(e=0;!b.h&&e<d.length;e++)b.g=d[e],f=we(d[e],a,!1,b),c=c&&f}return c}return xe(a,new ae(b,this))}function qe(a){a=a[je];return a instanceof ge?a:null}var ye="__closure_events_fn_"+(1E9*Math.random()>>>0);function oe(a){if(sa(a))return a;a[ye]||(a[ye]=function(b){return a.handleEvent(b)});return a[ye]}function E(){Rd.call(this);
+this.J=new ge(this);this.xb=this;this.Ia=null}w(E,Rd);E.prototype[ce]=!0;E.prototype.$a=function(a){this.Ia=a};E.prototype.removeEventListener=function(a,b,c,d){ue(this,a,b,c,d)};function ze(a,b){var c,d=a.Ia;if(d)for(c=[];d;d=d.Ia)c.push(d);a=a.xb;d=b.type||b;if(q(b))b=new $d(b,a);else if(b instanceof $d)b.target=b.target||a;else{var e=b;b=new $d(d,a);ib(b,e)}e=!0;if(c)for(var f=c.length-1;!b.h&&0<=f;f--){var g=b.g=c[f];e=Ae(g,d,!0,b)&&e}b.h||(g=b.g=a,e=Ae(g,d,!0,b)&&e,b.h||(e=Ae(g,d,!1,b)&&e));
+if(c)for(f=0;!b.h&&f<c.length;f++)g=b.g=c[f],e=Ae(g,d,!1,b)&&e;return e}E.prototype.m=function(){E.K.m.call(this);if(this.J){var a=this.J,b=0,c;for(c in a.a){for(var d=a.a[c],e=0;e<d.length;e++)++b,fe(d[e]);delete a.a[c];a.g--}}this.Ia=null};function Ae(a,b,c,d){b=a.J.a[String(b)];if(!b)return!0;b=b.concat();for(var e=!0,f=0;f<b.length;++f){var g=b[f];if(g&&!g.ta&&g.capture==c){var h=g.listener,k=g.Ma||g.src;g.Ja&&ie(a.J,g);e=!1!==h.call(k,d)&&e}}return e&&0!=d.rb}var Be={},Ce=0;function De(a,b){if(!a)throw Error("Event target element must be provided!");
+a=Ee(a);if(Be[a]&&Be[a].length)for(var c=0;c<Be[a].length;c++)ze(Be[a][c],b)}function Fe(a){var b=Ee(a.N());Be[b]&&Be[b].length&&(Qa(Be[b],function(c){return c==a}),Be[b].length||delete Be[b])}function Ee(a){"undefined"===typeof a.a&&(a.a=Ce,Ce++);return a.a}function Ge(a){if(!a)throw Error("Event target element must be provided!");E.call(this);this.a=a}m(Ge,E);Ge.prototype.N=function(){return this.a};Ge.prototype.register=function(){var a=Ee(this.N());Be[a]?Na(Be[a],this)||Be[a].push(this):Be[a]=
+[this]};function He(a){if(!a)return!1;try{return!!a.$goog_Thenable}catch(b){return!1}}function Ie(a,b){this.h=a;this.j=b;this.g=0;this.a=null}Ie.prototype.get=function(){if(0<this.g){this.g--;var a=this.a;this.a=a.next;a.next=null}else a=this.h();return a};function Je(a,b){a.j(b);100>a.g&&(a.g++,b.next=a.a,a.a=b)}function Ke(){this.g=this.a=null}var Me=new Ie(function(){return new Le},function(a){a.reset()});Ke.prototype.add=function(a,b){var c=Me.get();c.set(a,b);this.g?this.g.next=c:this.a=c;this.g=
+c};function Ne(){var a=Oe,b=null;a.a&&(b=a.a,a.a=a.a.next,a.a||(a.g=null),b.next=null);return b}function Le(){this.next=this.g=this.a=null}Le.prototype.set=function(a,b){this.a=a;this.g=b;this.next=null};Le.prototype.reset=function(){this.next=this.g=this.a=null};function Pe(a){n.setTimeout(function(){throw a;},0)}var Qe;function Re(){var a=n.MessageChannel;"undefined"===typeof a&&"undefined"!==typeof window&&window.postMessage&&window.addEventListener&&!y("Presto")&&(a=function(){var e=document.createElement("IFRAME");
+e.style.display="none";e.src="";document.documentElement.appendChild(e);var f=e.contentWindow;e=f.document;e.open();e.write("");e.close();var g="callImmediate"+Math.random(),h="file:"==f.location.protocol?"*":f.location.protocol+"//"+f.location.host;e=t(function(k){if(("*"==h||k.origin==h)&&k.data==g)this.port1.onmessage()},this);f.addEventListener("message",e,!1);this.port1={};this.port2={postMessage:function(){f.postMessage(g,h)}}});if("undefined"!==typeof a&&!y("Trident")&&!y("MSIE")){var b=new a,
+c={},d=c;b.port1.onmessage=function(){if(ka(c.next)){c=c.next;var e=c.hb;c.hb=null;e()}};return function(e){d.next={hb:e};d=d.next;b.port2.postMessage(0)}}return"undefined"!==typeof document&&"onreadystatechange"in document.createElement("SCRIPT")?function(e){var f=document.createElement("SCRIPT");f.onreadystatechange=function(){f.onreadystatechange=null;f.parentNode.removeChild(f);f=null;e();e=null};document.documentElement.appendChild(f)}:function(e){n.setTimeout(e,0)}}function Se(a,b){Te||Ue();
+Ve||(Te(),Ve=!0);Oe.add(a,b)}var Te;function Ue(){if(n.Promise&&n.Promise.resolve){var a=n.Promise.resolve(void 0);Te=function(){a.then(We)}}else Te=function(){var b=We;!sa(n.setImmediate)||n.Window&&n.Window.prototype&&!y("Edge")&&n.Window.prototype.setImmediate==n.setImmediate?(Qe||(Qe=Re()),Qe(b)):n.setImmediate(b)}}var Ve=!1,Oe=new Ke;function We(){for(var a;a=Ne();){try{a.a.call(a.g)}catch(b){Pe(b)}Je(Me,a)}Ve=!1}function F(a){this.a=Xe;this.A=void 0;this.j=this.g=this.h=null;this.s=this.i=!1;
+if(a!=na)try{var b=this;a.call(void 0,function(c){Ye(b,Ze,c)},function(c){if(!(c instanceof $e))try{if(c instanceof Error)throw c;throw Error("Promise rejected.");}catch(d){}Ye(b,af,c)})}catch(c){Ye(this,af,c)}}var Xe=0,Ze=2,af=3;function bf(){this.next=this.j=this.g=this.s=this.a=null;this.h=!1}bf.prototype.reset=function(){this.j=this.g=this.s=this.a=null;this.h=!1};var cf=new Ie(function(){return new bf},function(a){a.reset()});function df(a,b,c){var d=cf.get();d.s=a;d.g=b;d.j=c;return d}function G(a){if(a instanceof
+F)return a;var b=new F(na);Ye(b,Ze,a);return b}function ef(a){return new F(function(b,c){c(a)})}F.prototype.then=function(a,b,c){return ff(this,sa(a)?a:null,sa(b)?b:null,c)};F.prototype.$goog_Thenable=!0;l=F.prototype;l.ec=function(a,b){a=df(a,a,b);a.h=!0;gf(this,a);return this};l.ua=function(a,b){return ff(this,null,a,b)};l.cancel=function(a){this.a==Xe&&Se(function(){var b=new $e(a);hf(this,b)},this)};function hf(a,b){if(a.a==Xe)if(a.h){var c=a.h;if(c.g){for(var d=0,e=null,f=null,g=c.g;g&&(g.h||
+(d++,g.a==a&&(e=g),!(e&&1<d)));g=g.next)e||(f=g);e&&(c.a==Xe&&1==d?hf(c,b):(f?(d=f,d.next==c.j&&(c.j=d),d.next=d.next.next):jf(c),kf(c,e,af,b)))}a.h=null}else Ye(a,af,b)}function gf(a,b){a.g||a.a!=Ze&&a.a!=af||lf(a);a.j?a.j.next=b:a.g=b;a.j=b}function ff(a,b,c,d){var e=df(null,null,null);e.a=new F(function(f,g){e.s=b?function(h){try{var k=b.call(d,h);f(k)}catch(p){g(p)}}:f;e.g=c?function(h){try{var k=c.call(d,h);!ka(k)&&h instanceof $e?g(h):f(k)}catch(p){g(p)}}:g});e.a.h=a;gf(a,e);return e.a}l.gc=
+function(a){this.a=Xe;Ye(this,Ze,a)};l.hc=function(a){this.a=Xe;Ye(this,af,a)};function Ye(a,b,c){if(a.a==Xe){a===c&&(b=af,c=new TypeError("Promise cannot resolve to itself"));a.a=1;a:{var d=c,e=a.gc,f=a.hc;if(d instanceof F){gf(d,df(e||na,f||null,a));var g=!0}else if(He(d))d.then(e,f,a),g=!0;else{if(ta(d))try{var h=d.then;if(sa(h)){mf(d,h,e,f,a);g=!0;break a}}catch(k){f.call(a,k);g=!0;break a}g=!1}}g||(a.A=c,a.a=b,a.h=null,lf(a),b!=af||c instanceof $e||nf(a,c))}}function mf(a,b,c,d,e){function f(k){h||
+(h=!0,d.call(e,k))}function g(k){h||(h=!0,c.call(e,k))}var h=!1;try{b.call(a,g,f)}catch(k){f(k)}}function lf(a){a.i||(a.i=!0,Se(a.Gb,a))}function jf(a){var b=null;a.g&&(b=a.g,a.g=b.next,b.next=null);a.g||(a.j=null);return b}l.Gb=function(){for(var a;a=jf(this);)kf(this,a,this.a,this.A);this.i=!1};function kf(a,b,c,d){if(c==af&&b.g&&!b.h)for(;a&&a.s;a=a.h)a.s=!1;if(b.a)b.a.h=null,of(b,c,d);else try{b.h?b.s.call(b.j):of(b,c,d)}catch(e){pf.call(null,e)}Je(cf,b)}function of(a,b,c){b==Ze?a.s.call(a.j,
+c):a.g&&a.g.call(a.j,c)}function nf(a,b){a.s=!0;Se(function(){a.s&&pf.call(null,b)})}var pf=Pe;function $e(a){Ba.call(this,a)}w($e,Ba);$e.prototype.name="cancel";function qf(a,b,c){b||(b={});c=c||window;var d=a instanceof Ac?a:Fc("undefined"!=typeof a.href?a.href:String(a));a=b.target||a.target;var e=[];for(f in b)switch(f){case "width":case "height":case "top":case "left":e.push(f+"="+b[f]);break;case "target":case "noopener":case "noreferrer":break;default:e.push(f+"="+(b[f]?1:0))}var f=e.join(",");
+(y("iPhone")&&!y("iPod")&&!y("iPad")||y("iPad")||y("iPod"))&&c.navigator&&c.navigator.standalone&&a&&"_self"!=a?(f=c.document.createElement("A"),d instanceof Ac||d instanceof Ac||(d="object"==typeof d&&d.na?d.la():String(d),Ec.test(d)||(d="about:invalid#zClosurez"),d=Gc(d)),f.href=Dc(d),f.setAttribute("target",a),b.noreferrer&&f.setAttribute("rel","noreferrer"),b=document.createEvent("MouseEvent"),b.initMouseEvent("click",!0,!0,c,1),f.dispatchEvent(b),c={}):b.noreferrer?(c=c.open("",a,f),b=Cc(d),
+c&&(fc&&-1!=b.indexOf(";")&&(b="'"+b.replace(/'/g,"%27")+"'"),c.opener=null,b=Mc('<meta name="referrer" content="no-referrer"><meta http-equiv="refresh" content="0; url='+eb(b)+'">',null),c.document.write(Lc(b)),c.document.close())):(c=c.open(Cc(d),a,f))&&b.noopener&&(c.opener=null);return c}function rf(a){window.location.assign(Cc(Fc(a)))}function sf(){try{return!!(window.opener&&window.opener.location&&window.opener.location.assign&&window.opener.location.hostname===window.location.hostname&&window.opener.location.protocol===
+window.location.protocol)}catch(a$1){}return!1}function tf(a){qf(a,{target:window.cordova&&window.cordova.InAppBrowser?"_system":"_blank"},void 0)}function uf(a,b){a=ta(a)&&1==a.nodeType?a:document.querySelector(String(a));if(null==a)throw Error(b||"Cannot find element.");return a}function vf(){return window.location.href}function wf(){var a=null;return(new F(function(b){"complete"==n.document.readyState?b():(a=function(){b()},ne(window,"load",a))})).ua(function(b){ue(window,"load",a);throw b;})}
+function xf(){for(var a=32,b=[];0<a;)b.push("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(Math.floor(62*Math.random()))),a--;return b.join("")}function yf(a,b,c){c=void 0===c?{}:c;return Object.keys(a).filter(function(d){return b.includes(d)}).reduce(function(d,e){d[e]=a[e];return d},c)}function zf(a){var b=Af;this.s=[];this.T=b;this.O=a||null;this.j=this.a=!1;this.h=void 0;this.J=this.l=this.A=!1;this.i=0;this.g=null;this.C=0}zf.prototype.cancel=function(a){if(this.a)this.h instanceof
+zf&&this.h.cancel();else{if(this.g){var b=this.g;delete this.g;a?b.cancel(a):(b.C--,0>=b.C&&b.cancel())}this.T?this.T.call(this.O,this):this.J=!0;this.a||(a=new Bf(this),Cf(this),Df(this,!1,a))}};zf.prototype.L=function(a,b){this.A=!1;Df(this,a,b)};function Df(a,b,c){a.a=!0;a.h=c;a.j=!b;Ef(a)}function Cf(a){if(a.a){if(!a.J)throw new Ff(a);a.J=!1}}zf.prototype.callback=function(a){Cf(this);Df(this,!0,a)};function Gf(a,b,c){a.s.push([b,c,void 0]);a.a&&Ef(a)}zf.prototype.then=function(a,b,c){var d,e,
+f=new F(function(g,h){d=g;e=h});Gf(this,d,function(g){g instanceof Bf?f.cancel():e(g)});return f.then(a,b,c)};zf.prototype.$goog_Thenable=!0;function Hf(a){return La(a.s,function(b){return sa(b[1])})}function Ef(a){if(a.i&&a.a&&Hf(a)){var b=a.i,c=If[b];c&&(n.clearTimeout(c.a),delete If[b]);a.i=0}a.g&&(a.g.C--,delete a.g);b=a.h;for(var d=c=!1;a.s.length&&!a.A;){var e=a.s.shift(),f=e[0],g=e[1];e=e[2];if(f=a.j?g:f)try{var h=f.call(e||a.O,b);ka(h)&&(a.j=a.j&&(h==b||h instanceof Error),a.h=b=h);if(He(b)||
+"function"===typeof n.Promise&&b instanceof n.Promise)d=!0,a.A=!0}catch(k){b=k,a.j=!0,Hf(a)||(c=!0)}}a.h=b;d&&(h=t(a.L,a,!0),d=t(a.L,a,!1),b instanceof zf?(Gf(b,h,d),b.l=!0):b.then(h,d));c&&(b=new Jf(b),If[b.a]=b,a.i=b.a)}function Ff(){Ba.call(this)}w(Ff,Ba);Ff.prototype.message="Deferred has already fired";Ff.prototype.name="AlreadyCalledError";function Bf(){Ba.call(this)}w(Bf,Ba);Bf.prototype.message="Deferred was canceled";Bf.prototype.name="CanceledError";function Jf(a){this.a=n.setTimeout(t(this.h,
+this),0);this.g=a}Jf.prototype.h=function(){delete If[this.a];throw this.g;};var If={};function Kf(a){var b={},c=b.document||document,d=yc(a).toString(),e=document.createElement("SCRIPT"),f={sb:e,tb:void 0},g=new zf(f),h=null,k=null!=b.timeout?b.timeout:5E3;0<k&&(h=window.setTimeout(function(){Lf(e,!0);var p=new Mf(Nf,"Timeout reached for loading script "+d);Cf(g);Df(g,!1,p)},k),f.tb=h);e.onload=e.onreadystatechange=function(){e.readyState&&"loaded"!=e.readyState&&"complete"!=e.readyState||(Lf(e,
+b.wc||!1,h),g.callback(null))};e.onerror=function(){Lf(e,!0,h);var p=new Mf(Of,"Error while loading script "+d);Cf(g);Df(g,!1,p)};f=b.attributes||{};ib(f,{type:"text/javascript",charset:"UTF-8"});Yc(e,f);Pc(e,a);Pf(c).appendChild(e);return g}function Pf(a){var b=(a||document).getElementsByTagName("HEAD");return b&&0!=b.length?b[0]:a.documentElement}function Af(){if(this&&this.sb){var a=this.sb;a&&"SCRIPT"==a.tagName&&Lf(a,!0,this.tb)}}function Lf(a,b,c){null!=c&&n.clearTimeout(c);a.onload=na;a.onerror=
+na;a.onreadystatechange=na;b&&window.setTimeout(function(){ad(a)},0)}var Of=0,Nf=1;function Mf(a,b){var c="Jsloader error (code #"+a+")";b&&(c+=": "+b);Ba.call(this,c);this.code=a}w(Mf,Ba);function Qf(){return n.google&&n.google.accounts&&n.google.accounts.id||null}function Rf(a){this.a=a||Qf();this.h=!1;this.g=null}Rf.prototype.cancel=function(){this.a&&this.h&&(this.g&&this.g(null),this.a.cancel())};function Sf(a,b,c){if(a.a&&b)return function(){a.h=!0;return new F(function(e){a.g=e;a.a.initialize({client_id:b,
+callback:e,auto_select:!c});a.a.prompt()})}();if(b){var d=Tf.Ya().load().then(function(){a.a=Qf();return Sf(a,b,c)}).ua(function(){return null});return G(d)}return G(null)}oa(Rf);var Uf=new sc(tc,"https://accounts.google.com/gsi/client");function Tf(){this.a=null}Tf.prototype.load=function(){var a=this;if(this.a)return this.a;var b=zc(vc(Uf));return Qf()?G():this.a=wf().then(function(){if(!Qf())return new F(function(c,d){var e=setTimeout(function(){a.a=null;d(Error("Network error!"))},1E4);n.onGoogleLibraryLoad=
+function(){clearTimeout(e);c()};G(Kf(b)).then(function(){Qf()&&c()}).ua(function(f){clearTimeout(e);a.a=null;d(f)})})})};oa(Tf);function Vf(a,b){this.a=a;this.g=b||function(c){throw c;}}Vf.prototype.confirm=function(a){return G(this.a.confirm(a)).ua(this.g)};function Wf(a,b,c){this.reset(a,b,c,void 0,void 0)}Wf.prototype.a=null;var Xf=0;Wf.prototype.reset=function(a,b,c,d,e){"number"==typeof e||Xf++;this.h=d||Aa();this.j=a;this.s=b;this.g=c;delete this.a};function Yf(a){this.s=a;this.a=this.h=this.j=
+this.g=null}function Zf(a,b){this.name=a;this.value=b}Zf.prototype.toString=function(){return this.name};var $f=new Zf("SEVERE",1E3),ag=new Zf("WARNING",900),bg=new Zf("CONFIG",700);function cg(a){if(a.j)return a.j;if(a.g)return cg(a.g);Fa("Root logger has no level set.");return null}Yf.prototype.log=function(a,b,c){if(a.value>=cg(this).value)for(sa(b)&&(b=b()),a=new Wf(a,String(b),this.s),c&&(a.a=c),c=this;c;){var d=c,e=a;if(d.a)for(var f=0;b=d.a[f];f++)b(e);c=c.g}};var dg={},eg=null;function fg(){eg||
+(eg=new Yf(""),dg[""]=eg,eg.j=bg)}function gg(a){fg();var b;if(!(b=dg[a])){b=new Yf(a);var c=a.lastIndexOf("."),d=a.substr(c+1);c=gg(a.substr(0,c));c.h||(c.h={});c.h[d]=b;b.g=c;dg[a]=b}return b}function hg(){this.a=Aa()}var ig=null;hg.prototype.set=function(a){this.a=a};hg.prototype.reset=function(){this.set(Aa())};hg.prototype.get=function(){return this.a};function jg(a){this.j=a||"";ig||(ig=new hg);this.s=ig}jg.prototype.a=!0;jg.prototype.g=!0;jg.prototype.h=!1;function kg(a){return 10>a?"0"+a:
+String(a)}function lg(a,b){a=(a.h-b)/1E3;b=a.toFixed(3);var c=0;if(1>a)c=2;else for(;100>a;)c++,a*=10;for(;0<c--;)b=" "+b;return b}function mg(a){jg.call(this,a)}w(mg,jg);function ng(a,b){var c=[];c.push(a.j," ");if(a.g){var d=new Date(b.h);c.push("[",kg(d.getFullYear()-2E3)+kg(d.getMonth()+1)+kg(d.getDate())+" "+kg(d.getHours())+":"+kg(d.getMinutes())+":"+kg(d.getSeconds())+"."+kg(Math.floor(d.getMilliseconds()/10)),"] ")}c.push("[",lg(b,a.s.get()),"s] ");c.push("[",b.g,"] ");c.push(b.s);a.h&&(b=
+b.a)&&c.push("\n",b instanceof Error?b.message:b.toString());a.a&&c.push("\n");return c.join("")}function og(){this.s=t(this.h,this);this.a=new mg;this.a.g=!1;this.a.h=!1;this.g=this.a.a=!1;this.j={}}og.prototype.h=function(a){function b(f){if(f){if(f.value>=$f.value)return"error";if(f.value>=ag.value)return"warn";if(f.value>=bg.value)return"log"}return"debug"}if(!this.j[a.g]){var c=ng(this.a,a),d=pg;if(d){var e=b(a.j);qg(d,e,c,a.a)}}};var pg=n.console;function qg(a,b,c,d){if(a[b])a[b](c,d||"");else a.log(c,
+d||"")}function rg(a,b){var c=sg;c&&c.log($f,a,b)}var sg;sg=gg("firebaseui");var tg=new og;if(1!=tg.g){var ug;fg();ug=eg;var vg=tg.s;ug.a||(ug.a=[]);ug.a.push(vg);tg.g=!0}function wg(a){var b=sg;b&&b.log(ag,a,void 0)}function xg(a,b,c,d){this.a=a;this.h=b||null;this.j=c||null;this.g=d||null}xg.prototype.ba=function(){return{email:this.a,displayName:this.h,photoUrl:this.j,providerId:this.g}};function yg(a){return a.email?new xg(a.email,a.displayName,a.photoUrl,a.providerId):null}function zg(){this.a=
+("undefined"==typeof document?null:document)||{cookie:""}}l=zg.prototype;l.set=function(a,b,c,d,e,f){if(/[;=\s]/.test(a))throw Error('Invalid cookie name "'+a+'"');if(/[;\r\n]/.test(b))throw Error('Invalid cookie value "'+b+'"');ka(c)||(c=-1);e=e?";domain="+e:"";d=d?";path="+d:"";f=f?";secure":"";c=0>c?"":0==c?";expires="+(new Date(1970,1,1)).toUTCString():";expires="+(new Date(Aa()+1E3*c)).toUTCString();this.a.cookie=a+"="+b+e+d+c+f};l.get=function(a,b){for(var c=a+"=",d=(this.a.cookie||"").split(";"),
+e=0,f;e<d.length;e++){f=Wa(d[e]);if(0==f.lastIndexOf(c,0))return f.substr(c.length);if(f==a)return""}return b};l.ka=function(){return Ag(this).keys};l.ma=function(){return Ag(this).values};l.clear=function(){for(var a=Ag(this).keys,b=a.length-1;0<=b;b--){var c=a[b];this.get(c);this.set(c,"",0,void 0,void 0)}};function Ag(a){a=(a.a.cookie||"").split(";");for(var b=[],c=[],d,e,f=0;f<a.length;f++)e=Wa(a[f]),d=e.indexOf("="),-1==d?(b.push(""),c.push(e)):(b.push(e.substring(0,d)),c.push(e.substring(d+
+1)));return{keys:b,values:c}}var Bg=new zg;function Cg(){}function Dg(a,b,c,d){this.h="undefined"!==typeof a&&null!==a?a:-1;this.g=b||null;this.a=c||null;this.j=!!d}m(Dg,Cg);Dg.prototype.set=function(a,b){Bg.set(a,b,this.h,this.g,this.a,this.j)};Dg.prototype.get=function(a){return Bg.get(a)||null};Dg.prototype.sa=function(a){var b=this.g,c=this.a;Bg.get(a);Bg.set(a,"",0,b,c)};function Eg(a,b){this.g=a;this.a=b||null}Eg.prototype.ba=function(){return{email:this.g,credential:this.a&&this.a.toJSON()}};
+function Fg(a){if(a&&a.email){var b=a.credential&&firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].AuthCredential.fromJSON(a.credential);return new Eg(a.email,b)}return null}function Gg(a){this.a=a||null}Gg.prototype.ba=function(){return{tenantId:this.a}};function Hg(a){for(var b=[],c=0,d=0;d<a.length;d++){var e=a.charCodeAt(d);255<e&&(b[c++]=e&255,e>>=8);b[c++]=e}return b}function Ig(a){return Ka(a,function(b){b=b.toString(16);return 1<b.length?b:"0"+b}).join("")}function Jg(a){this.i=a;this.g=this.i.length/4;this.j=this.g+6;this.h=
+[[],[],[],[]];this.s=[[],[],[],[]];this.a=Array(Lg*(this.j+1));for(a=0;a<this.g;a++)this.a[a]=[this.i[4*a],this.i[4*a+1],this.i[4*a+2],this.i[4*a+3]];var b=Array(4);for(a=this.g;a<Lg*(this.j+1);a++){b[0]=this.a[a-1][0];b[1]=this.a[a-1][1];b[2]=this.a[a-1][2];b[3]=this.a[a-1][3];if(0==a%this.g){var c=b,d=c[0];c[0]=c[1];c[1]=c[2];c[2]=c[3];c[3]=d;Mg(b);b[0]^=Ng[a/this.g][0];b[1]^=Ng[a/this.g][1];b[2]^=Ng[a/this.g][2];b[3]^=Ng[a/this.g][3]}else 6<this.g&&4==a%this.g&&Mg(b);this.a[a]=Array(4);this.a[a][0]=
+this.a[a-this.g][0]^b[0];this.a[a][1]=this.a[a-this.g][1]^b[1];this.a[a][2]=this.a[a-this.g][2]^b[2];this.a[a][3]=this.a[a-this.g][3]^b[3]}}Jg.prototype.A=16;var Lg=Jg.prototype.A/4;function Og(a,b){for(var c,d=0;d<Lg;d++)for(var e=0;4>e;e++)c=4*e+d,c=b[c],a.h[d][e]=c}function Pg(a){for(var b=[],c=0;c<Lg;c++)for(var d=0;4>d;d++)b[4*d+c]=a.h[c][d];return b}function Qg(a,b){for(var c=0;4>c;c++)for(var d=0;4>d;d++)a.h[c][d]^=a.a[4*b+d][c]}function Rg(a,b){for(var c=0;4>c;c++)for(var d=0;4>d;d++)a.h[c][d]=
+b[a.h[c][d]]}function Sg(a){for(var b=1;4>b;b++)for(var c=0;4>c;c++)a.s[b][c]=a.h[b][c];for(b=1;4>b;b++)for(c=0;4>c;c++)a.h[b][c]=a.s[b][(c+b)%Lg]}function Tg(a){for(var b=1;4>b;b++)for(var c=0;4>c;c++)a.s[b][(c+b)%Lg]=a.h[b][c];for(b=1;4>b;b++)for(c=0;4>c;c++)a.h[b][c]=a.s[b][c]}function Mg(a){a[0]=Ug[a[0]];a[1]=Ug[a[1]];a[2]=Ug[a[2]];a[3]=Ug[a[3]]}var Ug=[99,124,119,123,242,107,111,197,48,1,103,43,254,215,171,118,202,130,201,125,250,89,71,240,173,212,162,175,156,164,114,192,183,253,147,38,54,63,
+247,204,52,165,229,241,113,216,49,21,4,199,35,195,24,150,5,154,7,18,128,226,235,39,178,117,9,131,44,26,27,110,90,160,82,59,214,179,41,227,47,132,83,209,0,237,32,252,177,91,106,203,190,57,74,76,88,207,208,239,170,251,67,77,51,133,69,249,2,127,80,60,159,168,81,163,64,143,146,157,56,245,188,182,218,33,16,255,243,210,205,12,19,236,95,151,68,23,196,167,126,61,100,93,25,115,96,129,79,220,34,42,144,136,70,238,184,20,222,94,11,219,224,50,58,10,73,6,36,92,194,211,172,98,145,149,228,121,231,200,55,109,141,
+213,78,169,108,86,244,234,101,122,174,8,186,120,37,46,28,166,180,198,232,221,116,31,75,189,139,138,112,62,181,102,72,3,246,14,97,53,87,185,134,193,29,158,225,248,152,17,105,217,142,148,155,30,135,233,206,85,40,223,140,161,137,13,191,230,66,104,65,153,45,15,176,84,187,22],Vg=[82,9,106,213,48,54,165,56,191,64,163,158,129,243,215,251,124,227,57,130,155,47,255,135,52,142,67,68,196,222,233,203,84,123,148,50,166,194,35,61,238,76,149,11,66,250,195,78,8,46,161,102,40,217,36,178,118,91,162,73,109,139,209,
+37,114,248,246,100,134,104,152,22,212,164,92,204,93,101,182,146,108,112,72,80,253,237,185,218,94,21,70,87,167,141,157,132,144,216,171,0,140,188,211,10,247,228,88,5,184,179,69,6,208,44,30,143,202,63,15,2,193,175,189,3,1,19,138,107,58,145,17,65,79,103,220,234,151,242,207,206,240,180,230,115,150,172,116,34,231,173,53,133,226,249,55,232,28,117,223,110,71,241,26,113,29,41,197,137,111,183,98,14,170,24,190,27,252,86,62,75,198,210,121,32,154,219,192,254,120,205,90,244,31,221,168,51,136,7,199,49,177,18,16,
+89,39,128,236,95,96,81,127,169,25,181,74,13,45,229,122,159,147,201,156,239,160,224,59,77,174,42,245,176,200,235,187,60,131,83,153,97,23,43,4,126,186,119,214,38,225,105,20,99,85,33,12,125],Ng=[[0,0,0,0],[1,0,0,0],[2,0,0,0],[4,0,0,0],[8,0,0,0],[16,0,0,0],[32,0,0,0],[64,0,0,0],[128,0,0,0],[27,0,0,0],[54,0,0,0]],Wg=[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,
+122,124,126,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174,176,178,180,182,184,186,188,190,192,194,196,198,200,202,204,206,208,210,212,214,216,218,220,222,224,226,228,230,232,234,236,238,240,242,244,246,248,250,252,254,27,25,31,29,19,17,23,21,11,9,15,13,3,1,7,5,59,57,63,61,51,49,55,53,43,41,47,45,35,33,39,37,91,89,95,93,83,81,87,85,75,73,79,77,67,65,71,69,123,121,127,125,115,113,119,117,107,105,111,109,99,97,103,101,155,153,159,157,147,145,151,149,
+139,137,143,141,131,129,135,133,187,185,191,189,179,177,183,181,171,169,175,173,163,161,167,165,219,217,223,221,211,209,215,213,203,201,207,205,195,193,199,197,251,249,255,253,243,241,247,245,235,233,239,237,227,225,231,229],Xg=[0,3,6,5,12,15,10,9,24,27,30,29,20,23,18,17,48,51,54,53,60,63,58,57,40,43,46,45,36,39,34,33,96,99,102,101,108,111,106,105,120,123,126,125,116,119,114,113,80,83,86,85,92,95,90,89,72,75,78,77,68,71,66,65,192,195,198,197,204,207,202,201,216,219,222,221,212,215,210,209,240,243,
+246,245,252,255,250,249,232,235,238,237,228,231,226,225,160,163,166,165,172,175,170,169,184,187,190,189,180,183,178,177,144,147,150,149,156,159,154,153,136,139,142,141,132,135,130,129,155,152,157,158,151,148,145,146,131,128,133,134,143,140,137,138,171,168,173,174,167,164,161,162,179,176,181,182,191,188,185,186,251,248,253,254,247,244,241,242,227,224,229,230,239,236,233,234,203,200,205,206,199,196,193,194,211,208,213,214,223,220,217,218,91,88,93,94,87,84,81,82,67,64,69,70,79,76,73,74,107,104,109,110,
+103,100,97,98,115,112,117,118,127,124,121,122,59,56,61,62,55,52,49,50,35,32,37,38,47,44,41,42,11,8,13,14,7,4,1,2,19,16,21,22,31,28,25,26],Yg=[0,9,18,27,36,45,54,63,72,65,90,83,108,101,126,119,144,153,130,139,180,189,166,175,216,209,202,195,252,245,238,231,59,50,41,32,31,22,13,4,115,122,97,104,87,94,69,76,171,162,185,176,143,134,157,148,227,234,241,248,199,206,213,220,118,127,100,109,82,91,64,73,62,55,44,37,26,19,8,1,230,239,244,253,194,203,208,217,174,167,188,181,138,131,152,145,77,68,95,86,105,96,
+123,114,5,12,23,30,33,40,51,58,221,212,207,198,249,240,235,226,149,156,135,142,177,184,163,170,236,229,254,247,200,193,218,211,164,173,182,191,128,137,146,155,124,117,110,103,88,81,74,67,52,61,38,47,16,25,2,11,215,222,197,204,243,250,225,232,159,150,141,132,187,178,169,160,71,78,85,92,99,106,113,120,15,6,29,20,43,34,57,48,154,147,136,129,190,183,172,165,210,219,192,201,246,255,228,237,10,3,24,17,46,39,60,53,66,75,80,89,102,111,116,125,161,168,179,186,133,140,151,158,233,224,251,242,205,196,223,214,
+49,56,35,42,21,28,7,14,121,112,107,98,93,84,79,70],Zg=[0,11,22,29,44,39,58,49,88,83,78,69,116,127,98,105,176,187,166,173,156,151,138,129,232,227,254,245,196,207,210,217,123,112,109,102,87,92,65,74,35,40,53,62,15,4,25,18,203,192,221,214,231,236,241,250,147,152,133,142,191,180,169,162,246,253,224,235,218,209,204,199,174,165,184,179,130,137,148,159,70,77,80,91,106,97,124,119,30,21,8,3,50,57,36,47,141,134,155,144,161,170,183,188,213,222,195,200,249,242,239,228,61,54,43,32,17,26,7,12,101,110,115,120,73,
+66,95,84,247,252,225,234,219,208,205,198,175,164,185,178,131,136,149,158,71,76,81,90,107,96,125,118,31,20,9,2,51,56,37,46,140,135,154,145,160,171,182,189,212,223,194,201,248,243,238,229,60,55,42,33,16,27,6,13,100,111,114,121,72,67,94,85,1,10,23,28,45,38,59,48,89,82,79,68,117,126,99,104,177,186,167,172,157,150,139,128,233,226,255,244,197,206,211,216,122,113,108,103,86,93,64,75,34,41,52,63,14,5,24,19,202,193,220,215,230,237,240,251,146,153,132,143,190,181,168,163],$g=[0,13,26,23,52,57,46,35,104,101,
+114,127,92,81,70,75,208,221,202,199,228,233,254,243,184,181,162,175,140,129,150,155,187,182,161,172,143,130,149,152,211,222,201,196,231,234,253,240,107,102,113,124,95,82,69,72,3,14,25,20,55,58,45,32,109,96,119,122,89,84,67,78,5,8,31,18,49,60,43,38,189,176,167,170,137,132,147,158,213,216,207,194,225,236,251,246,214,219,204,193,226,239,248,245,190,179,164,169,138,135,144,157,6,11,28,17,50,63,40,37,110,99,116,121,90,87,64,77,218,215,192,205,238,227,244,249,178,191,168,165,134,139,156,145,10,7,16,29,
+62,51,36,41,98,111,120,117,86,91,76,65,97,108,123,118,85,88,79,66,9,4,19,30,61,48,39,42,177,188,171,166,133,136,159,146,217,212,195,206,237,224,247,250,183,186,173,160,131,142,153,148,223,210,197,200,235,230,241,252,103,106,125,112,83,94,73,68,15,2,21,24,59,54,33,44,12,1,22,27,56,53,34,47,100,105,126,115,80,93,74,71,220,209,198,203,232,229,242,255,180,185,174,163,128,141,154,151],ah=[0,14,28,18,56,54,36,42,112,126,108,98,72,70,84,90,224,238,252,242,216,214,196,202,144,158,140,130,168,166,180,186,
+219,213,199,201,227,237,255,241,171,165,183,185,147,157,143,129,59,53,39,41,3,13,31,17,75,69,87,89,115,125,111,97,173,163,177,191,149,155,137,135,221,211,193,207,229,235,249,247,77,67,81,95,117,123,105,103,61,51,33,47,5,11,25,23,118,120,106,100,78,64,82,92,6,8,26,20,62,48,34,44,150,152,138,132,174,160,178,188,230,232,250,244,222,208,194,204,65,79,93,83,121,119,101,107,49,63,45,35,9,7,21,27,161,175,189,179,153,151,133,139,209,223,205,195,233,231,245,251,154,148,134,136,162,172,190,176,234,228,246,
+248,210,220,206,192,122,116,102,104,66,76,94,80,10,4,22,24,50,60,46,32,236,226,240,254,212,218,200,198,156,146,128,142,164,170,184,182,12,2,16,30,52,58,40,38,124,114,96,110,68,74,88,86,55,57,43,37,15,1,19,29,71,73,91,85,127,113,99,109,215,217,203,197,239,225,243,253,167,169,187,181,159,145,131,141];function bh(a,b){a=new Jg(ch(a));b=Hg(b);for(var c=Ua(b,0,16),d="",e;c.length;){e=16-c.length;for(var f=0;f<e;f++)c.push(0);e=a;Og(e,c);Qg(e,0);for(c=1;c<e.j;++c){Rg(e,Ug);Sg(e);f=e.h;for(var g=e.s[0],
+h=0;4>h;h++)g[0]=f[0][h],g[1]=f[1][h],g[2]=f[2][h],g[3]=f[3][h],f[0][h]=Wg[g[0]]^Xg[g[1]]^g[2]^g[3],f[1][h]=g[0]^Wg[g[1]]^Xg[g[2]]^g[3],f[2][h]=g[0]^g[1]^Wg[g[2]]^Xg[g[3]],f[3][h]=Xg[g[0]]^g[1]^g[2]^Wg[g[3]];Qg(e,c)}Rg(e,Ug);Sg(e);Qg(e,e.j);d+=Ig(Pg(e));c=Ua(b,0,16)}return d}function dh(a,b){a=new Jg(ch(a));for(var c=[],d=0;d<b.length;d+=2)c.push(parseInt(b.substring(d,d+2),16));var e=Ua(c,0,16);for(b="";e.length;){d=a;Og(d,e);Qg(d,d.j);for(e=1;e<d.j;++e){Tg(d);Rg(d,Vg);Qg(d,d.j-e);for(var f=d.h,
+g=d.s[0],h=0;4>h;h++)g[0]=f[0][h],g[1]=f[1][h],g[2]=f[2][h],g[3]=f[3][h],f[0][h]=ah[g[0]]^Zg[g[1]]^$g[g[2]]^Yg[g[3]],f[1][h]=Yg[g[0]]^ah[g[1]]^Zg[g[2]]^$g[g[3]],f[2][h]=$g[g[0]]^Yg[g[1]]^ah[g[2]]^Zg[g[3]],f[3][h]=Zg[g[0]]^$g[g[1]]^Yg[g[2]]^ah[g[3]]}Tg(d);Rg(d,Vg);Qg(d,0);d=Pg(d);if(8192>=d.length)d=String.fromCharCode.apply(null,d);else{e="";for(f=0;f<d.length;f+=8192)e+=String.fromCharCode.apply(null,Va(d,f,f+8192));d=e}b+=d;e=Ua(c,0,16)}return b.replace(/(\x00)+$/,"")}function ch(a){a=Hg(a.substring(0,
+32));for(var b=32-a.length,c=0;c<b;c++)a.push(0);return a}function eh(a){var b=[];fh(new gh,a,b);return b.join("")}function gh(){}function fh(a,b,c){if(null==b)c.push("null");else{if("object"==typeof b){if(qa(b)){var d=b;b=d.length;c.push("[");for(var e="",f=0;f<b;f++)c.push(e),fh(a,d[f],c),e=",";c.push("]");return}if(b instanceof String||b instanceof Number||b instanceof Boolean)b=b.valueOf();else{c.push("{");e="";for(d in b)Object.prototype.hasOwnProperty.call(b,d)&&(f=b[d],"function"!=typeof f&&
+(c.push(e),hh(d,c),c.push(":"),fh(a,f,c),e=","));c.push("}");return}}switch(typeof b){case "string":hh(b,c);break;case "number":c.push(isFinite(b)&&!isNaN(b)?String(b):"null");break;case "boolean":c.push(String(b));break;case "function":c.push("null");break;default:throw Error("Unknown type: "+typeof b);}}}var ih={'"':'\\"',"\\":"\\\\","/":"\\/","\b":"\\b","\f":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\x0B":"\\u000b"},jh=/\uffff/.test("\uffff")?/[\\"\x00-\x1f\x7f-\uffff]/g:/[\\"\x00-\x1f\x7f-\xff]/g;
+function hh(a,b){b.push('"',a.replace(jh,function(c){var d=ih[c];d||(d="\\u"+(c.charCodeAt(0)|65536).toString(16).substr(1),ih[c]=d);return d}),'"')}function kh(a){this.a=a}kh.prototype.set=function(a,b){ka(b)?this.a.set(a,eh(b)):this.a.sa(a)};kh.prototype.get=function(a){try{var b=this.a.get(a)}catch(c){return}if(null!==b)try{return JSON.parse(b)}catch(c$2){throw"Storage: Invalid value was encountered";}};function lh(){}w(lh,Cg);lh.prototype.clear=function(){var a=nb(this.ia(!0)),b=this;Ha(a,function(c){b.sa(c)})};
+function mh(a){this.a=a}w(mh,lh);function nh(a){if(!a.a)return!1;try{return a.a.setItem("__sak","1"),a.a.removeItem("__sak"),!0}catch(b){return!1}}l=mh.prototype;l.set=function(a,b){try{this.a.setItem(a,b)}catch(c){if(0==this.a.length)throw"Storage mechanism: Storage disabled";throw"Storage mechanism: Quota exceeded";}};l.get=function(a){a=this.a.getItem(a);if(!q(a)&&null!==a)throw"Storage mechanism: Invalid value was encountered";return a};l.sa=function(a){this.a.removeItem(a)};l.ia=function(a){var b=
+0,c=this.a,d=new kb;d.next=function(){if(b>=c.length)throw jb;var e=c.key(b++);if(a)return e;e=c.getItem(e);if(!q(e))throw"Storage mechanism: Invalid value was encountered";return e};return d};l.clear=function(){this.a.clear()};l.key=function(a){return this.a.key(a)};function oh(){var a=null;try{a=window.localStorage||null}catch(b){}this.a=a}w(oh,mh);function ph(){var a=null;try{a=window.sessionStorage||null}catch(b){}this.a=a}w(ph,mh);function qh(a,b){this.g=a;this.a=b+"::"}w(qh,lh);qh.prototype.set=
+function(a,b){this.g.set(this.a+a,b)};qh.prototype.get=function(a){return this.g.get(this.a+a)};qh.prototype.sa=function(a){this.g.sa(this.a+a)};qh.prototype.ia=function(a){var b=this.g.ia(!0),c=this,d=new kb;d.next=function(){for(var e=b.next();e.substr(0,c.a.length)!=c.a;)e=b.next();return a?e.substr(c.a.length):c.g.get(e)};return d};var rh,sh=new oh;rh=nh(sh)?new qh(sh,"firebaseui"):null;var th=new kh(rh),uh,vh=new ph;uh=nh(vh)?new qh(vh,"firebaseui"):null;var wh=new kh(uh),xh={name:"pendingEmailCredential",
+storage:wh},yh={name:"redirectStatus",storage:wh},zh={name:"redirectUrl",storage:wh},Ah={name:"rememberAccount",storage:wh},Bh={name:"rememberedAccounts",storage:th},Ch={name:"emailForSignIn",storage:new kh(new Dg(3600,"/"))},Dh={name:"pendingEncryptedCredential",storage:new kh(new Dg(3600,"/"))};function Eh(a,b){return a.storage.get(b?a.name+":"+b:a.name)}function Fh(a,b){a.storage.a.sa(b?a.name+":"+b:a.name)}function Gh(a,b,c){a.storage.set(c?a.name+":"+c:a.name,b)}function Hh(a){return Eh(zh,a)||
+null}function Ih(a,b){Gh(zh,a,b)}function Jh(a,b){Gh(Ah,a,b)}function Kh(a){a=Eh(Bh,a)||[];a=Ka(a,function(b){return yg(b)});return Ja(a,function(b){return null!=b})}function Lh(a,b){var c=Kh(b),d=Ma(c,function(e){return e.a==a.a&&(e.g||null)==(a.g||null)});-1<d&&Pa(c,d);c.unshift(a);Gh(Bh,Ka(c,function(e){return e.ba()}),b)}function Mh(a){a=Eh(xh,a)||null;return Fg(a)}function Nh(a){Fh(xh,a)}function Oh(a,b){Gh(xh,a.ba(),b)}function Ph(a){return(a=Eh(yh,a)||null)&&"undefined"!==typeof a.tenantId?
+new Gg(a.tenantId):null}function Qh(a,b){Gh(yh,a.ba(),b)}function Rh(a,b){b=Eh(Ch,b);var c=null;if(b)try{var d=dh(a,b),e=JSON.parse(d);c=e&&e.email||null}catch(f){}return c}function Sh(a,b){b=Eh(Dh,b);var c=null;if(b)try{var d=dh(a,b);c=JSON.parse(d)}catch(e){}return Fg(c||null)}function Th(a,b,c){Gh(Dh,bh(a,JSON.stringify(b.ba())),c)}function Uh(){this.W={}}function I(a,b,c){if(b.toLowerCase()in a.W)throw Error("Configuration "+b+" has already been defined.");a.W[b.toLowerCase()]=c}function Vh(a,
+b,c){if(!(b.toLowerCase()in a.W))throw Error("Configuration "+b+" is not defined.");a.W[b.toLowerCase()]=c}Uh.prototype.get=function(a){if(!(a.toLowerCase()in this.W))throw Error("Configuration "+a+" is not defined.");return this.W[a.toLowerCase()]};function Wh(a,b){a=a.get(b);if(!a)throw Error("Configuration "+b+" is required.");return a}function Xh(){this.g=void 0;this.a={}}l=Xh.prototype;l.set=function(a,b){Yh(this,a,b,!1)};l.add=function(a,b){Yh(this,a,b,!0)};function Yh(a,b,c,d){for(var e=0;e<
+b.length;e++){var f=b.charAt(e);a.a[f]||(a.a[f]=new Xh);a=a.a[f]}if(d&&void 0!==a.g)throw Error('The collection already contains the key "'+b+'"');a.g=c}l.get=function(a){a:{for(var b=this,c=0;c<a.length;c++)if(b=b.a[a.charAt(c)],!b){a=void 0;break a}a=b}return a?a.g:void 0};l.ma=function(){var a=[];Zh(this,a);return a};function Zh(a,b){void 0!==a.g&&b.push(a.g);for(var c in a.a)Zh(a.a[c],b)}l.ka=function(){var a=[];$h(this,"",a);return a};function $h(a,b,c){void 0!==a.g&&c.push(b);for(var d in a.a)$h(a.a[d],
+b+d,c)}l.clear=function(){this.a={};this.g=void 0};function ai(a){this.a=a;this.g=new Xh;for(a=0;a<this.a.length;a++){var b=this.g.get("+"+this.a[a].b);b?b.push(this.a[a]):this.g.add("+"+this.a[a].b,[this.a[a]])}}function bi(a,b){a=a.g;var c={},d=0;void 0!==a.g&&(c[d]=a.g);for(;d<b.length;d++){var e=b.charAt(d);if(!(e in a.a))break;a=a.a[e];void 0!==a.g&&(c[d]=a.g)}for(var f in c)if(c.hasOwnProperty(f))return c[f];return[]}function ci(a){for(var b=0;b<di.length;b++)if(di[b].c===a)return di[b];return null}
+function ei(a){a=a.toUpperCase();for(var b=[],c=0;c<di.length;c++)di[c].f===a&&b.push(di[c]);return b}function fi(a){if(0<a.length&&"+"==a.charAt(0)){a=a.substring(1);for(var b=[],c=0;c<di.length;c++)di[c].b==a&&b.push(di[c]);a=b}else a=ei(a);return a}function gi(a){a.sort(function(b,c){return b.name.localeCompare(c.name,"en")})}var di=[{name:"Afghanistan",c:"93-AF-0",b:"93",f:"AF"},{name:"\u00c5land Islands",c:"358-AX-0",b:"358",f:"AX"},{name:"Albania",c:"355-AL-0",b:"355",f:"AL"},{name:"Algeria",
+c:"213-DZ-0",b:"213",f:"DZ"},{name:"American Samoa",c:"1-AS-0",b:"1",f:"AS"},{name:"Andorra",c:"376-AD-0",b:"376",f:"AD"},{name:"Angola",c:"244-AO-0",b:"244",f:"AO"},{name:"Anguilla",c:"1-AI-0",b:"1",f:"AI"},{name:"Antigua and Barbuda",c:"1-AG-0",b:"1",f:"AG"},{name:"Argentina",c:"54-AR-0",b:"54",f:"AR"},{name:"Armenia",c:"374-AM-0",b:"374",f:"AM"},{name:"Aruba",c:"297-AW-0",b:"297",f:"AW"},{name:"Ascension Island",c:"247-AC-0",b:"247",f:"AC"},{name:"Australia",c:"61-AU-0",b:"61",f:"AU"},{name:"Austria",
+c:"43-AT-0",b:"43",f:"AT"},{name:"Azerbaijan",c:"994-AZ-0",b:"994",f:"AZ"},{name:"Bahamas",c:"1-BS-0",b:"1",f:"BS"},{name:"Bahrain",c:"973-BH-0",b:"973",f:"BH"},{name:"Bangladesh",c:"880-BD-0",b:"880",f:"BD"},{name:"Barbados",c:"1-BB-0",b:"1",f:"BB"},{name:"Belarus",c:"375-BY-0",b:"375",f:"BY"},{name:"Belgium",c:"32-BE-0",b:"32",f:"BE"},{name:"Belize",c:"501-BZ-0",b:"501",f:"BZ"},{name:"Benin",c:"229-BJ-0",b:"229",f:"BJ"},{name:"Bermuda",c:"1-BM-0",b:"1",f:"BM"},{name:"Bhutan",c:"975-BT-0",b:"975",
+f:"BT"},{name:"Bolivia",c:"591-BO-0",b:"591",f:"BO"},{name:"Bosnia and Herzegovina",c:"387-BA-0",b:"387",f:"BA"},{name:"Botswana",c:"267-BW-0",b:"267",f:"BW"},{name:"Brazil",c:"55-BR-0",b:"55",f:"BR"},{name:"British Indian Ocean Territory",c:"246-IO-0",b:"246",f:"IO"},{name:"British Virgin Islands",c:"1-VG-0",b:"1",f:"VG"},{name:"Brunei",c:"673-BN-0",b:"673",f:"BN"},{name:"Bulgaria",c:"359-BG-0",b:"359",f:"BG"},{name:"Burkina Faso",c:"226-BF-0",b:"226",f:"BF"},{name:"Burundi",c:"257-BI-0",b:"257",
+f:"BI"},{name:"Cambodia",c:"855-KH-0",b:"855",f:"KH"},{name:"Cameroon",c:"237-CM-0",b:"237",f:"CM"},{name:"Canada",c:"1-CA-0",b:"1",f:"CA"},{name:"Cape Verde",c:"238-CV-0",b:"238",f:"CV"},{name:"Caribbean Netherlands",c:"599-BQ-0",b:"599",f:"BQ"},{name:"Cayman Islands",c:"1-KY-0",b:"1",f:"KY"},{name:"Central African Republic",c:"236-CF-0",b:"236",f:"CF"},{name:"Chad",c:"235-TD-0",b:"235",f:"TD"},{name:"Chile",c:"56-CL-0",b:"56",f:"CL"},{name:"China",c:"86-CN-0",b:"86",f:"CN"},{name:"Christmas Island",
+c:"61-CX-0",b:"61",f:"CX"},{name:"Cocos [Keeling] Islands",c:"61-CC-0",b:"61",f:"CC"},{name:"Colombia",c:"57-CO-0",b:"57",f:"CO"},{name:"Comoros",c:"269-KM-0",b:"269",f:"KM"},{name:"Democratic Republic Congo",c:"243-CD-0",b:"243",f:"CD"},{name:"Republic of Congo",c:"242-CG-0",b:"242",f:"CG"},{name:"Cook Islands",c:"682-CK-0",b:"682",f:"CK"},{name:"Costa Rica",c:"506-CR-0",b:"506",f:"CR"},{name:"C\u00f4te d'Ivoire",c:"225-CI-0",b:"225",f:"CI"},{name:"Croatia",c:"385-HR-0",b:"385",f:"HR"},{name:"Cuba",
+c:"53-CU-0",b:"53",f:"CU"},{name:"Cura\u00e7ao",c:"599-CW-0",b:"599",f:"CW"},{name:"Cyprus",c:"357-CY-0",b:"357",f:"CY"},{name:"Czech Republic",c:"420-CZ-0",b:"420",f:"CZ"},{name:"Denmark",c:"45-DK-0",b:"45",f:"DK"},{name:"Djibouti",c:"253-DJ-0",b:"253",f:"DJ"},{name:"Dominica",c:"1-DM-0",b:"1",f:"DM"},{name:"Dominican Republic",c:"1-DO-0",b:"1",f:"DO"},{name:"East Timor",c:"670-TL-0",b:"670",f:"TL"},{name:"Ecuador",c:"593-EC-0",b:"593",f:"EC"},{name:"Egypt",c:"20-EG-0",b:"20",f:"EG"},{name:"El Salvador",
+c:"503-SV-0",b:"503",f:"SV"},{name:"Equatorial Guinea",c:"240-GQ-0",b:"240",f:"GQ"},{name:"Eritrea",c:"291-ER-0",b:"291",f:"ER"},{name:"Estonia",c:"372-EE-0",b:"372",f:"EE"},{name:"Ethiopia",c:"251-ET-0",b:"251",f:"ET"},{name:"Falkland Islands [Islas Malvinas]",c:"500-FK-0",b:"500",f:"FK"},{name:"Faroe Islands",c:"298-FO-0",b:"298",f:"FO"},{name:"Fiji",c:"679-FJ-0",b:"679",f:"FJ"},{name:"Finland",c:"358-FI-0",b:"358",f:"FI"},{name:"France",c:"33-FR-0",b:"33",f:"FR"},{name:"French Guiana",c:"594-GF-0",
+b:"594",f:"GF"},{name:"French Polynesia",c:"689-PF-0",b:"689",f:"PF"},{name:"Gabon",c:"241-GA-0",b:"241",f:"GA"},{name:"Gambia",c:"220-GM-0",b:"220",f:"GM"},{name:"Georgia",c:"995-GE-0",b:"995",f:"GE"},{name:"Germany",c:"49-DE-0",b:"49",f:"DE"},{name:"Ghana",c:"233-GH-0",b:"233",f:"GH"},{name:"Gibraltar",c:"350-GI-0",b:"350",f:"GI"},{name:"Greece",c:"30-GR-0",b:"30",f:"GR"},{name:"Greenland",c:"299-GL-0",b:"299",f:"GL"},{name:"Grenada",c:"1-GD-0",b:"1",f:"GD"},{name:"Guadeloupe",c:"590-GP-0",b:"590",
+f:"GP"},{name:"Guam",c:"1-GU-0",b:"1",f:"GU"},{name:"Guatemala",c:"502-GT-0",b:"502",f:"GT"},{name:"Guernsey",c:"44-GG-0",b:"44",f:"GG"},{name:"Guinea Conakry",c:"224-GN-0",b:"224",f:"GN"},{name:"Guinea-Bissau",c:"245-GW-0",b:"245",f:"GW"},{name:"Guyana",c:"592-GY-0",b:"592",f:"GY"},{name:"Haiti",c:"509-HT-0",b:"509",f:"HT"},{name:"Heard Island and McDonald Islands",c:"672-HM-0",b:"672",f:"HM"},{name:"Honduras",c:"504-HN-0",b:"504",f:"HN"},{name:"Hong Kong",c:"852-HK-0",b:"852",f:"HK"},{name:"Hungary",
+c:"36-HU-0",b:"36",f:"HU"},{name:"Iceland",c:"354-IS-0",b:"354",f:"IS"},{name:"India",c:"91-IN-0",b:"91",f:"IN"},{name:"Indonesia",c:"62-ID-0",b:"62",f:"ID"},{name:"Iran",c:"98-IR-0",b:"98",f:"IR"},{name:"Iraq",c:"964-IQ-0",b:"964",f:"IQ"},{name:"Ireland",c:"353-IE-0",b:"353",f:"IE"},{name:"Isle of Man",c:"44-IM-0",b:"44",f:"IM"},{name:"Israel",c:"972-IL-0",b:"972",f:"IL"},{name:"Italy",c:"39-IT-0",b:"39",f:"IT"},{name:"Jamaica",c:"1-JM-0",b:"1",f:"JM"},{name:"Japan",c:"81-JP-0",b:"81",f:"JP"},{name:"Jersey",
+c:"44-JE-0",b:"44",f:"JE"},{name:"Jordan",c:"962-JO-0",b:"962",f:"JO"},{name:"Kazakhstan",c:"7-KZ-0",b:"7",f:"KZ"},{name:"Kenya",c:"254-KE-0",b:"254",f:"KE"},{name:"Kiribati",c:"686-KI-0",b:"686",f:"KI"},{name:"Kosovo",c:"377-XK-0",b:"377",f:"XK"},{name:"Kosovo",c:"381-XK-0",b:"381",f:"XK"},{name:"Kosovo",c:"386-XK-0",b:"386",f:"XK"},{name:"Kuwait",c:"965-KW-0",b:"965",f:"KW"},{name:"Kyrgyzstan",c:"996-KG-0",b:"996",f:"KG"},{name:"Laos",c:"856-LA-0",b:"856",f:"LA"},{name:"Latvia",c:"371-LV-0",b:"371",
+f:"LV"},{name:"Lebanon",c:"961-LB-0",b:"961",f:"LB"},{name:"Lesotho",c:"266-LS-0",b:"266",f:"LS"},{name:"Liberia",c:"231-LR-0",b:"231",f:"LR"},{name:"Libya",c:"218-LY-0",b:"218",f:"LY"},{name:"Liechtenstein",c:"423-LI-0",b:"423",f:"LI"},{name:"Lithuania",c:"370-LT-0",b:"370",f:"LT"},{name:"Luxembourg",c:"352-LU-0",b:"352",f:"LU"},{name:"Macau",c:"853-MO-0",b:"853",f:"MO"},{name:"Macedonia",c:"389-MK-0",b:"389",f:"MK"},{name:"Madagascar",c:"261-MG-0",b:"261",f:"MG"},{name:"Malawi",c:"265-MW-0",b:"265",
+f:"MW"},{name:"Malaysia",c:"60-MY-0",b:"60",f:"MY"},{name:"Maldives",c:"960-MV-0",b:"960",f:"MV"},{name:"Mali",c:"223-ML-0",b:"223",f:"ML"},{name:"Malta",c:"356-MT-0",b:"356",f:"MT"},{name:"Marshall Islands",c:"692-MH-0",b:"692",f:"MH"},{name:"Martinique",c:"596-MQ-0",b:"596",f:"MQ"},{name:"Mauritania",c:"222-MR-0",b:"222",f:"MR"},{name:"Mauritius",c:"230-MU-0",b:"230",f:"MU"},{name:"Mayotte",c:"262-YT-0",b:"262",f:"YT"},{name:"Mexico",c:"52-MX-0",b:"52",f:"MX"},{name:"Micronesia",c:"691-FM-0",b:"691",
+f:"FM"},{name:"Moldova",c:"373-MD-0",b:"373",f:"MD"},{name:"Monaco",c:"377-MC-0",b:"377",f:"MC"},{name:"Mongolia",c:"976-MN-0",b:"976",f:"MN"},{name:"Montenegro",c:"382-ME-0",b:"382",f:"ME"},{name:"Montserrat",c:"1-MS-0",b:"1",f:"MS"},{name:"Morocco",c:"212-MA-0",b:"212",f:"MA"},{name:"Mozambique",c:"258-MZ-0",b:"258",f:"MZ"},{name:"Myanmar [Burma]",c:"95-MM-0",b:"95",f:"MM"},{name:"Namibia",c:"264-NA-0",b:"264",f:"NA"},{name:"Nauru",c:"674-NR-0",b:"674",f:"NR"},{name:"Nepal",c:"977-NP-0",b:"977",
+f:"NP"},{name:"Netherlands",c:"31-NL-0",b:"31",f:"NL"},{name:"New Caledonia",c:"687-NC-0",b:"687",f:"NC"},{name:"New Zealand",c:"64-NZ-0",b:"64",f:"NZ"},{name:"Nicaragua",c:"505-NI-0",b:"505",f:"NI"},{name:"Niger",c:"227-NE-0",b:"227",f:"NE"},{name:"Nigeria",c:"234-NG-0",b:"234",f:"NG"},{name:"Niue",c:"683-NU-0",b:"683",f:"NU"},{name:"Norfolk Island",c:"672-NF-0",b:"672",f:"NF"},{name:"North Korea",c:"850-KP-0",b:"850",f:"KP"},{name:"Northern Mariana Islands",c:"1-MP-0",b:"1",f:"MP"},{name:"Norway",
+c:"47-NO-0",b:"47",f:"NO"},{name:"Oman",c:"968-OM-0",b:"968",f:"OM"},{name:"Pakistan",c:"92-PK-0",b:"92",f:"PK"},{name:"Palau",c:"680-PW-0",b:"680",f:"PW"},{name:"Palestinian Territories",c:"970-PS-0",b:"970",f:"PS"},{name:"Panama",c:"507-PA-0",b:"507",f:"PA"},{name:"Papua New Guinea",c:"675-PG-0",b:"675",f:"PG"},{name:"Paraguay",c:"595-PY-0",b:"595",f:"PY"},{name:"Peru",c:"51-PE-0",b:"51",f:"PE"},{name:"Philippines",c:"63-PH-0",b:"63",f:"PH"},{name:"Poland",c:"48-PL-0",b:"48",f:"PL"},{name:"Portugal",
+c:"351-PT-0",b:"351",f:"PT"},{name:"Puerto Rico",c:"1-PR-0",b:"1",f:"PR"},{name:"Qatar",c:"974-QA-0",b:"974",f:"QA"},{name:"R\u00e9union",c:"262-RE-0",b:"262",f:"RE"},{name:"Romania",c:"40-RO-0",b:"40",f:"RO"},{name:"Russia",c:"7-RU-0",b:"7",f:"RU"},{name:"Rwanda",c:"250-RW-0",b:"250",f:"RW"},{name:"Saint Barth\u00e9lemy",c:"590-BL-0",b:"590",f:"BL"},{name:"Saint Helena",c:"290-SH-0",b:"290",f:"SH"},{name:"St. Kitts",c:"1-KN-0",b:"1",f:"KN"},{name:"St. Lucia",c:"1-LC-0",b:"1",f:"LC"},{name:"Saint Martin",
+c:"590-MF-0",b:"590",f:"MF"},{name:"Saint Pierre and Miquelon",c:"508-PM-0",b:"508",f:"PM"},{name:"St. Vincent",c:"1-VC-0",b:"1",f:"VC"},{name:"Samoa",c:"685-WS-0",b:"685",f:"WS"},{name:"San Marino",c:"378-SM-0",b:"378",f:"SM"},{name:"S\u00e3o Tom\u00e9 and Pr\u00edncipe",c:"239-ST-0",b:"239",f:"ST"},{name:"Saudi Arabia",c:"966-SA-0",b:"966",f:"SA"},{name:"Senegal",c:"221-SN-0",b:"221",f:"SN"},{name:"Serbia",c:"381-RS-0",b:"381",f:"RS"},{name:"Seychelles",c:"248-SC-0",b:"248",f:"SC"},{name:"Sierra Leone",
+c:"232-SL-0",b:"232",f:"SL"},{name:"Singapore",c:"65-SG-0",b:"65",f:"SG"},{name:"Sint Maarten",c:"1-SX-0",b:"1",f:"SX"},{name:"Slovakia",c:"421-SK-0",b:"421",f:"SK"},{name:"Slovenia",c:"386-SI-0",b:"386",f:"SI"},{name:"Solomon Islands",c:"677-SB-0",b:"677",f:"SB"},{name:"Somalia",c:"252-SO-0",b:"252",f:"SO"},{name:"South Africa",c:"27-ZA-0",b:"27",f:"ZA"},{name:"South Georgia and the South Sandwich Islands",c:"500-GS-0",b:"500",f:"GS"},{name:"South Korea",c:"82-KR-0",b:"82",f:"KR"},{name:"South Sudan",
+c:"211-SS-0",b:"211",f:"SS"},{name:"Spain",c:"34-ES-0",b:"34",f:"ES"},{name:"Sri Lanka",c:"94-LK-0",b:"94",f:"LK"},{name:"Sudan",c:"249-SD-0",b:"249",f:"SD"},{name:"Suriname",c:"597-SR-0",b:"597",f:"SR"},{name:"Svalbard and Jan Mayen",c:"47-SJ-0",b:"47",f:"SJ"},{name:"Swaziland",c:"268-SZ-0",b:"268",f:"SZ"},{name:"Sweden",c:"46-SE-0",b:"46",f:"SE"},{name:"Switzerland",c:"41-CH-0",b:"41",f:"CH"},{name:"Syria",c:"963-SY-0",b:"963",f:"SY"},{name:"Taiwan",c:"886-TW-0",b:"886",f:"TW"},{name:"Tajikistan",
+c:"992-TJ-0",b:"992",f:"TJ"},{name:"Tanzania",c:"255-TZ-0",b:"255",f:"TZ"},{name:"Thailand",c:"66-TH-0",b:"66",f:"TH"},{name:"Togo",c:"228-TG-0",b:"228",f:"TG"},{name:"Tokelau",c:"690-TK-0",b:"690",f:"TK"},{name:"Tonga",c:"676-TO-0",b:"676",f:"TO"},{name:"Trinidad/Tobago",c:"1-TT-0",b:"1",f:"TT"},{name:"Tunisia",c:"216-TN-0",b:"216",f:"TN"},{name:"Turkey",c:"90-TR-0",b:"90",f:"TR"},{name:"Turkmenistan",c:"993-TM-0",b:"993",f:"TM"},{name:"Turks and Caicos Islands",c:"1-TC-0",b:"1",f:"TC"},{name:"Tuvalu",
+c:"688-TV-0",b:"688",f:"TV"},{name:"U.S. Virgin Islands",c:"1-VI-0",b:"1",f:"VI"},{name:"Uganda",c:"256-UG-0",b:"256",f:"UG"},{name:"Ukraine",c:"380-UA-0",b:"380",f:"UA"},{name:"United Arab Emirates",c:"971-AE-0",b:"971",f:"AE"},{name:"United Kingdom",c:"44-GB-0",b:"44",f:"GB"},{name:"United States",c:"1-US-0",b:"1",f:"US"},{name:"Uruguay",c:"598-UY-0",b:"598",f:"UY"},{name:"Uzbekistan",c:"998-UZ-0",b:"998",f:"UZ"},{name:"Vanuatu",c:"678-VU-0",b:"678",f:"VU"},{name:"Vatican City",c:"379-VA-0",b:"379",
+f:"VA"},{name:"Venezuela",c:"58-VE-0",b:"58",f:"VE"},{name:"Vietnam",c:"84-VN-0",b:"84",f:"VN"},{name:"Wallis and Futuna",c:"681-WF-0",b:"681",f:"WF"},{name:"Western Sahara",c:"212-EH-0",b:"212",f:"EH"},{name:"Yemen",c:"967-YE-0",b:"967",f:"YE"},{name:"Zambia",c:"260-ZM-0",b:"260",f:"ZM"},{name:"Zimbabwe",c:"263-ZW-0",b:"263",f:"ZW"}];gi(di);var hi=new ai(di);function ii(a,b){this.a=a;this.Ca=b}function ji(a){a=Wa(a);var b=bi(hi,a);return 0<b.length?new ii("1"==b[0].b?"1-US-0":b[0].c,Wa(a.substr(b[0].b.length+
+1))):null}function ki(a){var b=ci(a.a);if(!b)throw Error("Country ID "+a.a+" not found.");return"+"+b.b+a.Ca}function li(a,b){for(var c=0;c<a.length;c++)if(!Na(mi,a[c])&&(null!==ni&&a[c]in ni||Na(b,a[c])))return a[c];return null}var mi=["emailLink","password","phone"],ni={"facebook.com":"FacebookAuthProvider","github.com":"GithubAuthProvider","google.com":"GoogleAuthProvider",password:"EmailAuthProvider","twitter.com":"TwitterAuthProvider",phone:"PhoneAuthProvider"};function oi(){this.a=new Uh;I(this.a,
+"acUiConfig");I(this.a,"autoUpgradeAnonymousUsers");I(this.a,"callbacks");I(this.a,"credentialHelper",pi);I(this.a,"immediateFederatedRedirect",!1);I(this.a,"popupMode",!1);I(this.a,"privacyPolicyUrl");I(this.a,"queryParameterForSignInSuccessUrl","signInSuccessUrl");I(this.a,"queryParameterForWidgetMode","mode");I(this.a,"signInFlow");I(this.a,"signInOptions");I(this.a,"signInSuccessUrl");I(this.a,"siteName");I(this.a,"tosUrl");I(this.a,"widgetUrl")}function qi(a){return a.a.get("acUiConfig")||null}
+function ri(a){var b=a.a.get("widgetUrl")||vf();return si(a,b)}function si(a,b){a=ti(a);for(var c=b.search(ub),d=0,e,f=[];0<=(e=tb(b,d,a,c));)f.push(b.substring(d,e)),d=Math.min(b.indexOf("&",e)+1||c,c);f.push(b.substr(d));b=f.join("").replace(wb,"$1");c="="+encodeURIComponent("select");(a+=c)?(c=b.indexOf("#"),0>c&&(c=b.length),d=b.indexOf("?"),0>d||d>c?(d=c,e=""):e=b.substring(d+1,c),b=[b.substr(0,d),e,b.substr(c)],c=b[1],b[1]=a?c?c+"&"+a:a:c,a=b[0]+(b[1]?"?"+b[1]:"")+b[2]):a=b;return a}function ui(a){var b=
+!!a.a.get("autoUpgradeAnonymousUsers");b&&!vi(a)&&rg('Missing "signInFailure" callback: "signInFailure" callback needs to be provided when "autoUpgradeAnonymousUsers" is set to true.',void 0);return b}function wi(a){a=a.a.get("signInOptions")||[];for(var b=[],c=0;c<a.length;c++){var d=a[c];d=ta(d)?d:{provider:d};d.provider&&b.push(d)}return b}function xi(a,b){a=wi(a);for(var c=0;c<a.length;c++)if(a[c].provider===b)return a[c];return null}function yi(a){return Ka(wi(a),function(b){return b.provider})}
+function zi(a,b){a=Ai(a);for(var c=0;c<a.length;c++)if(a[c].providerId===b)return a[c];return null}function Ai(a){return Ka(wi(a),function(b){if(ni[b.provider]||Na(Bi,b.provider)){b={providerId:b.provider,S:b.providerName||null,V:b.fullLabel||null,va:b.buttonColor||null,Ba:b.iconUrl?Cc(Fc(b.iconUrl)):null};for(var c in b)null===b[c]&&delete b[c];return b}return{providerId:b.provider,S:b.providerName||null,V:b.fullLabel||null,va:b.buttonColor||null,Ba:b.iconUrl?Cc(Fc(b.iconUrl)):null,Nb:b.loginHintKey||
+null}})}function Ci(a){var b=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.PROVIDER_ID);return b&&b.clientId&&Di(a)===Ei?b.clientId||null:null}function Fi(a){var b=null;Ha(wi(a),function(d){d.provider==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].PhoneAuthProvider.PROVIDER_ID&&ta(d.recaptchaParameters)&&!qa(d.recaptchaParameters)&&(b=gb(d.recaptchaParameters))});if(b){var c=[];Ha(Gi,function(d){"undefined"!==typeof b[d]&&(c.push(d),delete b[d])});c.length&&wg('The following provided "recaptchaParameters" keys are not allowed: '+c.join(", "))}return b}
+function Hi(a,b){a=(a=xi(a,b))&&a.scopes;return qa(a)?a:[]}function Ii(a,b){a=(a=xi(a,b))&&a.customParameters;return ta(a)?(a=gb(a),b===firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.PROVIDER_ID&&delete a.login_hint,b===firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GithubAuthProvider.PROVIDER_ID&&delete a.login,a):null}function Ji(a){a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].PhoneAuthProvider.PROVIDER_ID);var b=null;a&&"string"===typeof a.loginHint&&(b=ji(a.loginHint));return a&&a.defaultNationalNumber||b&&b.Ca||null}function Ki(a){var b=(a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].PhoneAuthProvider.PROVIDER_ID))&&
+a.defaultCountry||null;b=b&&ei(b);var c=null;a&&"string"===typeof a.loginHint&&(c=ji(a.loginHint));return b&&b[0]||c&&ci(c.a)||null}function Li(a){a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].PhoneAuthProvider.PROVIDER_ID);if(!a)return null;var b=a.whitelistedCountries,c=a.blacklistedCountries;if("undefined"!==typeof b&&(!qa(b)||0==b.length))throw Error("WhitelistedCountries must be a non-empty array.");if("undefined"!==typeof c&&!qa(c))throw Error("BlacklistedCountries must be an array.");if(b&&c)throw Error("Both whitelistedCountries and blacklistedCountries are provided.");
+if(!b&&!c)return di;a=[];if(b){c={};for(var d=0;d<b.length;d++){var e=fi(b[d]);for(var f=0;f<e.length;f++)c[e[f].c]=e[f]}for(var g in c)c.hasOwnProperty(g)&&a.push(c[g])}else{g={};for(b=0;b<c.length;b++)for(e=fi(c[b]),d=0;d<e.length;d++)g[e[d].c]=e[d];for(e=0;e<di.length;e++)null!==g&&di[e].c in g||a.push(di[e])}return a}function ti(a){return Wh(a.a,"queryParameterForWidgetMode")}function J(a){var b=a.a.get("tosUrl")||null;a=a.a.get("privacyPolicyUrl")||null;b&&!a&&wg("Privacy Policy URL is missing, the link will not be displayed.");
+if(b&&a){if("function"===typeof b)return b;if("string"===typeof b)return function(){tf(b)}}return null}function Mi(a){var b=a.a.get("tosUrl")||null,c=a.a.get("privacyPolicyUrl")||null;c&&!b&&wg("Term of Service URL is missing, the link will not be displayed.");if(b&&c){if("function"===typeof c)return c;if("string"===typeof c)return function(){tf(c)}}return null}function Ni(a){return(a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.PROVIDER_ID))&&"undefined"!==typeof a.requireDisplayName?!!a.requireDisplayName:
+!0}function Oi(a){a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.PROVIDER_ID);return!(!a||a.signInMethod!==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD)}function Pi(a){a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.PROVIDER_ID);return!(!a||!a.forceSameDevice)}function Qi(a){if(Oi(a)){var b={url:vf(),handleCodeInApp:!0};(a=xi(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.PROVIDER_ID))&&"function"===typeof a.emailLinkSignIn&&ib(b,a.emailLinkSignIn());b.url=Mb(vf(),b.url).toString();return b}return null}function Ri(a){var b=
+!!a.a.get("immediateFederatedRedirect"),c=yi(a);a=Si(a);return b&&1==c.length&&!Na(mi,c[0])&&a==Ti}function Si(a){a=a.a.get("signInFlow");for(var b in Ui)if(Ui[b]==a)return Ui[b];return Ti}function Vi(a){return Wi(a).uiShown||null}function Xi(a){return Wi(a).signInSuccess||null}function Yi(a){return Wi(a).signInSuccessWithAuthResult||null}function vi(a){return Wi(a).signInFailure||null}function Wi(a){return a.a.get("callbacks")||{}}function Di(a){if("http:"!==(window.location&&window.location.protocol)&&
+"https:"!==(window.location&&window.location.protocol))return Zi;a=a.a.get("credentialHelper");a===pi&&wg('AccountChooser.com will be operating in "universal opt-out" mode starting July 31st, 2020, it should no longer be used as a CredentialHelper. Learn more at https://accountchooser.net/developers');for(var b in $i)if($i[b]===a)return $i[b];return pi}var pi="accountchooser.com",Ei="googleyolo",Zi="none",$i={jc:pi,mc:Ei,NONE:Zi},Ti="redirect",Ui={pc:"popup",qc:Ti},aj={lc:"callback",RECOVER_EMAIL:"recoverEmail",
+rc:"resetPassword",REVERT_SECOND_FACTOR_ADDITION:"revertSecondFactorAddition",sc:"select",tc:"signIn",VERIFY_AND_CHANGE_EMAIL:"verifyAndChangeEmail",VERIFY_EMAIL:"verifyEmail"},Bi=["anonymous"],Gi=["sitekey","tabindex","callback","expired-callback"];var bj,cj,dj,ej,K={};function L(a,b,c,d){K[a].apply(null,Array.prototype.slice.call(arguments,1))}var fj=null;function gj(a){return!(!a||-32E3!=a.code||"Service unavailable"!=a.message)}function hj(a,b,c,d){fj||(a={callbacks:{empty:a,select:function(e,
+f){e&&e.account&&b?b(yg(e.account)):c&&c(!gj(f))},store:a,update:a},language:"en",providers:void 0,ui:d},"undefined"!=typeof accountchooser&&accountchooser.Api&&accountchooser.Api.init?fj=accountchooser.Api.init(a):(fj=new ij(a),jj()))}function kj(a,b,c){function d(){var e=Mb(window.location.href,c).toString();fj.select(Ka(b||[],function(f){return f.ba()}),{clientCallbackUrl:e})}b&&b.length?d():fj.checkEmpty(function(e,f){e||f?a(!gj(f)):d()})}function ij(a){this.a=a;this.a.callbacks=this.a.callbacks||
+{}}function jj(){var a=fj;"function"===typeof a.a.callbacks.empty&&a.a.callbacks.empty()}l=ij.prototype;l.store=function(){"function"===typeof this.a.callbacks.store&&this.a.callbacks.store(void 0,lj)};l.select=function(){"function"===typeof this.a.callbacks.select&&this.a.callbacks.select(void 0,lj)};l.update=function(){"function"===typeof this.a.callbacks.update&&this.a.callbacks.update(void 0,lj)};l.checkDisabled=function(a){a(!0)};l.checkEmpty=function(a){a(void 0,lj)};l.checkAccountExist=function(a,
+b){b(void 0,lj)};l.checkShouldUpdate=function(a,b){b(void 0,lj)};var lj={code:-32E3,message:"Service unavailable",data:"Service is unavailable."};var mj=/MSIE ([\d.]+).*Windows NT ([\d.]+)/,nj=/Firefox\/([\d.]+)/,oj=/Opera[ \/]([\d.]+)(.*Version\/([\d.]+))?/,pj=/Chrome\/([\d.]+)/,qj=/((Windows NT ([\d.]+))|(Mac OS X ([\d_]+))).*Version\/([\d.]+).*Safari/,rj=/Mac OS X;.*(?!(Version)).*Safari/,sj=/Android ([\d.]+).*Safari/,tj=/OS ([\d_]+) like Mac OS X.*Mobile.*Safari/,uj=/Konqueror\/([\d.]+)/,vj=/MSIE ([\d.]+).*Windows Phone OS ([\d.]+)/;
+function wj(a,b){a=a.split(b||".");this.a=[];for(b=0;b<a.length;b++)this.a.push(parseInt(a[b],10))}function xj(a,b){b instanceof wj||(b=new wj(String(b)));for(var c=Math.max(a.a.length,b.a.length),d=0;d<c;d++){var e=a.a[d],f=b.a[d];if(void 0!==e&&void 0!==f&&e!==f)return e-f;if(void 0===e)return-1;if(void 0===f)return 1}return 0}function yj(a,b){return 0<=xj(a,b)}function zj(){var a=window.navigator&&window.navigator.userAgent;if(a){var b;if(b=a.match(oj)){var c=new wj(b[3]||b[1]);return 0<=a.indexOf("Opera Mini")?
+!1:0<=a.indexOf("Opera Mobi")?0<=a.indexOf("Android")&&yj(c,"10.1"):yj(c,"8.0")}if(b=a.match(nj))return yj(new wj(b[1]),"2.0");if(b=a.match(pj))return yj(new wj(b[1]),"6.0");if(b=a.match(qj))return c=new wj(b[6]),a=b[3]&&new wj(b[3]),b=b[5]&&new wj(b[5],"_"),(!(!a||!yj(a,"6.0"))||!(!b||!yj(b,"10.5.6")))&&yj(c,"3.0");if(b=a.match(sj))return yj(new wj(b[1]),"3.0");if(b=a.match(tj))return yj(new wj(b[1],"_"),"4.0");if(b=a.match(uj))return yj(new wj(b[1]),"4.7");if(b=a.match(vj))return c=new wj(b[1]),
+a=new wj(b[2]),yj(c,"7.0")&&yj(a,"7.0");if(b=a.match(mj))return c=new wj(b[1]),a=new wj(b[2]),yj(c,"7.0")&&yj(a,"6.0");if(a.match(rj))return!1}return!0}function Aj(a){if(a.classList)return a.classList;a=a.className;return q(a)&&a.match(/\S+/g)||[]}function Bj(a,b){return a.classList?a.classList.contains(b):Na(Aj(a),b)}function Cj(a,b){a.classList?a.classList.add(b):Bj(a,b)||(a.className+=0<a.className.length?" "+b:b)}function Dj(a,b){a.classList?a.classList.remove(b):Bj(a,b)&&(a.className=Ja(Aj(a),
+function(c){return c!=b}).join(" "))}function Ej(a){var b=a.type;switch(q(b)&&b.toLowerCase()){case "checkbox":case "radio":return a.checked?a.value:null;case "select-one":return b=a.selectedIndex,0<=b?a.options[b].value:null;case "select-multiple":b=[];for(var c,d=0;c=a.options[d];d++)c.selected&&b.push(c.value);return b.length?b:null;default:return null!=a.value?a.value:null}}function Fj(a,b){var c=a.type;switch(q(c)&&c.toLowerCase()){case "checkbox":case "radio":a.checked=b;break;case "select-one":a.selectedIndex=
+-1;if(q(b))for(var d=0;c=a.options[d];d++)if(c.value==b){c.selected=!0;break}break;case "select-multiple":q(b)&&(b=[b]);for(d=0;c=a.options[d];d++)if(c.selected=!1,b)for(var e,f=0;e=b[f];f++)c.value==e&&(c.selected=!0);break;default:a.value=null!=b?b:""}}function Gj(a){if(a.altKey&&!a.ctrlKey||a.metaKey||112<=a.keyCode&&123>=a.keyCode)return!1;if(Hj(a.keyCode))return!0;switch(a.keyCode){case 18:case 20:case 93:case 17:case 40:case 35:case 27:case 36:case 45:case 37:case 224:case 91:case 144:case 12:case 34:case 33:case 19:case 255:case 44:case 39:case 145:case 16:case 38:case 252:case 224:case 92:return!1;
+case 0:return!gc;default:return 166>a.keyCode||183<a.keyCode}}function Ij(a,b,c,d,e,f){if(hc&&!pc("525"))return!0;if(jc&&e)return Hj(a);if(e&&!d)return!1;if(!gc){"number"==typeof b&&(b=Jj(b));var g=17==b||18==b||jc&&91==b;if((!c||jc)&&g||jc&&16==b&&(d||f))return!1}if((hc||ec)&&d&&c)switch(a){case 220:case 219:case 221:case 192:case 186:case 189:case 187:case 188:case 190:case 191:case 192:case 222:return!1}if(z&&d&&b==a)return!1;switch(a){case 13:return gc?f||e?!1:!(c&&d):!0;case 27:return!(hc||ec||
+gc)}return gc&&(d||e||f)?!1:Hj(a)}function Hj(a){if(48<=a&&57>=a||96<=a&&106>=a||65<=a&&90>=a||(hc||ec)&&0==a)return!0;switch(a){case 32:case 43:case 63:case 64:case 107:case 109:case 110:case 111:case 186:case 59:case 189:case 187:case 61:case 188:case 190:case 191:case 192:case 222:case 219:case 220:case 221:case 163:return!0;case 173:return gc;default:return!1}}function Jj(a){if(gc)a=Kj(a);else if(jc&&hc)switch(a){case 93:a=91}return a}function Kj(a){switch(a){case 61:return 187;case 59:return 186;
+case 173:return 189;case 224:return 91;case 0:return 224;default:return a}}function Lj(a){E.call(this);this.a=a;me(a,"keydown",this.g,!1,this);me(a,"click",this.h,!1,this)}w(Lj,E);Lj.prototype.g=function(a){(13==a.keyCode||hc&&3==a.keyCode)&&Mj(this,a)};Lj.prototype.h=function(a){Mj(this,a)};function Mj(a,b){var c=new Nj(b);if(ze(a,c)){c=new Oj(b);try{ze(a,c)}finally{b.stopPropagation()}}}Lj.prototype.m=function(){Lj.K.m.call(this);ue(this.a,"keydown",this.g,!1,this);ue(this.a,"click",this.h,!1,this);
+delete this.a};function Oj(a){ae.call(this,a.a);this.type="action"}w(Oj,ae);function Nj(a){ae.call(this,a.a);this.type="beforeaction"}w(Nj,ae);function Pj(a){E.call(this);this.a=a;a=z?"focusout":"blur";this.g=me(this.a,z?"focusin":"focus",this,!z);this.h=me(this.a,a,this,!z)}w(Pj,E);Pj.prototype.handleEvent=function(a){var b=new ae(a.a);b.type="focusin"==a.type||"focus"==a.type?"focusin":"focusout";ze(this,b)};Pj.prototype.m=function(){Pj.K.m.call(this);ve(this.g);ve(this.h);delete this.a};function Qj(a,
+b){E.call(this);this.g=a||1;this.a=b||n;this.h=t(this.fc,this);this.j=Aa()}w(Qj,E);l=Qj.prototype;l.La=!1;l.aa=null;l.fc=function(){if(this.La){var a=Aa()-this.j;0<a&&a<.8*this.g?this.aa=this.a.setTimeout(this.h,this.g-a):(this.aa&&(this.a.clearTimeout(this.aa),this.aa=null),ze(this,"tick"),this.La&&(Rj(this),this.start()))}};l.start=function(){this.La=!0;this.aa||(this.aa=this.a.setTimeout(this.h,this.g),this.j=Aa())};function Rj(a){a.La=!1;a.aa&&(a.a.clearTimeout(a.aa),a.aa=null)}l.m=function(){Qj.K.m.call(this);
+Rj(this);delete this.a};function Sj(a,b){if(sa(a))b&&(a=t(a,b));else if(a&&"function"==typeof a.handleEvent)a=t(a.handleEvent,a);else throw Error("Invalid listener argument");return 2147483647<Number(0)?-1:n.setTimeout(a,0)}function Tj(a){Rd.call(this);this.g=a;this.a={}}w(Tj,Rd);var Uj=[];function Vj(a,b,c,d){qa(c)||(c&&(Uj[0]=c.toString()),c=Uj);for(var e=0;e<c.length;e++){var f=me(b,c[e],d||a.handleEvent,!1,a.g||a);if(!f)break;a.a[f.key]=f}}function Wj(a){fb(a.a,function(b,c){this.a.hasOwnProperty(c)&&
+ve(b)},a);a.a={}}Tj.prototype.m=function(){Tj.K.m.call(this);Wj(this)};Tj.prototype.handleEvent=function(){throw Error("EventHandler.handleEvent not implemented");};function Xj(a){E.call(this);this.a=null;this.g=a;a=z||ec||hc&&!pc("531")&&"TEXTAREA"==a.tagName;this.h=new Tj(this);Vj(this.h,this.g,a?["keydown","paste","cut","drop","input"]:"input",this)}w(Xj,E);Xj.prototype.handleEvent=function(a){if("input"==a.type)z&&pc(10)&&0==a.keyCode&&0==a.j||(Yj(this),ze(this,Zj(a)));else if("keydown"!=a.type||
+Gj(a)){var b="keydown"==a.type?this.g.value:null;z&&229==a.keyCode&&(b=null);var c=Zj(a);Yj(this);this.a=Sj(function(){this.a=null;this.g.value!=b&&ze(this,c)},this)}};function Yj(a){null!=a.a&&(n.clearTimeout(a.a),a.a=null)}function Zj(a){a=new ae(a.a);a.type="input";return a}Xj.prototype.m=function(){Xj.K.m.call(this);this.h.o();Yj(this);delete this.g};function ak(a,b){E.call(this);a&&(this.Pa&&bk(this),this.ra=a,this.Oa=me(this.ra,"keypress",this,b),this.Za=me(this.ra,"keydown",this.Ib,b,this),
+this.Pa=me(this.ra,"keyup",this.Jb,b,this))}w(ak,E);l=ak.prototype;l.ra=null;l.Oa=null;l.Za=null;l.Pa=null;l.R=-1;l.X=-1;l.Va=!1;var ck={3:13,12:144,63232:38,63233:40,63234:37,63235:39,63236:112,63237:113,63238:114,63239:115,63240:116,63241:117,63242:118,63243:119,63244:120,63245:121,63246:122,63247:123,63248:44,63272:46,63273:36,63275:35,63276:33,63277:34,63289:144,63302:45},dk={Up:38,Down:40,Left:37,Right:39,Enter:13,F1:112,F2:113,F3:114,F4:115,F5:116,F6:117,F7:118,F8:119,F9:120,F10:121,F11:122,
+F12:123,"U+007F":46,Home:36,End:35,PageUp:33,PageDown:34,Insert:45},ek=!hc||pc("525"),fk=jc&&gc;l=ak.prototype;l.Ib=function(a){if(hc||ec)if(17==this.R&&!a.ctrlKey||18==this.R&&!a.altKey||jc&&91==this.R&&!a.metaKey)this.X=this.R=-1;-1==this.R&&(a.ctrlKey&&17!=a.keyCode?this.R=17:a.altKey&&18!=a.keyCode?this.R=18:a.metaKey&&91!=a.keyCode&&(this.R=91));ek&&!Ij(a.keyCode,this.R,a.shiftKey,a.ctrlKey,a.altKey,a.metaKey)?this.handleEvent(a):(this.X=Jj(a.keyCode),fk&&(this.Va=a.altKey))};l.Jb=function(a){this.X=
+this.R=-1;this.Va=a.altKey};l.handleEvent=function(a){var b=a.a,c=b.altKey;if(z&&"keypress"==a.type){var d=this.X;var e=13!=d&&27!=d?b.keyCode:0}else(hc||ec)&&"keypress"==a.type?(d=this.X,e=0<=b.charCode&&63232>b.charCode&&Hj(d)?b.charCode:0):dc&&!hc?(d=this.X,e=Hj(d)?b.keyCode:0):("keypress"==a.type?(fk&&(c=this.Va),b.keyCode==b.charCode?32>b.keyCode?(d=b.keyCode,e=0):(d=this.X,e=b.charCode):(d=b.keyCode||this.X,e=b.charCode||0)):(d=b.keyCode||this.X,e=b.charCode||0),jc&&63==e&&224==d&&(d=191));
+var f=d=Jj(d);d?63232<=d&&d in ck?f=ck[d]:25==d&&a.shiftKey&&(f=9):b.keyIdentifier&&b.keyIdentifier in dk&&(f=dk[b.keyIdentifier]);gc&&ek&&"keypress"==a.type&&!Ij(f,this.R,a.shiftKey,a.ctrlKey,c,a.metaKey)||(a=f==this.R,this.R=f,b=new gk(f,e,a,b),b.altKey=c,ze(this,b))};l.N=function(){return this.ra};function bk(a){a.Oa&&(ve(a.Oa),ve(a.Za),ve(a.Pa),a.Oa=null,a.Za=null,a.Pa=null);a.ra=null;a.R=-1;a.X=-1}l.m=function(){ak.K.m.call(this);bk(this)};function gk(a,b,c,d){ae.call(this,d);this.type="key";
+this.keyCode=a;this.j=b;this.repeat=c}w(gk,ae);function hk(a,b,c,d){this.top=a;this.right=b;this.bottom=c;this.left=d}hk.prototype.toString=function(){return"("+this.top+"t, "+this.right+"r, "+this.bottom+"b, "+this.left+"l)"};hk.prototype.ceil=function(){this.top=Math.ceil(this.top);this.right=Math.ceil(this.right);this.bottom=Math.ceil(this.bottom);this.left=Math.ceil(this.left);return this};hk.prototype.floor=function(){this.top=Math.floor(this.top);this.right=Math.floor(this.right);this.bottom=
+Math.floor(this.bottom);this.left=Math.floor(this.left);return this};hk.prototype.round=function(){this.top=Math.round(this.top);this.right=Math.round(this.right);this.bottom=Math.round(this.bottom);this.left=Math.round(this.left);return this};function ik(a,b){var c=Uc(a);return c.defaultView&&c.defaultView.getComputedStyle&&(a=c.defaultView.getComputedStyle(a,null))?a[b]||a.getPropertyValue(b)||"":""}function jk(a){try{var b=a.getBoundingClientRect()}catch(c){return{left:0,top:0,right:0,bottom:0}}z&&
+a.ownerDocument.body&&(a=a.ownerDocument,b.left-=a.documentElement.clientLeft+a.body.clientLeft,b.top-=a.documentElement.clientTop+a.body.clientTop);return b}function kk(a,b){b=b||$c(document);var c=b||$c(document);var d=lk(a),e=lk(c);if(!z||9<=Number(qc)){g=ik(c,"borderLeftWidth");var f=ik(c,"borderRightWidth");h=ik(c,"borderTopWidth");k=ik(c,"borderBottomWidth");f=new hk(parseFloat(h),parseFloat(f),parseFloat(k),parseFloat(g))}else{var g=mk(c,"borderLeft");f=mk(c,"borderRight");var h=mk(c,"borderTop"),
+k=mk(c,"borderBottom");f=new hk(h,f,k,g)}c==$c(document)?(g=d.a-c.scrollLeft,d=d.g-c.scrollTop,!z||10<=Number(qc)||(g+=f.left,d+=f.top)):(g=d.a-e.a-f.left,d=d.g-e.g-f.top);e=a.offsetWidth;f=a.offsetHeight;h=hc&&!e&&!f;ka(e)&&!h||!a.getBoundingClientRect?a=new Rc(e,f):(a=jk(a),a=new Rc(a.right-a.left,a.bottom-a.top));e=c.clientHeight-a.height;f=c.scrollLeft;h=c.scrollTop;f+=Math.min(g,Math.max(g-(c.clientWidth-a.width),0));h+=Math.min(d,Math.max(d-e,0));c=new Qc(f,h);b.scrollLeft=c.a;b.scrollTop=c.g}
+function lk(a){var b=Uc(a),c=new Qc(0,0);var d=b?Uc(b):document;d=!z||9<=Number(qc)||"CSS1Compat"==Sc(d).a.compatMode?d.documentElement:d.body;if(a==d)return c;a=jk(a);d=Sc(b).a;b=$c(d);d=d.parentWindow||d.defaultView;b=z&&pc("10")&&d.pageYOffset!=b.scrollTop?new Qc(b.scrollLeft,b.scrollTop):new Qc(d.pageXOffset||b.scrollLeft,d.pageYOffset||b.scrollTop);c.a=a.left+b.a;c.g=a.top+b.g;return c}var nk={thin:2,medium:4,thick:6};function mk(a,b){if("none"==(a.currentStyle?a.currentStyle[b+"Style"]:null))return 0;
+var c=a.currentStyle?a.currentStyle[b+"Width"]:null;if(c in nk)a=nk[c];else if(/^\d+px?$/.test(c))a=parseInt(c,10);else{b=a.style.left;var d=a.runtimeStyle.left;a.runtimeStyle.left=a.currentStyle.left;a.style.left=c;c=a.style.pixelLeft;a.style.left=b;a.runtimeStyle.left=d;a=+c}return a}function ok(){}oa(ok);ok.prototype.a=0;function pk(a){E.call(this);this.s=a||Sc();this.eb=null;this.oa=!1;this.g=null;this.L=void 0;this.pa=this.Fa=this.Y=null}w(pk,E);l=pk.prototype;l.Kb=ok.Ya();l.N=function(){return this.g};
+function M(a,b){return a.g?Xc(b,a.g||a.s.a):null}function qk(a){a.L||(a.L=new Tj(a));return a.L}l.$a=function(a){if(this.Y&&this.Y!=a)throw Error("Method not supported");pk.K.$a.call(this,a)};l.lb=function(){this.g=this.s.a.createElement("DIV")};l.render=function(a){if(this.oa)throw Error("Component already rendered");this.g||this.lb();a?a.insertBefore(this.g,null):this.s.a.body.appendChild(this.g);this.Y&&!this.Y.oa||this.v()};l.v=function(){this.oa=!0;rk(this,function(a){!a.oa&&a.N()&&a.v()})};
+l.Aa=function(){rk(this,function(a){a.oa&&a.Aa()});this.L&&Wj(this.L);this.oa=!1};l.m=function(){this.oa&&this.Aa();this.L&&(this.L.o(),delete this.L);rk(this,function(a){a.o()});this.g&&ad(this.g);this.Y=this.g=this.pa=this.Fa=null;pk.K.m.call(this)};function rk(a,b){a.Fa&&Ha(a.Fa,b,void 0)}l.removeChild=function(a,b){if(a){var c=q(a)?a:a.eb||(a.eb=":"+(a.Kb.a++).toString(36));this.pa&&c?(a=this.pa,a=(null!==a&&c in a?a[c]:void 0)||null):a=null;if(c&&a){var d=this.pa;c in d&&delete d[c];Oa(this.Fa,
+a);b&&(a.Aa(),a.g&&ad(a.g));b=a;if(null==b)throw Error("Unable to set parent component");b.Y=null;pk.K.$a.call(b,null)}}if(!a)throw Error("Child is not in parent component");return a};function N(a,b){var c=cd(a,"firebaseui-textfield");b?(Dj(a,"firebaseui-input-invalid"),Cj(a,"firebaseui-input"),c&&Dj(c,"firebaseui-textfield-invalid")):(Dj(a,"firebaseui-input"),Cj(a,"firebaseui-input-invalid"),c&&Cj(c,"firebaseui-textfield-invalid"))}function sk(a,b,c){b=new Xj(b);Ud(a,ya(Vd,b));Vj(qk(a),b,"input",
+c)}function tk(a,b,c){b=new ak(b);Ud(a,ya(Vd,b));Vj(qk(a),b,"key",function(d){13==d.keyCode&&(d.stopPropagation(),d.preventDefault(),c(d))})}function uk(a,b,c){b=new Pj(b);Ud(a,ya(Vd,b));Vj(qk(a),b,"focusin",c)}function vk(a,b,c){b=new Pj(b);Ud(a,ya(Vd,b));Vj(qk(a),b,"focusout",c)}function O(a,b,c){b=new Lj(b);Ud(a,ya(Vd,b));Vj(qk(a),b,"action",function(d){d.stopPropagation();d.preventDefault();c(d)})}function wk(a){Cj(a,"firebaseui-hidden")}function xk(a,b){b&&bd(a,b);Dj(a,"firebaseui-hidden")}function yk(a){return!Bj(a,
+"firebaseui-hidden")&&"none"!=a.style.display}function zk(a){a=a||{};var b=a.email,c=a.disabled,d='<div class="firebaseui-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><label class="mdl-textfield__label firebaseui-label" for="ui-sign-in-email-input">';d=a.vc?d+"Enter new email address":d+"Email";d+='</label><input type="email" name="email" id="ui-sign-in-email-input" autocomplete="username" class="mdl-textfield__input firebaseui-input firebaseui-id-email" value="'+wd(null!=
+b?b:"")+'"'+(c?"disabled":"")+'></div><div class="firebaseui-error-wrapper"><p class="firebaseui-error firebaseui-text-input-error firebaseui-hidden firebaseui-id-email-error"></p></div>';return B(d)}function Ak(a){a=a||{};a=a.label;var b='<button type="submit" class="firebaseui-id-submit firebaseui-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">';b=a?b+A(a):b+"Next";return B(b+"</button>")}function Bk(){var a=""+Ak({label:D("Sign In")});return B(a)}function Ck(){var a=""+
+Ak({label:D("Save")});return B(a)}function Dk(){var a=""+Ak({label:D("Continue")});return B(a)}function Ek(a){a=a||{};a=a.label;var b='<div class="firebaseui-new-password-component"><div class="firebaseui-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><label class="mdl-textfield__label firebaseui-label" for="ui-sign-in-new-password-input">';b=a?b+A(a):b+"Choose password";return B(b+'</label><input type="password" name="newPassword" id="ui-sign-in-new-password-input" autocomplete="new-password" class="mdl-textfield__input firebaseui-input firebaseui-id-new-password"></div><a href="javascript:void(0)" class="firebaseui-input-floating-button firebaseui-id-password-toggle firebaseui-input-toggle-on firebaseui-input-toggle-blur"></a><div class="firebaseui-error-wrapper"><p class="firebaseui-error firebaseui-text-input-error firebaseui-hidden firebaseui-id-new-password-error"></p></div></div>')}
+function Fk(){var a={};var b='<div class="firebaseui-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><label class="mdl-textfield__label firebaseui-label" for="ui-sign-in-password-input">';b=a.current?b+"Current password":b+"Password";return B(b+'</label><input type="password" name="password" id="ui-sign-in-password-input" autocomplete="current-password" class="mdl-textfield__input firebaseui-input firebaseui-id-password"></div><div class="firebaseui-error-wrapper"><p class="firebaseui-error firebaseui-text-input-error firebaseui-hidden firebaseui-id-password-error"></p></div>')}
+function Gk(){return B('<a class="firebaseui-link firebaseui-id-secondary-link" href="javascript:void(0)">Trouble signing in?</a>')}function Hk(a){a=a||{};a=a.label;var b='<button class="firebaseui-id-secondary-link firebaseui-button mdl-button mdl-js-button mdl-button--primary">';b=a?b+A(a):b+"Cancel";return B(b+"</button>")}function Ik(a){var b="";a.F&&a.D&&(b+='<ul class="firebaseui-tos-list firebaseui-tos"><li class="firebaseui-inline-list-item"><a href="javascript:void(0)" class="firebaseui-link firebaseui-tos-link" target="_blank">Terms of Service</a></li><li class="firebaseui-inline-list-item"><a href="javascript:void(0)" class="firebaseui-link firebaseui-pp-link" target="_blank">Privacy Policy</a></li></ul>');
+return B(b)}function Jk(a){var b="";a.F&&a.D&&(b+='<p class="firebaseui-tos firebaseui-tospp-full-message">By continuing, you are indicating that you accept our <a href="javascript:void(0)" class="firebaseui-link firebaseui-tos-link" target="_blank">Terms of Service</a> and <a href="javascript:void(0)" class="firebaseui-link firebaseui-pp-link" target="_blank">Privacy Policy</a>.</p>');return B(b)}function Kk(a){a='<div class="firebaseui-info-bar firebaseui-id-info-bar"><p class="firebaseui-info-bar-message">'+
+A(a.message)+'&nbsp;&nbsp;<a href="javascript:void(0)" class="firebaseui-link firebaseui-id-dismiss-info-bar">Dismiss</a></p></div>';return B(a)}Kk.a="firebaseui.auth.soy2.element.infoBar";function Lk(a){var b=a.content;a=a.Ab;return B('<dialog class="mdl-dialog firebaseui-dialog firebaseui-id-dialog'+(a?" "+wd(a):"")+'">'+A(b)+"</dialog>")}function Mk(a){var b=a.message;return B(Lk({content:vd('<div class="firebaseui-dialog-icon-wrapper"><div class="'+wd(a.Na)+' firebaseui-dialog-icon"></div></div><div class="firebaseui-progress-dialog-message">'+
+A(b)+"</div>")}))}Mk.a="firebaseui.auth.soy2.element.progressDialog";function Nk(a){var b='<div class="firebaseui-list-box-actions">';a=a.items;for(var c=a.length,d=0;d<c;d++){var e=a[d];b+='<button type="button" data-listboxid="'+wd(e.id)+'" class="mdl-button firebaseui-id-list-box-dialog-button firebaseui-list-box-dialog-button">'+(e.Na?'<div class="firebaseui-list-box-icon-wrapper"><div class="firebaseui-list-box-icon '+wd(e.Na)+'"></div></div>':"")+'<div class="firebaseui-list-box-label-wrapper">'+
+A(e.label)+"</div></button>"}b=""+Lk({Ab:D("firebaseui-list-box-dialog"),content:vd(b+"</div>")});return B(b)}Nk.a="firebaseui.auth.soy2.element.listBoxDialog";function Ok(a){a=a||{};return B(a.ub?'<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active firebaseui-busy-indicator firebaseui-id-busy-indicator"></div>':'<div class="mdl-progress mdl-js-progress mdl-progress__indeterminate firebaseui-busy-indicator firebaseui-id-busy-indicator"></div>')}Ok.a="firebaseui.auth.soy2.element.busyIndicator";
+function Pk(a,b){a=a||{};a=a.ha;return C(a.S?a.S:b.ib[a.providerId]?""+b.ib[a.providerId]:a.providerId&&0==a.providerId.indexOf("saml.")?a.providerId.substring(5):a.providerId&&0==a.providerId.indexOf("oidc.")?a.providerId.substring(5):""+a.providerId)}function Qk(a){Rk(a,"upgradeElement")}function Sk(a){Rk(a,"downgradeElements")}var Tk=["mdl-js-textfield","mdl-js-progress","mdl-js-spinner","mdl-js-button"];function Rk(a,b){a&&window.componentHandler&&window.componentHandler[b]&&Ha(Tk,function(c){if(Bj(a,
+c))window.componentHandler[b](a);Ha(Vc(c,a),function(d){window.componentHandler[b](d)})})}function Uk(a,b,c){Vk.call(this);document.body.appendChild(a);a.showModal||window.dialogPolyfill.registerDialog(a);a.showModal();Qk(a);b&&O(this,a,function(f){var g=a.getBoundingClientRect();(f.clientX<g.left||g.left+g.width<f.clientX||f.clientY<g.top||g.top+g.height<f.clientY)&&Vk.call(this)});if(!c){var d=this.N().parentElement||this.N().parentNode;if(d){var e=this;this.ea=function(){if(a.open){var f=a.getBoundingClientRect().height,
+g=d.getBoundingClientRect().height,h=d.getBoundingClientRect().top-document.body.getBoundingClientRect().top,k=d.getBoundingClientRect().left-document.body.getBoundingClientRect().left,p=a.getBoundingClientRect().width,r=d.getBoundingClientRect().width;a.style.top=(h+(g-f)/2).toString()+"px";f=k+(r-p)/2;a.style.left=f.toString()+"px";a.style.right=(document.body.getBoundingClientRect().width-f-p).toString()+"px"}else window.removeEventListener("resize",e.ea)};this.ea();window.addEventListener("resize",
+this.ea,!1)}}}function Vk(){var a=Wk.call(this);a&&(Sk(a),a.open&&a.close(),ad(a),this.ea&&window.removeEventListener("resize",this.ea))}function Wk(){return Xc("firebaseui-id-dialog")}function Xk(){ad(Yk.call(this))}function Yk(){return M(this,"firebaseui-id-info-bar")}function Zk(){return M(this,"firebaseui-id-dismiss-info-bar")}var $k={za:{"google.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg","github.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg",
+"facebook.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/facebook.svg","twitter.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg",password:"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/mail.svg",phone:"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/phone.svg",anonymous:"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/anonymous.png","microsoft.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/microsoft.svg","yahoo.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/yahoo.svg",
+"apple.com":"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/apple.png",saml:"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/saml.svg",oidc:"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/oidc.svg"},ya:{"google.com":"#ffffff","github.com":"#333333","facebook.com":"#3b5998","twitter.com":"#55acee",password:"#db4437",phone:"#02bd7e",anonymous:"#f4b400","microsoft.com":"#2F2F2F","yahoo.com":"#720E9E","apple.com":"#000000",saml:"#007bff",oidc:"#007bff"},ib:{"google.com":"Google",
+"github.com":"GitHub","facebook.com":"Facebook","twitter.com":"Twitter",password:"Password",phone:"Phone",anonymous:"Guest","microsoft.com":"Microsoft","yahoo.com":"Yahoo","apple.com":"Apple"}};function al(a,b,c){$d.call(this,a,b);for(var d in c)this[d]=c[d]}w(al,$d);function P(a,b,c,d,e){pk.call(this,c);this.gb=a;this.fb=b;this.Ga=!1;this.Ha=d||null;this.A=this.da=null;this.Z=gb($k);ib(this.Z,e||{})}w(P,pk);l=P.prototype;l.lb=function(){var a=jd(this.gb,this.fb,this.Z,this.s);Qk(a);this.g=a};l.v=
+function(){P.K.v.call(this);De(Q(this),new al("pageEnter",Q(this),{pageId:this.Ha}));if(this.cb()&&this.Z.F){var a=this.Z.F;O(this,this.cb(),function(){a()})}if(this.bb()&&this.Z.D){var b=this.Z.D;O(this,this.bb(),function(){b()})}};l.Aa=function(){De(Q(this),new al("pageExit",Q(this),{pageId:this.Ha}));P.K.Aa.call(this)};l.m=function(){window.clearTimeout(this.da);this.fb=this.gb=this.da=null;this.Ga=!1;this.A=null;Sk(this.N());P.K.m.call(this)};function bl(a){a.Ga=!0;var b=Bj(a.N(),"firebaseui-use-spinner");
+a.da=window.setTimeout(function(){a.N()&&null===a.A&&(a.A=jd(Ok,{ub:b},null,a.s),a.N().appendChild(a.A),Qk(a.A))},500)}l.I=function(a,b,c,d){function e(){if(f.T)return null;f.Ga=!1;window.clearTimeout(f.da);f.da=null;f.A&&(Sk(f.A),ad(f.A),f.A=null)}var f=this;if(f.Ga)return null;bl(f);return a.apply(null,b).then(c,d).then(e,e)};function Q(a){return a.N().parentElement||a.N().parentNode}function cl(a,b,c){tk(a,b,function(){c.focus()})}function dl(a,b,c){tk(a,b,function(){c()})}u(P.prototype,{a:function(a){Xk.call(this);
+var b=jd(Kk,{message:a},null,this.s);this.N().appendChild(b);O(this,Zk.call(this),function(){ad(b)})},xc:Xk,zc:Yk,yc:Zk,$:function(a,b){a=jd(Mk,{Na:a,message:b},null,this.s);Uk.call(this,a)},h:Vk,Cb:Wk,Bc:function(){return M(this,"firebaseui-tos")},cb:function(){return M(this,"firebaseui-tos-link")},bb:function(){return M(this,"firebaseui-pp-link")},Cc:function(){return M(this,"firebaseui-tos-list")}});function el(a,b,c){a=a||{};b=a.Wa;var d=a.ja;a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-sign-in"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in with email</h1></div><div class="firebaseui-card-content"><div class="firebaseui-relative-wrapper">'+
+zk(a)+'</div></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+(b?Hk(null):"")+Ak(null)+'</div></div><div class="firebaseui-card-footer">'+(d?Jk(c):Ik(c))+"</div></form></div>";return B(a)}el.a="firebaseui.auth.soy2.page.signIn";function fl(a,b,c){a=a||{};b=a.ja;a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-sign-in"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content">'+
+zk(a)+Fk()+'</div><div class="firebaseui-card-actions"><div class="firebaseui-form-links">'+Gk()+'</div><div class="firebaseui-form-actions">'+Bk()+'</div></div><div class="firebaseui-card-footer">'+(b?Jk(c):Ik(c))+"</div></form></div>";return B(a)}fl.a="firebaseui.auth.soy2.page.passwordSignIn";function gl(a,b,c){a=a||{};var d=a.Sb;b=a.Ua;var e=a.ja,f='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-sign-up"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Create account</h1></div><div class="firebaseui-card-content">'+
+zk(a);d?(a=a||{},a=a.name,a='<div class="firebaseui-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><label class="mdl-textfield__label firebaseui-label" for="ui-sign-in-name-input">First &amp; last name</label><input type="text" name="name" id="ui-sign-in-name-input" autocomplete="name" class="mdl-textfield__input firebaseui-input firebaseui-id-name" value="'+wd(null!=a?a:"")+'"></div><div class="firebaseui-error-wrapper"><p class="firebaseui-error firebaseui-text-input-error firebaseui-hidden firebaseui-id-name-error"></p></div>',
+a=B(a)):a="";c=f+a+Ek(null)+'</div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+(b?Hk(null):"")+Ck()+'</div></div><div class="firebaseui-card-footer">'+(e?Jk(c):Ik(c))+"</div></form></div>";return B(c)}gl.a="firebaseui.auth.soy2.page.passwordSignUp";function hl(a,b,c){a=a||{};b=a.Ua;a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-recovery"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Recover password</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Get instructions sent to this email that explain how to reset your password</p>'+
+zk(a)+'</div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+(b?Hk(null):"")+Ak({label:D("Send")})+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(a)}hl.a="firebaseui.auth.soy2.page.passwordRecovery";function il(a,b,c){b=a.G;var d="";a="Follow the instructions sent to <strong>"+(A(a.email)+"</strong> to recover your password");d+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-recovery-email-sent"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Check your email</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+
+a+'</p></div><div class="firebaseui-card-actions">';b&&(d+='<div class="firebaseui-form-actions">'+Ak({label:D("Done")})+"</div>");d+='</div><div class="firebaseui-card-footer">'+Ik(c)+"</div></div>";return B(d)}il.a="firebaseui.auth.soy2.page.passwordRecoveryEmailSent";function jl(a,b,c){return B('<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-callback"><div class="firebaseui-callback-indicator-container">'+Ok(null,null,c)+"</div></div>")}jl.a="firebaseui.auth.soy2.page.callback";
+function kl(a,b,c){return B('<div class="firebaseui-container firebaseui-id-page-spinner">'+Ok({ub:!0},null,c)+"</div>")}kl.a="firebaseui.auth.soy2.page.spinner";function ll(){return B('<div class="firebaseui-container firebaseui-id-page-blank firebaseui-use-spinner"></div>')}ll.a="firebaseui.auth.soy2.page.blank";function ml(a,b,c){b="";a="A sign-in email with additional instructions was sent to <strong>"+(A(a.email)+"</strong>. Check your email to complete sign-in.");var d=B('<a class="firebaseui-link firebaseui-id-trouble-getting-email-link" href="javascript:void(0)">Trouble getting email?</a>');
+b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-link-sign-in-sent"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign-in email sent</h1></div><div class="firebaseui-card-content"><div class="firebaseui-email-sent"></div><p class="firebaseui-text">'+a+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-links">'+d+'</div><div class="firebaseui-form-actions">'+Hk({label:D("Back")})+'</div></div><div class="firebaseui-card-footer">'+
+Ik(c)+"</div></form></div>";return B(b)}ml.a="firebaseui.auth.soy2.page.emailLinkSignInSent";function nl(a,b,c){a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-not-received"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Trouble getting email?</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Try these common fixes:<ul><li>Check if the email was marked as spam or filtered.</li><li>Check your internet connection.</li><li>Check that you did not misspell your email.</li><li>Check that your inbox space is not running out or other inbox settings related issues.</li></ul></p><p class="firebaseui-text">If the steps above didn\'t work, you can resend the email. Note that this will deactivate the link in the older email.</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-links">'+
+B('<a class="firebaseui-link firebaseui-id-resend-email-link" href="javascript:void(0)">Resend</a>')+'</div><div class="firebaseui-form-actions">'+Hk({label:D("Back")})+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(a)}nl.a="firebaseui.auth.soy2.page.emailNotReceived";function ol(a,b,c){a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-link-sign-in-confirmation"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Confirm email</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Confirm your email to complete sign in</p><div class="firebaseui-relative-wrapper">'+
+zk(a)+'</div></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Hk(null)+Ak(null)+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(a)}ol.a="firebaseui.auth.soy2.page.emailLinkSignInConfirmation";function pl(){var a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-different-device-error"><div class="firebaseui-card-header"><h1 class="firebaseui-title">New device or browser detected</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Try opening the link using the same device or browser where you started the sign-in process.</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+
+Hk({label:D("Dismiss")})+"</div></div></div>";return B(a)}pl.a="firebaseui.auth.soy2.page.differentDeviceError";function ql(){var a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-anonymous-user-mismatch"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Session ended</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">The session associated with this sign-in request has either expired or was cleared.</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+
+Hk({label:D("Dismiss")})+"</div></div></div>";return B(a)}ql.a="firebaseui.auth.soy2.page.anonymousUserMismatch";function rl(a,b,c){b="";a="You\u2019ve already used <strong>"+(A(a.email)+"</strong> to sign in. Enter your password for that account.");b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-linking"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><h2 class="firebaseui-subtitle">You already have an account</h2><p class="firebaseui-text">'+
+a+"</p>"+Fk()+'</div><div class="firebaseui-card-actions"><div class="firebaseui-form-links">'+Gk()+'</div><div class="firebaseui-form-actions">'+Bk()+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(b)}rl.a="firebaseui.auth.soy2.page.passwordLinking";function sl(a,b,c){var d=a.email;b="";a=""+Pk(a,c);a=D(a);d="You\u2019ve already used <strong>"+(A(d)+("</strong>. You can connect your <strong>"+(A(a)+("</strong> account with <strong>"+(A(d)+"</strong> by signing in with email link below.")))));
+a="For this flow to successfully connect your "+(A(a)+" account with this email, you have to open the link on the same device or browser.");b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-link-sign-in-linking"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><h2 class="firebaseui-subtitle">You already have an account</h2><p class="firebaseui-text firebaseui-text-justify">'+
+d+'<p class="firebaseui-text firebaseui-text-justify">'+a+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Bk()+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(b)}sl.a="firebaseui.auth.soy2.page.emailLinkSignInLinking";function tl(a,b,c){b="";var d=""+Pk(a,c);d=D(d);a="You originally intended to connect <strong>"+(A(d)+"</strong> to your email account but have opened the link on a different device where you are not signed in.");
+d="If you still want to connect your <strong>"+(A(d)+"</strong> account, open the link on the same device where you started sign-in. Otherwise, tap Continue to sign-in on this device.");b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-link-sign-in-linking-different-device"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text firebaseui-text-justify">'+
+a+'</p><p class="firebaseui-text firebaseui-text-justify">'+d+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Dk()+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(b)}tl.a="firebaseui.auth.soy2.page.emailLinkSignInLinkingDifferentDevice";function ul(a,b,c){var d=a.email;b="";a=""+Pk(a,c);a=D(a);d="You\u2019ve already used <strong>"+(A(d)+("</strong>. Sign in with "+(A(a)+" to continue.")));b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-federated-linking"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><h2 class="firebaseui-subtitle">You already have an account</h2><p class="firebaseui-text">'+
+d+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Ak({label:D("Sign in with "+a)})+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(b)}ul.a="firebaseui.auth.soy2.page.federatedLinking";function vl(a,b,c){b="";a="To continue sign in with <strong>"+(A(a.email)+"</strong> on this device, you have to recover the password.");b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-unsupported-provider"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+
+a+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Hk(null)+Ak({label:D("Recover password")})+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(b)}vl.a="firebaseui.auth.soy2.page.unsupportedProvider";function wl(a){var b="",c='<p class="firebaseui-text">for <strong>'+(A(a.email)+"</strong></p>");b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-reset"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Reset your password</h1></div><div class="firebaseui-card-content">'+
+c+Ek(ud(a))+'</div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Ck()+"</div></div></form></div>";return B(b)}wl.a="firebaseui.auth.soy2.page.passwordReset";function xl(a){a=a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-reset-success"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Password changed</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">You can now sign in with your new password</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}xl.a="firebaseui.auth.soy2.page.passwordResetSuccess";function yl(a){a=a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-password-reset-failure"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Try resetting your password again</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Your request to reset your password has expired or the link has already been used</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}yl.a="firebaseui.auth.soy2.page.passwordResetFailure";function zl(a){var b=a.G,c="";a="Your sign-in email address has been changed back to <strong>"+(A(a.email)+"</strong>.");c+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-change-revoke-success"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Updated email address</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+
+a+'</p><p class="firebaseui-text">If you didn\u2019t ask to change your sign-in email, it\u2019s possible someone is trying to access your account and you should <a class="firebaseui-link firebaseui-id-reset-password-link" href="javascript:void(0)">change your password right away</a>.</p></div><div class="firebaseui-card-actions">'+(b?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></form></div>";return B(c)}zl.a="firebaseui.auth.soy2.page.emailChangeRevokeSuccess";function Al(a){a=
+a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-change-revoke-failure"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Unable to update your email address</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">There was a problem changing your sign-in email back.</p><p class="firebaseui-text">If you try again and still can\u2019t reset your email, try asking your administrator for help.</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}Al.a="firebaseui.auth.soy2.page.emailChangeRevokeFailure";function Bl(a){a=a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-verification-success"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Your email has been verified</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">You can now sign in with your new account</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}Bl.a="firebaseui.auth.soy2.page.emailVerificationSuccess";function Cl(a){a=a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-verification-failure"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Try verifying your email again</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Your request to verify your email has expired or the link has already been used</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}Cl.a="firebaseui.auth.soy2.page.emailVerificationFailure";function El(a){var b=a.G,c="";a="You can now sign in with your new email <strong>"+(A(a.email)+"</strong>.");c+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-verify-and-change-email-success"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Your email has been verified and changed</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+
+a+'</p></div><div class="firebaseui-card-actions">'+(b?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(c)}El.a="firebaseui.auth.soy2.page.verifyAndChangeEmailSuccess";function Fl(a){a=a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-verify-and-change-email-failure"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Try updating your email again</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Your request to verify and update your email has expired or the link has already been used.</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}Fl.a="firebaseui.auth.soy2.page.verifyAndChangeEmailFailure";function Gl(a){var b=a.factorId,c=a.phoneNumber;a=a.G;var d='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-revert-second-factor-addition-success"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Removed second factor</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">';
+switch(b){case "phone":b="The <strong>"+(A(b)+(" "+(A(c)+"</strong> was removed as a second authentication step.")));d+=b;break;default:d+="The device or app was removed as a second authentication step."}d+='</p><p class="firebaseui-text">If you don\'t recognize this device, someone might be trying to access your account. Consider <a class="firebaseui-link firebaseui-id-reset-password-link" href="javascript:void(0)">changing your password right away</a>.</p></div><div class="firebaseui-card-actions">'+
+(a?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></form></div>";return B(d)}Gl.a="firebaseui.auth.soy2.page.revertSecondFactorAdditionSuccess";function Hl(a){a=a||{};a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-revert-second-factor-addition-failure"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Couldn\'t remove your second factor</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">Something went wrong removing your second factor.</p><p class="firebaseui-text">Try removing it again. If that doesn\'t work, contact support for assistance.</p></div><div class="firebaseui-card-actions">'+
+(a.G?'<div class="firebaseui-form-actions">'+Dk()+"</div>":"")+"</div></div>";return B(a)}Hl.a="firebaseui.auth.soy2.page.revertSecondFactorAdditionFailure";function Il(a){var b=a.zb;a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-recoverable-error"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Error encountered</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+A(a.errorMessage)+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">';
+b&&(a+=Ak({label:D("Retry")}));return B(a+"</div></div></div>")}Il.a="firebaseui.auth.soy2.page.recoverableError";function Jl(a){a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-unrecoverable-error"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Error encountered</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+A(a.errorMessage)+"</p></div></div>";return B(a)}Jl.a="firebaseui.auth.soy2.page.unrecoverableError";function Kl(a,
+b,c){var d=a.Pb;b="";a="Continue with "+(A(a.ic)+"?");d="You originally wanted to sign in with "+A(d);b+='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-email-mismatch"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><h2 class="firebaseui-subtitle">'+a+'</h2><p class="firebaseui-text">'+d+'</p></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+
+Hk(null)+Ak({label:D("Continue")})+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form></div>";return B(b)}Kl.a="firebaseui.auth.soy2.page.emailMismatch";function Ll(a,b,c){var d='<div class="firebaseui-container firebaseui-page-provider-sign-in firebaseui-id-page-provider-sign-in firebaseui-use-spinner"><div class="firebaseui-card-content"><form onsubmit="return false;"><ul class="firebaseui-idp-list">';a=a.Rb;b=a.length;for(var e=0;e<b;e++){var f={ha:a[e]},g=c;f=f||{};var h=f.ha;
+var k=f;k=k||{};var p="";switch(k.ha.providerId){case "google.com":p+="firebaseui-idp-google";break;case "github.com":p+="firebaseui-idp-github";break;case "facebook.com":p+="firebaseui-idp-facebook";break;case "twitter.com":p+="firebaseui-idp-twitter";break;case "phone":p+="firebaseui-idp-phone";break;case "anonymous":p+="firebaseui-idp-anonymous";break;case "password":p+="firebaseui-idp-password";break;default:p+="firebaseui-idp-generic"}k='<button class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised '+
+wd(C(p))+' firebaseui-id-idp-button" data-provider-id="'+wd(h.providerId)+'" style="background-color:';p=(p=f)||{};p=p.ha;k=k+wd(Fd(C(p.va?p.va:g.ya[p.providerId]?""+g.ya[p.providerId]:0==p.providerId.indexOf("saml.")?""+g.ya.saml:0==p.providerId.indexOf("oidc.")?""+g.ya.oidc:""+g.ya.password)))+'"><span class="firebaseui-idp-icon-wrapper"><img class="firebaseui-idp-icon" alt="" src="';var r=f;p=g;r=r||{};r=r.ha;p=rd(r.Ba?Bd(r.Ba):p.za[r.providerId]?Bd(p.za[r.providerId]):0==r.providerId.indexOf("saml.")?
+Bd(p.za.saml):0==r.providerId.indexOf("oidc.")?Bd(p.za.oidc):Bd(p.za.password));k=k+wd(Bd(p))+'"></span>';"password"==h.providerId?(k+='<span class="firebaseui-idp-text firebaseui-idp-text-long">',h.V?k+=A(h.V):h.S?(f="Sign in with "+A(Pk(f,g)),k+=f):k+="Sign in with email",k+='</span><span class="firebaseui-idp-text firebaseui-idp-text-short">',k=h.S?k+A(h.S):k+"Email",k+="</span>"):"phone"==h.providerId?(k+='<span class="firebaseui-idp-text firebaseui-idp-text-long">',h.V?k+=A(h.V):h.S?(f="Sign in with "+
+A(Pk(f,g)),k+=f):k+="Sign in with phone",k+='</span><span class="firebaseui-idp-text firebaseui-idp-text-short">',k=h.S?k+A(h.S):k+"Phone",k+="</span>"):"anonymous"==h.providerId?(k+='<span class="firebaseui-idp-text firebaseui-idp-text-long">',h.V?k+=A(h.V):h.S?(f="Sign in with "+A(Pk(f,g)),k+=f):k+="Continue as guest",k+='</span><span class="firebaseui-idp-text firebaseui-idp-text-short">',k=h.S?k+A(h.S):k+"Guest",k+="</span>"):(k+='<span class="firebaseui-idp-text firebaseui-idp-text-long">',h.V?
+k+=A(h.V):(p="Sign in with "+A(Pk(f,g)),k+=p),k+='</span><span class="firebaseui-idp-text firebaseui-idp-text-short">'+(h.S?A(h.S):A(Pk(f,g)))+"</span>");h=B(k+"</button>");d+='<li class="firebaseui-list-item">'+h+"</li>"}d+='</ul></form></div><div class="firebaseui-card-footer firebaseui-provider-sign-in-footer">'+Jk(c)+"</div></div>";return B(d)}Ll.a="firebaseui.auth.soy2.page.providerSignIn";function Ml(a,b,c){a=a||{};var d=a.Fb,e=a.Wa;b=a.ja;a=a||{};a=a.Ca;a='<div class="firebaseui-phone-number"><button class="firebaseui-id-country-selector firebaseui-country-selector mdl-button mdl-js-button"><span class="firebaseui-flag firebaseui-country-selector-flag firebaseui-id-country-selector-flag"></span><span class="firebaseui-id-country-selector-code"></span></button><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label firebaseui-textfield firebaseui-phone-input-wrapper"><label class="mdl-textfield__label firebaseui-label" for="ui-sign-in-phone-number-input">Phone number</label><input type="tel" name="phoneNumber" id="ui-sign-in-phone-number-input" class="mdl-textfield__input firebaseui-input firebaseui-id-phone-number" value="'+
+wd(null!=a?a:"")+'"></div></div><div class="firebaseui-error-wrapper"><p class="firebaseui-error firebaseui-text-input-error firebaseui-hidden firebaseui-phone-number-error firebaseui-id-phone-number-error"></p></div>';a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-phone-sign-in-start"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Enter your phone number</h1></div><div class="firebaseui-card-content"><div class="firebaseui-relative-wrapper">'+
+B(a);var f;d?f=B('<div class="firebaseui-recaptcha-wrapper"><div class="firebaseui-recaptcha-container"></div><div class="firebaseui-error-wrapper firebaseui-recaptcha-error-wrapper"><p class="firebaseui-error firebaseui-hidden firebaseui-id-recaptcha-error"></p></div></div>'):f="";f=a+f+'</div></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+(e?Hk(null):"")+Ak({label:D("Verify")})+'</div></div><div class="firebaseui-card-footer">';b?(b='<p class="firebaseui-tos firebaseui-phone-tos">',
+b=c.F&&c.D?b+'By tapping Verify, you are indicating that you accept our <a href="javascript:void(0)" class="firebaseui-link firebaseui-tos-link" target="_blank">Terms of Service</a> and <a href="javascript:void(0)" class="firebaseui-link firebaseui-pp-link" target="_blank">Privacy Policy</a>. An SMS may be sent. Message &amp; data rates may apply.':b+"By tapping Verify, an SMS may be sent. Message &amp; data rates may apply.",c=B(b+"</p>")):c=B('<p class="firebaseui-tos firebaseui-phone-sms-notice">By tapping Verify, an SMS may be sent. Message &amp; data rates may apply.</p>')+
+Ik(c);return B(f+c+"</div></form></div>")}Ml.a="firebaseui.auth.soy2.page.phoneSignInStart";function Nl(a,b,c){a=a||{};b=a.phoneNumber;var d="";a='Enter the 6-digit code we sent to <a class="firebaseui-link firebaseui-change-phone-number-link firebaseui-id-change-phone-number-link" href="javascript:void(0)">&lrm;'+(A(b)+"</a>");A(b);b=d;d=B('<div class="firebaseui-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><label class="mdl-textfield__label firebaseui-label" for="ui-sign-in-phone-confirmation-code-input">6-digit code</label><input type="number" name="phoneConfirmationCode" id="ui-sign-in-phone-confirmation-code-input" class="mdl-textfield__input firebaseui-input firebaseui-id-phone-confirmation-code"></div><div class="firebaseui-error-wrapper"><p class="firebaseui-error firebaseui-text-input-error firebaseui-hidden firebaseui-id-phone-confirmation-code-error"></p></div>');
+c='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-phone-sign-in-finish"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Verify your phone number</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">'+a+"</p>"+d+'</div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Hk(null)+Ak({label:D("Continue")})+'</div></div><div class="firebaseui-card-footer">'+Ik(c)+"</div></form>";
+a=B('<div class="firebaseui-resend-container"><span class="firebaseui-id-resend-countdown"></span><a href="javascript:void(0)" class="firebaseui-id-resend-link firebaseui-hidden firebaseui-link">Resend</a></div>');return B(b+(c+a+"</div>"))}Nl.a="firebaseui.auth.soy2.page.phoneSignInFinish";function Ol(){return B('<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-sign-out"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign Out</h1></div><div class="firebaseui-card-content"><p class="firebaseui-text">You are now successfully signed out.</p></div></div>')}
+Ol.a="firebaseui.auth.soy2.page.signOut";function Pl(a,b,c){var d='<div class="firebaseui-container firebaseui-page-select-tenant firebaseui-id-page-select-tenant"><div class="firebaseui-card-content"><form onsubmit="return false;"><ul class="firebaseui-tenant-list">';a=a.dc;b=a.length;for(var e=0;e<b;e++){var f=a[e];var g="";var h=A(f.displayName),k=f.tenantId?f.tenantId:"top-level-project";k=D(k);g+='<button class="firebaseui-tenant-button mdl-button mdl-js-button mdl-button--raised firebaseui-tenant-selection-'+
+wd(k)+' firebaseui-id-tenant-selection-button"'+(f.tenantId?'data-tenant-id="'+wd(f.tenantId)+'"':"")+'style="background-color:'+wd(Fd(f.va))+'"><span class="firebaseui-idp-icon-wrapper"><img class="firebaseui-idp-icon" alt="" src="'+wd(Bd(f.Ba))+'"></span><span class="firebaseui-idp-text firebaseui-idp-text-long">';f.V?g+=A(f.V):(f="Sign in to "+A(f.displayName),g+=f);g=B(g+('</span><span class="firebaseui-idp-text firebaseui-idp-text-short">'+h+"</span></button>"));d+='<li class="firebaseui-list-item">'+
+g+"</li>"}d+='</ul></form></div><div class="firebaseui-card-footer firebaseui-provider-sign-in-footer">'+Jk(c)+"</div></div>";return B(d)}Pl.a="firebaseui.auth.soy2.page.selectTenant";function Ql(a,b,c){a='<div class="mdl-card mdl-shadow--2dp firebaseui-container firebaseui-id-page-provider-match-by-email"><form onsubmit="return false;"><div class="firebaseui-card-header"><h1 class="firebaseui-title">Sign in</h1></div><div class="firebaseui-card-content"><div class="firebaseui-relative-wrapper">'+
+zk(null)+'</div></div><div class="firebaseui-card-actions"><div class="firebaseui-form-actions">'+Ak(null)+'</div></div><div class="firebaseui-card-footer">'+Jk(c)+"</div></form></div>";return B(a)}Ql.a="firebaseui.auth.soy2.page.providerMatchByEmail";function Rl(){return M(this,"firebaseui-id-submit")}function Sl(){return M(this,"firebaseui-id-secondary-link")}function Tl(a,b){O(this,Rl.call(this),function(d){a(d)});var c=Sl.call(this);c&&b&&O(this,c,function(d){b(d)})}function Ul(){return M(this,
+"firebaseui-id-password")}function Vl(){return M(this,"firebaseui-id-password-error")}function Wl(){var a=Ul.call(this),b=Vl.call(this);sk(this,a,function(){yk(b)&&(N(a,!0),wk(b))})}function Xl(){var a=Ul.call(this);var b=Vl.call(this);Ej(a)?(N(a,!0),wk(b),b=!0):(N(a,!1),xk(b,C("Enter your password").toString()),b=!1);return b?Ej(a):null}function Yl(a,b,c,d,e,f){P.call(this,rl,{email:a},f,"passwordLinking",{F:d,D:e});this.w=b;this.H=c}m(Yl,P);Yl.prototype.v=function(){this.P();this.M(this.w,this.H);
+dl(this,this.i(),this.w);this.i().focus();P.prototype.v.call(this)};Yl.prototype.m=function(){this.w=null;P.prototype.m.call(this)};Yl.prototype.j=function(){return Ej(M(this,"firebaseui-id-email"))};u(Yl.prototype,{i:Ul,B:Vl,P:Wl,u:Xl,fa:Rl,ca:Sl,M:Tl});var Zl=/^[+a-zA-Z0-9_.!#$%&'*\/=?^`{|}~-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,63}$/;function $l(){return M(this,"firebaseui-id-email")}function am(){return M(this,"firebaseui-id-email-error")}function bm(a){var b=$l.call(this),c=am.call(this);sk(this,
+b,function(){yk(c)&&(N(b,!0),wk(c))});a&&tk(this,b,function(){a()})}function cm(){return Wa(Ej($l.call(this))||"")}function dm(){var a=$l.call(this);var b=am.call(this);var c=Ej(a)||"";c?Zl.test(c)?(N(a,!0),wk(b),b=!0):(N(a,!1),xk(b,C("That email address isn't correct").toString()),b=!1):(N(a,!1),xk(b,C("Enter your email address to continue").toString()),b=!1);return b?Wa(Ej(a)):null}function em(a,b,c,d,e,f,g){P.call(this,fl,{email:c,ja:!!f},g,"passwordSignIn",{F:d,D:e});this.w=a;this.H=b}m(em,P);
+em.prototype.v=function(){this.P();this.fa();this.ca(this.w,this.H);cl(this,this.l(),this.i());dl(this,this.i(),this.w);Ej(this.l())?this.i().focus():this.l().focus();P.prototype.v.call(this)};em.prototype.m=function(){this.H=this.w=null;P.prototype.m.call(this)};u(em.prototype,{l:$l,U:am,P:bm,M:cm,j:dm,i:Ul,B:Vl,fa:Wl,u:Xl,wa:Rl,qa:Sl,ca:Tl});function R(a,b,c,d,e,f){P.call(this,a,b,d,e||"notice",f);this.i=c||null}w(R,P);R.prototype.v=function(){this.i&&(this.u(this.i),this.l().focus());R.K.v.call(this)};
+R.prototype.m=function(){this.i=null;R.K.m.call(this)};u(R.prototype,{l:Rl,w:Sl,u:Tl});function fm(a,b,c,d,e){R.call(this,il,{email:a,G:!!b},b,e,"passwordRecoveryEmailSent",{F:c,D:d})}w(fm,R);function gm(a,b){R.call(this,Bl,{G:!!a},a,b,"emailVerificationSuccess")}w(gm,R);function hm(a,b){R.call(this,Cl,{G:!!a},a,b,"emailVerificationFailure")}w(hm,R);function im(a,b,c){R.call(this,El,{email:a,G:!!b},b,c,"verifyAndChangeEmailSuccess")}w(im,R);function jm(a,b){R.call(this,Fl,{G:!!a},a,b,"verifyAndChangeEmailFailure")}
+w(jm,R);function km(a,b){R.call(this,Hl,{G:!!a},a,b,"revertSecondFactorAdditionFailure")}w(km,R);function lm(a){R.call(this,Ol,void 0,void 0,a,"signOut")}w(lm,R);function mm(a,b){R.call(this,xl,{G:!!a},a,b,"passwordResetSuccess")}w(mm,R);function nm(a,b){R.call(this,yl,{G:!!a},a,b,"passwordResetFailure")}w(nm,R);function om(a,b){R.call(this,Al,{G:!!a},a,b,"emailChangeRevokeFailure")}w(om,R);function pm(a,b,c){R.call(this,Il,{errorMessage:a,zb:!!b},b,c,"recoverableError")}w(pm,R);function qm(a,b){R.call(this,
+Jl,{errorMessage:a},void 0,b,"unrecoverableError")}w(qm,R);var rm=!1,sm=null;function tm(a,b){rm=!!b;sm||("undefined"==typeof accountchooser&&zj()?(b=zc(vc(new sc(tc,"//www.gstatic.com/accountchooser/client.js"))),sm=G(Kf(b)).ua(function(){})):sm=G());sm.then(a,a)}function um(a,b){a=S(a);(a=Wi(a).accountChooserInvoked||null)?a(b):b()}function vm(a,b,c){a=S(a);(a=Wi(a).accountChooserResult||null)?a(b,c):c()}function wm(a,b,c,d,e){d?(L("callback",a,b),rm&&c()):um(a,function(){Qh(new Gg(a.a.tenantId||
+null),T(a));kj(function(f){Fh(yh,T(a));vm(a,f?"empty":"unavailable",function(){L("signIn",a,b);(f||rm)&&c()})},Kh(T(a)),e)})}function xm(a,b,c,d){function e(f){f=U(f);V(b,c,void 0,f);d()}vm(b,"accountSelected",function(){Jh(!1,T(b));var f=ym(b);W(b,X(b).fetchSignInMethodsForEmail(a.a).then(function(g){zm(b,c,g,a.a,a.h||void 0,void 0,f);d()},e))})}function Am(a,b,c,d){vm(b,a?"addAccount":"unavailable",function(){L("signIn",b,c);(a||rm)&&d()})}function Bm(a,b,c,d){function e(){var f=a();f&&(f=Vi(S(f)))&&
+f()}hj(function(){var f=a();f&&wm(f,b,e,c,d)},function(f){var g=a();g&&xm(f,g,b,e)},function(f){var g=a();g&&Am(f,g,b,e)},a()&&qi(S(a())))}function Cm(a,b,c,d){function e(g){if(!g.name||"cancel"!=g.name){a:{var h=g.message;try{var k=((JSON.parse(h).error||{}).message||"").toLowerCase().match(/invalid.+(access|id)_token/);if(k&&k.length){var p=!0;break a}}catch(r){}p=!1}if(p)g=Q(b),b.o(),V(a,g,void 0,C("Your sign-in session has expired. Please try again.").toString());else{p=g&&g.message||"";if(g.code){if("auth/email-already-in-use"==
+g.code||"auth/credential-already-in-use"==g.code)return;p=U(g)}b.a(p)}}}Dm(a);if(d)return Em(a,c),G();if(!c.credential)throw Error("No credential found!");d=X(a).currentUser||c.user;if(!d)throw Error("User not logged in.");d=new xg(d.email,d.displayName,d.photoURL,"password"==c.credential.providerId?null:c.credential.providerId);null!=Eh(Ah,T(a))&&!Eh(Ah,T(a))||Lh(d,T(a));Fh(Ah,T(a));try{var f=Fm(a,c)}catch(g){return rg(g.code||g.message,g),b.a(g.code||g.message),G()}c=f.then(function(g){Em(a,g)},
+e).then(void 0,e);W(a,f);return G(c)}function Em(a,b){if(!b.user)throw Error("No user found");var c=Yi(S(a));Xi(S(a))&&c&&wg("Both signInSuccess and signInSuccessWithAuthResult callbacks are provided. Only signInSuccessWithAuthResult callback will be invoked.");if(c){c=Yi(S(a));var d=Hh(T(a))||void 0;Fh(zh,T(a));var e=!1;if(sf()){if(!c||c(b,d))e=!0,window.opener.location.assign(Cc(Fc(Gm(a,d))));c||window.close()}else if(!c||c(b,d))e=!0,rf(Gm(a,d));e||a.reset()}else{c=b.user;b=b.credential;d=Xi(S(a));
+e=Hh(T(a))||void 0;Fh(zh,T(a));var f=!1;if(sf()){if(!d||d(c,b,e))f=!0,window.opener.location.assign(Cc(Fc(Gm(a,e))));d||window.close()}else if(!d||d(c,b,e))f=!0,rf(Gm(a,e));f||a.reset()}}function Gm(a,b){a=b||S(a).a.get("signInSuccessUrl");if(!a)throw Error("No redirect URL has been found. You must either specify a signInSuccessUrl in the configuration, pass in a redirect URL to the widget URL, or return false from the callback.");return a}function U(a){var b={code:a.code};b=b||{};var c="";switch(b.code){case "auth/email-already-in-use":c+=
+"The email address is already used by another account";break;case "auth/requires-recent-login":c+=Od();break;case "auth/too-many-requests":c+="You have entered an incorrect password too many times. Please try again in a few minutes.";break;case "auth/user-cancelled":c+="Please authorize the required permissions to sign in to the application";break;case "auth/user-not-found":c+="That email address doesn't match an existing account";break;case "auth/user-token-expired":c+=Od();break;case "auth/weak-password":c+=
+"Strong passwords have at least 6 characters and a mix of letters and numbers";break;case "auth/wrong-password":c+="The email and password you entered don't match";break;case "auth/network-request-failed":c+="A network error has occurred";break;case "auth/invalid-phone-number":c+=Jd();break;case "auth/invalid-verification-code":c+=C("Wrong code. Try again.");break;case "auth/code-expired":c+="This code is no longer valid";break;case "auth/expired-action-code":c+="This code has expired.";break;case "auth/invalid-action-code":c+=
+"The action code is invalid. This can happen if the code is malformed, expired, or has already been used."}if(b=C(c).toString())return b;try{return JSON.parse(a.message),rg("Internal error: "+a.message,void 0),Ld().toString()}catch(d){return a.message}}function Hm(a,b,c){var d=ni[b]&&firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"][ni[b]]?new firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"][ni[b]]:0==b.indexOf("saml.")?new firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].SAMLAuthProvider(b):new firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].OAuthProvider(b);if(!d)throw Error("Invalid Firebase Auth provider!");var e=Hi(S(a),b);if(d.addScope)for(var f=
+0;f<e.length;f++)d.addScope(e[f]);e=Ii(S(a),b)||{};c&&(b==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.PROVIDER_ID?a="login_hint":b==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GithubAuthProvider.PROVIDER_ID?a="login":a=(a=zi(S(a),b))&&a.Nb,a&&(e[a]=c));d.setCustomParameters&&d.setCustomParameters(e);return d}function Im(a,b,c,d){function e(){Qh(new Gg(a.a.tenantId||null),T(a));W(a,b.I(t(a.cc,a),[k],function(){if("file:"===(window.location&&window.location.protocol))return W(a,Jm(a).then(function(p){b.o();Fh(yh,T(a));L("callback",a,h,G(p))},
+f))},g))}function f(p){Fh(yh,T(a));if(!p.name||"cancel"!=p.name)switch(p.code){case "auth/popup-blocked":e();break;case "auth/popup-closed-by-user":case "auth/cancelled-popup-request":break;case "auth/credential-already-in-use":break;case "auth/network-request-failed":case "auth/too-many-requests":case "auth/user-cancelled":b.a(U(p));break;default:b.o(),L("callback",a,h,ef(p))}}function g(p){Fh(yh,T(a));p.name&&"cancel"==p.name||(rg("signInWithRedirect: "+p.code,void 0),p=U(p),"blank"==b.Ha&&Ri(S(a))?
+(b.o(),L("providerSignIn",a,h,p)):b.a(p))}var h=Q(b),k=Hm(a,c,d);Si(S(a))==Ti?e():W(a,Km(a,k).then(function(p){b.o();L("callback",a,h,G(p))},f))}function Lm(a,b){W(a,b.I(t(a.Zb,a),[],function(c){b.o();return Cm(a,b,c,!0)},function(c){c.name&&"cancel"==c.name||(rg("ContinueAsGuest: "+c.code,void 0),c=U(c),b.a(c))}))}function Mm(a,b,c){function d(f){var g=!1;f=b.I(t(a.$b,a),[f],function(h){var k=Q(b);b.o();L("callback",a,k,G(h));g=!0},function(h){if(!h.name||"cancel"!=h.name)if(!h||"auth/credential-already-in-use"!=
+h.code)if(h&&"auth/email-already-in-use"==h.code&&h.email&&h.credential){var k=Q(b);b.o();L("callback",a,k,ef(h))}else h=U(h),b.a(h)});W(a,f);return f.then(function(){return g},function(){return!1})}if(c&&c.credential&&c.clientId===Ci(S(a))){if(Hi(S(a),firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.PROVIDER_ID).length){try{var e=JSON.parse(atob(c.credential.split(".")[1])).email}catch(f){}Im(a,b,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.PROVIDER_ID,e);return G(!0)}return d(firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.credential(c.credential))}c&&
+b.a(C("The selected credential for the authentication provider is not supported!").toString());return G(!1)}function Nm(a,b){var c=b.j(),d=b.u();if(c)if(d){var e=firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.credential(c,d);W(a,b.I(t(a.ac,a),[c,d],function(f){return Cm(a,b,{user:f.user,credential:e,operationType:f.operationType,additionalUserInfo:f.additionalUserInfo})},function(f){if(!f.name||"cancel"!=f.name)switch(f.code){case "auth/email-already-in-use":break;case "auth/email-exists":N(b.l(),!1);xk(b.U(),U(f));
+break;case "auth/too-many-requests":case "auth/wrong-password":N(b.i(),!1);xk(b.B(),U(f));break;default:rg("verifyPassword: "+f.message,void 0),b.a(U(f))}}))}else b.i().focus();else b.l().focus()}function ym(a){a=yi(S(a));return 1==a.length&&a[0]==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.PROVIDER_ID}function Om(a){a=yi(S(a));return 1==a.length&&a[0]==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].PhoneAuthProvider.PROVIDER_ID}function V(a,b,c,d){ym(a)?d?L("signIn",a,b,c,d):Pm(a,b,c):a&&Om(a)&&!d?L("phoneSignInStart",a,b):a&&Ri(S(a))&&!d?
+L("federatedRedirect",a,b,c):L("providerSignIn",a,b,d,c)}function Qm(a,b,c,d){var e=Q(b);W(a,b.I(t(X(a).fetchSignInMethodsForEmail,X(a)),[c],function(f){Jh(Di(S(a))==pi,T(a));b.o();zm(a,e,f,c,void 0,d)},function(f){f=U(f);b.a(f)}))}function zm(a,b,c,d,e,f,g){c.length||Oi(S(a))?!c.length&&Oi(S(a))?L("sendEmailLinkForSignIn",a,b,d,function(){L("signIn",a,b)}):Na(c,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)?L("passwordSignIn",a,b,d,g):1==c.length&&c[0]===firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD?
+Oi(S(a))?L("sendEmailLinkForSignIn",a,b,d,function(){L("signIn",a,b)}):L("unsupportedProvider",a,b,d):(c=li(c,yi(S(a))))?(Oh(new Eg(d),T(a)),L("federatedSignIn",a,b,d,c,f)):L("unsupportedProvider",a,b,d):L("passwordSignUp",a,b,d,e,void 0,g)}function Rm(a,b,c,d,e,f){var g=Q(b);W(a,b.I(t(a.Hb,a),[c,f],function(){b.o();L("emailLinkSignInSent",a,g,c,d,f)},e))}function Pm(a,b,c){Di(S(a))==pi?tm(function(){fj?um(a,function(){Qh(new Gg(a.a.tenantId||null),T(a));kj(function(d){Fh(yh,T(a));vm(a,d?"empty":
+"unavailable",function(){c?L("prefilledEmailSignIn",a,b,c):L("signIn",a,b)})},Kh(T(a)),ri(S(a)))}):(Y(a),Bm(Sm,b,!1,ri(S(a))))},!1):(rm=!1,um(a,function(){vm(a,"unavailable",function(){c?L("prefilledEmailSignIn",a,b,c):L("signIn",a,b)})}))}function Tm(a){var b=vf();a=ti(S(a));b=vb(b,a)||"";for(var c in aj)if(aj[c].toLowerCase()==b.toLowerCase())return aj[c];return"callback"}function Um(a){var b=vf();a=Wh(S(a).a,"queryParameterForSignInSuccessUrl");return(b=vb(b,a))?Cc(Fc(b)):null}function Vm(){return vb(vf(),
+"oobCode")}function Wm(){var a=vb(vf(),"continueUrl");return a?function(){rf(a)}:null}function Xm(a,b){var c=uf(b,"Could not find the FirebaseUI widget element on the page.");b=Um(a);switch(Tm(a)){case "callback":b&&Ih(b,T(a));a.ob()?L("callback",a,c):V(a,c,Ym(a));break;case "resetPassword":L("passwordReset",a,c,Vm(),Wm());break;case "recoverEmail":L("emailChangeRevocation",a,c,Vm());break;case "revertSecondFactorAddition":L("revertSecondFactorAddition",a,c,Vm());break;case "verifyEmail":L("emailVerification",
+a,c,Vm(),Wm());break;case "verifyAndChangeEmail":L("verifyAndChangeEmail",a,c,Vm(),Wm());break;case "signIn":L("emailLinkSignInCallback",a,c,vf());Zm();break;case "select":if(b&&Ih(b,T(a)),fj){V(a,c);break}else{tm(function(){Y(a);Bm(Sm,c,!0)},!0);return}default:throw Error("Unhandled widget operation.");}(b=Vi(S(a)))&&b()}function $m(a,b){P.call(this,ql,void 0,b,"anonymousUserMismatch");this.i=a}m($m,P);$m.prototype.v=function(){var a=this;O(this,this.l(),function(){a.i()});this.l().focus();P.prototype.v.call(this)};
+$m.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u($m.prototype,{l:Sl});K.anonymousUserMismatch=function(a,b){var c=new $m(function(){c.o();V(a,b)});c.render(b);Z(a,c)};function an(a){P.call(this,jl,void 0,a,"callback")}m(an,P);an.prototype.I=function(a,b,c,d){return a.apply(null,b).then(c,d)};function bn(a,b,c){if(c.user){var d={user:c.user,credential:c.credential,operationType:c.operationType,additionalUserInfo:c.additionalUserInfo},e=Mh(T(a)),f=e&&e.g;if(f&&!cn(c.user,f))dn(a,b,
+d);else{var g=e&&e.a;g?W(a,c.user.linkWithCredential(g).then(function(h){d={user:h.user,credential:g,operationType:h.operationType,additionalUserInfo:h.additionalUserInfo};en(a,b,d)},function(h){fn(a,b,h)})):en(a,b,d)}}else c=Q(b),b.o(),Nh(T(a)),V(a,c)}function en(a,b,c){Nh(T(a));Cm(a,b,c)}function fn(a,b,c){var d=Q(b);Nh(T(a));c=U(c);b.o();V(a,d,void 0,c)}function gn(a,b,c,d){var e=Q(b);W(a,X(a).fetchSignInMethodsForEmail(c).then(function(f){b.o();f.length?Na(f,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)?
+L("passwordLinking",a,e,c):1==f.length&&f[0]===firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD?L("emailLinkSignInLinking",a,e,c):(f=li(f,yi(S(a))))?L("federatedLinking",a,e,c,f,d):(Nh(T(a)),L("unsupportedProvider",a,e,c)):(Nh(T(a)),L("passwordRecovery",a,e,c,!1,Md().toString()))},function(f){fn(a,b,f)}))}function dn(a,b,c){var d=Q(b);W(a,hn(a).then(function(){b.o();L("emailMismatch",a,d,c)},function(e){e.name&&"cancel"==e.name||(e=U(e.code),b.a(e))}))}function cn(a,b){if(b==a.email)return!0;
+if(a.providerData)for(var c=0;c<a.providerData.length;c++)if(b==a.providerData[c].email)return!0;return!1}K.callback=function(a,b,c){var d=new an;d.render(b);Z(a,d);b=c||Jm(a);W(a,b.then(function(e){bn(a,d,e)},function(e){if(e&&("auth/account-exists-with-different-credential"==e.code||"auth/email-already-in-use"==e.code)&&e.email&&e.credential)Oh(new Eg(e.email,e.credential),T(a)),gn(a,d,e.email);else if(e&&"auth/user-cancelled"==e.code){var f=Mh(T(a)),g=U(e);f&&f.a?gn(a,d,f.g,g):f?Qm(a,d,f.g,g):
+fn(a,d,e)}else e&&"auth/credential-already-in-use"==e.code||(e&&"auth/operation-not-supported-in-this-environment"==e.code&&ym(a)?bn(a,d,{user:null,credential:null}):fn(a,d,e))}))};function jn(a,b){P.call(this,pl,void 0,b,"differentDeviceError");this.i=a}m(jn,P);jn.prototype.v=function(){var a=this;O(this,this.l(),function(){a.i()});this.l().focus();P.prototype.v.call(this)};jn.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(jn.prototype,{l:Sl});K.differentDeviceError=function(a,b){var c=
+new jn(function(){c.o();V(a,b)});c.render(b);Z(a,c)};function kn(a,b,c,d){P.call(this,zl,{email:a,G:!!c},d,"emailChangeRevoke");this.l=b;this.i=c||null}m(kn,P);kn.prototype.v=function(){var a=this;O(this,M(this,"firebaseui-id-reset-password-link"),function(){a.l()});this.i&&(this.w(this.i),this.u().focus());P.prototype.v.call(this)};kn.prototype.m=function(){this.l=this.i=null;P.prototype.m.call(this)};u(kn.prototype,{u:Rl,B:Sl,w:Tl});function ln(){return M(this,"firebaseui-id-new-password")}function mn(){return M(this,
+"firebaseui-id-password-toggle")}function nn(){this.Sa=!this.Sa;var a=mn.call(this),b=ln.call(this);this.Sa?(b.type="text",Cj(a,"firebaseui-input-toggle-off"),Dj(a,"firebaseui-input-toggle-on")):(b.type="password",Cj(a,"firebaseui-input-toggle-on"),Dj(a,"firebaseui-input-toggle-off"));b.focus()}function on(){return M(this,"firebaseui-id-new-password-error")}function pn(){this.Sa=!1;var a=ln.call(this);a.type="password";var b=on.call(this);sk(this,a,function(){yk(b)&&(N(a,!0),wk(b))});var c=mn.call(this);
+Cj(c,"firebaseui-input-toggle-on");Dj(c,"firebaseui-input-toggle-off");uk(this,a,function(){Cj(c,"firebaseui-input-toggle-focus");Dj(c,"firebaseui-input-toggle-blur")});vk(this,a,function(){Cj(c,"firebaseui-input-toggle-blur");Dj(c,"firebaseui-input-toggle-focus")});O(this,c,t(nn,this))}function qn(){var a=ln.call(this);var b=on.call(this);Ej(a)?(N(a,!0),wk(b),b=!0):(N(a,!1),xk(b,C("Enter your password").toString()),b=!1);return b?Ej(a):null}function rn(a,b,c){P.call(this,wl,{email:a},c,"passwordReset");
+this.l=b}m(rn,P);rn.prototype.v=function(){this.H();this.B(this.l);dl(this,this.i(),this.l);this.i().focus();P.prototype.v.call(this)};rn.prototype.m=function(){this.l=null;P.prototype.m.call(this)};u(rn.prototype,{i:ln,w:on,M:mn,H:pn,u:qn,U:Rl,P:Sl,B:Tl});function sn(a,b,c,d,e){P.call(this,Gl,{factorId:a,phoneNumber:c||null,G:!!d},e,"revertSecondFactorAdditionSuccess");this.l=b;this.i=d||null}m(sn,P);sn.prototype.v=function(){var a=this;O(this,M(this,"firebaseui-id-reset-password-link"),function(){a.l()});
+this.i&&(this.w(this.i),this.u().focus());P.prototype.v.call(this)};sn.prototype.m=function(){this.l=this.i=null;P.prototype.m.call(this)};u(sn.prototype,{u:Rl,B:Sl,w:Tl});function tn(a,b,c,d,e){var f=c.u();f&&W(a,c.I(t(X(a).confirmPasswordReset,X(a)),[d,f],function(){c.o();var g=new mm(e);g.render(b);Z(a,g)},function(g){un(a,b,c,g)}))}function un(a,b,c,d){"auth/weak-password"==(d&&d.code)?(a=U(d),N(c.i(),!1),xk(c.w(),a),c.i().focus()):(c&&c.o(),c=new nm,c.render(b),Z(a,c))}function vn(a,b,c){var d=
+new kn(c,function(){W(a,d.I(t(X(a).sendPasswordResetEmail,X(a)),[c],function(){d.o();d=new fm(c,void 0,J(S(a)),Mi(S(a)));d.render(b);Z(a,d)},function(){d.a(Kd().toString())}))});d.render(b);Z(a,d)}function wn(a,b,c,d){var e=new sn(d.factorId,function(){e.I(t(X(a).sendPasswordResetEmail,X(a)),[c],function(){e.o();e=new fm(c,void 0,J(S(a)),Mi(S(a)));e.render(b);Z(a,e)},function(){e.a(Kd().toString())})},d.phoneNumber);e.render(b);Z(a,e)}K.passwordReset=function(a,b,c,d){W(a,X(a).verifyPasswordResetCode(c).then(function(e){var f=
+new rn(e,function(){tn(a,b,f,c,d)});f.render(b);Z(a,f)},function(){un(a,b)}))};K.emailChangeRevocation=function(a,b,c){var d=null;W(a,X(a).checkActionCode(c).then(function(e){d=e.data.email;return X(a).applyActionCode(c)}).then(function(){vn(a,b,d)},function(){var e=new om;e.render(b);Z(a,e)}))};K.emailVerification=function(a,b,c,d){W(a,X(a).applyActionCode(c).then(function(){var e=new gm(d);e.render(b);Z(a,e)},function(){var e=new hm;e.render(b);Z(a,e)}))};K.revertSecondFactorAddition=function(a,
+b,c){var d=null,e=null;W(a,X(a).checkActionCode(c).then(function(f){d=f.data.email;e=f.data.multiFactorInfo;return X(a).applyActionCode(c)}).then(function(){wn(a,b,d,e)},function(){var f=new km;f.render(b);Z(a,f)}))};K.verifyAndChangeEmail=function(a,b,c,d){var e=null;W(a,X(a).checkActionCode(c).then(function(f){e=f.data.email;return X(a).applyActionCode(c)}).then(function(){var f=new im(e,d);f.render(b);Z(a,f)},function(){var f=new jm;f.render(b);Z(a,f)}))};function xn(a,b){try{var c="number"==typeof a.selectionStart}catch(d){c=
+!1}c?(a.selectionStart=b,a.selectionEnd=b):z&&!pc("9")&&("textarea"==a.type&&(b=a.value.substring(0,b).replace(/(\r\n|\r|\n)/g,"\n").length),a=a.createTextRange(),a.collapse(!0),a.move("character",b),a.select())}function yn(a,b,c,d,e,f){P.call(this,ol,{email:c},f,"emailLinkSignInConfirmation",{F:d,D:e});this.l=a;this.u=b}m(yn,P);yn.prototype.v=function(){this.w(this.l);this.B(this.l,this.u);this.i().focus();xn(this.i(),(this.i().value||"").length);P.prototype.v.call(this)};yn.prototype.m=function(){this.u=
+this.l=null;P.prototype.m.call(this)};u(yn.prototype,{i:$l,M:am,w:bm,H:cm,j:dm,U:Rl,P:Sl,B:Tl});K.emailLinkConfirmation=function(a,b,c,d,e,f){var g=new yn(function(){var h=g.j();h?(g.o(),d(a,b,h,c)):g.i().focus()},function(){g.o();V(a,b,e||void 0)},e||void 0,J(S(a)),Mi(S(a)));g.render(b);Z(a,g);f&&g.a(f)};function zn(a,b,c,d,e){P.call(this,tl,{ha:a},e,"emailLinkSignInLinkingDifferentDevice",{F:c,D:d});this.i=b}m(zn,P);zn.prototype.v=function(){this.u(this.i);this.l().focus();P.prototype.v.call(this)};
+zn.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(zn.prototype,{l:Rl,u:Tl});K.emailLinkNewDeviceLinking=function(a,b,c,d){var e=new Sb(c);c=e.a.a.get(x.PROVIDER_ID)||null;Wb(e,null);if(c){var f=new zn(zi(S(a),c),function(){f.o();d(a,b,e.toString())},J(S(a)),Mi(S(a)));f.render(b);Z(a,f)}else V(a,b)};function An(a){P.call(this,ll,void 0,a,"blank")}m(An,P);function Bn(a,b,c,d,e){var f=new An,g=new Sb(c),h=g.a.a.get(x.ab)||"",k=g.a.a.get(x.Ta)||"",p="1"===g.a.a.get(x.Ra),r=Vb(g),H=g.a.a.get(x.PROVIDER_ID)||
+null;g=g.a.a.get(x.wb)||null;Cn(a,g);var Da=!Eh(Ch,T(a)),Dl=d||Rh(k,T(a)),sd=(d=Sh(k,T(a)))&&d.a;H&&sd&&sd.providerId!==H&&(sd=null);f.render(b);Z(a,f);W(a,f.I(function(){var za=G(null);za=r&&Da||Da&&p?ef(Error("anonymous-user-not-found")):Dn(a,c).then(function(Kg){if(H&&!sd)throw Error("pending-credential-not-found");return Kg});var td=null;return za.then(function(Kg){td=Kg;return e?null:X(a).checkActionCode(h)}).then(function(){return td})},[],function(za){Dl?En(a,f,Dl,c,sd,za):p?(f.o(),L("differentDeviceError",
+a,b)):(f.o(),L("emailLinkConfirmation",a,b,c,Fn))},function(za){var td=void 0;if(!za||!za.name||"cancel"!=za.name)switch(f.o(),za&&za.message){case "anonymous-user-not-found":L("differentDeviceError",a,b);break;case "anonymous-user-mismatch":L("anonymousUserMismatch",a,b);break;case "pending-credential-not-found":L("emailLinkNewDeviceLinking",a,b,c,Gn);break;default:za&&(td=U(za)),V(a,b,void 0,td)}}))}function Fn(a,b,c,d){Bn(a,b,d,c,!0)}function Gn(a,b,c){Bn(a,b,c)}function En(a,b,c,d,e,f){var g=
+Q(b);b.$("mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active firebaseui-progress-dialog-loading-icon",C("Signing in...").toString());var h=null;e=(f?Hn(a,f,c,d,e):In(a,c,d,e)).then(function(k){Fh(Dh,T(a));Fh(Ch,T(a));b.h();b.$("firebaseui-icon-done",C("Signed in!").toString());h=setTimeout(function(){b.h();Cm(a,b,k,!0)},1E3);W(a,function(){b&&(b.h(),b.o());clearTimeout(h)})},function(k){b.h();b.o();if(!k.name||"cancel"!=k.name){var p=U(k);"auth/email-already-in-use"==k.code||"auth/credential-already-in-use"==
+k.code?(Fh(Dh,T(a)),Fh(Ch,T(a))):"auth/invalid-email"==k.code?(p=C("The email provided does not match the current sign-in session.").toString(),L("emailLinkConfirmation",a,g,d,Fn,null,p)):V(a,g,c,p)}});W(a,e)}K.emailLinkSignInCallback=Bn;function Jn(a,b,c,d,e,f){P.call(this,sl,{email:a,ha:b},f,"emailLinkSignInLinking",{F:d,D:e});this.i=c}m(Jn,P);Jn.prototype.v=function(){this.u(this.i);this.l().focus();P.prototype.v.call(this)};Jn.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(Jn.prototype,
+{l:Rl,u:Tl});function Kn(a,b,c,d){var e=Q(b);Rm(a,b,c,function(){V(a,e,c)},function(f){if(!f.name||"cancel"!=f.name){var g=U(f);f&&"auth/network-request-failed"==f.code?b.a(g):(b.o(),V(a,e,c,g))}},d)}K.emailLinkSignInLinking=function(a,b,c){var d=Mh(T(a));Nh(T(a));if(d){var e=d.a.providerId,f=new Jn(c,zi(S(a),e),function(){Kn(a,f,c,d)},J(S(a)),Mi(S(a)));f.render(b);Z(a,f)}else V(a,b)};function Ln(a,b,c,d,e,f){P.call(this,ml,{email:a},f,"emailLinkSignInSent",{F:d,D:e});this.u=b;this.i=c}m(Ln,P);Ln.prototype.v=
+function(){var a=this;O(this,this.l(),function(){a.i()});O(this,M(this,"firebaseui-id-trouble-getting-email-link"),function(){a.u()});this.l().focus();P.prototype.v.call(this)};Ln.prototype.m=function(){this.i=this.u=null;P.prototype.m.call(this)};u(Ln.prototype,{l:Sl});K.emailLinkSignInSent=function(a,b,c,d,e){var f=new Ln(c,function(){f.o();L("emailNotReceived",a,b,c,d,e)},function(){f.o();d()},J(S(a)),Mi(S(a)));f.render(b);Z(a,f)};function Mn(a,b,c,d,e,f,g){P.call(this,Kl,{ic:a,Pb:b},g,"emailMismatch",
+{F:e,D:f});this.l=c;this.i=d}m(Mn,P);Mn.prototype.v=function(){this.w(this.l,this.i);this.u().focus();P.prototype.v.call(this)};Mn.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(Mn.prototype,{u:Rl,B:Sl,w:Tl});K.emailMismatch=function(a,b,c){var d=Mh(T(a));if(d){var e=new Mn(c.user.email,d.g,function(){var f=e;Nh(T(a));Cm(a,f,c)},function(){var f=c.credential.providerId,g=Q(e);e.o();d.a?L("federatedLinking",a,g,d.g,f):L("federatedSignIn",a,g,d.g,f)},J(S(a)),Mi(S(a)));e.render(b);Z(a,
+e)}else V(a,b)};function Nn(a,b,c,d,e){P.call(this,nl,void 0,e,"emailNotReceived",{F:c,D:d});this.l=a;this.i=b}m(Nn,P);Nn.prototype.v=function(){var a=this;O(this,this.u(),function(){a.i()});O(this,this.Ea(),function(){a.l()});this.u().focus();P.prototype.v.call(this)};Nn.prototype.Ea=function(){return M(this,"firebaseui-id-resend-email-link")};Nn.prototype.m=function(){this.i=this.l=null;P.prototype.m.call(this)};u(Nn.prototype,{u:Sl});K.emailNotReceived=function(a,b,c,d,e){var f=new Nn(function(){Rm(a,
+f,c,d,function(g){g=U(g);f.a(g)},e)},function(){f.o();V(a,b,c)},J(S(a)),Mi(S(a)));f.render(b);Z(a,f)};function On(a,b,c,d,e,f){P.call(this,ul,{email:a,ha:b},f,"federatedLinking",{F:d,D:e});this.i=c}m(On,P);On.prototype.v=function(){this.u(this.i);this.l().focus();P.prototype.v.call(this)};On.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(On.prototype,{l:Rl,u:Tl});K.federatedLinking=function(a,b,c,d,e){var f=Mh(T(a));if(f&&f.a){var g=new On(c,zi(S(a),d),function(){Im(a,g,d,c)},J(S(a)),
+Mi(S(a)));g.render(b);Z(a,g);e&&g.a(e)}else V(a,b)};K.federatedRedirect=function(a,b,c){var d=new An;d.render(b);Z(a,d);b=yi(S(a))[0];Im(a,d,b,c)};K.federatedSignIn=function(a,b,c,d,e){var f=new On(c,zi(S(a),d),function(){Im(a,f,d,c)},J(S(a)),Mi(S(a)));f.render(b);Z(a,f);e&&f.a(e)};function Pn(a,b,c,d){var e=b.u();e?W(a,b.I(t(a.Wb,a),[c,e],function(f){f=f.user.linkWithCredential(d).then(function(g){return Cm(a,b,{user:g.user,credential:d,operationType:g.operationType,additionalUserInfo:g.additionalUserInfo})});
+W(a,f);return f},function(f){if(!f.name||"cancel"!=f.name)switch(f.code){case "auth/wrong-password":N(b.i(),!1);xk(b.B(),U(f));break;case "auth/too-many-requests":b.a(U(f));break;default:rg("signInWithEmailAndPassword: "+f.message,void 0),b.a(U(f))}})):b.i().focus()}K.passwordLinking=function(a,b,c){var d=Mh(T(a));Nh(T(a));var e=d&&d.a;if(e){var f=new Yl(c,function(){Pn(a,f,c,e)},function(){f.o();L("passwordRecovery",a,b,c)},J(S(a)),Mi(S(a)));f.render(b);Z(a,f)}else V(a,b)};function Qn(a,b,c,d,e,
+f){P.call(this,hl,{email:c,Ua:!!b},f,"passwordRecovery",{F:d,D:e});this.l=a;this.u=b}m(Qn,P);Qn.prototype.v=function(){this.B();this.H(this.l,this.u);Ej(this.i())||this.i().focus();dl(this,this.i(),this.l);P.prototype.v.call(this)};Qn.prototype.m=function(){this.u=this.l=null;P.prototype.m.call(this)};u(Qn.prototype,{i:$l,w:am,B:bm,M:cm,j:dm,U:Rl,P:Sl,H:Tl});function Rn(a,b){var c=b.j();if(c){var d=Q(b);W(a,b.I(t(X(a).sendPasswordResetEmail,X(a)),[c],function(){b.o();var e=new fm(c,function(){e.o();
+V(a,d)},J(S(a)),Mi(S(a)));e.render(d);Z(a,e)},function(e){N(b.i(),!1);xk(b.w(),U(e))}))}else b.i().focus()}K.passwordRecovery=function(a,b,c,d,e){var f=new Qn(function(){Rn(a,f)},d?void 0:function(){f.o();V(a,b)},c,J(S(a)),Mi(S(a)));f.render(b);Z(a,f);e&&f.a(e)};K.passwordSignIn=function(a,b,c,d){var e=new em(function(){Nm(a,e)},function(){var f=e.M();e.o();L("passwordRecovery",a,b,f)},c,J(S(a)),Mi(S(a)),d);e.render(b);Z(a,e)};function Sn(){return M(this,"firebaseui-id-name")}function Tn(){return M(this,
+"firebaseui-id-name-error")}function Un(a,b,c,d,e,f,g,h,k){P.call(this,gl,{email:d,Sb:a,name:e,Ua:!!c,ja:!!h},k,"passwordSignUp",{F:f,D:g});this.w=b;this.H=c;this.B=a}m(Un,P);Un.prototype.v=function(){this.fa();this.B&&this.Ka();this.wa();this.qa(this.w,this.H);this.B?(cl(this,this.i(),this.u()),cl(this,this.u(),this.l())):cl(this,this.i(),this.l());this.w&&dl(this,this.l(),this.w);Ej(this.i())?this.B&&!Ej(this.u())?this.u().focus():this.l().focus():this.i().focus();P.prototype.v.call(this)};Un.prototype.m=
+function(){this.H=this.w=null;P.prototype.m.call(this)};u(Un.prototype,{i:$l,U:am,fa:bm,kb:cm,j:dm,u:Sn,Ac:Tn,Ka:function(){var a=Sn.call(this),b=Tn.call(this);sk(this,a,function(){yk(b)&&(N(a,!0),wk(b))})},M:function(){var a=Sn.call(this);var b=Tn.call(this);var c=Ej(a);c=!/^[\s\xa0]*$/.test(null==c?"":String(c));N(a,c);c?(wk(b),b=!0):(xk(b,C("Enter your account name").toString()),b=!1);return b?Wa(Ej(a)):null},l:ln,ca:on,mb:mn,wa:pn,P:qn,Mb:Rl,Lb:Sl,qa:Tl});function Vn(a,b){var c=Ni(S(a)),d=b.j(),
+e=null;c&&(e=b.M());var f=b.P();if(d){if(c)if(e)e=eb(e);else{b.u().focus();return}if(f){var g=firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.credential(d,f);W(a,b.I(t(a.Xb,a),[d,f],function(h){var k={user:h.user,credential:g,operationType:h.operationType,additionalUserInfo:h.additionalUserInfo};return c?(h=h.user.updateProfile({displayName:e}).then(function(){return Cm(a,b,k)}),W(a,h),h):Cm(a,b,k)},function(h){if(!h.name||"cancel"!=h.name){var k=U(h);switch(h.code){case "auth/email-already-in-use":return Wn(a,b,
+d,h);case "auth/too-many-requests":k=C("Too many account requests are coming from your IP address. Try again in a few minutes.").toString();case "auth/operation-not-allowed":case "auth/weak-password":N(b.l(),!1);xk(b.ca(),k);break;default:h="setAccountInfo: "+eh(h),rg(h,void 0),b.a(k)}}}))}else b.l().focus()}else b.i().focus()}function Wn(a,b,c,d){function e(){var g=U(d);N(b.i(),!1);xk(b.U(),g);b.i().focus()}var f=X(a).fetchSignInMethodsForEmail(c).then(function(g){g.length?e():(g=Q(b),b.o(),L("passwordRecovery",
+a,g,c,!1,Md().toString()))},function(){e()});W(a,f);return f}K.passwordSignUp=function(a,b,c,d,e,f){function g(){h.o();V(a,b)}var h=new Un(Ni(S(a)),function(){Vn(a,h)},e?void 0:g,c,d,J(S(a)),Mi(S(a)),f);h.render(b);Z(a,h)};function Xn(){return M(this,"firebaseui-id-phone-confirmation-code")}function Yn(){return M(this,"firebaseui-id-phone-confirmation-code-error")}function Zn(){return M(this,"firebaseui-id-resend-countdown")}function $n(a,b,c,d,e,f,g,h,k){P.call(this,Nl,{phoneNumber:e},k,"phoneSignInFinish",
+{F:g,D:h});this.kb=f;this.i=new Qj(1E3);this.B=f;this.P=a;this.l=b;this.H=c;this.M=d}m($n,P);$n.prototype.v=function(){var a=this;this.U(this.kb);me(this.i,"tick",this.w,!1,this);this.i.start();O(this,M(this,"firebaseui-id-change-phone-number-link"),function(){a.P()});O(this,this.Ea(),function(){a.M()});this.Ka(this.l);this.fa(this.l,this.H);this.u().focus();P.prototype.v.call(this)};$n.prototype.m=function(){this.M=this.H=this.l=this.P=null;Rj(this.i);ue(this.i,"tick",this.w);this.i=null;P.prototype.m.call(this)};
+$n.prototype.w=function(){--this.B;0<this.B?this.U(this.B):(Rj(this.i),ue(this.i,"tick",this.w),this.wa(),this.mb())};u($n.prototype,{u:Xn,qa:Yn,Ka:function(a){var b=Xn.call(this),c=Yn.call(this);sk(this,b,function(){yk(c)&&(N(b,!0),wk(c))});a&&tk(this,b,function(){a()})},ca:function(){var a=Wa(Ej(Xn.call(this))||"");return/^\d{6}$/.test(a)?a:null},Eb:Zn,U:function(a){bd(Zn.call(this),C("Resend code in "+((9<a?"0:":"0:0")+a)).toString())},wa:function(){wk(this.Eb())},Ea:function(){return M(this,"firebaseui-id-resend-link")},
+mb:function(){xk(this.Ea())},Mb:Rl,Lb:Sl,fa:Tl});function ao(a,b,c,d){function e(g){b.u().focus();N(b.u(),!1);xk(b.qa(),g)}var f=b.ca();f?(b.$("mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active firebaseui-progress-dialog-loading-icon",C("Verifying...").toString()),W(a,b.I(t(d.confirm,d),[f],function(g){b.h();b.$("firebaseui-icon-done",C("Verified!").toString());var h=setTimeout(function(){b.h();b.o();var k={user:bo(a).currentUser,credential:null,operationType:g.operationType,additionalUserInfo:g.additionalUserInfo};
+Cm(a,b,k,!0)},1E3);W(a,function(){b&&b.h();clearTimeout(h)})},function(g){if(g.name&&"cancel"==g.name)b.h();else{var h=U(g);switch(g.code){case "auth/credential-already-in-use":b.h();break;case "auth/code-expired":g=Q(b);b.h();b.o();L("phoneSignInStart",a,g,c,h);break;case "auth/missing-verification-code":case "auth/invalid-verification-code":b.h();e(h);break;default:b.h(),b.a(h)}}}))):e(C("Wrong code. Try again.").toString())}K.phoneSignInFinish=function(a,b,c,d,e,f){var g=new $n(function(){g.o();
+L("phoneSignInStart",a,b,c)},function(){ao(a,g,c,e)},function(){g.o();V(a,b)},function(){g.o();L("phoneSignInStart",a,b,c)},ki(c),d,J(S(a)),Mi(S(a)));g.render(b);Z(a,g);f&&g.a(f)};var co=!z&&!(y("Safari")&&!($b()||y("Coast")||y("Opera")||y("Edge")||y("Firefox")||y("FxiOS")||y("Silk")||y("Android")));function eo(a,b){if(/-[a-z]/.test(b))return null;if(co&&a.dataset){if(!(!y("Android")||$b()||y("Firefox")||y("FxiOS")||y("Opera")||y("Silk")||b in a.dataset))return null;a=a.dataset[b];return void 0===
+a?null:a}return a.getAttribute("data-"+String(b).replace(/([A-Z])/g,"-$1").toLowerCase())}function fo(a,b,c){var d=this;a=jd(Nk,{items:a},null,this.s);Uk.call(this,a,!0,!0);c&&(c=go(a,c))&&(c.focus(),kk(c,a));O(this,a,function(e){if(e=(e=cd(e.target,"firebaseui-id-list-box-dialog-button"))&&eo(e,"listboxid"))Vk.call(d),b(e)})}function go(a,b){a=(a||document).getElementsByTagName("BUTTON");for(var c=0;c<a.length;c++)if(eo(a[c],"listboxid")===b)return a[c];return null}function ho(){return M(this,"firebaseui-id-phone-number")}
+function io(){return M(this,"firebaseui-id-country-selector")}function jo(){return M(this,"firebaseui-id-phone-number-error")}function ko(a,b){var c=a.a,d=lo("1-US-0",c),e=null;b&&lo(b,c)?e=b:d?e="1-US-0":e=0<c.length?c[0].c:null;if(!e)throw Error("No available default country");mo.call(this,e,a)}function lo(a,b){a=ci(a);return!(!a||!Na(b,a))}function no(a){return Ka(a,function(b){return{id:b.c,Na:"firebaseui-flag "+oo(b),label:b.name+" "+("\u200e+"+b.b)}})}function oo(a){return"firebaseui-flag-"+
+a.f}function po(a){var b=this;fo.call(this,no(a.a),function(c){mo.call(b,c,a,!0);b.O().focus()},this.Da)}function mo(a,b,c){var d=ci(a);d&&(c&&(c=Wa(Ej(ho.call(this))||""),b=bi(b,c),b.length&&b[0].b!=d.b&&(c="+"+d.b+c.substr(b[0].b.length+1),Fj(ho.call(this),c))),b=ci(this.Da),this.Da=a,a=M(this,"firebaseui-id-country-selector-flag"),b&&Dj(a,oo(b)),Cj(a,oo(d)),bd(M(this,"firebaseui-id-country-selector-code"),"\u200e+"+d.b))}function qo(a,b,c,d,e,f,g,h,k,p){P.call(this,Ml,{Fb:b,Ca:k||null,Wa:!!c,ja:!!f},
+p,"phoneSignInStart",{F:d,D:e});this.H=h||null;this.M=b;this.l=a;this.w=c||null;this.qa=g||null}m(qo,P);qo.prototype.v=function(){this.fa(this.qa,this.H);this.P(this.l,this.w||void 0);this.M||cl(this,this.O(),this.i());dl(this,this.i(),this.l);this.O().focus();xn(this.O(),(this.O().value||"").length);P.prototype.v.call(this)};qo.prototype.m=function(){this.w=this.l=null;P.prototype.m.call(this)};u(qo.prototype,{Cb:Wk,O:ho,B:jo,fa:function(a,b,c){var d=this,e=ho.call(this),f=io.call(this),g=jo.call(this),
+h=a||hi,k=h.a;if(0==k.length)throw Error("No available countries provided.");ko.call(d,h,b);O(this,f,function(){po.call(d,h)});sk(this,e,function(){yk(g)&&(N(e,!0),wk(g));var p=Wa(Ej(e)||""),r=ci(this.Da),H=bi(h,p);p=lo("1-US-0",k);H.length&&H[0].b!=r.b&&(r=H[0],mo.call(d,"1"==r.b&&p?"1-US-0":r.c,h))});c&&tk(this,e,function(){c()})},U:function(a){var b=Wa(Ej(ho.call(this))||"");a=a||hi;var c=a.a,d=bi(hi,b);if(d.length&&!Na(c,d[0]))throw Fj(ho.call(this)),ho.call(this).focus(),xk(jo.call(this),C("The country code provided is not supported.").toString()),
+Error("The country code provided is not supported.");c=ci(this.Da);d.length&&d[0].b!=c.b&&mo.call(this,d[0].c,a);d.length&&(b=b.substr(d[0].b.length+1));return b?new ii(this.Da,b):null},Ka:io,ca:function(){return M(this,"firebaseui-recaptcha-container")},u:function(){return M(this,"firebaseui-id-recaptcha-error")},i:Rl,wa:Sl,P:Tl});function ro(a,b,c,d){try{var e=b.U(dj)}catch(f){return}e?bj?(b.$("mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active firebaseui-progress-dialog-loading-icon",
+C("Verifying...").toString()),W(a,b.I(t(a.bc,a),[ki(e),c],function(f){var g=Q(b);b.$("firebaseui-icon-done",C("Code sent!").toString());var h=setTimeout(function(){b.h();b.o();L("phoneSignInFinish",a,g,e,15,f)},1E3);W(a,function(){b&&b.h();clearTimeout(h)})},function(f){b.h();if(!f.name||"cancel"!=f.name){grecaptcha.reset(ej);bj=null;var g=f&&f.message||"";if(f.code)switch(f.code){case "auth/too-many-requests":g=C("This phone number has been used too many times").toString();break;case "auth/invalid-phone-number":case "auth/missing-phone-number":b.O().focus();
+xk(b.B(),Jd().toString());return;default:g=U(f)}b.a(g)}}))):cj?xk(b.u(),C("Solve the reCAPTCHA").toString()):!cj&&d&&b.i().click():(b.O().focus(),xk(b.B(),Jd().toString()))}K.phoneSignInStart=function(a,b,c,d){var e=Fi(S(a))||{};bj=null;cj=!(e&&"invisible"===e.size);var f=Om(a),g=Ki(S(a)),h=f?Ji(S(a)):null;g=c&&c.a||g&&g.c||null;c=c&&c.Ca||h;(h=Li(S(a)))&&gi(h);dj=h?new ai(Li(S(a))):hi;var k=new qo(function(r){ro(a,k,p,!(!r||!r.keyCode))},cj,f?null:function(){p.clear();k.o();V(a,b)},J(S(a)),Mi(S(a)),
+f,dj,g,c);k.render(b);Z(a,k);d&&k.a(d);e.callback=function(r){k.u()&&wk(k.u());bj=r;cj||ro(a,k,p)};e["expired-callback"]=function(){bj=null};var p=new firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].RecaptchaVerifier(cj?k.ca():k.i(),e,bo(a).app);W(a,k.I(t(p.render,p),[],function(r){ej=r},function(r){r.name&&"cancel"==r.name||(r=U(r),k.o(),V(a,b,void 0,r))}))};K.prefilledEmailSignIn=function(a,b,c){var d=new An;d.render(b);Z(a,d);W(a,d.I(t(X(a).fetchSignInMethodsForEmail,X(a)),[c],function(e){d.o();var f=!(!ym(a)||!Ym(a));zm(a,b,e,
+c,void 0,void 0,f)},function(e){e=U(e);d.o();L("signIn",a,b,c,e)}))};function so(a,b,c,d,e){P.call(this,Ll,{Rb:b},e,"providerSignIn",{F:c,D:d});this.i=a}m(so,P);so.prototype.v=function(){this.l(this.i);P.prototype.v.call(this)};so.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(so.prototype,{l:function(a){function b(g){a(g)}for(var c=this.g?Vc("firebaseui-id-idp-button",this.g||this.s.a):[],d=0;d<c.length;d++){var e=c[d],f=eo(e,"providerId");O(this,e,ya(b,f))}}});K.providerSignIn=function(a,
+b,c,d){var e=new so(function(f){f==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.PROVIDER_ID?(e.o(),Pm(a,b,d)):f==firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].PhoneAuthProvider.PROVIDER_ID?(e.o(),L("phoneSignInStart",a,b)):"anonymous"==f?Lm(a,e):Im(a,e,f,d);Y(a);a.l.cancel()},Ai(S(a)),J(S(a)),Mi(S(a)));e.render(b);Z(a,e);c&&e.a(c);to(a)};K.sendEmailLinkForSignIn=function(a,b,c,d){var e=new an;e.render(b);Z(a,e);Rm(a,e,c,d,function(f){e.o();f=U(f);L("signIn",a,b,c,f)})};function uo(a,b,c,d,e,f,g){P.call(this,el,{email:c,Wa:!!b,ja:!!f},g,"signIn",
+{F:d,D:e});this.i=a;this.u=b}m(uo,P);uo.prototype.v=function(){this.w(this.i);this.B(this.i,this.u||void 0);this.l().focus();xn(this.l(),(this.l().value||"").length);P.prototype.v.call(this)};uo.prototype.m=function(){this.u=this.i=null;P.prototype.m.call(this)};u(uo.prototype,{l:$l,M:am,w:bm,H:cm,j:dm,U:Rl,P:Sl,B:Tl});K.signIn=function(a,b,c,d){var e=ym(a),f=e&&Di(S(a))!=pi,g=new uo(function(){var h=g,k=h.j()||"";k&&Qm(a,h,k)},f?null:function(){g.o();V(a,b,c)},c,J(S(a)),Mi(S(a)),e);g.render(b);Z(a,
+g);d&&g.a(d)};function vo(a,b,c,d,e,f){P.call(this,vl,{email:a},f,"unsupportedProvider",{F:d,D:e});this.l=b;this.i=c}m(vo,P);vo.prototype.v=function(){this.w(this.l,this.i);this.u().focus();P.prototype.v.call(this)};vo.prototype.m=function(){this.i=this.l=null;P.prototype.m.call(this)};u(vo.prototype,{u:Rl,B:Sl,w:Tl});K.unsupportedProvider=function(a,b,c){var d=new vo(c,function(){d.o();L("passwordRecovery",a,b,c)},function(){d.o();V(a,b,c)},J(S(a)),Mi(S(a)));d.render(b);Z(a,d)};function wo(a,b){this.$=
+!1;var c=xo(b);if(yo[c])throw Error('An AuthUI instance already exists for the key "'+c+'"');yo[c]=this;this.g=a;this.u=null;this.Y=!1;zo(this.g);this.a=firebase_app__WEBPACK_IMPORTED_MODULE_0__["initializeApp"]({apiKey:a.app.options.apiKey,authDomain:a.app.options.authDomain},a.app.name+"-firebaseui-temp").auth();zo(this.a);this.a.setPersistence&&this.a.setPersistence(firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].Auth.Persistence.SESSION);this.pa=b;this.da=new oi;this.h=this.T=this.i=this.J=this.O=null;this.s=[];this.Z=!1;this.l=Rf.Ya();this.j=this.C=null;this.ea=
+this.A=!1}function zo(a){a&&a.INTERNAL&&a.INTERNAL.logFramework&&a.INTERNAL.logFramework("FirebaseUI-web")}var yo={};function xo(a){return a||"[DEFAULT]"}function Jm(a){Y(a);a.i||(a.i=Ao(a,function(b){return b&&!Mh(T(a))?G(bo(a).getRedirectResult().then(function(c){return c},function(c){if(c&&"auth/email-already-in-use"==c.code&&c.email&&c.credential)throw c;return Bo(a,c)})):G(X(a).getRedirectResult().then(function(c){return ui(S(a))&&!c.user&&a.j&&!a.j.isAnonymous?bo(a).getRedirectResult():c}))}));
+return a.i}function Z(a,b){Y(a);a.h=b}var Co=null;function Sm(){return Co}function X(a){Y(a);return a.a}function bo(a){Y(a);return a.g}function T(a){Y(a);return a.pa}function Ym(a){Y(a);return a.O?a.O.emailHint:void 0}l=wo.prototype;l.ob=function(){Y(this);return!!Ph(T(this))||Do(vf())};function Do(a){a=new Sb(a);return"signIn"===(a.a.a.get(x.vb)||null)&&!!a.a.a.get(x.ab)}l.start=function(a,b){Eo(this,a,b)};function Eo(a,b,c,d){Y(a);"undefined"!==typeof a.g.languageCode&&(a.u=a.g.languageCode);var e=
+"en".replace(/_/g,"-");a.g.languageCode=e;a.a.languageCode=e;a.Y=!0;"undefined"!==typeof a.g.tenantId&&(a.a.tenantId=a.g.tenantId);a.jb(c);a.O=d||null;var f=n.document;a.C?a.C.then(function(){"complete"==f.readyState?Fo(a,b):ne(window,"load",function(){Fo(a,b)})}):"complete"==f.readyState?Fo(a,b):ne(window,"load",function(){Fo(a,b)})}function Fo(a,b){var c=uf(b,"Could not find the FirebaseUI widget element on the page.");c.setAttribute("lang","en".replace(/_/g,"-"));if(Co){var d=Co;Y(d);Mh(T(d))&&
+wg("UI Widget is already rendered on the page and is pending some user interaction. Only one widget instance can be rendered per page. The previous instance has been automatically reset.");Co.reset()}Co=a;a.T=c;Go(a,c);nh(new oh)&&nh(new ph)?Xm(a,b):(b=uf(b,"Could not find the FirebaseUI widget element on the page."),c=new qm(C("The browser you are using does not support Web Storage. Please try again in a different browser.").toString()),c.render(b),Z(a,c));b=a.h&&"blank"==a.h.Ha&&Ri(S(a));Ph(T(a))&&
+!b&&(b=Ph(T(a)),Cn(a,b.a),Fh(yh,T(a)))}function Ao(a,b){if(a.A)return b(Ho(a));W(a,function(){a.A=!1});if(ui(S(a))){var c=new F(function(d){W(a,a.g.onAuthStateChanged(function(e){a.j=e;a.A||(a.A=!0,d(b(Ho(a))))}))});W(a,c);return c}a.A=!0;return b(null)}function Ho(a){Y(a);return ui(S(a))&&a.j&&a.j.isAnonymous?a.j:null}function W(a,b){Y(a);if(b){a.s.push(b);var c=function(){Ra(a.s,function(d){return d==b})};"function"!=typeof b&&b.then(c,c)}}l.Db=function(){Y(this);this.Z=!0};function Io(a){Y(a);
+var b;(b=a.Z)||(a=S(a),a=Ii(a,firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].GoogleAuthProvider.PROVIDER_ID),b=!(!a||"select_account"!==a.prompt));return b}function Dm(a){"undefined"!==typeof a.g.languageCode&&a.Y&&(a.Y=!1,a.g.languageCode=a.u)}function Cn(a,b){a.g.tenantId=b;a.a.tenantId=b}l.reset=function(){Y(this);var a=this;this.T&&this.T.removeAttribute("lang");this.J&&Fe(this.J);Dm(this);this.O=null;Zm();Fh(yh,T(this));Y(this);this.l.cancel();this.i=G({user:null,credential:null});Co==this&&(Co=null);this.T=null;for(var b=0;b<
+this.s.length;b++)if("function"==typeof this.s[b])this.s[b]();else this.s[b].cancel&&this.s[b].cancel();this.s=[];Nh(T(this));this.h&&(this.h.o(),this.h=null);this.L=null;this.a&&(this.C=hn(this).then(function(){a.C=null},function(){a.C=null}))};function Go(a,b){a.L=null;a.J=new Ge(b);a.J.register();me(a.J,"pageEnter",function(c){c=c&&c.pageId;if(a.L!=c){var d=S(a);(d=Wi(d).uiChanged||null)&&d(a.L,c);a.L=c}})}l.jb=function(a){Y(this);var b=this.da,c;for(c in a)try{Vh(b.a,c,a[c])}catch(d){rg('Invalid config: "'+
+c+'"',void 0)}ic&&Vh(b.a,"popupMode",!1);Li(b);!this.ea&&Xi(S(this))&&(wg("signInSuccess callback is deprecated. Please use signInSuccessWithAuthResult callback instead."),this.ea=!0)};function S(a){Y(a);return a.da}l.Vb=function(){Y(this);var a=S(this),b=Wh(a.a,"widgetUrl");var c=si(a,b);S(this).a.get("popupMode")?(a=(window.screen.availHeight-600)/2,b=(window.screen.availWidth-500)/2,c=c||"about:blank",a={width:500,height:600,top:0<a?a:0,left:0<b?b:0,location:!0,resizable:!0,statusbar:!0,toolbar:!1},
+a.target=a.target||c.target||"google_popup",a.width=a.width||690,a.height=a.height||500,(a=qf(c,a))&&a.focus()):rf(c)};function Y(a){if(a.$)throw Error("AuthUI instance is deleted!");}l.Xa=function(){var a=this;Y(this);return this.a.app.delete().then(function(){var b=xo(T(a));delete yo[b];a.reset();a.$=!0})};function to(a){Y(a);try{Sf(a.l,Ci(S(a)),Io(a)).then(function(b){return a.h?Mm(a,a.h,b):!1})}catch(b){}}l.Hb=function(a,b){Y(this);var c=this,d=xf();if(!Oi(S(this)))return ef(Error("Email link sign-in should be enabled to trigger email sending."));
+var e=Qi(S(this)),f=new Sb(e.url);Tb(f,d);b&&b.a&&(Th(d,b,T(this)),Wb(f,b.a.providerId));Ub(f,Pi(S(this)));return Ao(this,function(g){g&&((g=g.uid)?f.a.a.set(x.Qa,g):Qb(f.a.a,x.Qa));e.url=f.toString();return X(c).sendSignInLinkToEmail(a,e)}).then(function(){var g=T(c),h={};h.email=a;Gh(Ch,bh(d,JSON.stringify(h)),g)},function(g){Fh(Dh,T(c));Fh(Ch,T(c));throw g;})};function Dn(a,b){var c=Vb(new Sb(b));if(!c)return G(null);b=new F(function(d,e){var f=bo(a).onAuthStateChanged(function(g){f();g&&g.isAnonymous&&
+g.uid===c?d(g):g&&g.isAnonymous&&g.uid!==c?e(Error("anonymous-user-mismatch")):e(Error("anonymous-user-not-found"))});W(a,f)});W(a,b);return b}function Hn(a,b,c,d,e){Y(a);var f=e||null,g=firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.credentialWithLink(c,d);c=f?X(a).signInWithEmailLink(c,d).then(function(h){return h.user.linkWithCredential(f)}).then(function(){return hn(a)}).then(function(){return Bo(a,{code:"auth/email-already-in-use"},f)}):X(a).fetchSignInMethodsForEmail(c).then(function(h){return h.length?Bo(a,
+{code:"auth/email-already-in-use"},g):b.linkWithCredential(g)});W(a,c);return c}function In(a,b,c,d){Y(a);var e=d||null,f;b=X(a).signInWithEmailLink(b,c).then(function(g){f={user:g.user,credential:null,operationType:g.operationType,additionalUserInfo:g.additionalUserInfo};if(e)return g.user.linkWithCredential(e).then(function(h){f={user:h.user,credential:e,operationType:f.operationType,additionalUserInfo:h.additionalUserInfo}})}).then(function(){hn(a)}).then(function(){return bo(a).updateCurrentUser(f.user)}).then(function(){f.user=
+bo(a).currentUser;return f});W(a,b);return b}function Zm(){var a=vf();if(Do(a)){a=new Sb(a);for(var b in x)x.hasOwnProperty(b)&&Qb(a.a.a,x[b]);b={state:"signIn",mode:"emailLink",operation:"clear"};var c=n.document.title;n.history&&n.history.replaceState&&n.history.replaceState(b,c,a.toString())}}l.ac=function(a,b){Y(this);var c=this;return X(this).signInWithEmailAndPassword(a,b).then(function(d){return Ao(c,function(e){return e?hn(c).then(function(){return Bo(c,{code:"auth/email-already-in-use"},
+firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.credential(a,b))}):d})})};l.Xb=function(a,b){Y(this);var c=this;return Ao(this,function(d){if(d){var e=firebase_app__WEBPACK_IMPORTED_MODULE_0__["auth"].EmailAuthProvider.credential(a,b);return d.linkWithCredential(e)}return X(c).createUserWithEmailAndPassword(a,b)})};l.$b=function(a){Y(this);var b=this;return Ao(this,function(c){return c?c.linkWithCredential(a).then(function(d){return d},function(d){if(d&&"auth/email-already-in-use"==d.code&&d.email&&d.credential)throw d;return Bo(b,d,a)}):X(b).signInWithCredential(a)})};
+function Km(a,b){Y(a);return Ao(a,function(c){return c&&!Mh(T(a))?c.linkWithPopup(b).then(function(d){return d},function(d){if(d&&"auth/email-already-in-use"==d.code&&d.email&&d.credential)throw d;return Bo(a,d)}):X(a).signInWithPopup(b)})}l.cc=function(a){Y(this);var b=this,c=this.i;this.i=null;return Ao(this,function(d){return d&&!Mh(T(b))?d.linkWithRedirect(a):X(b).signInWithRedirect(a)}).then(function(){},function(d){b.i=c;throw d;})};l.bc=function(a,b){Y(this);var c=this;return Ao(this,function(d){return d?
+d.linkWithPhoneNumber(a,b).then(function(e){return new Vf(e,function(f){if("auth/credential-already-in-use"==f.code)return Bo(c,f);throw f;})}):bo(c).signInWithPhoneNumber(a,b).then(function(e){return new Vf(e)})})};l.Zb=function(){Y(this);return bo(this).signInAnonymously()};function Fm(a,b){Y(a);return Ao(a,function(c){if(a.j&&!a.j.isAnonymous&&ui(S(a))&&!X(a).currentUser)return hn(a).then(function(){"password"==b.credential.providerId&&(b.credential=null);return b});if(c)return hn(a).then(function(){return c.linkWithCredential(b.credential)}).then(function(d){b.user=
+d.user;b.credential=d.credential;b.operationType=d.operationType;b.additionalUserInfo=d.additionalUserInfo;return b},function(d){if(d&&"auth/email-already-in-use"==d.code&&d.email&&d.credential)throw d;return Bo(a,d,b.credential)});if(!b.user)throw Error('Internal error: An incompatible or outdated version of "firebase.js" may be used.');return hn(a).then(function(){return bo(a).updateCurrentUser(b.user)}).then(function(){b.user=bo(a).currentUser;b.operationType="signIn";b.credential&&b.credential.providerId&&
+"password"==b.credential.providerId&&(b.credential=null);return b})})}l.Wb=function(a,b){Y(this);return X(this).signInWithEmailAndPassword(a,b)};function hn(a){Y(a);return X(a).signOut()}function Bo(a,b,c){Y(a);if(b&&b.code&&("auth/email-already-in-use"==b.code||"auth/credential-already-in-use"==b.code)){var d=vi(S(a));return G().then(function(){return d(new Pd("anonymous-upgrade-merge-conflict",null,c||b.credential))}).then(function(){a.h&&(a.h.o(),a.h=null);throw b;})}return ef(b)}function Jo(a,
+b,c,d){P.call(this,Ql,void 0,d,"providerMatchByEmail",{F:b,D:c});this.i=a}m(Jo,P);Jo.prototype.v=function(){this.u(this.i);this.w(this.i);this.l().focus();xn(this.l(),(this.l().value||"").length);P.prototype.v.call(this)};Jo.prototype.m=function(){this.i=null;P.prototype.m.call(this)};u(Jo.prototype,{l:$l,H:am,u:bm,B:cm,j:dm,M:Rl,w:Tl});function Ko(a,b,c,d,e){P.call(this,Pl,{dc:b},e,"selectTenant",{F:c,D:d});this.i=a}m(Ko,P);Ko.prototype.v=function(){Lo(this,this.i);P.prototype.v.call(this)};Ko.prototype.m=
+function(){this.i=null;P.prototype.m.call(this)};function Lo(a,b){function c(h){b(h)}for(var d=a.g?Vc("firebaseui-id-tenant-selection-button",a.g||a.s.a):[],e=0;e<d.length;e++){var f=d[e],g=eo(f,"tenantId");O(a,f,ya(c,g))}}function Mo(a){P.call(this,kl,void 0,a,"spinner")}m(Mo,P);function No(a){this.a=new Uh;I(this.a,"authDomain");I(this.a,"displayMode",Oo);I(this.a,"tenants");I(this.a,"callbacks");I(this.a,"tosUrl");I(this.a,"privacyPolicyUrl");for(var b in a)if(a.hasOwnProperty(b))try{Vh(this.a,
+b,a[b])}catch(c){rg('Invalid config: "'+b+'"',void 0)}}function Po(a){a=a.a.get("displayMode");for(var b in Qo)if(Qo[b]===a)return Qo[b];return Oo}function Ro(a){return a.a.get("callbacks")||{}}function So(a){var b=a.a.get("tosUrl")||null;a=a.a.get("privacyPolicyUrl")||null;b&&!a&&wg("Privacy Policy URL is missing, the link will not be displayed.");if(b&&a){if("function"===typeof b)return b;if("string"===typeof b)return function(){tf(b)}}return null}function To(a){var b=a.a.get("tosUrl")||null,c=
+a.a.get("privacyPolicyUrl")||null;c&&!b&&wg("Terms of Service URL is missing, the link will not be displayed.");if(b&&c){if("function"===typeof c)return c;if("string"===typeof c)return function(){tf(c)}}return null}function Uo(a,b){a=a.a.get("tenants");if(!a||!a.hasOwnProperty(b)&&!a.hasOwnProperty(Vo))throw Error("Invalid tenant configuration!");}function Wo(a,b,c){a=a.a.get("tenants");if(!a)throw Error("Invalid tenant configuration!");var d=[];a=a[b]||a[Vo];if(!a)return rg("Invalid tenant configuration: "+
+(b+" is not configured!"),void 0),d;b=a.signInOptions;if(!b)throw Error("Invalid tenant configuration: signInOptions are invalid!");b.forEach(function(e){if("string"===typeof e)d.push(e);else if("string"===typeof e.provider){var f=e.hd;f&&c?(f instanceof RegExp?f:new RegExp("@"+f.replace(".","\\.")+"$")).test(c)&&d.push(e.provider):d.push(e.provider)}else e="Invalid tenant configuration: signInOption "+(JSON.stringify(e)+" is invalid!"),rg(e,void 0)});return d}function Xo(a,b,c){a=Yo(a,b);(b=a.signInOptions)&&
+c&&(b=b.filter(function(d){return"string"===typeof d?c.includes(d):c.includes(d.provider)}),a.signInOptions=b);return a}function Yo(a,b){var c=Zo;var d=void 0===d?{}:d;Uo(a,b);a=a.a.get("tenants");return yf(a[b]||a[Vo],c,d)}var Zo=["immediateFederatedRedirect","privacyPolicyUrl","signInFlow","signInOptions","tosUrl"],Oo="optionFirst",Qo={oc:Oo,nc:"identifierFirst"},Vo="*";function $o(a,b){var c=this;this.s=uf(a);this.a={};Object.keys(b).forEach(function(d){c.a[d]=new No(b[d])});this.pb=this.g=this.A=
+this.h=this.i=this.j=null;Object.defineProperty(this,"languageCode",{get:function(){return this.pb},set:function(d){this.pb=d||null},enumerable:!1})}l=$o.prototype;l.Tb=function(a,b){var c=this;ap(this);var d=a.apiKey;return new F(function(e,f){if(c.a.hasOwnProperty(d)){var g=Ro(c.a[d]).selectTenantUiHidden||null;if(Po(c.a[d])===Oo){var h=[];b.forEach(function(r){r=r||"_";var H=c.a[d].a.get("tenants");if(!H)throw Error("Invalid tenant configuration!");(H=H[r]||H[Vo])?r={tenantId:"_"!==r?r:null,V:H.fullLabel||
+null,displayName:H.displayName,Ba:H.iconUrl,va:H.buttonColor}:(rg("Invalid tenant configuration: "+(r+" is not configured!"),void 0),r=null);r&&h.push(r)});var k=function(r){r={tenantId:r,providerIds:Wo(c.a[d],r||"_")};e(r)};if(1===h.length){k(h[0].tenantId);return}c.g=new Ko(function(r){ap(c);g&&g();k(r)},h,So(c.a[d]),To(c.a[d]))}else c.g=new Jo(function(){var r=c.g.j();if(r){for(var H=0;H<b.length;H++){var Da=Wo(c.a[d],b[H]||"_",r);if(0!==Da.length){r={tenantId:b[H],providerIds:Da,email:r};ap(c);
+g&&g();e(r);return}}c.g.a(Nd({code:"no-matching-tenant-for-email"}).toString())}},So(c.a[d]),To(c.a[d]));c.g.render(c.s);(f=Ro(c.a[d]).selectTenantUiShown||null)&&f()}else{var p=Error("Invalid project configuration: API key is invalid!");p.code="invalid-configuration";c.qb(p);f(p)}})};l.Ob=function(a,b){if(!this.a.hasOwnProperty(a))throw Error("Invalid project configuration: API key is invalid!");var c=b||void 0;Uo(this.a[a],b||"_");try{this.i=firebase_app__WEBPACK_IMPORTED_MODULE_0__["app"](c).auth()}catch(e){var d=this.a[a].a.get("authDomain");
+if(!d)throw Error("Invalid project configuration: authDomain is required!");a=firebase_app__WEBPACK_IMPORTED_MODULE_0__["initializeApp"]({apiKey:a,authDomain:d},c);a.auth().tenantId=b;this.i=a.auth()}return this.i};l.Yb=function(a,b){var c=this;return new F(function(d,e){function f(H,Da){c.j=new wo(a);Eo(c.j,c.s,H,Da)}var g=a.app.options.apiKey;c.a.hasOwnProperty(g)||e(Error("Invalid project configuration: API key is invalid!"));var h=Xo(c.a[g],a.tenantId||"_",b&&b.providerIds);ap(c);e={signInSuccessWithAuthResult:function(H){d(H);
+return!1}};var k=Ro(c.a[g]).signInUiShown||null,p=!1;e.uiChanged=function(H,Da){null===H&&"callback"===Da?((H=Xc("firebaseui-id-page-callback",c.s))&&wk(H),c.h=new Mo,c.h.render(c.s)):p||null===H&&"spinner"===Da||"blank"===Da||(c.h&&(c.h.o(),c.h=null),p=!0,k&&k(a.tenantId))};h.callbacks=e;h.credentialHelper="none";var r;b&&b.email&&(r={emailHint:b.email});c.j?c.j.Xa().then(function(){f(h,r)}):f(h,r)})};l.reset=function(){var a=this;return G().then(function(){a.j&&a.j.Xa()}).then(function(){a.j=null;
+ap(a)})};l.Ub=function(){var a=this;this.h||this.A||(this.A=window.setTimeout(function(){ap(a);a.h=new Mo;a.g=a.h;a.h.render(a.s);a.A=null},500))};l.nb=function(){window.clearTimeout(this.A);this.A=null;this.h&&(this.h.o(),this.h=null)};l.Bb=function(){ap(this);this.g=new lm;this.g.render(this.s);return G()};function ap(a){a.j&&a.j.reset();a.nb();a.g&&a.g.o()}l.qb=function(a){var b=this,c=Nd({code:a.code}).toString()||a.message;ap(this);var d;a.retry&&"function"===typeof a.retry&&(d=function(){b.reset();
+a.retry()});this.g=new pm(c,d);this.g.render(this.s)};l.Qb=function(a){var b=this;return G().then(function(){var c=b.i&&b.i.app.options.apiKey;if(!b.a.hasOwnProperty(c))throw Error("Invalid project configuration: API key is invalid!");Uo(b.a[c],a.tenantId||"_");if(!b.i.currentUser||b.i.currentUser.uid!==a.uid)throw Error("The user being processed does not match the signed in user!");return(c=Ro(b.a[c]).beforeSignInSuccess||null)?c(a):a}).then(function(c){if(c.uid!==a.uid)throw Error("User with mismatching UID returned.");
+return c})};v("firebaseui.auth.FirebaseUiHandler",$o);v("firebaseui.auth.FirebaseUiHandler.prototype.selectTenant",$o.prototype.Tb);v("firebaseui.auth.FirebaseUiHandler.prototype.getAuth",$o.prototype.Ob);v("firebaseui.auth.FirebaseUiHandler.prototype.startSignIn",$o.prototype.Yb);v("firebaseui.auth.FirebaseUiHandler.prototype.reset",$o.prototype.reset);v("firebaseui.auth.FirebaseUiHandler.prototype.showProgressBar",$o.prototype.Ub);v("firebaseui.auth.FirebaseUiHandler.prototype.hideProgressBar",
+$o.prototype.nb);v("firebaseui.auth.FirebaseUiHandler.prototype.completeSignOut",$o.prototype.Bb);v("firebaseui.auth.FirebaseUiHandler.prototype.handleError",$o.prototype.qb);v("firebaseui.auth.FirebaseUiHandler.prototype.processUser",$o.prototype.Qb);v("firebaseui.auth.AuthUI",wo);v("firebaseui.auth.AuthUI.getInstance",function(a){a=xo(a);return yo[a]?yo[a]:null});v("firebaseui.auth.AuthUI.prototype.disableAutoSignIn",wo.prototype.Db);v("firebaseui.auth.AuthUI.prototype.start",wo.prototype.start);
+v("firebaseui.auth.AuthUI.prototype.setConfig",wo.prototype.jb);v("firebaseui.auth.AuthUI.prototype.signIn",wo.prototype.Vb);v("firebaseui.auth.AuthUI.prototype.reset",wo.prototype.reset);v("firebaseui.auth.AuthUI.prototype.delete",wo.prototype.Xa);v("firebaseui.auth.AuthUI.prototype.isPendingRedirect",wo.prototype.ob);v("firebaseui.auth.AuthUIError",Pd);v("firebaseui.auth.AuthUIError.prototype.toJSON",Pd.prototype.toJSON);v("firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM",pi);v("firebaseui.auth.CredentialHelper.GOOGLE_YOLO",
+Ei);v("firebaseui.auth.CredentialHelper.NONE",Zi);v("firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID","anonymous");F.prototype["catch"]=F.prototype.ua;F.prototype["finally"]=F.prototype.ec}).apply(typeof global!=="undefined"?global:typeof self!=="undefined"?self:window);}).apply(typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : window );if(typeof window!=='undefined'){window.dialogPolyfill=dialog_polyfill__WEBPACK_IMPORTED_MODULE_2___default.a;}const auth = firebaseui.auth;
+
 
 /***/ }),
 
@@ -63597,6 +69448,1241 @@ return lottie;
 
 /***/ }),
 
+/***/ "./node_modules/material-design-lite/src/button/button.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/material-design-lite/src/button/button.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function() {
+  'use strict';
+
+  /**
+   * Class constructor for Button MDL component.
+   * Implements MDL component design pattern defined at:
+   * https://github.com/jasonmayes/mdl-component-design-pattern
+   *
+   * @param {HTMLElement} element The element that will be upgraded.
+   */
+  var MaterialButton = function MaterialButton(element) {
+    this.element_ = element;
+
+    // Initialize instance.
+    this.init();
+  };
+  window['MaterialButton'] = MaterialButton;
+
+  /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {string | number}
+   * @private
+   */
+  MaterialButton.prototype.Constant_ = {
+    // None for now.
+  };
+
+  /**
+   * Store strings for class names defined by this component that are used in
+   * JavaScript. This allows us to simply change it in one place should we
+   * decide to modify at a later date.
+   *
+   * @enum {string}
+   * @private
+   */
+  MaterialButton.prototype.CssClasses_ = {
+    RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+    RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+    RIPPLE: 'mdl-ripple'
+  };
+
+  /**
+   * Handle blur of element.
+   *
+   * @param {Event} event The event that fired.
+   * @private
+   */
+  MaterialButton.prototype.blurHandler_ = function(event) {
+    if (event) {
+      this.element_.blur();
+    }
+  };
+
+  // Public methods.
+
+  /**
+   * Disable button.
+   *
+   * @public
+   */
+  MaterialButton.prototype.disable = function() {
+    this.element_.disabled = true;
+  };
+  MaterialButton.prototype['disable'] = MaterialButton.prototype.disable;
+
+  /**
+   * Enable button.
+   *
+   * @public
+   */
+  MaterialButton.prototype.enable = function() {
+    this.element_.disabled = false;
+  };
+  MaterialButton.prototype['enable'] = MaterialButton.prototype.enable;
+
+  /**
+   * Initialize element.
+   */
+  MaterialButton.prototype.init = function() {
+    if (this.element_) {
+      if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+        var rippleContainer = document.createElement('span');
+        rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
+        this.rippleElement_ = document.createElement('span');
+        this.rippleElement_.classList.add(this.CssClasses_.RIPPLE);
+        rippleContainer.appendChild(this.rippleElement_);
+        this.boundRippleBlurHandler = this.blurHandler_.bind(this);
+        this.rippleElement_.addEventListener('mouseup', this.boundRippleBlurHandler);
+        this.element_.appendChild(rippleContainer);
+      }
+      this.boundButtonBlurHandler = this.blurHandler_.bind(this);
+      this.element_.addEventListener('mouseup', this.boundButtonBlurHandler);
+      this.element_.addEventListener('mouseleave', this.boundButtonBlurHandler);
+    }
+  };
+
+  // The component registers itself. It can assume componentHandler is available
+  // in the global scope.
+  componentHandler.register({
+    constructor: MaterialButton,
+    classAsString: 'MaterialButton',
+    cssClass: 'mdl-js-button',
+    widget: true
+  });
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/material-design-lite/src/mdlComponentHandler.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/material-design-lite/src/mdlComponentHandler.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * A component handler interface using the revealing module design pattern.
+ * More details on this design pattern here:
+ * https://github.com/jasonmayes/mdl-component-design-pattern
+ *
+ * @author Jason Mayes.
+ */
+/* exported componentHandler */
+
+// Pre-defining the componentHandler interface, for closure documentation and
+// static verification.
+var componentHandler = {
+  /**
+   * Searches existing DOM for elements of our component type and upgrades them
+   * if they have not already been upgraded.
+   *
+   * @param {string=} optJsClass the programatic name of the element class we
+   * need to create a new instance of.
+   * @param {string=} optCssClass the name of the CSS class elements of this
+   * type will have.
+   */
+  upgradeDom: function(optJsClass, optCssClass) {},
+  /**
+   * Upgrades a specific element rather than all in the DOM.
+   *
+   * @param {!Element} element The element we wish to upgrade.
+   * @param {string=} optJsClass Optional name of the class we want to upgrade
+   * the element to.
+   */
+  upgradeElement: function(element, optJsClass) {},
+  /**
+   * Upgrades a specific list of elements rather than all in the DOM.
+   *
+   * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection} elements
+   * The elements we wish to upgrade.
+   */
+  upgradeElements: function(elements) {},
+  /**
+   * Upgrades all registered components found in the current DOM. This is
+   * automatically called on window load.
+   */
+  upgradeAllRegistered: function() {},
+  /**
+   * Allows user to be alerted to any upgrades that are performed for a given
+   * component type
+   *
+   * @param {string} jsClass The class name of the MDL component we wish
+   * to hook into for any upgrades performed.
+   * @param {function(!HTMLElement)} callback The function to call upon an
+   * upgrade. This function should expect 1 parameter - the HTMLElement which
+   * got upgraded.
+   */
+  registerUpgradedCallback: function(jsClass, callback) {},
+  /**
+   * Registers a class for future use and attempts to upgrade existing DOM.
+   *
+   * @param {componentHandler.ComponentConfigPublic} config the registration configuration
+   */
+  register: function(config) {},
+  /**
+   * Downgrade either a given node, an array of nodes, or a NodeList.
+   *
+   * @param {!Node|!Array<!Node>|!NodeList} nodes
+   */
+  downgradeElements: function(nodes) {}
+};
+
+componentHandler = (function() {
+  'use strict';
+
+  /** @type {!Array<componentHandler.ComponentConfig>} */
+  var registeredComponents_ = [];
+
+  /** @type {!Array<componentHandler.Component>} */
+  var createdComponents_ = [];
+
+  var componentConfigProperty_ = 'mdlComponentConfigInternal_';
+
+  /**
+   * Searches registered components for a class we are interested in using.
+   * Optionally replaces a match with passed object if specified.
+   *
+   * @param {string} name The name of a class we want to use.
+   * @param {componentHandler.ComponentConfig=} optReplace Optional object to replace match with.
+   * @return {!Object|boolean}
+   * @private
+   */
+  function findRegisteredClass_(name, optReplace) {
+    for (var i = 0; i < registeredComponents_.length; i++) {
+      if (registeredComponents_[i].className === name) {
+        if (typeof optReplace !== 'undefined') {
+          registeredComponents_[i] = optReplace;
+        }
+        return registeredComponents_[i];
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Returns an array of the classNames of the upgraded classes on the element.
+   *
+   * @param {!Element} element The element to fetch data from.
+   * @return {!Array<string>}
+   * @private
+   */
+  function getUpgradedListOfElement_(element) {
+    var dataUpgraded = element.getAttribute('data-upgraded');
+    // Use `['']` as default value to conform the `,name,name...` style.
+    return dataUpgraded === null ? [''] : dataUpgraded.split(',');
+  }
+
+  /**
+   * Returns true if the given element has already been upgraded for the given
+   * class.
+   *
+   * @param {!Element} element The element we want to check.
+   * @param {string} jsClass The class to check for.
+   * @returns {boolean}
+   * @private
+   */
+  function isElementUpgraded_(element, jsClass) {
+    var upgradedList = getUpgradedListOfElement_(element);
+    return upgradedList.indexOf(jsClass) !== -1;
+  }
+
+  /**
+   * Create an event object.
+   *
+   * @param {string} eventType The type name of the event.
+   * @param {boolean} bubbles Whether the event should bubble up the DOM.
+   * @param {boolean} cancelable Whether the event can be canceled.
+   * @returns {!Event}
+   */
+  function createEvent_(eventType, bubbles, cancelable) {
+    if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
+      return new CustomEvent(eventType, {
+        bubbles: bubbles,
+        cancelable: cancelable
+      });
+    } else {
+      var ev = document.createEvent('Events');
+      ev.initEvent(eventType, bubbles, cancelable);
+      return ev;
+    }
+  }
+
+  /**
+   * Searches existing DOM for elements of our component type and upgrades them
+   * if they have not already been upgraded.
+   *
+   * @param {string=} optJsClass the programatic name of the element class we
+   * need to create a new instance of.
+   * @param {string=} optCssClass the name of the CSS class elements of this
+   * type will have.
+   */
+  function upgradeDomInternal(optJsClass, optCssClass) {
+    if (typeof optJsClass === 'undefined' &&
+        typeof optCssClass === 'undefined') {
+      for (var i = 0; i < registeredComponents_.length; i++) {
+        upgradeDomInternal(registeredComponents_[i].className,
+            registeredComponents_[i].cssClass);
+      }
+    } else {
+      var jsClass = /** @type {string} */ (optJsClass);
+      if (typeof optCssClass === 'undefined') {
+        var registeredClass = findRegisteredClass_(jsClass);
+        if (registeredClass) {
+          optCssClass = registeredClass.cssClass;
+        }
+      }
+
+      var elements = document.querySelectorAll('.' + optCssClass);
+      for (var n = 0; n < elements.length; n++) {
+        upgradeElementInternal(elements[n], jsClass);
+      }
+    }
+  }
+
+  /**
+   * Upgrades a specific element rather than all in the DOM.
+   *
+   * @param {!Element} element The element we wish to upgrade.
+   * @param {string=} optJsClass Optional name of the class we want to upgrade
+   * the element to.
+   */
+  function upgradeElementInternal(element, optJsClass) {
+    // Verify argument type.
+    if (!(typeof element === 'object' && element instanceof Element)) {
+      throw new Error('Invalid argument provided to upgrade MDL element.');
+    }
+    // Allow upgrade to be canceled by canceling emitted event.
+    var upgradingEv = createEvent_('mdl-componentupgrading', true, true);
+    element.dispatchEvent(upgradingEv);
+    if (upgradingEv.defaultPrevented) {
+      return;
+    }
+
+    var upgradedList = getUpgradedListOfElement_(element);
+    var classesToUpgrade = [];
+    // If jsClass is not provided scan the registered components to find the
+    // ones matching the element's CSS classList.
+    if (!optJsClass) {
+      var classList = element.classList;
+      registeredComponents_.forEach(function(component) {
+        // Match CSS & Not to be upgraded & Not upgraded.
+        if (classList.contains(component.cssClass) &&
+            classesToUpgrade.indexOf(component) === -1 &&
+            !isElementUpgraded_(element, component.className)) {
+          classesToUpgrade.push(component);
+        }
+      });
+    } else if (!isElementUpgraded_(element, optJsClass)) {
+      classesToUpgrade.push(findRegisteredClass_(optJsClass));
+    }
+
+    // Upgrade the element for each classes.
+    for (var i = 0, n = classesToUpgrade.length, registeredClass; i < n; i++) {
+      registeredClass = classesToUpgrade[i];
+      if (registeredClass) {
+        // Mark element as upgraded.
+        upgradedList.push(registeredClass.className);
+        element.setAttribute('data-upgraded', upgradedList.join(','));
+        var instance = new registeredClass.classConstructor(element);
+        instance[componentConfigProperty_] = registeredClass;
+        createdComponents_.push(instance);
+        // Call any callbacks the user has registered with this component type.
+        for (var j = 0, m = registeredClass.callbacks.length; j < m; j++) {
+          registeredClass.callbacks[j](element);
+        }
+
+        if (registeredClass.widget) {
+          // Assign per element instance for control over API
+          element[registeredClass.className] = instance;
+        }
+      } else {
+        throw new Error(
+          'Unable to find a registered component for the given class.');
+      }
+
+      var upgradedEv = createEvent_('mdl-componentupgraded', true, false);
+      element.dispatchEvent(upgradedEv);
+    }
+  }
+
+  /**
+   * Upgrades a specific list of elements rather than all in the DOM.
+   *
+   * @param {!Element|!Array<!Element>|!NodeList|!HTMLCollection} elements
+   * The elements we wish to upgrade.
+   */
+  function upgradeElementsInternal(elements) {
+    if (!Array.isArray(elements)) {
+      if (elements instanceof Element) {
+        elements = [elements];
+      } else {
+        elements = Array.prototype.slice.call(elements);
+      }
+    }
+    for (var i = 0, n = elements.length, element; i < n; i++) {
+      element = elements[i];
+      if (element instanceof HTMLElement) {
+        upgradeElementInternal(element);
+        if (element.children.length > 0) {
+          upgradeElementsInternal(element.children);
+        }
+      }
+    }
+  }
+
+  /**
+   * Registers a class for future use and attempts to upgrade existing DOM.
+   *
+   * @param {componentHandler.ComponentConfigPublic} config
+   */
+  function registerInternal(config) {
+    // In order to support both Closure-compiled and uncompiled code accessing
+    // this method, we need to allow for both the dot and array syntax for
+    // property access. You'll therefore see the `foo.bar || foo['bar']`
+    // pattern repeated across this method.
+    var widgetMissing = (typeof config.widget === 'undefined' &&
+        typeof config['widget'] === 'undefined');
+    var widget = true;
+
+    if (!widgetMissing) {
+      widget = config.widget || config['widget'];
+    }
+
+    var newConfig = /** @type {componentHandler.ComponentConfig} */ ({
+      classConstructor: config.constructor || config['constructor'],
+      className: config.classAsString || config['classAsString'],
+      cssClass: config.cssClass || config['cssClass'],
+      widget: widget,
+      callbacks: []
+    });
+
+    registeredComponents_.forEach(function(item) {
+      if (item.cssClass === newConfig.cssClass) {
+        throw new Error('The provided cssClass has already been registered: ' + item.cssClass);
+      }
+      if (item.className === newConfig.className) {
+        throw new Error('The provided className has already been registered');
+      }
+    });
+
+    if (config.constructor.prototype
+        .hasOwnProperty(componentConfigProperty_)) {
+      throw new Error(
+          'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.');
+    }
+
+    var found = findRegisteredClass_(config.classAsString, newConfig);
+
+    if (!found) {
+      registeredComponents_.push(newConfig);
+    }
+  }
+
+  /**
+   * Allows user to be alerted to any upgrades that are performed for a given
+   * component type
+   *
+   * @param {string} jsClass The class name of the MDL component we wish
+   * to hook into for any upgrades performed.
+   * @param {function(!HTMLElement)} callback The function to call upon an
+   * upgrade. This function should expect 1 parameter - the HTMLElement which
+   * got upgraded.
+   */
+  function registerUpgradedCallbackInternal(jsClass, callback) {
+    var regClass = findRegisteredClass_(jsClass);
+    if (regClass) {
+      regClass.callbacks.push(callback);
+    }
+  }
+
+  /**
+   * Upgrades all registered components found in the current DOM. This is
+   * automatically called on window load.
+   */
+  function upgradeAllRegisteredInternal() {
+    for (var n = 0; n < registeredComponents_.length; n++) {
+      upgradeDomInternal(registeredComponents_[n].className);
+    }
+  }
+
+  /**
+   * Check the component for the downgrade method.
+   * Execute if found.
+   * Remove component from createdComponents list.
+   *
+   * @param {?componentHandler.Component} component
+   */
+  function deconstructComponentInternal(component) {
+    if (component) {
+      var componentIndex = createdComponents_.indexOf(component);
+      createdComponents_.splice(componentIndex, 1);
+
+      var upgrades = component.element_.getAttribute('data-upgraded').split(',');
+      var componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      upgrades.splice(componentPlace, 1);
+      component.element_.setAttribute('data-upgraded', upgrades.join(','));
+
+      var ev = createEvent_('mdl-componentdowngraded', true, false);
+      component.element_.dispatchEvent(ev);
+    }
+  }
+
+  /**
+   * Downgrade either a given node, an array of nodes, or a NodeList.
+   *
+   * @param {!Node|!Array<!Node>|!NodeList} nodes
+   */
+  function downgradeNodesInternal(nodes) {
+    /**
+     * Auxiliary function to downgrade a single node.
+     * @param  {!Node} node the node to be downgraded
+     */
+    var downgradeNode = function(node) {
+      createdComponents_.filter(function(item) {
+        return item.element_ === node;
+      }).forEach(deconstructComponentInternal);
+    };
+    if (nodes instanceof Array || nodes instanceof NodeList) {
+      for (var n = 0; n < nodes.length; n++) {
+        downgradeNode(nodes[n]);
+      }
+    } else if (nodes instanceof Node) {
+      downgradeNode(nodes);
+    } else {
+      throw new Error('Invalid argument provided to downgrade MDL nodes.');
+    }
+  }
+
+  // Now return the functions that should be made public with their publicly
+  // facing names...
+  return {
+    upgradeDom: upgradeDomInternal,
+    upgradeElement: upgradeElementInternal,
+    upgradeElements: upgradeElementsInternal,
+    upgradeAllRegistered: upgradeAllRegisteredInternal,
+    registerUpgradedCallback: registerUpgradedCallbackInternal,
+    register: registerInternal,
+    downgradeElements: downgradeNodesInternal
+  };
+})();
+
+/**
+ * Describes the type of a registered component type managed by
+ * componentHandler. Provided for benefit of the Closure compiler.
+ *
+ * @typedef {{
+ *   constructor: Function,
+ *   classAsString: string,
+ *   cssClass: string,
+ *   widget: (string|boolean|undefined)
+ * }}
+ */
+componentHandler.ComponentConfigPublic;  // jshint ignore:line
+
+/**
+ * Describes the type of a registered component type managed by
+ * componentHandler. Provided for benefit of the Closure compiler.
+ *
+ * @typedef {{
+ *   constructor: !Function,
+ *   className: string,
+ *   cssClass: string,
+ *   widget: (string|boolean),
+ *   callbacks: !Array<function(!HTMLElement)>
+ * }}
+ */
+componentHandler.ComponentConfig;  // jshint ignore:line
+
+/**
+ * Created component (i.e., upgraded element) type as managed by
+ * componentHandler. Provided for benefit of the Closure compiler.
+ *
+ * @typedef {{
+ *   element_: !HTMLElement,
+ *   className: string,
+ *   classAsString: string,
+ *   cssClass: string,
+ *   widget: string
+ * }}
+ */
+componentHandler.Component;  // jshint ignore:line
+
+// Export all symbols, for the benefit of Closure compiler.
+// No effect on uncompiled code.
+componentHandler['upgradeDom'] = componentHandler.upgradeDom;
+componentHandler['upgradeElement'] = componentHandler.upgradeElement;
+componentHandler['upgradeElements'] = componentHandler.upgradeElements;
+componentHandler['upgradeAllRegistered'] =
+    componentHandler.upgradeAllRegistered;
+componentHandler['registerUpgradedCallback'] =
+    componentHandler.registerUpgradedCallback;
+componentHandler['register'] = componentHandler.register;
+componentHandler['downgradeElements'] = componentHandler.downgradeElements;
+window.componentHandler = componentHandler;
+window['componentHandler'] = componentHandler;
+
+window.addEventListener('load', function() {
+  'use strict';
+
+  /**
+   * Performs a "Cutting the mustard" test. If the browser supports the features
+   * tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
+   * components requiring JavaScript.
+   */
+  if ('classList' in document.createElement('div') &&
+      'querySelector' in document &&
+      'addEventListener' in window && Array.prototype.forEach) {
+    document.documentElement.classList.add('mdl-js');
+    componentHandler.upgradeAllRegistered();
+  } else {
+    /**
+     * Dummy function to avoid JS errors.
+     */
+    componentHandler.upgradeElement = function() {};
+    /**
+     * Dummy function to avoid JS errors.
+     */
+    componentHandler.register = function() {};
+  }
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/material-design-lite/src/progress/progress.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/material-design-lite/src/progress/progress.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function() {
+  'use strict';
+
+  /**
+   * Class constructor for Progress MDL component.
+   * Implements MDL component design pattern defined at:
+   * https://github.com/jasonmayes/mdl-component-design-pattern
+   *
+   * @constructor
+   * @param {HTMLElement} element The element that will be upgraded.
+   */
+  var MaterialProgress = function MaterialProgress(element) {
+    this.element_ = element;
+
+    // Initialize instance.
+    this.init();
+  };
+  window['MaterialProgress'] = MaterialProgress;
+
+  /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {string | number}
+   * @private
+   */
+  MaterialProgress.prototype.Constant_ = {
+  };
+
+  /**
+   * Store strings for class names defined by this component that are used in
+   * JavaScript. This allows us to simply change it in one place should we
+   * decide to modify at a later date.
+   *
+   * @enum {string}
+   * @private
+   */
+  MaterialProgress.prototype.CssClasses_ = {
+    INDETERMINATE_CLASS: 'mdl-progress__indeterminate'
+  };
+
+  /**
+   * Set the current progress of the progressbar.
+   *
+   * @param {number} p Percentage of the progress (0-100)
+   * @public
+   */
+  MaterialProgress.prototype.setProgress = function(p) {
+    if (this.element_.classList.contains(this.CssClasses_.INDETERMINATE_CLASS)) {
+      return;
+    }
+
+    this.progressbar_.style.width = p + '%';
+  };
+  MaterialProgress.prototype['setProgress'] =
+      MaterialProgress.prototype.setProgress;
+
+  /**
+   * Set the current progress of the buffer.
+   *
+   * @param {number} p Percentage of the buffer (0-100)
+   * @public
+   */
+  MaterialProgress.prototype.setBuffer = function(p) {
+    this.bufferbar_.style.width = p + '%';
+    this.auxbar_.style.width = (100 - p) + '%';
+  };
+  MaterialProgress.prototype['setBuffer'] =
+      MaterialProgress.prototype.setBuffer;
+
+  /**
+   * Initialize element.
+   */
+  MaterialProgress.prototype.init = function() {
+    if (this.element_) {
+      var el = document.createElement('div');
+      el.className = 'progressbar bar bar1';
+      this.element_.appendChild(el);
+      this.progressbar_ = el;
+
+      el = document.createElement('div');
+      el.className = 'bufferbar bar bar2';
+      this.element_.appendChild(el);
+      this.bufferbar_ = el;
+
+      el = document.createElement('div');
+      el.className = 'auxbar bar bar3';
+      this.element_.appendChild(el);
+      this.auxbar_ = el;
+
+      this.progressbar_.style.width = '0%';
+      this.bufferbar_.style.width = '100%';
+      this.auxbar_.style.width = '0%';
+
+      this.element_.classList.add('is-upgraded');
+    }
+  };
+
+  // The component registers itself. It can assume componentHandler is available
+  // in the global scope.
+  componentHandler.register({
+    constructor: MaterialProgress,
+    classAsString: 'MaterialProgress',
+    cssClass: 'mdl-js-progress',
+    widget: true
+  });
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/material-design-lite/src/spinner/spinner.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/material-design-lite/src/spinner/spinner.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function() {
+  'use strict';
+
+  /**
+   * Class constructor for Spinner MDL component.
+   * Implements MDL component design pattern defined at:
+   * https://github.com/jasonmayes/mdl-component-design-pattern
+   *
+   * @param {HTMLElement} element The element that will be upgraded.
+   * @constructor
+   */
+  var MaterialSpinner = function MaterialSpinner(element) {
+    this.element_ = element;
+
+    // Initialize instance.
+    this.init();
+  };
+  window['MaterialSpinner'] = MaterialSpinner;
+
+  /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {string | number}
+   * @private
+   */
+  MaterialSpinner.prototype.Constant_ = {
+    MDL_SPINNER_LAYER_COUNT: 4
+  };
+
+  /**
+   * Store strings for class names defined by this component that are used in
+   * JavaScript. This allows us to simply change it in one place should we
+   * decide to modify at a later date.
+   *
+   * @enum {string}
+   * @private
+   */
+  MaterialSpinner.prototype.CssClasses_ = {
+    MDL_SPINNER_LAYER: 'mdl-spinner__layer',
+    MDL_SPINNER_CIRCLE_CLIPPER: 'mdl-spinner__circle-clipper',
+    MDL_SPINNER_CIRCLE: 'mdl-spinner__circle',
+    MDL_SPINNER_GAP_PATCH: 'mdl-spinner__gap-patch',
+    MDL_SPINNER_LEFT: 'mdl-spinner__left',
+    MDL_SPINNER_RIGHT: 'mdl-spinner__right'
+  };
+
+  /**
+   * Auxiliary method to create a spinner layer.
+   *
+   * @param {number} index Index of the layer to be created.
+   * @public
+   */
+  MaterialSpinner.prototype.createLayer = function(index) {
+    var layer = document.createElement('div');
+    layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER);
+    layer.classList.add(this.CssClasses_.MDL_SPINNER_LAYER + '-' + index);
+
+    var leftClipper = document.createElement('div');
+    leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+    leftClipper.classList.add(this.CssClasses_.MDL_SPINNER_LEFT);
+
+    var gapPatch = document.createElement('div');
+    gapPatch.classList.add(this.CssClasses_.MDL_SPINNER_GAP_PATCH);
+
+    var rightClipper = document.createElement('div');
+    rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE_CLIPPER);
+    rightClipper.classList.add(this.CssClasses_.MDL_SPINNER_RIGHT);
+
+    var circleOwners = [leftClipper, gapPatch, rightClipper];
+
+    for (var i = 0; i < circleOwners.length; i++) {
+      var circle = document.createElement('div');
+      circle.classList.add(this.CssClasses_.MDL_SPINNER_CIRCLE);
+      circleOwners[i].appendChild(circle);
+    }
+
+    layer.appendChild(leftClipper);
+    layer.appendChild(gapPatch);
+    layer.appendChild(rightClipper);
+
+    this.element_.appendChild(layer);
+  };
+  MaterialSpinner.prototype['createLayer'] =
+      MaterialSpinner.prototype.createLayer;
+
+  /**
+   * Stops the spinner animation.
+   * Public method for users who need to stop the spinner for any reason.
+   *
+   * @public
+   */
+  MaterialSpinner.prototype.stop = function() {
+    this.element_.classList.remove('is-active');
+  };
+  MaterialSpinner.prototype['stop'] = MaterialSpinner.prototype.stop;
+
+  /**
+   * Starts the spinner animation.
+   * Public method for users who need to manually start the spinner for any reason
+   * (instead of just adding the 'is-active' class to their markup).
+   *
+   * @public
+   */
+  MaterialSpinner.prototype.start = function() {
+    this.element_.classList.add('is-active');
+  };
+  MaterialSpinner.prototype['start'] = MaterialSpinner.prototype.start;
+
+  /**
+   * Initialize element.
+   */
+  MaterialSpinner.prototype.init = function() {
+    if (this.element_) {
+      for (var i = 1; i <= this.Constant_.MDL_SPINNER_LAYER_COUNT; i++) {
+        this.createLayer(i);
+      }
+
+      this.element_.classList.add('is-upgraded');
+    }
+  };
+
+  // The component registers itself. It can assume componentHandler is available
+  // in the global scope.
+  componentHandler.register({
+    constructor: MaterialSpinner,
+    classAsString: 'MaterialSpinner',
+    cssClass: 'mdl-js-spinner',
+    widget: true
+  });
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/material-design-lite/src/textfield/textfield.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/material-design-lite/src/textfield/textfield.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function() {
+  'use strict';
+
+  /**
+   * Class constructor for Textfield MDL component.
+   * Implements MDL component design pattern defined at:
+   * https://github.com/jasonmayes/mdl-component-design-pattern
+   *
+   * @constructor
+   * @param {HTMLElement} element The element that will be upgraded.
+   */
+  var MaterialTextfield = function MaterialTextfield(element) {
+    this.element_ = element;
+    this.maxRows = this.Constant_.NO_MAX_ROWS;
+    // Initialize instance.
+    this.init();
+  };
+  window['MaterialTextfield'] = MaterialTextfield;
+
+  /**
+   * Store constants in one place so they can be updated easily.
+   *
+   * @enum {string | number}
+   * @private
+   */
+  MaterialTextfield.prototype.Constant_ = {
+    NO_MAX_ROWS: -1,
+    MAX_ROWS_ATTRIBUTE: 'maxrows'
+  };
+
+  /**
+   * Store strings for class names defined by this component that are used in
+   * JavaScript. This allows us to simply change it in one place should we
+   * decide to modify at a later date.
+   *
+   * @enum {string}
+   * @private
+   */
+  MaterialTextfield.prototype.CssClasses_ = {
+    LABEL: 'mdl-textfield__label',
+    INPUT: 'mdl-textfield__input',
+    IS_DIRTY: 'is-dirty',
+    IS_FOCUSED: 'is-focused',
+    IS_DISABLED: 'is-disabled',
+    IS_INVALID: 'is-invalid',
+    IS_UPGRADED: 'is-upgraded',
+    HAS_PLACEHOLDER: 'has-placeholder'
+  };
+
+  /**
+   * Handle input being entered.
+   *
+   * @param {Event} event The event that fired.
+   * @private
+   */
+  MaterialTextfield.prototype.onKeyDown_ = function(event) {
+    var currentRowCount = event.target.value.split('\n').length;
+    if (event.keyCode === 13) {
+      if (currentRowCount >= this.maxRows) {
+        event.preventDefault();
+      }
+    }
+  };
+
+  /**
+   * Handle focus.
+   *
+   * @param {Event} event The event that fired.
+   * @private
+   */
+  MaterialTextfield.prototype.onFocus_ = function(event) {
+    this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+  };
+
+  /**
+   * Handle lost focus.
+   *
+   * @param {Event} event The event that fired.
+   * @private
+   */
+  MaterialTextfield.prototype.onBlur_ = function(event) {
+    this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+  };
+
+  /**
+   * Handle reset event from out side.
+   *
+   * @param {Event} event The event that fired.
+   * @private
+   */
+  MaterialTextfield.prototype.onReset_ = function(event) {
+    this.updateClasses_();
+  };
+
+  /**
+   * Handle class updates.
+   *
+   * @private
+   */
+  MaterialTextfield.prototype.updateClasses_ = function() {
+    this.checkDisabled();
+    this.checkValidity();
+    this.checkDirty();
+    this.checkFocus();
+  };
+
+  // Public methods.
+
+  /**
+   * Check the disabled state and update field accordingly.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.checkDisabled = function() {
+    if (this.input_.disabled) {
+      this.element_.classList.add(this.CssClasses_.IS_DISABLED);
+    } else {
+      this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
+    }
+  };
+  MaterialTextfield.prototype['checkDisabled'] =
+      MaterialTextfield.prototype.checkDisabled;
+
+  /**
+  * Check the focus state and update field accordingly.
+  *
+  * @public
+  */
+  MaterialTextfield.prototype.checkFocus = function() {
+    if (Boolean(this.element_.querySelector(':focus'))) {
+      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    } else {
+      this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+    }
+  };
+  MaterialTextfield.prototype['checkFocus'] =
+    MaterialTextfield.prototype.checkFocus;
+
+  /**
+   * Check the validity state and update field accordingly.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.checkValidity = function() {
+    if (this.input_.validity) {
+      if (this.input_.validity.valid) {
+        this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+      } else {
+        this.element_.classList.add(this.CssClasses_.IS_INVALID);
+      }
+    }
+  };
+  MaterialTextfield.prototype['checkValidity'] =
+      MaterialTextfield.prototype.checkValidity;
+
+  /**
+   * Check the dirty state and update field accordingly.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.checkDirty = function() {
+    if (this.input_.value && this.input_.value.length > 0) {
+      this.element_.classList.add(this.CssClasses_.IS_DIRTY);
+    } else {
+      this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
+    }
+  };
+  MaterialTextfield.prototype['checkDirty'] =
+      MaterialTextfield.prototype.checkDirty;
+
+  /**
+   * Disable text field.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.disable = function() {
+    this.input_.disabled = true;
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['disable'] = MaterialTextfield.prototype.disable;
+
+  /**
+   * Enable text field.
+   *
+   * @public
+   */
+  MaterialTextfield.prototype.enable = function() {
+    this.input_.disabled = false;
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['enable'] = MaterialTextfield.prototype.enable;
+
+  /**
+   * Update text field value.
+   *
+   * @param {string} value The value to which to set the control (optional).
+   * @public
+   */
+  MaterialTextfield.prototype.change = function(value) {
+
+    this.input_.value = value || '';
+    this.updateClasses_();
+  };
+  MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
+
+  /**
+   * Initialize element.
+   */
+  MaterialTextfield.prototype.init = function() {
+
+    if (this.element_) {
+      this.label_ = this.element_.querySelector('.' + this.CssClasses_.LABEL);
+      this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
+
+      if (this.input_) {
+        if (this.input_.hasAttribute(
+              /** @type {string} */ (this.Constant_.MAX_ROWS_ATTRIBUTE))) {
+          this.maxRows = parseInt(this.input_.getAttribute(
+              /** @type {string} */ (this.Constant_.MAX_ROWS_ATTRIBUTE)), 10);
+          if (isNaN(this.maxRows)) {
+            this.maxRows = this.Constant_.NO_MAX_ROWS;
+          }
+        }
+
+        if (this.input_.hasAttribute('placeholder')) {
+          this.element_.classList.add(this.CssClasses_.HAS_PLACEHOLDER);
+        }
+
+        this.boundUpdateClassesHandler = this.updateClasses_.bind(this);
+        this.boundFocusHandler = this.onFocus_.bind(this);
+        this.boundBlurHandler = this.onBlur_.bind(this);
+        this.boundResetHandler = this.onReset_.bind(this);
+        this.input_.addEventListener('input', this.boundUpdateClassesHandler);
+        this.input_.addEventListener('focus', this.boundFocusHandler);
+        this.input_.addEventListener('blur', this.boundBlurHandler);
+        this.input_.addEventListener('reset', this.boundResetHandler);
+
+        if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
+          // TODO: This should handle pasting multi line text.
+          // Currently doesn't.
+          this.boundKeyDownHandler = this.onKeyDown_.bind(this);
+          this.input_.addEventListener('keydown', this.boundKeyDownHandler);
+        }
+        var invalid = this.element_.classList
+          .contains(this.CssClasses_.IS_INVALID);
+        this.updateClasses_();
+        this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+        if (invalid) {
+          this.element_.classList.add(this.CssClasses_.IS_INVALID);
+        }
+        if (this.input_.hasAttribute('autofocus')) {
+          this.element_.focus();
+          this.checkFocus();
+        }
+      }
+    }
+  };
+
+  // The component registers itself. It can assume componentHandler is available
+  // in the global scope.
+  componentHandler.register({
+    constructor: MaterialTextfield,
+    classAsString: 'MaterialTextfield',
+    cssClass: 'mdl-js-textfield',
+    widget: true
+  });
+})();
+
+
+/***/ }),
+
 /***/ "./node_modules/ngx-lottie/__ivy_ngcc__/fesm2015/ngx-lottie.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/ngx-lottie/__ivy_ngcc__/fesm2015/ngx-lottie.js ***!
@@ -75450,6 +82536,283 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/tslib/tslib.es6.js":
+/*!*****************************************!*\
+  !*** ./node_modules/tslib/tslib.es6.js ***!
+  \*****************************************/
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return __assign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+var __createBinding = Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+});
+
+function __exportStar(m, o) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+}
+
+function __values(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+var __setModuleDefault = Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/amd-define.js":
+/*!***************************************!*\
+  !*** (webpack)/buildin/amd-define.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function() {
+	throw new Error("define cannot be used indirect");
+};
+
 
 /***/ })
 
