@@ -116,7 +116,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/bulma/bulma.css",
+              "src/bulma/bulma-dashboard.css",
+              "node_modules/firebaseui/dist/firebaseui.css"
             ],
             "scripts": []
           }

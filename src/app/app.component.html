@@ -5,17 +5,25 @@
   </div>
 
 
-  <div class="modal is-active" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px">
+  <div class="modal is-active is-hidden-mobile" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px">
     <ng-lottie
-          width="100vh"
-          height="100vh"
+          width="150vh"
+          height="150vh"
           [options]="options"
           (animationCreated)="animationCreated($event)"
         ></ng-lottie>
   </div>
 
-  <div class="modal is-active">
-    <!-- <div class="modal-background"></div> -->
+  <div class="modal is-active is-hidden-desktop is-hidden-tablet" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px;">
+    <ng-lottie
+          width="200vw"
+          height="200vw"
+          [options]="options"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+  </div>
+
+  <div class="modal is-active" style="margin: 10px;">
     <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
   </div>
 
