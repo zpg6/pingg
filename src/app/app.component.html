@@ -4,7 +4,7 @@
     <app-navbar *ngIf="this.appData?.isAuthenticated"></app-navbar>
   </div>
 
-  <div class="hero-body" style="position: absolute; padding: 0px">
+  <div class="hero-body" *ngIf="!(this.appData?.isAuthenticated)" style="position: absolute; padding: 0px">
     <div class="columns" style="text-align: -webkit-center; width: 100vw; height: 100vh; padding: 0px">
       <div class="column is-full" style="padding: 0px">
         <div style="text-align: -webkit-center; width: 100vw; height: 100vh; padding: 0px">
