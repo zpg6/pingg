@@ -4,27 +4,19 @@
     <app-navbar *ngIf="this.appData?.isAuthenticated"></app-navbar>
   </div>
 
-  <div class="hero-body" *ngIf="!(this.appData?.isAuthenticated)" style="position: absolute; padding: 0px">
-    <div class="columns" style="text-align: -webkit-center; width: 100vw; height: 100vh; padding: 0px">
-      <div class="column is-full" style="padding: 0px">
-        <div style="text-align: -webkit-center; width: 100vw; height: 100vh; padding: 0px">
-          <ng-lottie
-          width="850px"
-          height="850px"
+
+  <div class="modal is-active" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px">
+    <ng-lottie
+          width="100vh"
+          height="100vh"
           [options]="options"
           (animationCreated)="animationCreated($event)"
         ></ng-lottie>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body" *ngIf="!(this.appData?.isAuthenticated)">
-
-    <div class="container is-centered" >
-      <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
-    </div>
+  <div class="modal is-active">
+    <!-- <div class="modal-background"></div> -->
+    <app-login-box *ngIf="!(this.appData.isAuthenticated)"></app-login-box>
   </div>
 
   <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
