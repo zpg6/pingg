@@ -1,3 +1,10 @@
-<firebase-ui ></firebase-ui>
+
+<div *ngIf="this.loading">
+  <button class="button is-text is-loading"></button>
+</div>
+
+<firebase-ui
+  (uiShown)="this.uiShownCallback()"
+></firebase-ui>
 <br>
 <a (click)="bypassLogin()" class="has-text-light"><b><i>BYPASS</i></b></a>

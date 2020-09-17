@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
+import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
 
 @Component({
   selector: 'app-sign-in-buttons',
@@ -12,7 +13,7 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
-  title = 'Stock Manager'
+  loading = true;
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -35,5 +36,18 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
   bypassLogin() {
     this.appData.isAuthenticated = true;
     this.updateObserver();
+  }
+
+  successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
+    console.log('firebase success callback:' + signInSuccessData);
+  }
+
+  errorCallback(errorData: FirebaseUISignInFailure) {
+    console.log('firebase error callback:' + errorData);
+  }
+
+  uiShownCallback() {
+    console.log('firebase ui shown.');
+    this.loading = false;
   }
 }
