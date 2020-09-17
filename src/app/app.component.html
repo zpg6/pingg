@@ -36,13 +36,13 @@
 
       <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
 
-      <div *ngIf="this.appData?.navbarPage === 'Connect'" class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+      <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
         <div style="display: inline-block;">
           <router-outlet *ngIf="this.appData?.isAuthenticated"></router-outlet>
         </div>
       </div>
 
-      <div *ngIf="this.appData?.navbarPage !== 'Connect'" class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+      <!-- <div *ngIf="this.appData?.navbarPage !== 'Connect'" class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
         <div style="display: inline-block;">
           <div class="columns is-centered">
             <div class="column is-three-quarters content-fg">
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
