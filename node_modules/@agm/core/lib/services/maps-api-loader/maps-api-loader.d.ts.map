@@ -1,1 +1,0 @@
-{"version":3,"file":"maps-api-loader.d.ts","sources":["maps-api-loader.d.ts"],"names":[],"mappings":";AAAA;AACA;;;AACA","sourcesContent":["export declare abstract class MapsAPILoader {\n    abstract load(): Promise<void>;\n}\n"]}

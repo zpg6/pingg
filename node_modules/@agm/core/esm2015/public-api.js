@@ -1,7 +1,0 @@
-/*
- * Public API Surface of core
- */
-export * from './lib/services';
-export * from './lib/directives';
-export * from './lib/core.module';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3BhY2thZ2VzL2NvcmUvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLGdCQUFnQixDQUFDO0FBQy9CLGNBQWMsa0JBQWtCLENBQUM7QUFDakMsY0FBYyxtQkFBbUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgY29yZVxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vbGliL3NlcnZpY2VzJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2RpcmVjdGl2ZXMnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvY29yZS5tb2R1bGUnO1xuIl19
