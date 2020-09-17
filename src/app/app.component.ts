@@ -88,11 +88,6 @@ export class AppComponent implements OnInit, OnDestroy {
     return NavbarPage.feed;
   }
 
-  reportIssue() {
-    if (!(this.appData.reportingIssue)) {
-      this.appData.reportingIssue = true;
-      this.updateObserver();
-    }
-  }
+
 
 }

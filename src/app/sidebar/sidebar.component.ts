@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { object } from 'firebase-functions/lib/providers/storage';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
 import { NavbarPage } from '../navbar-page.enum';
