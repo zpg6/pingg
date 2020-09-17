@@ -88,8 +88,8 @@
 
         <div class="navbar-dropdown is-left" style="background-color: #363636;">
           <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
-            <span class="icon">
-              <i class="fas fa-user-edit"></i>
+            <span>
+              <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
             </span>
             <span class="is-unselectable">&nbsp;Profile</span>
           </a>
@@ -137,8 +137,8 @@
 
 
       <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
-        <span class="icon has-text-light">
-          <i class="fas fa-user-edit has-text-light"></i>
+        <span>
+          <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Profile</span>
       </a>
