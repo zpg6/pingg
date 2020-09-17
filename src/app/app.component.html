@@ -27,6 +27,10 @@
     <app-login-box></app-login-box>
   </div>
 
+  <div class="modal {{this.appData?.reportingIssue ? 'is-active':''}}">
+    <app-report-issue></app-report-issue>
+  </div>
+
   <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
     <div class="dashboard is-full-height">
 

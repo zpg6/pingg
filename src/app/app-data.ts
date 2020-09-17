@@ -5,4 +5,5 @@ export class AppData {
   tagline = 'Where better matches are made.';
   navbarPage: NavbarPage = NavbarPage.feed
   isAuthenticated: boolean = false;
+  reportingIssue: boolean = false;
 }

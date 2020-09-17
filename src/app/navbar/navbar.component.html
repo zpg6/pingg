@@ -100,7 +100,7 @@
             <span class="is-unselectable">&nbsp;Chat</span>
             <span class="red-number">5</span>
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" (click)="reportIssue()">
             Report an issue
           </a>
           <a class="navbar-item" (click)="logout()">
@@ -150,7 +150,7 @@
         <span class="red-number">5</span>
       </a>
       <hr class="navbar-divider">
-      <a class="navbar-item has-text-light">
+      <a class="navbar-item has-text-light" (click)="reportIssue()">
         Report an issue
       </a>
       <a class="navbar-item has-text-light" (click)="logout()">
