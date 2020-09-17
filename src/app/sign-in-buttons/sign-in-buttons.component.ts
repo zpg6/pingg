@@ -38,6 +38,13 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
     this.updateObserver();
   }
 
+  reportIssue() {
+    if (!(this.appData.reportingIssue)) {
+      this.appData.reportingIssue = true;
+      this.updateObserver();
+    }
+  }
+
   successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
     console.log('firebase success callback:' + signInSuccessData);
   }

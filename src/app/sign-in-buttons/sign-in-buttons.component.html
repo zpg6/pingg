@@ -1,10 +1,19 @@
 
 <div *ngIf="this.loading">
-  <button class="button is-text is-loading"></button>
+  <button class="button is-large is-text is-loading"></button>
 </div>
 
 <firebase-ui
   (uiShown)="this.uiShownCallback()"
 ></firebase-ui>
 <br>
-<a (click)="bypassLogin()" class="has-text-light"><b><i>BYPASS</i></b></a>
+
+<span>
+  <button class="button is-small is-outlined is-inverted" (click)="reportIssue()" style="margin-right: 15px;">
+    Report an Issue
+  </button>
+
+  <button class="button is-small is-outlined" (click)="bypassLogin()">
+    Bypass Login
+  </button>
+</span>

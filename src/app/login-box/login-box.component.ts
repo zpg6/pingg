@@ -42,7 +42,12 @@ export class LoginBoxComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
-
+  reportIssue() {
+    if (!(this.appData.reportingIssue)) {
+      this.appData.reportingIssue = true;
+      this.updateObserver();
+    }
+  }
 
 
   animationCreated(animationItem: AnimationItem): void {
