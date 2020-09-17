@@ -3,7 +3,7 @@
 
   <!-- DESKTOP/WIDESCREEN VERSION -->
   <div class="navbar-brand is-hidden-touch">
-    <a class="navbar-item {{ active('Feed') }}" (click)="setPage('Feed')">
+    <a class="navbar-item {{ active('Feed') }} is-unselectable" (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
@@ -19,7 +19,7 @@
 
   <!-- TABLET/MOBILE VERSION -->
   <div class="navbar-brand is-hidden-desktop">
-    <a class="navbar-item {{ active('Feed') }}" (click)="setPage('Feed')">
+    <a class="navbar-item {{ active('Feed') }} is-unselectable" (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
@@ -83,7 +83,7 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link is-hidden-mobile">
-          <span class="is-unselectable">More</span>
+          <img style="border-radius: 50%;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
         </a>
 
         <div class="navbar-dropdown is-left" style="background-color: #363636;">

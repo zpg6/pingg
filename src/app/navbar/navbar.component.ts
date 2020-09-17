@@ -19,10 +19,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   title = 'Stock Manager';
   searchBox = '';
   updated = false;
+  user = '';
 
   constructor(private observerService: ObserverService, private router: Router) {
       // subscribe to home component messages
       //console.log('constructor load up url = ' + router.url)
+      this.user = '' + this.randomIntFromInterval(1,100);
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
         console.log('Subscription updated @ NavbarComponent')
@@ -37,6 +39,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   updateObserver() {
     this.observerService.sendMessage(this.appData);
+  }
+
+  getUser() {
+    return this.user;
+  }
+
+  randomIntFromInterval(min: number, max: number) { // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   showMenu = false;
