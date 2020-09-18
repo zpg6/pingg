@@ -16,19 +16,20 @@ export class GamesService {
     this.games = firestore.collection('GameList').snapshotChanges();
   }
 
-  sendMessage(message: Game[]) {
+  sendMessage(message: Array<any>) {
     this.subject.next(message);
   }
 
   clearMessage() {
-      this.subject.next(new Game[315]);
+      this.subject.next(new Array<any>());
   }
 
-  getMessage(): Observable<Game[]> {
+
+  getMessage(): Observable<Array<any>> {
       return this.subject.asObservable();
   }
 
-  getMessageOnce(): Game[] {
+  getMessageOnce(): Array<any> {
       return this.subject.value
   }
 }
