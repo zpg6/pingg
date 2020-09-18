@@ -1,0 +1,29 @@
+.menu-list a {
+  color: whitesmoke;
+  display: block;
+  padding: 0.5em 0.75em;
+  border-left: 3px solid none;
+  transition-property: border,text;
+  transition-duration: 0.1s;
+  margin-bottom: 8px;
+}
+
+.menu-list a:hover {
+  background-color: #292929;
+  color:  whitesmoke;
+  border-left: 3px solid #95EF72;
+  font-weight: 600;
+}
+
+.menu-list a.is-active {
+  background-color: #292929;
+  color:  whitesmoke;
+  border-left: 3px solid #95EF72;
+  font-weight: 600;
+}
+
+.menu-list li ul {
+  border-left: 1px solid #dbdbdb;
+  margin: 0.75em;
+  padding-left: 0.75em;
+}
