@@ -26,6 +26,7 @@ import * as firebaseui from 'firebaseui';
 import { ReportIssueComponent } from './report-issue/report-issue.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameCardListComponent } from './game-card-list/game-card-list.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 // // currently there is a bug while building the app with --prod
 // // - https://github.com/RaphaelJenni/FirebaseUI-Angular/issues/76
 // // the plugin exposes the two libraries as well. You can use those:
@@ -87,6 +88,7 @@ export function playerFactory() {
     ReportIssueComponent,
     GameCardComponent,
     GameCardListComponent,
+    GameDetailComponent,
   ],
   providers: [ObserverService],
   bootstrap: [AppComponent]

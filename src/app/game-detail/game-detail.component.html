@@ -1,0 +1,7 @@
+
+<h1 *ngIf="!game">Game not retrieved.</h1>
+
+<h1 class="title">{{game.name | async }}</h1>
+<h2 class="subtitle">{{game.rating | async }}</h2>
+<img src="{{game.coverURL | async }}">
+<p>Description: {{game.description | async }}</p>
