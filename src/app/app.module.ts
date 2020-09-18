@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeedContainerComponent } from './feed-container/feed-container.component';
 import { ObserverService } from './observer.service';
+import { GamesService } from './games.service';
 import { LoginBoxComponent } from './login-box/login-box.component';
 import { SignInButtonsComponent } from './sign-in-buttons/sign-in-buttons.component';
 import { MapContainerComponent } from './map-container/map-container.component';
@@ -90,7 +91,7 @@ export function playerFactory() {
     GameCardListComponent,
     GameDetailComponent,
   ],
-  providers: [ObserverService],
+  providers: [ObserverService,GamesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
