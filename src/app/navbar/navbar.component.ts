@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ObserverService } from '../observer.service';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +22,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   updated = false;
   user = '';
 
-  constructor(private observerService: ObserverService, private router: Router) {
+  constructor(private observerService: ObserverService, private router: Router,
+    private afAuth: AngularFireAuth) {
       // subscribe to home component messages
       //console.log('constructor load up url = ' + router.url)
       this.user = '' + this.randomIntFromInterval(1,100);
@@ -149,6 +151,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
+    this.afAuth.signOut();
     this.appData = new AppData();
     this.updateObserver();
   }

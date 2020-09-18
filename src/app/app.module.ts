@@ -21,7 +21,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import {FirebaseUIModule} from 'firebaseui-angular';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 import * as firebaseui from 'firebaseui';
 import { ReportIssueComponent } from './report-issue/report-issue.component';
 import { GameCardComponent } from './game-card/game-card.component';

@@ -156,5 +156,8 @@
       }
     }
   },
-  "defaultProject": "pingg"
+  "defaultProject": "pingg",
+  "cli": {
+    "analytics": "6cccd1fd-2b44-4a69-a086-5327a00b0571"
+  }
 }

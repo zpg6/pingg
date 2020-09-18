@@ -3,6 +3,7 @@ import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
 import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-sign-in-buttons',
@@ -15,7 +16,8 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   loading = true;
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService,
+    private afAuth: AngularFireAuth) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -23,7 +25,20 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
       }));
       console.log('Subscription created @ SignInButtonsComponent')
   }
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.afAuth.authState.subscribe(d =>
+      {
+        console.log(d);
+        if(d != null){
+          this.appData.isAuthenticated = true; 
+          this.updateObserver();
+        }
+        else{
+          this.appData.isAuthenticated = false; 
+          this.updateObserver();
+        }
+      });
+    }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
@@ -45,12 +60,14 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
     }
   }
 
-  successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
-    console.log('firebase success callback:' + signInSuccessData);
+  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
+    console.log('successCallback', data);
+    this.appData.isAuthenticated = true;
+    this.updateObserver();
   }
 
-  errorCallback(errorData: FirebaseUISignInFailure) {
-    console.log('firebase error callback:' + errorData);
+  errorCallback(data: FirebaseUISignInFailure) {
+    console.warn('errorCallback', data);
   }
 
   uiShownCallback() {

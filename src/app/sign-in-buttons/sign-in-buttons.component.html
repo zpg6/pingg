@@ -4,8 +4,9 @@
 </div>
 
 <firebase-ui
-  (uiShown)="this.uiShownCallback()"
-></firebase-ui>
+    (signInSuccessWithAuthResult)="successCallback($event)"
+    (signInFailure)="errorCallback($event)"
+    (uiShown)="uiShownCallback()"></firebase-ui>
 <br>
 
 <span>
