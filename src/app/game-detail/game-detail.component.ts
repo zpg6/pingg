@@ -18,6 +18,6 @@ export class GameDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  game: Game;
+  game;
 
 }

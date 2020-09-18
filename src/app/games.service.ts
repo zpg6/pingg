@@ -13,7 +13,7 @@ export class GamesService {
   games: Observable<any[]>;
 
   constructor(firestore: AngularFirestore) {
-    this.games = firestore.collection('GameList').snapshotChanges();
+    this.games = firestore.collection('GameList').valueChanges();
   }
 
   sendMessage(message: Array<any>) {

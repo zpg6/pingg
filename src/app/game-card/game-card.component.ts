@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Game } from '../game';
 
 @Component({
@@ -13,6 +13,6 @@ export class GameCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  game: Game;
+  @Input() game;
 
 }
