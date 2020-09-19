@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeType } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Game } from './game';
@@ -9,29 +9,43 @@ import { Game } from './game';
 })
 export class GamesService {
 
-  games: Observable<Game[]>;
   gamesCollection: AngularFirestoreCollection;
   snapshot: any;
+  private subject = new BehaviorSubject<Array<Game>>(new Array<Game>());
 
   constructor(private firestore: AngularFirestore) {
     this.gamesCollection = firestore.collection('GameList');
-    this.snapshot = this.gamesCollection.snapshotChanges()
-                    .pipe(
-                      map(arr => arr.map(a => {
-                        const data = a.payload.doc.data() as Game;
-                        return data;
-                      }))
-                    )
+    this.gamesCollection.snapshotChanges().subscribe(changes => {
+      changes.map(change => {
+        if (change.type === 'added') {
+          this.subject.next(this.subject.value.concat(change.payload.doc.data() as Game));
+        } else if (change.type === 'modified') {
+          let copy = this.subject.value
+          copy.forEach(function (game,index) {
+            let modified = change.payload.doc.data() as Game;
+            if (game.id === modified.id) {
+              copy[index] = modified;
+            }
+          })
+          this.subject.next(copy);
+        } else if (change.type === 'removed') {
+          this.subject.next(this.subject.value.filter(game => {
+            return (game.id.toString() !== change.payload.doc.id)
+          }))
+        }
+      })
+    })
   }
 
   getGames() {
-    return new Promise<Array<Game>>((resolve,reject) => {
-      this.gamesCollection.snapshotChanges()
-        .subscribe(snapshots=>{
-          resolve(snapshots.map(game => {
-            return game.payload.doc.data() as Game;
-          }));
-        })
-    })
+    return this.subject.asObservable();
+    // return new Promise<Array<Game>>((resolve,reject) => {
+    //   this.gamesCollection.snapshotChanges()
+    //     .subscribe(snapshots=>{
+    //       resolve(snapshots.map(game => {
+    //         return game.payload.doc.data() as Game;
+    //       }));
+    //     })
+    // })
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Game } from '../game';
 import { GamesService } from '../games.service';
 
@@ -11,6 +11,8 @@ import { GamesService } from '../games.service';
 export class GameCardListComponent implements OnInit, OnDestroy {
 
   list = Array<Game>();
+  list2 = Array<Game>();
+  subscription = new Subscription();
 
   constructor(private gamesService: GamesService) {
 
@@ -23,7 +25,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
       }
       else {
         console.log('Games Subscription being created @ GameCardListComponent')
-        this.gamesService.getGames().then(message => {
+        this.gamesService.getGames().subscribe(message => {
           this.list = message;
           console.log('Games Subscription updated @ GameCardListComponent')
           console.table(this.list);

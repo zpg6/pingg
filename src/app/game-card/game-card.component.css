@@ -41,9 +41,10 @@
   font-size: 18px;
   position: absolute;
   top: 20%;
-  padding: 2px;
+  padding: 5px;
 }
 
 .game-text-title {
   font-size: 24px;
+  margin-bottom: 5px;
 }
