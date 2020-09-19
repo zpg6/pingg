@@ -2,7 +2,6 @@
   height: 266px;
   border-radius: 4px;
   padding: 0px;
-  margin: 4px;
   -webkit-transition: 0.1s ease-out;
   -moz-transition: 0.1s ease-out;
   -o-transition: 0.1s ease-out;
@@ -10,13 +9,6 @@
   transition: 0.1s ease-out;
   /* border: 2px solid whitesmoke; */
 }
-
-/* img:hover {
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2);
-  transition: all 50ms ease-out;
-  cursor: pointer;
-  background: linear-gradient(#00000045, #00000070) ;
-} */
 
 .game-container {
   position: relative;
@@ -31,6 +23,7 @@
   height: 100%;
   width: 100%;
   opacity: 0;
+  border-radius: 4px;
   transition: .1s;
   background-color: #00000090;
 }
@@ -41,8 +34,6 @@
 
 .game-container:hover .game-image {
   opacity: 1;
-  width: 150%;
-  height: 150%;
 }
 
 .game-text {
