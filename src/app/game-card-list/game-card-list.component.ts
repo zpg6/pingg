@@ -13,11 +13,12 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
 
   constructor(private gamesService: GamesService) {
+      this.list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
       // subscribe to home component messages
-      this.subscription.add(gamesService.getMessage().subscribe(message => {
-        this.list = message;
-        console.log('Subscription updated @ GameCardListComponent')
-      }));
+      // this.subscription.add(gamesService.getMessage().subscribe(message => {
+      //   this.list = message;
+      //   console.log('Subscription updated @ GameCardListComponent')
+      // }));
       console.log('Subscription created @ GameCardListComponent')
   }
 
