@@ -3,11 +3,11 @@
   border-radius: 4px;
   padding: 0px;
   margin: 4px;
-  -webkit-transition: 0.1s;
-  -moz-transition: 0.1s;
-  -o-transition: 0.1s;
-  -ms-transition: 0.1s;
-  transition: 0.1s;
+  -webkit-transition: 0.1s ease-out;
+  -moz-transition: 0.1s ease-out;
+  -o-transition: 0.1s ease-out;
+  -ms-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
   /* border: 2px solid whitesmoke; */
 }
 
@@ -31,7 +31,7 @@
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .1s ease-in-out;
+  transition: .1s;
   background-color: #00000090;
 }
 
