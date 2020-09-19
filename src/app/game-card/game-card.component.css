@@ -38,14 +38,10 @@
 
 .game-text {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+  top: 20%;
+  padding: 2px;
 }
 
 .game-text-title {

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { Game } from '../game';
 import { GamesService } from '../games.service';
 
 @Component({
@@ -9,24 +10,28 @@ import { GamesService } from '../games.service';
 })
 export class GameCardListComponent implements OnInit, OnDestroy {
 
-  list: Array<any>;
-  subscription = new Subscription();
+  list = Array<Game>();
 
   constructor(private gamesService: GamesService) {
-      this.list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-      // subscribe to home component messages
-      // this.subscription.add(gamesService.getMessage().subscribe(message => {
-      //   this.list = message;
-      //   console.log('Subscription updated @ GameCardListComponent')
-      // }));
-      console.log('Subscription created @ GameCardListComponent')
+
   }
 
   ngOnInit() {
+    let debug = false;
+      if (debug) {
+        //this.list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+      }
+      else {
+        console.log('Games Subscription being created @ GameCardListComponent')
+        this.gamesService.getGames().then(message => {
+          this.list = message;
+          console.log('Games Subscription updated @ GameCardListComponent')
+          console.table(this.list);
+        });
+      }
   }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
-    this.subscription.unsubscribe();
   }
 }

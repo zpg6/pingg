@@ -13,6 +13,13 @@ export class GameCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() game;
+  @Input() game: Game;
 
+  getGenre():string {
+    if (this.game?.genres?.length > 0) {
+      return this.game.genres[0];
+    } else {
+      return '';
+    }
+  }
 }

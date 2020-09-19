@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Game } from './game';
 
 @Injectable({
@@ -8,28 +9,29 @@ import { Game } from './game';
 })
 export class GamesService {
 
-  private subject = new BehaviorSubject<Array<any>>(new Array<any>());
+  games: Observable<Game[]>;
+  gamesCollection: AngularFirestoreCollection;
+  snapshot: any;
 
-  games: Observable<any[]>;
-
-  constructor(firestore: AngularFirestore) {
-    this.games = firestore.collection('GameList').valueChanges();
+  constructor(private firestore: AngularFirestore) {
+    this.gamesCollection = firestore.collection('GameList');
+    this.snapshot = this.gamesCollection.snapshotChanges()
+                    .pipe(
+                      map(arr => arr.map(a => {
+                        const data = a.payload.doc.data() as Game;
+                        return data;
+                      }))
+                    )
   }
 
-  sendMessage(message: Array<any>) {
-    this.subject.next(message);
-  }
-
-  clearMessage() {
-      this.subject.next(new Array<any>());
-  }
-
-
-  getMessage(): Observable<Array<any>> {
-      return this.subject.asObservable();
-  }
-
-  getMessageOnce(): Array<any> {
-      return this.subject.value
+  getGames() {
+    return new Promise<Array<Game>>((resolve,reject) => {
+      this.gamesCollection.snapshotChanges()
+        .subscribe(snapshots=>{
+          resolve(snapshots.map(game => {
+            return game.payload.doc.data() as Game;
+          }));
+        })
+    })
   }
 }
