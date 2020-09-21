@@ -44,8 +44,4 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   updateObserver() {
     this.observerService.sendMessage(this.appData);
   }
-
-  getTitle() {
-    return this.game?.name.replace(' - ',' -&NewLine;').toString()
-  }
 }
