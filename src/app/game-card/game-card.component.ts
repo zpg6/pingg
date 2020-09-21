@@ -48,7 +48,14 @@ export class GameCardComponent implements OnInit, OnDestroy {
     this.router.navigate(['/game'], {queryParams: {id: this.game.id}});
   }
 
-
+  getTitle():string {
+    let name = this.game.name;
+    if (name.length > 25) {
+      return name.substring(0,24) + '...'
+    } else {
+      return name
+    }
+  }
 
   getGenre():string {
     if (this.game?.genres?.length > 0) {

@@ -99,8 +99,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   getPage():string {
     if (this.appData.navbarPage === NavbarPage.game) {
       let name = this.game.name;
-      if (name.length > 15) {
-        return name.substring(0,14) + '...'
+      if (name.length > 25) {
+        return name.substring(0,24) + '...'
       } else {
         return name
       }
