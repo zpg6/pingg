@@ -28,7 +28,7 @@
     </a>
     <a class="navbar-item" *ngIf="!this.showSearchBox">
       <p class="subtitle is-size-7 is-unselectable">
-        <b style="font-size: larger;">{{this.appData.navbarPage}}</b><br><i>{{description()}}</i>
+        <b style="font-size: larger;">{{this.getPage()}}</b><br><i>{{description()}}</i>
       </p>
     </a>
     <div class="navbar-item" *ngIf="this.showSearchBox" style="margin-right: -25px;">
@@ -108,7 +108,7 @@
           </a>
         </div>
       </div>
-      <p class="navbar-item subtitle is-hidden-touch is-unselectable" style="margin-left: 10px;"><b style="font-size: x-large;">{{this.appData.navbarPage}}</b>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>{{description()}}</i></p>
+      <p class="navbar-item subtitle is-hidden-touch is-unselectable" style="margin-left: 10px;"><b style="font-size: x-large;">{{this.getPage()}}</b>&nbsp;&nbsp;&nbsp;{{this.showBar() ? '|':''}}&nbsp;&nbsp;&nbsp;<i>{{description()}}</i></p>
     </div>
 
     <!-- TABLET/MOBILE VERSION -->

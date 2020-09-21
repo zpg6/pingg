@@ -7,6 +7,4 @@ export class AppData {
   navbarPage: NavbarPage = NavbarPage.feed
   isAuthenticated: boolean = false;
   reportingIssue: boolean = false;
-
-  detailingGame: Game = new Game();
 }

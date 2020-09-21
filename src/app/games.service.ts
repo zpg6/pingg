@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeType } from '@angular/fire/firestore';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Game } from './game';
 
@@ -9,9 +9,10 @@ import { Game } from './game';
 })
 export class GamesService {
 
-  gamesCollection: AngularFirestoreCollection;
+  private gamesCollection: AngularFirestoreCollection;
   private subject = new BehaviorSubject<Array<Game>>(new Array<Game>());
   private detailing = new BehaviorSubject<Game>(new Game());
+  private subscription: Subscription;
 
   constructor(private firestore: AngularFirestore) {
     this.gamesCollection = firestore.collection('GameList');
@@ -49,14 +50,34 @@ export class GamesService {
     // })
   }
 
-  getGame(id: string): Observable<Game> {
-    console.log(`Looking for game with id = ${id}`);
-    this.subject.value.forEach(game => {
-      if (`${game.id}` === id) {
-        console.log('found game in loop')
-        this.detailing.next(game);
-      }
-    })
+  observeGame(): Observable<Game> {
     return this.detailing.asObservable();
   }
+
+  setGame(game: Game) {
+    this.detailing.next(game);
+  }
+
+  setGameID(id: string) {
+    if (!id || id.length == 0) { return }
+    this.subscription = this.firestore.collection('GameList').doc(id).snapshotChanges().subscribe(change => {
+      console.log(`updating game ${change.payload.id}`)
+      if (change.type === 'added' || change.type === 'modified' || change.type === 'value') {
+        this.detailing.next(change.payload.data() as Game);
+      } else if (change.type === 'removed') {
+        this.detailing.next(new Game());
+      }
+    })
+  }
+
+  // getGame(id: string): Observable<Game> {
+  //   console.log(`Looking for game with id = ${id}`);
+  //   this.subject.value.forEach(game => {
+  //     if (`${game.id}` === id) {
+  //       console.log('found game in loop')
+  //       this.detailing.next(game);
+  //     }
+  //   })
+  //   return this.observeGame();
+  // }
 }

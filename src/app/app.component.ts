@@ -41,22 +41,17 @@ export class AppComponent implements OnInit, OnDestroy {
       ).subscribe( (event: NavigationStart) => {
         let url = event.url;
         url = url.replace('/','');
-        url = url.substring(0, url.indexOf('?'));
+        if (url.includes('?')) {
+          url = url.substring(0, url.indexOf('?'));
+        }
         console.log('url from appComp = ' + url);
         let page = this.pageFromString(url);
         if (page === NavbarPage.game) {
           this.ar.queryParamMap
             .subscribe(async (params) => {
               let id = params.get('id');
-              console.log(`Need game with id = ${id}`);
-              let found = gamesService.getGame(id);
-              console.log(found);
-              found.subscribe(game => {
-                console.log(`Game back`);
-                console.log(game);
-                this.appData.detailingGame = game;
-                this.updateObserver();
-              })
+              console.log(`setting game id as ${id}`)
+              this.gamesService.setGameID(id);
             }
           );
         }

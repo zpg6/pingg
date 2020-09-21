@@ -6,6 +6,8 @@ import { filter } from 'rxjs/operators';
 import { ObserverService } from '../observer.service';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
+import { GamesService } from '../games.service';
+import { Game } from '../game';
 
 @Component({
   selector: 'app-navbar',
@@ -17,20 +19,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   subscriptionRoute = new Subscription();
+  subscriptionGame = new Subscription();
   title = 'Stock Manager';
   searchBox = '';
   updated = false;
   user = '';
+  game: Game;
 
   constructor(private observerService: ObserverService, private router: Router,
-    private afAuth: AngularFireAuth) {
+    private afAuth: AngularFireAuth, private gamesService: GamesService) {
       // subscribe to home component messages
       //console.log('constructor load up url = ' + router.url)
       this.user = '' + this.randomIntFromInterval(1,100);
+      this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
+        console.log('game retrieved in navbar component:')
+        this.game = game;
+      }))
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
         console.log('Subscription updated @ NavbarComponent')
       }));
+
       console.log('Subscription created @ NavbarComponent')
   }
   ngOnInit() {}
@@ -87,12 +96,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.router.navigate([newPage]);
   }
 
-  getPage() {
+  getPage():string {
+    if (this.appData.navbarPage === NavbarPage.game) {
+      let name = this.game.name;
+      if (name.length > 15) {
+        return name.substring(0,14) + '...'
+      } else {
+        return name
+      }
+    }
     return this.appData.navbarPage
   }
 
   active(page: string):string {
-    return this.appData.navbarPage === page ? 'is-active':'';
+    return (this.appData.navbarPage === page) ? 'is-active':'';
   }
 
   pageFromString(page: string):NavbarPage {
@@ -122,6 +139,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logSearchBox() {
     console.log(this.searchBox);
+  }
+
+  showBar():boolean {
+    return this.appData.navbarPage !== NavbarPage.game
   }
 
   description():string {
