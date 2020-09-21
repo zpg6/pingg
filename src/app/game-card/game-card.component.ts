@@ -22,9 +22,9 @@ export class GameCardComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ SidebarComponent')
+        console.log('Subscription updated @ GameCardComponent for ' + (this.game ? this.game.id:'unknown game.'))
       }));
-      console.log('Subscription created @ SidebarComponent')
+      console.log('Subscription created @ GameCardComponent for ' + (this.game ? this.game.id:'unknown game.'))
   }
 
   ngOnInit() {

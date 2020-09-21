@@ -19,7 +19,9 @@ export class GamesService {
     this.gamesCollection.snapshotChanges().subscribe(changes => {
       changes.map(change => {
         if (change.type === 'added') {
-          this.subject.next(this.subject.value.concat(change.payload.doc.data() as Game));
+          if (change.payload.doc.data().coverURL as string) {
+            this.subject.next(this.subject.value.concat(change.payload.doc.data() as Game));
+          }
         } else if (change.type === 'modified') {
           let copy = this.subject.value
           copy.forEach(function (game,index) {

@@ -24,12 +24,14 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
         console.log('game retrieved in detail component:')
         this.game = game;
+        console.log('GamesService Subscription updated @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
       }))
+      console.log('GamesService Subscription created @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ ConnectContainerComponent')
+        console.log('AppData Subscription updated @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
       }));
-      console.log('Subscription created @ ConnectContainerComponent')
+      console.log('AppData Subscription created @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
   }
 
   ngOnInit() {

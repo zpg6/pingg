@@ -25,7 +25,7 @@
   opacity: 0;
   border-radius: 4px;
   transition: .1s;
-  background-color: #00000090;
+  background-color: #000000c1;
 }
 
 .game-container:hover .game-overlay {

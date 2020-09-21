@@ -30,11 +30,11 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
       {
         console.log(d);
         if(d != null){
-          this.appData.isAuthenticated = true; 
+          this.appData.isAuthenticated = true;
           this.updateObserver();
         }
         else{
-          this.appData.isAuthenticated = false; 
+          this.appData.isAuthenticated = false;
           this.updateObserver();
         }
       });
