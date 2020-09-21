@@ -1,5 +1,24 @@
-<ul class="images">
-  <li *ngFor="let item of list">
-    <app-game-card [game]="item"></app-game-card>
-  </li>
-</ul>
+
+<div *ngIf="!this.loading">
+
+  <div *ngFor="let set of sections" style="margin-top: 40px; margin-bottom: 40px;">
+
+    <p class="title">{{set}}</p>
+
+    <ul class="images">
+      <li *ngFor="let item of getFrom(set)">
+        <app-game-card [game]="item"></app-game-card>
+      </li>
+    </ul>
+
+  </div>
+
+
+</div>
+
+
+<section class="section" *ngIf="this.loading">
+  <div class="container is-centered">
+    <button class="button is-large is-text is-loading"></button>
+  </div>
+</section>
