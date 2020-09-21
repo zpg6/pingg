@@ -8,7 +8,7 @@
         <img src="https://{{game?.coverURL}}">
       </div>
       <div class="column">
-        <h1 class="title is-1">{{game?.name.split(' - ')[0] + ' -'}}<br *ngIf="game?.name.split(' - ').length > 1">{{game?.name.split(' - ')[1]}}</h1>
+        <h1 class="title is-1">{{game?.name.split(' - ')[0] + (game?.name.split(' - ').length > 1 ? ' -':'')}}<br *ngIf="game?.name.split(' - ').length > 1">{{game?.name.split(' - ')[1]}}</h1>
         <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
         <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
         <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
