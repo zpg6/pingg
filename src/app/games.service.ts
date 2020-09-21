@@ -10,8 +10,8 @@ import { Game } from './game';
 export class GamesService {
 
   gamesCollection: AngularFirestoreCollection;
-  snapshot: any;
   private subject = new BehaviorSubject<Array<Game>>(new Array<Game>());
+  private detailing = new BehaviorSubject<Game>(new Game());
 
   constructor(private firestore: AngularFirestore) {
     this.gamesCollection = firestore.collection('GameList');
@@ -47,5 +47,16 @@ export class GamesService {
     //       }));
     //     })
     // })
+  }
+
+  getGame(id: string): Observable<Game> {
+    console.log(`Looking for game with id = ${id}`);
+    this.subject.value.forEach(game => {
+      if (`${game.id}` === id) {
+        console.log('found game in loop')
+        this.detailing.next(game);
+      }
+    })
+    return this.detailing.asObservable();
   }
 }

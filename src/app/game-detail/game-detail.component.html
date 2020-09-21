@@ -1,7 +1,9 @@
 
 <h1 *ngIf="!game">Game not retrieved.</h1>
 
-<h1 class="title">{{game.name | async }}</h1>
-<h2 class="subtitle">{{game.rating | async }}</h2>
-<img src="{{game.coverURL | async }}">
-<p>Description: {{game.description | async }}</p>
+<div class="container" *ngIf="game">
+  <h1 class="title">{{game?.name}}</h1>
+  <h2 class="subtitle">{{game?.rating | number : '1.2-2'}} / 100</h2>
+  <img src="https://{{game?.coverURL}}">
+  <p>Description: {{game?.description}}</p>
+</div>

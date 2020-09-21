@@ -114,6 +114,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (page.toLowerCase() === 'search') {
       return NavbarPage.search;
     }
+    if (page.toLowerCase() === 'game') {
+      return NavbarPage.game;
+    }
     return NavbarPage.feed;
   }
 

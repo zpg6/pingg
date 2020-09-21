@@ -28,7 +28,6 @@ export class GameCardListComponent implements OnInit, OnDestroy {
         this.gamesService.getGames().subscribe(message => {
           this.list = message;
           console.log('Games Subscription updated @ GameCardListComponent')
-          console.table(this.list);
         });
       }
   }

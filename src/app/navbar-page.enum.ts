@@ -4,6 +4,7 @@ export enum NavbarPage {
   connect = 'Connect',
   profile = 'Profile',
   chat = 'Chat',
-  search = 'Search'
+  search = 'Search',
+  game = 'Game',
 }
 

@@ -1,7 +1,7 @@
 
 
-<div class="game-container">
-  <img src="https://{{game.coverURL}}" [routerLink]="['game']" [queryParams]="{id: game.id}" class="game-image">
+<div class="game-container" (click)="openGame()">
+  <img src="https://{{game.coverURL}}" class="game-image">
   <div class="game-overlay">
     <div class="game-text">
       <p class="game-text-title" style="font-weight: bolder;">{{game.name}}</p>

@@ -1,4 +1,5 @@
 import { NavbarPage } from '../app/navbar-page.enum'
+import { Game } from './game';
 
 export class AppData {
   title = 'pingg';
@@ -6,4 +7,6 @@ export class AppData {
   navbarPage: NavbarPage = NavbarPage.feed
   isAuthenticated: boolean = false;
   reportingIssue: boolean = false;
+
+  detailingGame: Game = new Game();
 }
