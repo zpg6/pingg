@@ -17,13 +17,12 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscriptionGame = new Subscription();
   subscription = new Subscription();
-  game;
+  game: Game;
 
   constructor(private observerService: ObserverService, private gamesService: GamesService) {
       // subscribe to home component messages
       this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
         console.log('game retrieved in detail component:')
-        console.log(game)
         this.game = game;
       }))
       this.subscription.add(observerService.getMessage().subscribe(message => {

@@ -1,9 +1,24 @@
 
 <h1 *ngIf="!game">Game not retrieved.</h1>
 
-<div class="container" *ngIf="game" style="margin: 50px;">
-  <h1 class="title">{{game?.name}}</h1>
-  <h2 class="subtitle">{{game?.rating | number : '1.2-2'}} / 100</h2>
-  <img src="https://{{game?.coverURL}}">
-  <p>Description: {{game?.description}}</p>
-</div>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-3">
+        <img src="https://{{game?.coverURL}}">
+      </div>
+      <div class="column">
+        <h1 class="title is-1">{{game?.name}}</h1>
+        <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
+        <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
+        <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
+        <p> {{game?.description}}</p>
+      </div>
+    </div>
+    <ul class="images">
+      <li *ngFor="let screenshot of game?.screenshots">
+        <img src="https://{{screenshot}}">
+      </li>
+    </ul>
+  </div>
+</section>
