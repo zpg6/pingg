@@ -19,6 +19,7 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import {FirebaseUIModule} from 'firebaseui-angular';
@@ -29,6 +30,7 @@ import { GameCardComponent } from './game-card/game-card.component';
 import { GameCardListComponent } from './game-card-list/game-card-list.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { ConversationsComponent } from './conversations/conversations.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http'
 // // currently there is a bug while building the app with --prod
 // // - https://github.com/RaphaelJenni/FirebaseUI-Angular/issues/76
 // // the plugin exposes the two libraries as well. You can use those:
@@ -75,6 +77,8 @@ export function playerFactory() {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    AngularFireStorageModule,
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
@@ -93,7 +97,7 @@ export function playerFactory() {
     GameDetailComponent,
     ConversationsComponent,
   ],
-  providers: [ObserverService,GamesService],
+  providers: [ObserverService,GamesService, { provide: BUCKET, useValue: 'cs1530group11.appspot.com' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

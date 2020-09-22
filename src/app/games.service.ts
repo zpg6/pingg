@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeType } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 import { Game } from './game';
 
@@ -13,16 +15,38 @@ export class GamesService {
   private subject = new BehaviorSubject<Array<Game>>(new Array<Game>());
   private detailing = new BehaviorSubject<Game>(new Game());
   private subscription: Subscription;
+  private httpClient: HttpClient;
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private storage: AngularFireStorage, private http: HttpClient) {
+
+    this.httpClient = http;
+    const databaseJSONRef = storage.ref('database/database.json');
+    var databaseURL = databaseJSONRef.getDownloadURL().subscribe(url => {
+      this.httpClient.get(url).toPromise().then(response => {
+        if (response) {
+          var arr = response as Array<any>
+          this.subject.next(arr.map(game => {
+            return JSON.parse(game) as Game
+          }))
+        }
+      }).catch( err => {
+        console.error(err);
+      })
+    })
+
+      
+      
+    
+    
+
+
+
+
+
     this.gamesCollection = firestore.collection('GameList');
     this.gamesCollection.snapshotChanges().subscribe(changes => {
       changes.map(change => {
-        if (change.type === 'added') {
-          if (change.payload.doc.data().coverURL as string) {
-            this.subject.next(this.subject.value.concat(change.payload.doc.data() as Game));
-          }
-        } else if (change.type === 'modified') {
+        if (change.type === 'modified') {
           let copy = this.subject.value
           copy.forEach(function (game,index) {
             let modified = change.payload.doc.data() as Game;

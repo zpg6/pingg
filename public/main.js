@@ -358,16 +358,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
-/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
-/* harmony import */ var _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./game-card/game-card.component */ "./src/app/game-card/game-card.component.ts");
-/* harmony import */ var _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./game-card-list/game-card-list.component */ "./src/app/game-card-list/game-card-list.component.ts");
-/* harmony import */ var _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./game-detail/game-detail.component */ "./src/app/game-detail/game-detail.component.ts");
-/* harmony import */ var _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./conversations/conversations.component */ "./src/app/conversations/conversations.component.ts");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
+/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
+/* harmony import */ var _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./game-card/game-card.component */ "./src/app/game-card/game-card.component.ts");
+/* harmony import */ var _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./game-card-list/game-card-list.component */ "./src/app/game-card-list/game-card-list.component.ts");
+/* harmony import */ var _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./game-detail/game-detail.component */ "./src/app/game-detail/game-detail.component.ts");
+/* harmony import */ var _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./conversations/conversations.component */ "./src/app/conversations/conversations.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+
 
 
 
@@ -408,7 +412,7 @@ __webpack_require__.r(__webpack_exports__);
 const firebaseUiAuthConfig = {
     signInFlow: 'popup',
     signInOptions: [
-        firebase__WEBPACK_IMPORTED_MODULE_22__["auth"].GoogleAuthProvider.PROVIDER_ID,
+        firebase__WEBPACK_IMPORTED_MODULE_23__["auth"].GoogleAuthProvider.PROVIDER_ID,
         {
             scopes: [
                 'public_profile',
@@ -419,16 +423,16 @@ const firebaseUiAuthConfig = {
             customParameters: {
                 'auth_type': 'reauthenticate'
             },
-            provider: firebase__WEBPACK_IMPORTED_MODULE_22__["auth"].FacebookAuthProvider.PROVIDER_ID
+            provider: firebase__WEBPACK_IMPORTED_MODULE_23__["auth"].FacebookAuthProvider.PROVIDER_ID
         },
-        firebase__WEBPACK_IMPORTED_MODULE_22__["auth"].TwitterAuthProvider.PROVIDER_ID,
-        firebase__WEBPACK_IMPORTED_MODULE_22__["auth"].GithubAuthProvider.PROVIDER_ID,
+        firebase__WEBPACK_IMPORTED_MODULE_23__["auth"].TwitterAuthProvider.PROVIDER_ID,
+        firebase__WEBPACK_IMPORTED_MODULE_23__["auth"].GithubAuthProvider.PROVIDER_ID,
         {
             requireDisplayName: true,
-            provider: firebase__WEBPACK_IMPORTED_MODULE_22__["auth"].EmailAuthProvider.PROVIDER_ID
+            provider: firebase__WEBPACK_IMPORTED_MODULE_23__["auth"].EmailAuthProvider.PROVIDER_ID
         },
     ],
-    credentialHelper: firebaseui__WEBPACK_IMPORTED_MODULE_23__["auth"].CredentialHelper.ACCOUNT_CHOOSER_COM
+    credentialHelper: firebaseui__WEBPACK_IMPORTED_MODULE_24__["auth"].CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -438,14 +442,16 @@ function playerFactory() {
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"], _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"]], imports: [[
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"], _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"], { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["BUCKET"], useValue: 'cs1530group11.appspot.com' }], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
             _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"],
             ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"].forRoot({ player: playerFactory }),
-            _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_20__["environment"].firebase),
+            _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_21__["environment"].firebase),
             _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"],
-            firebaseui_angular__WEBPACK_IMPORTED_MODULE_21__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+            firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+            _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
         _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
@@ -457,13 +463,14 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
         _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
         _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-        _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_24__["ReportIssueComponent"],
-        _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_25__["GameCardComponent"],
-        _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_26__["GameCardListComponent"],
-        _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_27__["GameDetailComponent"],
-        _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_28__["ConversationsComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__["ReportIssueComponent"],
+        _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__["GameCardComponent"],
+        _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__["GameCardListComponent"],
+        _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__["GameDetailComponent"],
+        _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__["ConversationsComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-        _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_21__["FirebaseUIModule"]] }); })();
+        _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseUIModule"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -472,9 +479,11 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
                     _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"],
                     ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"].forRoot({ player: playerFactory }),
-                    _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_20__["environment"].firebase),
+                    _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_21__["environment"].firebase),
                     _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"],
-                    firebaseui_angular__WEBPACK_IMPORTED_MODULE_21__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+                    firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+                    _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
+                    _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
                 ],
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
@@ -487,13 +496,13 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
                     _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
                     _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-                    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_24__["ReportIssueComponent"],
-                    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_25__["GameCardComponent"],
-                    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_26__["GameCardListComponent"],
-                    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_27__["GameDetailComponent"],
-                    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_28__["ConversationsComponent"],
+                    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__["ReportIssueComponent"],
+                    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__["GameCardComponent"],
+                    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__["GameCardListComponent"],
+                    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__["GameDetailComponent"],
+                    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__["ConversationsComponent"],
                 ],
-                providers: [_observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"], _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"]],
+                providers: [_observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"], _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"], { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["BUCKET"], useValue: 'cs1530group11.appspot.com' }],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
             }]
     }], null, null); })();
@@ -1201,25 +1210,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game */ "./src/app/game.ts");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+
 
 
 
 
 
 class GamesService {
-    constructor(firestore) {
+    constructor(firestore, storage, http) {
         this.firestore = firestore;
+        this.storage = storage;
+        this.http = http;
         this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](new Array());
         this.detailing = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](new _game__WEBPACK_IMPORTED_MODULE_2__["Game"]());
+        this.httpClient = http;
+        const databaseJSONRef = storage.ref('database/database.json');
+        var databaseURL = databaseJSONRef.getDownloadURL().subscribe(url => {
+            this.httpClient.get(url).toPromise().then(response => {
+                if (response) {
+                    var arr = response;
+                    this.subject.next(arr.map(game => {
+                        return JSON.parse(game);
+                    }));
+                }
+            }).catch(err => {
+                console.error(err);
+            });
+        });
         this.gamesCollection = firestore.collection('GameList');
         this.gamesCollection.snapshotChanges().subscribe(changes => {
             changes.map(change => {
-                if (change.type === 'added') {
-                    if (change.payload.doc.data().coverURL) {
-                        this.subject.next(this.subject.value.concat(change.payload.doc.data()));
-                    }
-                }
-                else if (change.type === 'modified') {
+                if (change.type === 'modified') {
                     let copy = this.subject.value;
                     copy.forEach(function (game, index) {
                         let modified = change.payload.doc.data();
@@ -1269,14 +1293,14 @@ class GamesService {
         });
     }
 }
-GamesService.ɵfac = function GamesService_Factory(t) { return new (t || GamesService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"])); };
+GamesService.ɵfac = function GamesService_Factory(t) { return new (t || GamesService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"])); };
 GamesService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: GamesService, factory: GamesService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GamesService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }]; }, null); })();
+    }], function () { return [{ type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }, { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -2518,7 +2542,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })
