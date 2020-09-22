@@ -5,6 +5,8 @@ read devBranch
 echo -n "Enter your commit message: "
 read commitMessage
 
+cp -f ../
+
 ng build
 cp -rf dist/pingg/* public
 firebase deploy --only hosting

@@ -9,6 +9,7 @@ import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { GamesService } from './games.service';
 import { HttpParams } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -27,9 +28,11 @@ export class AppComponent implements OnInit, OnDestroy {
   };
   anim: any;
   private animationSpeed: number = 1;
+  environment;
 
   constructor(private observerService: ObserverService, private gamesService: GamesService, private router: Router, private ar: ActivatedRoute) {
       // subscribe to home component messages
+      this.environment = environment;
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
         console.log('Subscription updated @ AppComponent')
