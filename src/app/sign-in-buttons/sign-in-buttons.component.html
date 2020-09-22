@@ -7,12 +7,16 @@
     (signInSuccessWithAuthResult)="successCallback($event)"
     (signInFailure)="errorCallback($event)"
     (uiShown)="uiShownCallback()"></firebase-ui>
-<!-- <br>
 
-<span>
-  <button class="button is-small is-danger is-outlined is-inverted" (click)="reportIssue()" style="margin-right: 15px;">
-    Report an Issue
-  </button>
+<br>
+
+<button class="button is-small is-danger is-outlined is-inverted" (click)="reportIssue()" style="margin-right: 15px;">
+  Report an Issue
+</button>
+
+<!-- <span>
+
+  // report issue button was here
 
   <button class="button is-small is-info is-outlined is-inverted" (click)="bypassLogin()">
     Bypass Login
