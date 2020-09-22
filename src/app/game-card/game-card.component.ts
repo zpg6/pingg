@@ -18,13 +18,7 @@ export class GameCardComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   expanded = '';
 
-  constructor(private observerService: ObserverService, private router: Router, private gamesService: GamesService) {
-      // subscribe to home component messages
-      this.subscription.add(observerService.getMessage().subscribe(message => {
-        this.appData = message;
-        console.log('Subscription updated @ GameCardComponent for ' + (this.game ? this.game.id:'unknown game.'))
-      }));
-      console.log('Subscription created @ GameCardComponent for ' + (this.game ? this.game.id:'unknown game.'))
+  constructor() {
   }
 
   ngOnInit() {
@@ -35,18 +29,8 @@ export class GameCardComponent implements OnInit, OnDestroy {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
   }
-  updateObserver() {
-    this.observerService.sendMessage(this.appData);
-  }
 
   @Input() game: Game;
-
-  openGame() {
-    this.appData.navbarPage = NavbarPage.game;
-    this.gamesService.setGame(this.game);
-    this.updateObserver();
-    this.router.navigate(['/game'], {queryParams: {id: this.game.id}});
-  }
 
   getTitle():string {
     let name = this.game.name;

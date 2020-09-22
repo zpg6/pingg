@@ -1,7 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { AppData } from '../app-data';
 import { Game } from '../game';
 import { GamesService } from '../games.service';
+import { NavbarPage } from '../navbar-page.enum';
+import { ObserverService } from '../observer.service';
 
 @Component({
   selector: 'app-game-card-list',
@@ -13,8 +17,15 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   list = Array<Game>();
   sections = ['Top Rated','Most Rated','Arcade','Shooter','Platform']
   loading = true;
+  appData: AppData;
   subscription = new Subscription();
-  constructor(private gamesService: GamesService) {
+  appDataSubscription = new Subscription();
+  constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router) {
+    this.appDataSubscription.add(observerService.getMessage().subscribe(message => {
+      this.appData = message;
+      console.log('Subscription updated @ GameCardListComponent')
+    }));
+    console.log('Subscription created @ GameCardListComponent')
     let debug = false;
       if (debug) {
         //this.list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
@@ -29,7 +40,12 @@ export class GameCardListComponent implements OnInit, OnDestroy {
       }
   }
 
-
+  openGame(game: Game) {
+    this.appData.navbarPage = NavbarPage.game;
+    this.gamesService.setGame(game);
+    this.updateObserver();
+    this.router.navigate(['/game'], {queryParams: {id: game.id}});
+  }
 
   ngOnInit() {
 
@@ -40,18 +56,24 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  updateObserver() {
+    this.observerService.sendMessage(this.appData);
+  }
+
   getFrom(set: string):Array<Game> {
     if (set === 'Top Rated') {
       return this.getTopRated();
     }
-    if (set === 'Most Rated') {
+    else if (set === 'Most Rated') {
       return this.getMostRated();
     }
-    let filtered = this.list.filter(game => {
-      return game.genres.includes(set);
-    })
-    console.log('found ' + filtered.length + ' games for set = ' + set);
-    return filtered
+    else {
+      let filtered = this.list.filter(game => {
+        return game.genres.includes(set);
+      })
+      console.log('found ' + filtered.length + ' games for set = ' + set);
+      return filtered
+    }
   }
 
   getTopRated():Array<Game> {
