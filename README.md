@@ -108,6 +108,13 @@ We'll be using [TypeScript Google Maps](https://developers.google.com/maps/docum
 
 To locally serve the Angular app, `cd` to the repository root folder and execute `ng serve`. Navigate to `http://localhost:4200/` in your web browser. The app will automatically reload if you change and save any of the source files.
 
+
+## Testing
+
+It is highly recommended you add (SimonTest)[https://marketplace.visualstudio.com/items?itemName=SimonTest.simontest] to VSCode to simplify test generation. When a component is ready to test, assuming you've deleted the default `.spec.ts` file (if one exists), just right click on the folder for the component and hit `Generate Angular Tests`. This will generate a `.spec.ts` file with some tests already written for you! 
+
+A good **video** to get you started can be found (here)[https://www.youtube.com/watch?v=BumgayeUC08]. You'll likely also want to read (Basics of testing components)[https://angular.io/guide/testing-components-basics] and (Component testing scenarios)[https://angular.io/guide/testing-components-scenarios] for a further look at some code snippets written by the Angular team before you write tests of your own.
+
 ## Inspect Element
 
 Don't forget that right-clicking on the page and selecting `Inspect` or `Inspect Element` will bring up a suite of diagnostic tools in most browsers. The `Console` tab or section will display any `console.log(string)` prints or errors from the Angular app.
