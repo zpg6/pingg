@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AppData } from '../app-data';
 import { Game } from '../game';
 import { GamesService } from '../games.service';
+import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   game: Game;
 
-  constructor(private observerService: ObserverService, private gamesService: GamesService) {
+  constructor(private observerService: ObserverService, private gamesService: GamesService, private router: Router) {
       // subscribe to home component messages
       this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
         console.log('game retrieved in detail component:')
@@ -43,5 +44,16 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   }
   updateObserver() {
     this.observerService.sendMessage(this.appData);
+  }
+
+  getGame(game: number):Game {
+    return this.gamesService.getGame(game);
+  }
+
+  openGame(game: number) {
+    this.appData.navbarPage = NavbarPage.game;
+    this.gamesService.setGame(this.gamesService.getGame(game));
+    this.updateObserver();
+    this.router.navigate(['/game'], {queryParams: {id: game}});
   }
 }

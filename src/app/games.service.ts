@@ -72,6 +72,13 @@ export class GamesService {
     return this.detailing.asObservable();
   }
 
+  getGame(id: number): Game {
+    let i = this.subject.value.findIndex(game => {
+      return game.id === id;
+    })
+    return this.subject.value[i];
+  }
+
   setGame(game: Game) {
     this.detailing.next(game);
   }
