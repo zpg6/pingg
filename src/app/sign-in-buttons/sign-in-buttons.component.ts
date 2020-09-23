@@ -28,9 +28,15 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.afAuth.authState.subscribe(d =>
       {
-        console.log(d);
+        //console.log(d);
         if(d != null){
           this.appData.isAuthenticated = true;
+          this.appData.username = d.displayName;
+          this.appData.email = d.email;
+          this.appData.uid = d.uid;
+          console.log(d.displayName);
+          console.log(d.email);
+          console.log(d.uid);
           this.updateObserver();
         }
         else{
@@ -38,7 +44,7 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
           this.updateObserver();
         }
       });
-    }
+  }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
