@@ -17,9 +17,11 @@ import { Game } from '../game';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
+  searchResult = Array<Game>();
   subscription = new Subscription();
   subscriptionRoute = new Subscription();
   subscriptionGame = new Subscription();
+  subscriptionResults = new Subscription();
   title = 'Stock Manager';
   searchBox = '';
   updated = false;
@@ -31,6 +33,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       //console.log('constructor load up url = ' + router.url)
       this.user = '' + this.randomIntFromInterval(1,100);
+      this.subscriptionResults.add(gamesService.getResults().subscribe(games =>{
+        this.searchResult = games;
+      }))
       this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
         console.log('game retrieved in navbar component:')
         this.game = game;
@@ -39,7 +44,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.appData = message;
         console.log('Subscription updated @ NavbarComponent')
       }));
-
       console.log('Subscription created @ NavbarComponent')
   }
   ngOnInit() {}
@@ -47,9 +51,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+    this.subscriptionGame.unsubscribe();
+    this.subscriptionResults.unsubscribe();
+    this.subscriptionRoute.unsubscribe();
   }
   updateObserver() {
     this.observerService.sendMessage(this.appData);
+  }
+
+
+  openSearchBar() {
+    if (this.appData.searchBarOpen) { return }
+    this.appData.searchBarOpen = true;
+    this.updateObserver();
   }
 
   getUser() {

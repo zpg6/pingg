@@ -31,6 +31,10 @@
     <app-report-issue></app-report-issue>
   </div>
 
+  <div class="modal {{this.appData?.searchBarOpen ? 'is-active':''}}">
+    <app-search-bar></app-search-bar>
+  </div>
+
   <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
     <div class="dashboard is-full-height">
 

@@ -1,5 +1,58 @@
-<input (keyup)="onkeyup($event)" class="input" placeholder="search games...">
+<div class="modal-background" (click)="closeModal()"></div>
+<div class="modal-content">
+  <button class="delete" aria-label="close" (click)="closeModal()" style="float: right; margin: 10px;"></button>
+  <article class="panel" style="background-color: whitesmoke;">
+    <div class="panel-heading" style="background-color: #3273dc; padding: 20px;">
+      <p class="control has-icons-left">
+        <input (keyup)="onkeyup($event)" class="input is-info" placeholder="search games...">
+        <span class="icon is-left">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </span>
+      </p>
+    </div>
+    <div *ngIf="results?.length > 0">
+      <p class="panel-tabs">
+        <a class="is-active">All</a>
+        <a>Games</a>
+        <a>Posts</a>
+        <a>Players</a>
+      </p>
+      <a class="panel-block is-active" *ngFor="let item of results" (click)="openGame(item)">
+        <img src="https://{{item.coverURL}}" style="max-height: 60px;">
+        <p class="subtitle has-text-dark" style="margin-left: 10px;">{{item.name}}</p>
+      </a>
+    </div>
+  </article>
+</div>
+<!-- <div class="modal-card" style="margin: 0px;">
+  <header class="modal-card-head">
+    <p class="modal-card-title">Report an Issue</p>
+    <button class="delete" aria-label="close" (click)="closeModal()"></button>
+  </header>
+  <section class="modal-card-body has-text-dark">
+    <div class="field has-addons">
+      <p class="control has-icons-left">
+        <input (keyup)="onkeyup($event)" class="input" placeholder="search games...">
+        <span class="icon is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </p>
+      <div class="control">
+        <a class="button is-info">
+          Search
+        </a>
+      </div>
+    </div>
+    <div *ngFor="let result of results">
 
+    </div>
+  </section>
+</div> -->
+
+
+
+
+<!--
 <u1 *ngFor="let game of results | async">
     <li>{{ game.name }}</li>
-</u1>
+</u1> -->

@@ -160,21 +160,10 @@
     </div>
 
     <div class="navbar-end is-hidden-touch">
-      <div class="navbar-item field has-addons">
-        <p class="control has-icons-left">
-          <app-search-bar>
-            
-          </app-search-bar>
-          <!-- <input class="input" type="text" placeholder="Search">
-          <span class="icon is-left">
-            <i class="fas fa-search"></i>
-          </span> -->
-        </p>
-        <div class="control">
-          <a class="button is-info">
-            Search
-          </a>
-        </div>
+      <div class="navbar-item" (click)="openSearchBar()">
+        <button class="button is-link is-outlined is-inverted">
+          Search
+        </button>
       </div>
     </div>
   </div>
