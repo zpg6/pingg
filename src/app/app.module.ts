@@ -30,7 +30,8 @@ import { GameCardComponent } from './game-card/game-card.component';
 import { GameCardListComponent } from './game-card-list/game-card-list.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { ConversationsComponent } from './conversations/conversations.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http'
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SearchBarComponent } from './search-bar/search-bar.component'
 // // currently there is a bug while building the app with --prod
 // // - https://github.com/RaphaelJenni/FirebaseUI-Angular/issues/76
 // // the plugin exposes the two libraries as well. You can use those:
@@ -96,6 +97,7 @@ export function playerFactory() {
     GameCardListComponent,
     GameDetailComponent,
     ConversationsComponent,
+    SearchBarComponent,
   ],
   providers: [ObserverService,GamesService, { provide: BUCKET, useValue: 'cs1530group11.appspot.com' }],
   bootstrap: [AppComponent]

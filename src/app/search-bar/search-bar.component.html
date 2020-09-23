@@ -1,0 +1,9 @@
+<h1>Start Typing...</h1>
+
+<input (keyup)="onkeyup($event)" class="input" placeholder="search games...">
+
+<h2>Results</h2>
+
+<u1 *ngFor="let game of results | async">
+    <li>{{ game.name }}</li>
+</u1>

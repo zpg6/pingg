@@ -34,15 +34,6 @@ export class GamesService {
       })
     })
 
-      
-      
-    
-    
-
-
-
-
-
     this.gamesCollection = firestore.collection('GameList');
     this.gamesCollection.snapshotChanges().subscribe(changes => {
       changes.map(change => {
