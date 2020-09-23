@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo -n "Enter your dev branch: "
-read devBranch
+read -p "Enter your dev branch: " devBranch
 
 git checkout master
 git pull origin master
