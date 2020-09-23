@@ -87,6 +87,20 @@ export class GamesService {
     })
   }
 
+  search(query: string): Array<Game> {
+    return this.subject.value.filter(game => {
+      return game.searchableIndex[query]
+    }).sort((a,b) =>  {
+      if (a.rating > b.rating) {
+        return -1
+      }
+      if (a.rating < b.rating) {
+        return 1
+      }
+      return 0;
+    }).slice(0,5);
+  }
+
   // getGame(id: string): Observable<Game> {
   //   console.log(`Looking for game with id = ${id}`);
   //   this.subject.value.forEach(game => {

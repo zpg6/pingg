@@ -1,41 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { switchMap, filter, map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '\@angular/fire/firestore'
+import { GamesService } from '../games.service';
+import { Game } from '../game';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.css']
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent {
 
-  results: Observable<any[]>;
+  results = new BehaviorSubject(Array<Game>());
 
-  offset = new Subject<string>();
-
-  constructor(private afs: AngularFirestore) { }
+  constructor(private gamesService: GamesService) { }
 
   onkeyup(e) {
-    this.offset.next(e.target.value.toLowerCase())
-  }
-
-  search() {
-    return this.offset.pipe(
-      filter(val => !!val),
-      switchMap(offset => {
-        return this.afs.collection('GameList', ref =>
-          ref.orderBy(`searchableIndex.${offset}`).limit(5)
-        )
-        .valueChanges()
-      })
-    )
-  }
-
-  ngOnInit() {
-    this.results = this.search();
+    this.results.next(this.gamesService.search(e.target.value.toLowerCase()));
   }
 
 }
