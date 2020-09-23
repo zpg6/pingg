@@ -1103,29 +1103,33 @@ function GameDetailComponent_li_22_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const similar_r9 = ctx.$implicit;
-    const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("game", ctx_r5.getGame(similar_r9));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("game", similar_r9);
 } }
 class GameDetailComponent {
     constructor(observerService, gamesService, router) {
         this.observerService = observerService;
         this.gamesService = gamesService;
         this.router = router;
+        this.subscriptionRecommended = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.subscriptionGame = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         // subscribe to home component messages
         this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
-            console.log('game retrieved in detail component:');
+            var _a;
             this.game = game;
-            console.log('GamesService Subscription updated @ GameDetailComponent for ' + (this.game ? this.game.id : 'unknown game.'));
+            if (((_a = game === null || game === void 0 ? void 0 : game.similarGames) === null || _a === void 0 ? void 0 : _a.length) > 0) {
+                this.gamesService.getGames().subscribe(arr => {
+                    this.recommended = arr.filter(listing => {
+                        return this.game.similarGames.includes(listing.id);
+                    });
+                });
+                console.log(`hunted for games = ${game.similarGames}`);
+            }
         }));
-        console.log('GamesService Subscription created @ GameDetailComponent for ' + (this.game ? this.game.id : 'unknown game.'));
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('AppData Subscription updated @ GameDetailComponent for ' + (this.game ? this.game.id : 'unknown game.'));
         }));
-        console.log('AppData Subscription created @ GameDetailComponent for ' + (this.game ? this.game.id : 'unknown game.'));
     }
     ngOnInit() {
     }
@@ -1136,14 +1140,11 @@ class GameDetailComponent {
     updateObserver() {
         this.observerService.sendMessage(this.appData);
     }
-    getGame(game) {
-        return this.gamesService.getGame(game);
-    }
     openGame(game) {
         this.appData.navbarPage = _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].game;
-        this.gamesService.setGame(this.gamesService.getGame(game));
+        this.gamesService.setGame(game);
         this.updateObserver();
-        this.router.navigate(['/game'], { queryParams: { id: game } });
+        this.router.navigate(['/game'], { queryParams: { id: game.id } });
     }
 }
 GameDetailComponent.ɵfac = function GameDetailComponent_Factory(t) { return new (t || GameDetailComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"])); };
@@ -1202,7 +1203,7 @@ GameDetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.game == null ? null : ctx.game.screenshots);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.game == null ? null : ctx.game.similarGames);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.recommended);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_7__["GameCardComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["DecimalPipe"]], styles: ["ul.images[_ngcontent-%COMP%] {\n  margin: 0px;\n  padding: 0px;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  overflow-x: auto;\n}\n\nli[_ngcontent-%COMP%] {\n  flex: 0 0 auto;\n  margin: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZS1kZXRhaWwvZ2FtZS1kZXRhaWwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0VBQ1osYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixXQUFXO0VBQ1gsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7QUFDYiIsImZpbGUiOiJzcmMvYXBwL2dhbWUtZGV0YWlsL2dhbWUtZGV0YWlsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ1bC5pbWFnZXMge1xuICBtYXJnaW46IDBweDtcbiAgcGFkZGluZzogMHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICB3aWR0aDogMTAwJTtcbiAgb3ZlcmZsb3cteDogYXV0bztcbn1cblxubGkge1xuICBmbGV4OiAwIDAgYXV0bztcbiAgbWFyZ2luOiA1cHg7XG59XG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GameDetailComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -1330,10 +1331,19 @@ class GamesService {
         return this.detailing.asObservable();
     }
     getGame(id) {
-        let i = this.subject.value.findIndex(game => {
-            return game.id === id;
+        return this.subject.value.filter(game => {
+            return game.id == id;
+        })[0];
+    }
+    getRecommended(forGame) {
+        return this.subject.value.filter(game => {
+            game.similarGames.forEach(similar => {
+                if (forGame.similarGames.includes(similar)) {
+                    return true;
+                }
+            });
+            return false;
         });
-        return this.subject.value[i];
     }
     setGame(game) {
         this.detailing.next(game);
@@ -1367,7 +1377,6 @@ class GamesService {
             }
             return 0;
         }).slice(0, 5));
-        return this.searchResults.value;
     }
 }
 GamesService.ɵfac = function GamesService_Factory(t) { return new (t || GamesService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"])); };
@@ -2300,9 +2309,9 @@ function SearchBarComponent_div_9_a_10_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const item_r2 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "https://", item_r2.coverURL, "", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "https://", item_r2 == null ? null : item_r2.coverURL, "", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r2.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r2 == null ? null : item_r2.name);
 } }
 function SearchBarComponent_div_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
@@ -2332,8 +2341,12 @@ class SearchBarComponent {
         this.gamesService = gamesService;
         this.observerService = observerService;
         this.router = router;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.results = new Array();
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
+        this.subscriptionResults = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
+        this.subscriptionResults.add(this.gamesService.getResults().subscribe(results => {
+            this.results = results;
+        }));
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
             console.log('Subscription updated @ ReportIssueComponent');
@@ -2345,12 +2358,13 @@ class SearchBarComponent {
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
         this.subscription.unsubscribe();
+        this.subscriptionResults.unsubscribe();
     }
     updateObserver() {
         this.observerService.sendMessage(this.appData);
     }
     onkeyup(e) {
-        this.results = this.gamesService.search(e.target.value.toLowerCase());
+        this.gamesService.search(e.target.value.toLowerCase());
     }
     closeModal() {
         this.appData.searchBarOpen = false;

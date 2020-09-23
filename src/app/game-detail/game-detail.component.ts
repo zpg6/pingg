@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { AppData } from '../app-data';
 import { Game } from '../game';
 import { GamesService } from '../games.service';
@@ -16,23 +16,28 @@ import { ObserverService } from '../observer.service';
 export class GameDetailComponent implements OnInit, OnDestroy {
 
   appData: AppData;
+  subscriptionRecommended = new Subscription();
   subscriptionGame = new Subscription();
   subscription = new Subscription();
   game: Game;
+  recommended: Array<Game>;
 
   constructor(private observerService: ObserverService, private gamesService: GamesService, private router: Router) {
       // subscribe to home component messages
       this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
-        console.log('game retrieved in detail component:')
         this.game = game;
-        console.log('GamesService Subscription updated @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
+        if (game?.similarGames?.length > 0) {
+          this.gamesService.getGames().subscribe(arr => {
+            this.recommended = arr.filter(listing => {
+              return this.game.similarGames.includes(listing.id);
+            })
+          })
+          console.log(`hunted for games = ${game.similarGames}`)
+        }
       }))
-      console.log('GamesService Subscription created @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('AppData Subscription updated @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
       }));
-      console.log('AppData Subscription created @ GameDetailComponent for ' + (this.game ? this.game.id:'unknown game.'))
   }
 
   ngOnInit() {
@@ -46,14 +51,10 @@ export class GameDetailComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
-  getGame(game: number):Game {
-    return this.gamesService.getGame(game);
-  }
-
-  openGame(game: number) {
+  openGame(game: Game) {
     this.appData.navbarPage = NavbarPage.game;
-    this.gamesService.setGame(this.gamesService.getGame(game));
+    this.gamesService.setGame(game);
     this.updateObserver();
-    this.router.navigate(['/game'], {queryParams: {id: game}});
+    this.router.navigate(['/game'], {queryParams: {id: game.id}});
   }
 }

@@ -18,8 +18,8 @@
         <a>Players</a>
       </p>
       <a class="panel-block is-active" *ngFor="let item of results" (click)="openGame(item)">
-        <img src="https://{{item.coverURL}}" style="max-height: 60px;">
-        <p class="subtitle has-text-dark" style="margin-left: 10px;">{{item.name}}</p>
+        <img src="https://{{item?.coverURL}}" style="max-height: 60px;">
+        <p class="subtitle has-text-dark" style="margin-left: 10px;">{{item?.name}}</p>
       </a>
     </div>
   </article>

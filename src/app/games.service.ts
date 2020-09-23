@@ -73,10 +73,20 @@ export class GamesService {
   }
 
   getGame(id: number): Game {
-    let i = this.subject.value.findIndex(game => {
-      return game.id === id;
+    return this.subject.value.filter(game => {
+      return game.id == id
+    })[0];
+  }
+
+  getRecommended(forGame: Game): Array<Game> {
+    return this.subject.value.filter(game => {
+      game.similarGames.forEach(similar => {
+        if (forGame.similarGames.includes(similar)) {
+          return true;
+        }
+      })
+      return false;
     })
-    return this.subject.value[i];
   }
 
   setGame(game: Game) {
@@ -111,7 +121,6 @@ export class GamesService {
       }
       return 0;
     }).slice(0,5));
-    return this.searchResults.value;
   }
 
   // getGame(id: string): Observable<Game> {

@@ -19,9 +19,14 @@ import { Router } from '@angular/router';
 export class SearchBarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
+  results: Array<Game> = new Array<Game>();
   subscription = new Subscription();
+  subscriptionResults = new Subscription();
 
   constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router) {
+    this.subscriptionResults.add(this.gamesService.getResults().subscribe(results => {
+      this.results = results;
+    }));
     this.subscription.add(observerService.getMessage().subscribe(message => {
       this.appData = message;
       console.log('Subscription updated @ ReportIssueComponent')
@@ -36,17 +41,14 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+    this.subscriptionResults.unsubscribe();
   }
   updateObserver() {
     this.observerService.sendMessage(this.appData);
   }
 
-
-
-  results: Array<Game> = new Array<Game>();
-
   onkeyup(e) {
-    this.results = this.gamesService.search(e.target.value.toLowerCase());
+    this.gamesService.search(e.target.value.toLowerCase());
   }
 
   closeModal() {
