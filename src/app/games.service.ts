@@ -78,16 +78,6 @@ export class GamesService {
     })[0];
   }
 
-  getRecommended(forGame: Game): Array<Game> {
-    return this.subject.value.filter(game => {
-      game.similarGames.forEach(similar => {
-        if (forGame.similarGames.includes(similar)) {
-          return true;
-        }
-      })
-      return false;
-    })
-  }
 
   setGame(game: Game) {
     this.detailing.next(game);

@@ -1335,16 +1335,6 @@ class GamesService {
             return game.id == id;
         })[0];
     }
-    getRecommended(forGame) {
-        return this.subject.value.filter(game => {
-            game.similarGames.forEach(similar => {
-                if (forGame.similarGames.includes(similar)) {
-                    return true;
-                }
-            });
-            return false;
-        });
-    }
     setGame(game) {
         this.detailing.next(game);
     }
