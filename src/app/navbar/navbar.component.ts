@@ -30,23 +30,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private observerService: ObserverService, private router: Router,
     private afAuth: AngularFireAuth, private gamesService: GamesService) {
-      // subscribe to home component messages
-      //console.log('constructor load up url = ' + router.url)
-      this.user = '' + this.randomIntFromInterval(1,100);
-      this.subscriptionResults.add(gamesService.getResults().subscribe(games =>{
-        this.searchResult = games;
-      }))
-      this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
-        console.log('game retrieved in navbar component:')
-        this.game = game;
-      }))
-      this.subscription.add(observerService.getMessage().subscribe(message => {
-        this.appData = message;
-        console.log('Subscription updated @ NavbarComponent')
-      }));
-      console.log('Subscription created @ NavbarComponent')
+
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = '' + this.randomIntFromInterval(1,100);
+    this.subscriptionResults.add(this.gamesService.getResults().subscribe(games =>{
+      this.searchResult = games;
+    }))
+    this.subscriptionGame.add(this.gamesService.observeGame().subscribe(game => {
+      console.log('game retrieved in navbar component:')
+      this.game = game;
+    }))
+    this.subscription.add(this.observerService.getMessage().subscribe(message => {
+      this.appData = message;
+      console.log('Subscription updated @ NavbarComponent')
+    }));
+    console.log('Subscription created @ NavbarComponent')
+  }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
@@ -102,6 +102,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     if (this.showMenu) {
       this.showMenu = false;
+    }
+    if (this.showSearchBox) {
+      this.showSearchBox = false;
     }
     let newPage = '/' + to.toLowerCase();
     this.appData.navbarPage = this.pageFromString(to);

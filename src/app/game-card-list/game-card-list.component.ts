@@ -20,25 +20,8 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   appDataSubscription = new Subscription();
-  constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router) {
-    this.appDataSubscription.add(observerService.getMessage().subscribe(message => {
-      this.appData = message;
-      console.log('Subscription updated @ GameCardListComponent')
-    }));
-    console.log('Subscription created @ GameCardListComponent')
-    let debug = false;
-      if (debug) {
-        //this.list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-      }
-      else {
-        console.log('Games Subscription being created @ GameCardListComponent')
-        this.subscription = this.gamesService.getGames().subscribe(message => {
-          this.list = message;
-          this.loading = false;
-          console.log('Games Subscription updated @ GameCardListComponent')
-        });
-      }
-  }
+
+  constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router) {}
 
   openGame(game: Game) {
     this.appData.navbarPage = NavbarPage.game;
@@ -48,12 +31,23 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.appDataSubscription.add(this.observerService.getMessage().subscribe(message => {
+      this.appData = message;
+      console.log('Subscription updated @ GameCardListComponent')
+    }));
+    console.log('Subscription created @ GameCardListComponent')
+    console.log('Games Subscription being created @ GameCardListComponent')
+    this.subscription = this.gamesService.getGames().subscribe(message => {
+      this.list = message;
+      this.loading = false;
+      console.log('Games Subscription updated @ GameCardListComponent')
+    });
   }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+    this.appDataSubscription.unsubscribe();
   }
 
   updateObserver() {

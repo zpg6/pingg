@@ -848,23 +848,6 @@ class GameCardListComponent {
         this.loading = true;
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.appDataSubscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
-        this.appDataSubscription.add(observerService.getMessage().subscribe(message => {
-            this.appData = message;
-            console.log('Subscription updated @ GameCardListComponent');
-        }));
-        console.log('Subscription created @ GameCardListComponent');
-        let debug = false;
-        if (debug) {
-            //this.list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-        }
-        else {
-            console.log('Games Subscription being created @ GameCardListComponent');
-            this.subscription = this.gamesService.getGames().subscribe(message => {
-                this.list = message;
-                this.loading = false;
-                console.log('Games Subscription updated @ GameCardListComponent');
-            });
-        }
     }
     openGame(game) {
         this.appData.navbarPage = _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].game;
@@ -873,10 +856,22 @@ class GameCardListComponent {
         this.router.navigate(['/game'], { queryParams: { id: game.id } });
     }
     ngOnInit() {
+        this.appDataSubscription.add(this.observerService.getMessage().subscribe(message => {
+            this.appData = message;
+            console.log('Subscription updated @ GameCardListComponent');
+        }));
+        console.log('Subscription created @ GameCardListComponent');
+        console.log('Games Subscription being created @ GameCardListComponent');
+        this.subscription = this.gamesService.getGames().subscribe(message => {
+            this.list = message;
+            this.loading = false;
+            console.log('Games Subscription updated @ GameCardListComponent');
+        });
     }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
         this.subscription.unsubscribe();
+        this.appDataSubscription.unsubscribe();
     }
     updateObserver() {
         this.observerService.sendMessage(this.appData);
@@ -1706,23 +1701,22 @@ class NavbarComponent {
         this.user = '';
         this.showMenu = false;
         this.showSearchBox = false;
-        // subscribe to home component messages
-        //console.log('constructor load up url = ' + router.url)
+    }
+    ngOnInit() {
         this.user = '' + this.randomIntFromInterval(1, 100);
-        this.subscriptionResults.add(gamesService.getResults().subscribe(games => {
+        this.subscriptionResults.add(this.gamesService.getResults().subscribe(games => {
             this.searchResult = games;
         }));
-        this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
+        this.subscriptionGame.add(this.gamesService.observeGame().subscribe(game => {
             console.log('game retrieved in navbar component:');
             this.game = game;
         }));
-        this.subscription.add(observerService.getMessage().subscribe(message => {
+        this.subscription.add(this.observerService.getMessage().subscribe(message => {
             this.appData = message;
             console.log('Subscription updated @ NavbarComponent');
         }));
         console.log('Subscription created @ NavbarComponent');
     }
-    ngOnInit() { }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
         this.subscription.unsubscribe();
@@ -1770,6 +1764,9 @@ class NavbarComponent {
         }
         if (this.showMenu) {
             this.showMenu = false;
+        }
+        if (this.showSearchBox) {
+            this.showSearchBox = false;
         }
         let newPage = '/' + to.toLowerCase();
         this.appData.navbarPage = this.pageFromString(to);

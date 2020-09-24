@@ -79,6 +79,7 @@ export class GamesService {
   }
 
 
+
   setGame(game: Game) {
     this.detailing.next(game);
   }
