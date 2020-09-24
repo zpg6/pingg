@@ -19,6 +19,7 @@ export class GamesService {
   private httpClient: HttpClient;
 
   constructor(private firestore: AngularFirestore, private storage: AngularFireStorage, private http: HttpClient) {
+    console.log("games service constructed")
 
     this.httpClient = http;
     const databaseJSONRef = storage.ref('database/database.json');

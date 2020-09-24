@@ -6,6 +6,7 @@ import { Game } from '../game';
 import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
+import { GameArraysService } from '../game-arrays.service'
 
 @Component({
   selector: 'app-game-card-list',
@@ -21,7 +22,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   appDataSubscription = new Subscription();
 
-  constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router) {}
+  constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router, private arrayService: GameArraysService) {}
 
   openGame(game: Game) {
     this.appData.navbarPage = NavbarPage.game;
@@ -42,6 +43,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
       this.loading = false;
       console.log('Games Subscription updated @ GameCardListComponent')
     });
+    
   }
 
   ngOnDestroy() {
@@ -54,43 +56,9 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
-  getFrom(set: string):Array<Game> {
-    if (set === 'Top Rated') {
-      return this.getTopRated();
-    }
-    else if (set === 'Most Rated') {
-      return this.getMostRated();
-    }
-    else {
-      let filtered = this.list.filter(game => {
-        return game.genres.includes(set);
-      })
-      console.log('found ' + filtered.length + ' games for set = ' + set);
-      return filtered
-    }
-  }
 
-  getTopRated():Array<Game> {
-    return this.list.sort( (a,b) => {
-      if (a.rating > b.rating) {
-        return -1
-      }
-      if (a.rating < b.rating) {
-        return 1
-      }
-      return 0;
-    })
-  }
-
-  getMostRated():Array<Game> {
-    return this.list.sort( (a,b) => {
-      if (a.ratingCount > b.ratingCount) {
-        return -1
-      }
-      if (a.ratingCount < b.ratingCount) {
-        return 1
-      }
-      return 0;
-    })
+  getSetArray(set: string) {
+    console.log("get set array")
+    return this.arrayService.getArray(set);
   }
 }

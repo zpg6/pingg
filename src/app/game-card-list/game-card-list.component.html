@@ -6,7 +6,7 @@
     <p class="title">{{set}}</p>
 
     <ul class="images">
-      <li *ngFor="let item of getFrom(set)">
+      <li *ngFor="let item of getSetArray(set)">
         <app-game-card [game]="item" (click)="openGame(item)"></app-game-card>
       </li>
     </ul>
