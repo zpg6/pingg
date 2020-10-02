@@ -136,14 +136,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (page.toLowerCase() === 'map') {
       return NavbarPage.map;
     }
-    if (page.toLowerCase() === 'connect') {
-      return NavbarPage.connect;
+    if (page.toLowerCase() === 'games') {
+      return NavbarPage.games;
     }
     if (page.toLowerCase() === 'profile') {
       return NavbarPage.profile;
-    }
-    if (page.toLowerCase() === 'chat') {
-      return NavbarPage.chat;
     }
     if (page.toLowerCase() === 'search') {
       return NavbarPage.search;
@@ -169,14 +166,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (this.appData.navbarPage === 'Map') {
       return 'Other players nearby...';
     }
-    if (this.appData.navbarPage === 'Connect') {
-      return 'Recommendations from us...';
+    if (this.appData.navbarPage === 'Games') {
+      return 'So many games...';
     }
     if (this.appData.navbarPage === 'Profile') {
       return 'What makes you unique...';
-    }
-    if (this.appData.navbarPage === 'Chat') {
-      return 'Direct + Group Messaging...';
     }
     return '';
   }

@@ -71,8 +71,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     if (this.appData.navbarPage === NavbarPage.feed) {
       return ['Filter By']
     }
-    if (this.appData.navbarPage === NavbarPage.connect) {
-      return ['Connect With','Sort By','Filter By']
+    if (this.appData.navbarPage === NavbarPage.games) {
+      return ['Sort By','Filter By']
     }
     return [];
   }

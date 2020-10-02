@@ -74,32 +74,26 @@
         <span class="is-unselectable">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item {{ active('Connect') }}" (click)="setPage('Connect')">
+      <a class="navbar-item {{ active('Games') }}" (click)="setPage('Games')">
         <span class="icon has-text-light">
-          <i class="fas fa-address-card"></i>
+          <i class="fas fa-gamepad"></i>
         </span>
-        <span class="is-unselectable">&nbsp;Connect</span>
+        <span class="is-unselectable">&nbsp;Games</span>
+      </a>
+
+      <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
+        <span>
+          <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
+        </span>
+        <span class="is-unselectable">&nbsp;Profile</span>
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link is-hidden-mobile">
-          <img style="border-radius: 50%;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
+          More
         </a>
 
         <div class="navbar-dropdown is-left" style="background-color: #363636;">
-          <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
-            <span>
-              <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
-            </span>
-            <span class="is-unselectable">&nbsp;Profile</span>
-          </a>
-          <a class="navbar-item {{ active('Chat') }}" (click)="setPage('Chat')">
-            <span class="icon">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="is-unselectable">&nbsp;Chat</span>
-            <span class="red-number">5</span>
-          </a>
           <a class="navbar-item" (click)="reportIssue()">
             Report an issue
           </a>
@@ -128,11 +122,11 @@
         <span class="is-unselectable has-text-light">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item {{ active('Connect') }}" (click)="setPage('Connect')">
+      <a class="navbar-item {{ active('Games') }}" (click)="setPage('Games')">
         <span class="icon has-text-light">
-          <i class="fas fa-address-card"></i>
+          <i class="fas fa-gamepad"></i>
         </span>
-        <span class="is-unselectable has-text-light">&nbsp;Connect</span>
+        <span class="is-unselectable has-text-light">&nbsp;Games</span>
       </a>
 
 
@@ -141,13 +135,6 @@
           <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://api.adorable.io/avatars/100/{{this.getUser()}}@adorable.io.png">
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Profile</span>
-      </a>
-      <a class="navbar-item {{ active('Chat') }}" (click)="setPage('Chat')">
-        <span class="icon has-text-light">
-          <i class="fas fa-envelope"></i>
-        </span>
-        <span class="is-unselectable has-text-light">&nbsp;Chat</span>
-        <span class="red-number">5</span>
       </a>
       <hr class="navbar-divider">
       <a class="navbar-item has-text-light" (click)="reportIssue()">

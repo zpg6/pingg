@@ -10,7 +10,7 @@ import { GamesService } from './games.service';
 import { LoginBoxComponent } from './login-box/login-box.component';
 import { SignInButtonsComponent } from './sign-in-buttons/sign-in-buttons.component';
 import { MapContainerComponent } from './map-container/map-container.component';
-import { ConnectContainerComponent } from './connect-container/connect-container.component';
+import { GamesContainerComponent } from './games-container/games-container.component';
 import { ProfileContainerComponent } from './profile-container/profile-container.component';
 import { ChatContainerComponent } from './chat-container/chat-container.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -88,7 +88,7 @@ export function playerFactory() {
     LoginBoxComponent,
     SignInButtonsComponent,
     MapContainerComponent,
-    ConnectContainerComponent,
+    GamesContainerComponent,
     ProfileContainerComponent,
     ChatContainerComponent,
     SidebarComponent,
