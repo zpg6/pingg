@@ -1,10 +1,10 @@
 export enum NavbarPage {
   feed = 'Feed',
   map = 'Map',
-  connect = 'Connect',
+  games = 'Games',
   profile = 'Profile',
-  chat = 'Chat',
   search = 'Search',
+  channel = 'Channel',
   game = 'Game',
 }
 

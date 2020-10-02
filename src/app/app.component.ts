@@ -90,14 +90,11 @@ export class AppComponent implements OnInit, OnDestroy {
     if (page.toLowerCase() === 'map') {
       return NavbarPage.map;
     }
-    if (page.toLowerCase() === 'connect') {
-      return NavbarPage.connect;
+    if (page.toLowerCase() === 'games') {
+      return NavbarPage.games;
     }
     if (page.toLowerCase() === 'profile') {
       return NavbarPage.profile;
-    }
-    if (page.toLowerCase() === 'chat') {
-      return NavbarPage.chat;
     }
     if (page.toLowerCase() === 'search') {
       return NavbarPage.search;

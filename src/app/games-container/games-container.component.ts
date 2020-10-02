@@ -5,11 +5,11 @@ import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
 
 @Component({
-  selector: 'app-connect-container',
-  templateUrl: './connect-container.component.html',
-  styleUrls: ['./connect-container.component.css']
+  selector: 'app-games-container',
+  templateUrl: './games-container.component.html',
+  styleUrls: ['./games-container.component.css']
 })
-export class ConnectContainerComponent implements OnInit, OnDestroy {
+export class GamesContainerComponent implements OnInit, OnDestroy {
 
   appData: AppData;
   subscription = new Subscription();
@@ -18,9 +18,9 @@ export class ConnectContainerComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ ConnectContainerComponent')
+        console.log('Subscription updated @ GamesContainerComponent')
       }));
-      console.log('Subscription created @ ConnectContainerComponent')
+      console.log('Subscription created @ GamesContainerComponent')
   }
 
   ngOnInit() {
