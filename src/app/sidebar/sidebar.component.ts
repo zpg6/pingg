@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   expanded = '';
   activeChannel = '#all';
+  channels = ['#all', '#channel1', '#channel2', '#channel3'];
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -46,6 +47,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
   }
 
+  channelClicked(channel: string) {
+    this.activeChannel = channel
+  }
+
   getOptions(section: string):string[] {
     if (!(this.expanded === section)) { return []; }
     if (section === 'Genre') {
@@ -59,7 +64,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   getSections(title: string):string[] {
     if (title === 'Channels') {
-      return ['#all', '#channel1', '#channel2', '#channel3']
+      return this.channels;
     }
     if (title === 'Filter By') {
       return ['Genre','Platform'];

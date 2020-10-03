@@ -17,21 +17,34 @@
           </span>
           <span>New Post</span>
         </button>
+
+        <div *ngFor="let title of getTitles()">
+          <p class="menu-label" style="margin-top: 1.5em;">
+            {{title}}
+          </p>
+          <ul class="menu-list" *ngIf="channels.length > 0">
+            <div *ngFor="let channel of channels">
+              <li><a class="{{ channel === activeChannel ? 'is-active':'' }}" (click)="channelClicked(channel)">{{channel}}</a></li>
+            </div>
+          </ul>
+        </div>
       </div>
 
-      <div *ngFor="let title of getTitles()">
-        <p class="menu-label" style="margin-top: 1.5em;">
-          {{title}}
-        </p>
+      <div *ngIf="this.appData.navbarPage !== 'Feed'">
+        <div *ngFor="let title of getTitles()">
+          <p class="menu-label" style="margin-top: 1.5em;">
+            {{title}}
+          </p>
 
-        <ul class="menu-list" *ngIf="getSections(title).length > 0">
-          <div *ngFor="let section of getSections(title)">
-            <li><a class="{{ getOptions(section).length > 0 ? 'is-active':'' }}" (click)="toggleExpand(section)">{{section}}</a></li>
-            <ul *ngFor="let option of getOptions(section)" style="padding-left: 15px;">
-              <li><a class="menu-list-item {{option === activeChannel ? 'is-active':''}}">{{option}}</a></li>
-            </ul>
-          </div>
-        </ul>
+          <ul class="menu-list" *ngIf="getSections(title).length > 0">
+            <div *ngFor="let section of getSections(title)">
+              <li><a class="{{ getOptions(section).length > 0 ? 'is-active':'' }}" (click)="toggleExpand(section)">{{section}}</a></li>
+              <ul *ngFor="let option of getOptions(section)" style="padding-left: 15px;">
+                <li><a class="menu-list-item">{{option}}</a></li>
+              </ul>
+            </div>
+          </ul>
+        </div>
       </div>
 
 
