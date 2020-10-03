@@ -10,12 +10,19 @@
 
     <aside class="menu has-text-light">
 
-      <div class="control" *ngIf="this.appData.navbarPage === 'Feed'">
-        <button class="button is-danger">
+      <div *ngIf="this.appData.navbarPage === 'Feed'">
+        <button class="button is-danger" style="margin-bottom: 20px;">
           <span class="icon">
             <i class="fas fa-pencil-alt"></i>
           </span>
           <span>New Post</span>
+        </button>
+        <br>
+        <button class="button is-info">
+          <span class="icon">
+            <i class="fas fa-hashtag"></i>
+          </span>
+          <span>New Channel</span>
         </button>
 
         <div *ngFor="let title of getTitles()">
