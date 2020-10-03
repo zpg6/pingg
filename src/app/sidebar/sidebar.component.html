@@ -28,7 +28,7 @@
           <div *ngFor="let section of getSections(title)">
             <li><a class="{{ getOptions(section).length > 0 ? 'is-active':'' }}" (click)="toggleExpand(section)">{{section}}</a></li>
             <ul *ngFor="let option of getOptions(section)" style="padding-left: 15px;">
-              <li><a class="menu-list-item">{{option}}</a></li>
+              <li><a class="menu-list-item {{option === activeChannel ? 'is-active':''}}">{{option}}</a></li>
             </ul>
           </div>
         </ul>

@@ -16,6 +16,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   expanded = '';
+  activeChannel = '#all';
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
@@ -58,7 +59,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   getSections(title: string):string[] {
     if (title === 'Channels') {
-      return ['All', '#Channel1', '#Channel2', '#Channel3']
+      return ['#all', '#channel1', '#channel2', '#channel3']
     }
     if (title === 'Filter By') {
       return ['Genre','Platform'];
