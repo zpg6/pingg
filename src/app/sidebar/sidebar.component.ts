@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
+import { Genre } from '../genre.enum';
+import { Platform } from '../platform.enum';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
 
@@ -46,30 +48,33 @@ export class SidebarComponent implements OnInit, OnDestroy {
   getOptions(section: string):string[] {
     if (!(this.expanded === section)) { return []; }
     if (section === 'Genre') {
-      return ['Arcade','Fantasy','Puzzle','Shooter'];
+      return Object.values(Genre).sort();
     }
     if (section === 'Platform') {
-      return ['Console','Desktop','Mobile'];
+      return Object.values(Platform).sort();
     }
     return [];
   }
 
   getSections(title: string):string[] {
+    if (title === 'Channels') {
+      return ['All', '#Channel1', '#Channel2', '#Channel3']
+    }
     if (title === 'Filter By') {
       return ['Genre','Platform'];
     }
     if (title === 'Sort By') {
       return ['Top Rated','Most Rated','Newest','Oldest'];
     }
-    if (title === 'Connect With') {
-      return ['Games','Players'];
+    if (title === 'Games') {
+      return ['Genre','Platform'];
     }
     return [];
   }
 
   getTitles():string[] {
     if (this.appData.navbarPage === NavbarPage.feed) {
-      return ['Filter By']
+      return ['Channels']
     }
     if (this.appData.navbarPage === NavbarPage.games) {
       return ['Sort By','Filter By']

@@ -1553,6 +1553,46 @@ GamesService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
 
 /***/ }),
 
+/***/ "./src/app/genre.enum.ts":
+/*!*******************************!*\
+  !*** ./src/app/genre.enum.ts ***!
+  \*******************************/
+/*! exports provided: Genre */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Genre", function() { return Genre; });
+var Genre;
+(function (Genre) {
+    Genre["Fighting"] = "Fighting";
+    Genre["Shooter"] = "Shooter";
+    Genre["Music"] = "Music";
+    Genre["Platform"] = "Platform";
+    Genre["Puzzle"] = "Puzzle";
+    Genre["Racing"] = "Racing";
+    Genre["RealTimeStrategy"] = "Real Time Strategy (RTS)";
+    Genre["RolePlaying"] = "Role Playing (RPG)";
+    Genre["Simulator"] = "Simulator";
+    Genre["Sport"] = "Sport";
+    Genre["Strategy"] = "Strategy";
+    Genre["TurnBasedStrategy"] = "Turn-based strategy (TBS)";
+    Genre["Tactical"] = "Tactical";
+    Genre["QuizTrivia"] = "Quiz/Trivia";
+    Genre["HackSlashBeatEmUp"] = "Hack and slash/Beat 'em up";
+    Genre["Pinball"] = "Pinball";
+    Genre["Adventure"] = "Adventure";
+    Genre["Arcade"] = "Arcade";
+    Genre["VisualNovel"] = "Visual Novel";
+    Genre["Indie"] = "Indie";
+    Genre["CardBoardGame"] = "Card & Board Game";
+    Genre["MOBA"] = "MOBA";
+    Genre["PointAndClick"] = "Point-and-click";
+})(Genre || (Genre = {}));
+
+
+/***/ }),
+
 /***/ "./src/app/login-box/login-box.component.ts":
 /*!**************************************************!*\
   !*** ./src/app/login-box/login-box.component.ts ***!
@@ -2270,6 +2310,192 @@ ObserverService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
 
 /***/ }),
 
+/***/ "./src/app/platform.enum.ts":
+/*!**********************************!*\
+  !*** ./src/app/platform.enum.ts ***!
+  \**********************************/
+/*! exports provided: Platform */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Platform", function() { return Platform; });
+var Platform;
+(function (Platform) {
+    Platform["NintendoeShop"] = "Nintendo eShop";
+    Platform["Stadia"] = "Stadia";
+    Platform["DVDPlayer"] = "DVD Player";
+    Platform["AcornElectron"] = "Acorn Electron";
+    Platform["SegaPico"] = "Sega Pico";
+    Platform["XboxSeriesX"] = "Xbox Series X";
+    Platform["PCMicrosoftWindows"] = "PC (Microsoft Windows)";
+    Platform["FamilyComputerDiskSystem"] = "Family Computer Disk System";
+    Platform["PlayStation2"] = "PlayStation 2";
+    Platform["ColecoVision"] = "ColecoVision";
+    Platform["CommodorePlus4"] = "Commodore Plus/4";
+    Platform["SteamVR"] = "SteamVR";
+    Platform["PlayStationVR"] = "PlayStation VR";
+    Platform["GoogleStadia"] = "Google Stadia";
+    Platform["BlurayPlayer"] = "Blu-ray Player";
+    Platform["WonderSwanColor"] = "WonderSwan Color";
+    Platform["PhilipsVideopacG7000"] = "Philips Videopac G7000";
+    Platform["ExidySorcerer"] = "Exidy Sorcerer";
+    Platform["NeoGeoCD"] = "Neo Geo CD";
+    Platform["PC50XFamily"] = "PC-50X Family";
+    Platform["TexasInstrumentsTI99"] = "Texas Instruments TI-99";
+    Platform["AmstradCPC"] = "Amstrad CPC";
+    Platform["MSX"] = "MSX";
+    Platform["iOS"] = "iOS";
+    Platform["AY38710"] = "AY-3-8710";
+    Platform["TapwaveZodiac"] = "Tapwave Zodiac";
+    Platform["AY38605"] = "AY-3-8605";
+    Platform["ThomsonMO5"] = "Thomson MO5";
+    Platform["Sol20"] = "Sol-20";
+    Platform["AY38606"] = "AY-3-8606";
+    Platform["AY38607"] = "AY-3-8607";
+    Platform["PC98"] = "PC-98";
+    Platform["HyperNeoGeo64"] = "Hyper Neo Geo 64";
+    Platform["CommodoreCDTV"] = "Commodore CDTV";
+    Platform["HP3000"] = "HP 3000";
+    Platform["Odyssey"] = "Odyssey";
+    Platform["CommodorePET"] = "Commodore PET";
+    Platform["SegaGameGear"] = "Sega Game Gear";
+    Platform["Daydream"] = "Daydream";
+    Platform["XboxLiveArcade"] = "Xbox Live Arcade";
+    Platform["VirtualConsoleNintendo"] = "Virtual Console (Nintendo)";
+    Platform["AppleIIGS"] = "Apple IIGS";
+    Platform["SwanCrystal"] = "SwanCrystal";
+    Platform["Xbox"] = "Xbox";
+    Platform["PlayStationNetwork"] = "PlayStation Network";
+    Platform["AtariJaguar"] = "Atari Jaguar";
+    Platform["Atari7800"] = "Atari 7800";
+    Platform["MSX2"] = "MSX2";
+    Platform["Atari8bit"] = "Atari 8-bit";
+    Platform["VirtualBoy"] = "Virtual Boy";
+    Platform["DECGT40"] = "DEC GT40";
+    Platform["PDP8"] = "PDP-8";
+    Platform["FairchildChannelF"] = "Fairchild Channel F";
+    Platform["TRS80"] = "TRS-80";
+    Platform["PCEngineSuperGrafx"] = "PC Engine SuperGrafx";
+    Platform["FerrantiNimrodComputer"] = "Ferranti Nimrod Computer";
+    Platform["Turbografx16PCEngineCD"] = "Turbografx-16/PC Engine CD";
+    Platform["Dragon3264"] = "Dragon 32/64";
+    Platform["TatungEinstein"] = "Tatung Einstein";
+    Platform["ThreeDOInteractiveMultiplayer"] = "3DO Interactive Multiplayer";
+    Platform["NintendoDSi"] = "Nintendo DSi";
+    Platform["AmstradPCW"] = "Amstrad PCW";
+    Platform["Pok\u00E9monmini"] = "Pok\u00E9mon mini";
+    Platform["PDP11"] = "PDP-11";
+    Platform["SuperFamicom"] = "Super Famicom";
+    Platform["Vectrex"] = "Vectrex";
+    Platform["NeoGeoPocket"] = "Neo Geo Pocket";
+    Platform["NintendoSwitch"] = "Nintendo Switch";
+    Platform["AmazonFireTV"] = "Amazon Fire TV";
+    Platform["VC4000"] = "VC 4000";
+    Platform["One292AdvancedProgrammableVideoSystem"] = "1292 Advanced Programmable Video System";
+    Platform["DonnerModel30"] = "Donner Model 30";
+    Platform["PDP1"] = "PDP-1";
+    Platform["PC8801"] = "PC-8801";
+    Platform["Microvision"] = "Microvision";
+    Platform["Microcomputer"] = "Microcomputer";
+    Platform["PCDOS"] = "PC DOS";
+    Platform["Dreamcast"] = "Dreamcast";
+    Platform["ZXSpectrum"] = "ZX Spectrum";
+    Platform["Sega32X"] = "Sega 32X";
+    Platform["WiiU"] = "Wii U";
+    Platform["Nintendo3DS"] = "Nintendo 3DS";
+    Platform["AY38500"] = "AY-3-8500";
+    Platform["SharpX68000"] = "Sharp X68000";
+    Platform["PlayStation5"] = "PlayStation 5";
+    Platform["Analogueelectronics"] = "Analogue electronics";
+    Platform["AY38610"] = "AY-3-8610";
+    Platform["AY38760"] = "AY-3-8760";
+    Platform["AmigaCD32"] = "Amiga CD32";
+    Platform["Nintendo64"] = "Nintendo 64";
+    Platform["SDSSigma7"] = "SDS Sigma 7";
+    Platform["PDP7"] = "PDP-7";
+    Platform["CDCCyber70"] = "CDC Cyber 70";
+    Platform["AcornArchimedes"] = "Acorn Archimedes";
+    Platform["TRS80ColorComputer"] = "TRS-80 Color Computer";
+    Platform["EDSAC"] = "EDSAC";
+    Platform["HP2100"] = "HP 2100";
+    Platform["NintendoEntertainmentSystemNES"] = "Nintendo Entertainment System (NES)";
+    Platform["Amiga"] = "Amiga";
+    Platform["GameBoyAdvance"] = "Game Boy Advance";
+    Platform["SegaMegaDriveGenesis"] = "Sega Mega Drive/Genesis";
+    Platform["Atari2600"] = "Atari 2600";
+    Platform["SegaMasterSystem"] = "Sega Master System";
+    Platform["Webbrowser"] = "Web browser";
+    Platform["SharpX1"] = "Sharp X1";
+    Platform["SegaCD"] = "Sega CD";
+    Platform["OnLiveGameSystem"] = "OnLive Game System";
+    Platform["FamilyComputerFAMICOM"] = "Family Computer (FAMICOM)";
+    Platform["AY38603"] = "AY-3-8603";
+    Platform["PhilipsCDi"] = "Philips CD-i";
+    Platform["NeoGeoPocketColor"] = "Neo Geo Pocket Color";
+    Platform["CallAComputerTimeSharedMainframeComputerSystem"] = "Call-A-Computer time-shared mainframe computer system";
+    Platform["PLATO"] = "PLATO";
+    Platform["Zeebo"] = "Zeebo";
+    Platform["PCFX"] = "PC-FX";
+    Platform["GameBoyColor"] = "Game Boy Color";
+    Platform["Nuon"] = "Nuon";
+    Platform["Playdia"] = "Playdia";
+    Platform["Commodore16"] = "Commodore 16";
+    Platform["AtariLynx"] = "Atari Lynx";
+    Platform["AtariSTSTE"] = "Atari ST/STE";
+    Platform["NintendoPlayStation"] = "Nintendo PlayStation";
+    Platform["ImlacPDS1"] = "Imlac PDS-1";
+    Platform["Evercade"] = "Evercade";
+    Platform["GameAndWatch"] = "Game & Watch";
+    Platform["FM7"] = "FM-7";
+    Platform["NintendoDS"] = "Nintendo DS";
+    Platform["Satellaview"] = "Satellaview";
+    Platform["SuperNintendoEntertainmentSystemSNES"] = "Super Nintendo Entertainment System (SNES)";
+    Platform["Mac"] = "Mac";
+    Platform["CommodoreC64128"] = "Commodore C64/128";
+    Platform["PlayStation3"] = "PlayStation 3";
+    Platform["NintendoGameCube"] = "Nintendo GameCube";
+    Platform["Xbox360"] = "Xbox 360";
+    Platform["PlayStationPortable"] = "PlayStation Portable";
+    Platform["BlackBerryOS"] = "BlackBerry OS";
+    Platform["TurboGrafx16PCEngine"] = "TurboGrafx-16/PC Engine";
+    Platform["NECPC6000Series"] = "NEC PC-6000 Series";
+    Platform["OculusVR"] = "Oculus VR";
+    Platform["FMTowns"] = "FM Towns";
+    Platform["SegaSaturn"] = "Sega Saturn";
+    Platform["NGage"] = "N-Gage";
+    Platform["Android"] = "Android";
+    Platform["PlayStationVita"] = "PlayStation Vita";
+    Platform["XboxOne"] = "Xbox One";
+    Platform["PlayStation4"] = "PlayStation 4";
+    Platform["Intellivision"] = "Intellivision";
+    Platform["Atari5200"] = "Atari 5200";
+    Platform["BBCMicrocomputerSystem"] = "BBC Microcomputer System";
+    Platform["SG1000"] = "SG-1000";
+    Platform["NeoGeoAES"] = "Neo Geo AES";
+    Platform["BallyAstrocade"] = "Bally Astrocade";
+    Platform["WindowsMixedReality"] = "Windows Mixed Reality";
+    Platform["Mobile"] = "Mobile";
+    Platform["Arcade"] = "Arcade";
+    Platform["Wii"] = "Wii";
+    Platform["Linux"] = "Linux";
+    Platform["PlayStation"] = "PlayStation";
+    Platform["NewNintendo3DS"] = "New Nintendo 3DS";
+    Platform["CommodoreVIC20"] = "Commodore VIC-20";
+    Platform["AppleII"] = "Apple II";
+    Platform["GameBoy"] = "Game Boy";
+    Platform["Ouya"] = "Ouya";
+    Platform["WindowsPhone"] = "Windows Phone";
+    Platform["NeoGeoMVS"] = "Neo Geo MVS";
+    Platform["SteamOS"] = "SteamOS";
+    Platform["PDP10"] = "PDP-10";
+    Platform["WonderSwan"] = "WonderSwan";
+    Platform["WiiWare"] = "WiiWare";
+})(Platform || (Platform = {}));
+
+
+/***/ }),
+
 /***/ "./src/app/profile-container/profile-container.component.ts":
 /*!******************************************************************!*\
   !*** ./src/app/profile-container/profile-container.component.ts ***!
@@ -2562,9 +2788,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar-page.enum */ "./src/app/navbar-page.enum.ts");
-/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _genre_enum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../genre.enum */ "./src/app/genre.enum.ts");
+/* harmony import */ var _platform_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform.enum */ "./src/app/platform.enum.ts");
+/* harmony import */ var _navbar_page_enum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../navbar-page.enum */ "./src/app/navbar-page.enum.ts");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+
 
 
 
@@ -2694,41 +2924,44 @@ class SidebarComponent {
             return [];
         }
         if (section === 'Genre') {
-            return ['Arcade', 'Fantasy', 'Puzzle', 'Shooter'];
+            return Object.values(_genre_enum__WEBPACK_IMPORTED_MODULE_2__["Genre"]).sort();
         }
         if (section === 'Platform') {
-            return ['Console', 'Desktop', 'Mobile'];
+            return Object.values(_platform_enum__WEBPACK_IMPORTED_MODULE_3__["Platform"]).sort();
         }
         return [];
     }
     getSections(title) {
+        if (title === 'Channels') {
+            return ['All', '#Channel1', '#Channel2', '#Channel3'];
+        }
         if (title === 'Filter By') {
             return ['Genre', 'Platform'];
         }
         if (title === 'Sort By') {
             return ['Top Rated', 'Most Rated', 'Newest', 'Oldest'];
         }
-        if (title === 'Connect With') {
-            return ['Games', 'Players'];
+        if (title === 'Games') {
+            return ['Genre', 'Platform'];
         }
         return [];
     }
     getTitles() {
-        if (this.appData.navbarPage === _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].feed) {
-            return ['Filter By'];
+        if (this.appData.navbarPage === _navbar_page_enum__WEBPACK_IMPORTED_MODULE_4__["NavbarPage"].feed) {
+            return ['Channels'];
         }
-        if (this.appData.navbarPage === _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].games) {
+        if (this.appData.navbarPage === _navbar_page_enum__WEBPACK_IMPORTED_MODULE_4__["NavbarPage"].games) {
             return ['Sort By', 'Filter By'];
         }
         return [];
     }
 }
-SidebarComponent.ɵfac = function SidebarComponent_Factory(t) { return new (t || SidebarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"])); };
+SidebarComponent.ɵfac = function SidebarComponent_Factory(t) { return new (t || SidebarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_5__["ObserverService"])); };
 SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SidebarComponent, selectors: [["app-sidebar"]], decls: 1, vars: 1, consts: [["class", "dashboard-panel is-medium has-thick-padding is-hidden-mobile", "style", "height: 100%; width: 100%; background-color: #292929;", 4, "ngIf"], [1, "dashboard-panel", "is-medium", "has-thick-padding", "is-hidden-mobile", 2, "height", "100%", "width", "100%", "background-color", "#292929"], [1, "dashboard-panel-content", "is-scrollable"], [1, "menu", "has-text-light"], ["class", "control", 4, "ngIf"], [4, "ngFor", "ngForOf"], [1, "control"], [1, "button", "is-danger"], [1, "icon"], [1, "fas", "fa-pencil-alt"], [1, "menu-label", 2, "margin-top", "1.5em"], ["class", "menu-list", 4, "ngIf"], [1, "menu-list"], [3, "click"], ["style", "padding-left: 15px;", 4, "ngFor", "ngForOf"], [2, "padding-left", "15px"], [1, "menu-list-item"]], template: function SidebarComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, SidebarComponent_div_0_Template, 7, 2, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !(ctx.appData.navbarPage === "Map"));
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]], styles: [".menu-list[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: whitesmoke;\n  display: block;\n  padding: 0.5em 0.75em;\n  border-left: 3px solid none;\n  transition-property: border,text;\n  transition-duration: 0.1s;\n  margin-bottom: 8px;\n}\n\n.menu-list[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  background-color: #292929;\n  color:  whitesmoke;\n  border-left: 3px solid #95EF72;\n  font-weight: 600;\n}\n\n.menu-list[_ngcontent-%COMP%]   a.is-active[_ngcontent-%COMP%] {\n  background-color: #292929;\n  color:  whitesmoke;\n  border-left: 3px solid #95EF72;\n  font-weight: 600;\n}\n\n.menu-list[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  border-left: 1px solid #dbdbdb;\n  margin: 0.75em;\n  padding-left: 0.75em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7RUFDakIsY0FBYztFQUNkLHFCQUFxQjtFQUNyQiwyQkFBMkI7RUFDM0IsZ0NBQWdDO0VBQ2hDLHlCQUF5QjtFQUN6QixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLDhCQUE4QjtFQUM5QixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLDhCQUE4QjtFQUM5QixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSw4QkFBOEI7RUFDOUIsY0FBYztFQUNkLG9CQUFvQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lbnUtbGlzdCBhIHtcbiAgY29sb3I6IHdoaXRlc21va2U7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwYWRkaW5nOiAwLjVlbSAwLjc1ZW07XG4gIGJvcmRlci1sZWZ0OiAzcHggc29saWQgbm9uZTtcbiAgdHJhbnNpdGlvbi1wcm9wZXJ0eTogYm9yZGVyLHRleHQ7XG4gIHRyYW5zaXRpb24tZHVyYXRpb246IDAuMXM7XG4gIG1hcmdpbi1ib3R0b206IDhweDtcbn1cblxuLm1lbnUtbGlzdCBhOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI5MjkyOTtcbiAgY29sb3I6ICB3aGl0ZXNtb2tlO1xuICBib3JkZXItbGVmdDogM3B4IHNvbGlkICM5NUVGNzI7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG59XG5cbi5tZW51LWxpc3QgYS5pcy1hY3RpdmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjkyOTI5O1xuICBjb2xvcjogIHdoaXRlc21va2U7XG4gIGJvcmRlci1sZWZ0OiAzcHggc29saWQgIzk1RUY3MjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cblxuLm1lbnUtbGlzdCBsaSB1bCB7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RiZGJkYjtcbiAgbWFyZ2luOiAwLjc1ZW07XG4gIHBhZGRpbmctbGVmdDogMC43NWVtO1xufVxuIl19 */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"]], styles: [".menu-list[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: whitesmoke;\n  display: block;\n  padding: 0.5em 0.75em;\n  border-left: 3px solid none;\n  transition-property: border,text;\n  transition-duration: 0.1s;\n  margin-bottom: 8px;\n}\n\n.menu-list[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  background-color: #292929;\n  color:  whitesmoke;\n  border-left: 3px solid #95EF72;\n  font-weight: 600;\n}\n\n.menu-list[_ngcontent-%COMP%]   a.is-active[_ngcontent-%COMP%] {\n  background-color: #292929;\n  color:  whitesmoke;\n  border-left: 3px solid #95EF72;\n  font-weight: 600;\n}\n\n.menu-list[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  border-left: 1px solid #dbdbdb;\n  margin: 0.75em;\n  padding-left: 0.75em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7RUFDakIsY0FBYztFQUNkLHFCQUFxQjtFQUNyQiwyQkFBMkI7RUFDM0IsZ0NBQWdDO0VBQ2hDLHlCQUF5QjtFQUN6QixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLDhCQUE4QjtFQUM5QixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLDhCQUE4QjtFQUM5QixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSw4QkFBOEI7RUFDOUIsY0FBYztFQUNkLG9CQUFvQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lbnUtbGlzdCBhIHtcbiAgY29sb3I6IHdoaXRlc21va2U7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwYWRkaW5nOiAwLjVlbSAwLjc1ZW07XG4gIGJvcmRlci1sZWZ0OiAzcHggc29saWQgbm9uZTtcbiAgdHJhbnNpdGlvbi1wcm9wZXJ0eTogYm9yZGVyLHRleHQ7XG4gIHRyYW5zaXRpb24tZHVyYXRpb246IDAuMXM7XG4gIG1hcmdpbi1ib3R0b206IDhweDtcbn1cblxuLm1lbnUtbGlzdCBhOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI5MjkyOTtcbiAgY29sb3I6ICB3aGl0ZXNtb2tlO1xuICBib3JkZXItbGVmdDogM3B4IHNvbGlkICM5NUVGNzI7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG59XG5cbi5tZW51LWxpc3QgYS5pcy1hY3RpdmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjkyOTI5O1xuICBjb2xvcjogIHdoaXRlc21va2U7XG4gIGJvcmRlci1sZWZ0OiAzcHggc29saWQgIzk1RUY3MjtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cblxuLm1lbnUtbGlzdCBsaSB1bCB7XG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgI2RiZGJkYjtcbiAgbWFyZ2luOiAwLjc1ZW07XG4gIHBhZGRpbmctbGVmdDogMC43NWVtO1xufVxuIl19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SidebarComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -2736,7 +2969,7 @@ SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
                 templateUrl: './sidebar.component.html',
                 styleUrls: ['./sidebar.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_5__["ObserverService"] }]; }, null); })();
 
 
 /***/ }),
