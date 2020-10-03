@@ -1,4 +1,4 @@
-ul.images {
+.images {
   margin: 0px;
   padding: 0px;
   display: flex;
@@ -13,3 +13,12 @@ li {
   margin: 5px;
 }
 
+example-viewport {
+  height: auto;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.example-item {
+  height: auto;
+}
