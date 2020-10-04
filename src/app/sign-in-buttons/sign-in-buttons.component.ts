@@ -34,9 +34,6 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
           this.appData.username = d.displayName;
           this.appData.email = d.email;
           this.appData.uid = d.uid;
-          console.log(d.displayName);
-          console.log(d.email);
-          console.log(d.uid);
           this.updateObserver();
         }
         else{

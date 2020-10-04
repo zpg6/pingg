@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
+import { Injectable} from '@angular/core'
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-report-issue',
@@ -13,8 +15,10 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   expanded = '';
+  afs: AngularFirestore;
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService,
+              private firestore: AngularFirestore) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -42,6 +46,17 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
 
   sendReport() {
     // send report here
+    var input = (<HTMLInputElement>document.getElementById("issuefield")).value;
     this.closeModal();
+    
+    return new Promise<any>((resolve, reject) =>{
+      this.afs
+          .collection("Reports") // specify the collection
+          .doc(this.appData.uid.toString())// specify the document
+          .collection("text")
+          .doc(input.toString())
+          .set(JSON.parse(JSON.stringify(input))) //set all data
+          .then(res => {}, err => reject(err));
+    });
   }
 }

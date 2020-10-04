@@ -5,7 +5,9 @@
     <button class="delete" aria-label="close" (click)="closeModal()"></button>
   </header>
   <section class="modal-card-body has-text-dark">
-    <p>Report an issue fields go here.</p>
+    <textarea id="issuefield" name = "issuefield" rows="4" cols="50">
+      Report an issue fields go here.
+    </textarea>
   </section>
   <footer class="modal-card-foot">
     <button class="button is-success" (click)="sendReport()">Send</button>
