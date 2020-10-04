@@ -857,9 +857,11 @@ class GameArraysService {
         this.sections = ['Top Rated', 'Most Rated', 'Arcade', 'Shooter', 'Platform'];
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.subscription = this.gamesService.getGames().subscribe(message => {
-            this.list = message;
-            for (var i in this.sections) {
-                this.arrays[this.sections[i]] = this.getFrom(this.sections[i]);
+            if (message.values) {
+                this.list = message.values.prototype;
+                for (var i in this.sections) {
+                    this.arrays[this.sections[i]] = this.getFrom(this.sections[i]);
+                }
             }
         });
     }
@@ -874,35 +876,20 @@ class GameArraysService {
             return this.getMostRated();
         }
         else {
-            let filtered = this.list.filter(game => {
-                return game.genres.includes(set);
-            });
-            console.log('found ' + filtered.length + ' games for set = ' + set);
-            return filtered;
+            this.getGamesByGenre(set);
         }
     }
     getTopRated() {
-        console.log("getting top rated");
-        return this.list.sort((a, b) => {
-            if (a.rating > b.rating) {
-                return -1;
-            }
-            if (a.rating < b.rating) {
-                return 1;
-            }
-            return 0;
-        });
+        // Query the server
+        return Array();
     }
     getMostRated() {
-        return this.list.sort((a, b) => {
-            if (a.ratingCount > b.ratingCount) {
-                return -1;
-            }
-            if (a.ratingCount < b.ratingCount) {
-                return 1;
-            }
-            return 0;
-        });
+        // Query the server
+        return Array();
+    }
+    getGamesByGenre(genre) {
+        //query the server
+        return Array();
     }
 }
 GameArraysService.ɵfac = function GameArraysService_Factory(t) { return new (t || GameArraysService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_app_games_service__WEBPACK_IMPORTED_MODULE_2__["GamesService"])); };
@@ -1016,11 +1003,6 @@ class GameCardListComponent {
         }));
         console.log('Subscription created @ GameCardListComponent');
         console.log('Games Subscription being created @ GameCardListComponent');
-        this.subscription = this.gamesService.getGames().subscribe(message => {
-            this.list = message;
-            this.loading = false;
-            console.log('Games Subscription updated @ GameCardListComponent');
-        });
     }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
@@ -1032,7 +1014,9 @@ class GameCardListComponent {
     }
     getSetArray(set) {
         console.log("get set array");
-        return this.arrayService.getArray(set);
+        let result = this.arrayService.getArray(set);
+        this.loading = false;
+        return result;
     }
 }
 GameCardListComponent.ɵfac = function GameCardListComponent_Factory(t) { return new (t || GameCardListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_3__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_4__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_game_arrays_service__WEBPACK_IMPORTED_MODULE_6__["GameArraysService"])); };
@@ -1232,15 +1216,17 @@ class GameDetailComponent {
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         // subscribe to home component messages
         this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
-            var _a;
+            var _a, _b;
             this.game = game;
             if (((_a = game === null || game === void 0 ? void 0 : game.similarGames) === null || _a === void 0 ? void 0 : _a.length) > 0) {
-                this.gamesService.getGames().subscribe(arr => {
-                    this.recommended = arr.filter(listing => {
-                        return this.game.similarGames.includes(listing.id);
-                    });
-                });
-                console.log(`hunted for games = ${game.similarGames}`);
+                var similarGames = [];
+                for (var i = 0; i < ((_b = game.similarGames) === null || _b === void 0 ? void 0 : _b.length); i++) {
+                    var similarGame = this.gamesService.getGame(game.similarGames[i].toString());
+                    if (similarGame) {
+                        similarGames.push(similarGame);
+                    }
+                }
+                this.recommended = similarGames;
             }
         }));
         this.subscription.add(observerService.getMessage().subscribe(message => {
@@ -1454,43 +1440,18 @@ class GamesService {
         this.firestore = firestore;
         this.storage = storage;
         this.http = http;
-        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](new Array());
+        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](new Map());
         this.detailing = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](new _game__WEBPACK_IMPORTED_MODULE_2__["Game"]());
         this.searchResults = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](new Array());
+        this.serverURL = "https://smapi.ngrok.io";
         console.log("games service constructed");
         this.httpClient = http;
-        const databaseJSONRef = storage.ref('database/database.json');
-        var databaseURL = databaseJSONRef.getDownloadURL().subscribe(url => {
-            this.httpClient.get(url).toPromise().then(response => {
-                if (response) {
-                    var arr = response;
-                    this.subject.next(arr.map(game => {
-                        return JSON.parse(game);
-                    }));
-                }
-            }).catch(err => {
-                console.error(err);
-            });
-        });
-        this.gamesCollection = firestore.collection('GameList');
-        this.gamesCollection.snapshotChanges().subscribe(changes => {
-            changes.map(change => {
-                if (change.type === 'modified') {
-                    let copy = this.subject.value;
-                    copy.forEach(function (game, index) {
-                        let modified = change.payload.doc.data();
-                        if (game.id === modified.id) {
-                            copy[index] = modified;
-                        }
-                    });
-                    this.subject.next(copy);
-                }
-                else if (change.type === 'removed') {
-                    this.subject.next(this.subject.value.filter(game => {
-                        return (game.id.toString() !== change.payload.doc.id);
-                    }));
-                }
-            });
+        this.httpClient.get(this.serverURL + '/database').toPromise().then(response => {
+            var map = response;
+            this.subject.next(map);
+        })
+            .catch(err => {
+            console.error(err);
         });
     }
     getGames() {
@@ -1506,11 +1467,6 @@ class GamesService {
     }
     observeGame() {
         return this.detailing.asObservable();
-    }
-    getGame(id) {
-        return this.subject.value.filter(game => {
-            return game.id == id;
-        })[0];
     }
     setGame(game) {
         this.detailing.next(game);
@@ -1532,8 +1488,12 @@ class GamesService {
     getResults() {
         return this.searchResults.asObservable();
     }
+    getGame(id) {
+        var found = this.subject.value[id];
+        return found;
+    }
     search(query) {
-        this.searchResults.next(this.subject.value.filter(game => {
+        this.searchResults.next(this.subject.value.values.prototype.filter(game => {
             return game.searchableIndex[query];
         }).sort((a, b) => {
             if (a.rating > b.rating) {
@@ -1577,7 +1537,7 @@ var Genre;
     Genre["Puzzle"] = "Puzzle";
     Genre["Racing"] = "Racing";
     Genre["RealTimeStrategy"] = "Real Time Strategy (RTS)";
-    Genre["RolePlaying"] = "Role Playing (RPG)";
+    Genre["RolePlaying"] = "Role-Playing (RPG)";
     Genre["Simulator"] = "Simulator";
     Genre["Sport"] = "Sport";
     Genre["Strategy"] = "Strategy";
@@ -3228,7 +3188,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })

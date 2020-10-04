@@ -15,9 +15,11 @@ export class GameArraysService {
 
   constructor(private gamesService: GamesService) {
     this.subscription = this.gamesService.getGames().subscribe(message => {
-      this.list = message;
-      for(var i in this.sections) {
-        this.arrays[this.sections[i]] = this.getFrom(this.sections[i])
+      if(message.values) {
+        this.list = message.values.prototype;
+        for(var i in this.sections) {
+          this.arrays[this.sections[i]] = this.getFrom(this.sections[i])
+        }
       }
     });
    }
@@ -34,36 +36,22 @@ export class GameArraysService {
       return this.getMostRated();
     }
     else {
-      let filtered = this.list.filter(game => {
-        return game.genres.includes(set);
-      })
-      console.log('found ' + filtered.length + ' games for set = ' + set);
-      return filtered
+      this.getGamesByGenre(set);
     }
   }
 
-  getTopRated():Array<Game> {
-    console.log("getting top rated")
-    return this.list.sort( (a,b) => {
-      if (a.rating > b.rating) {
-        return -1
-      }
-      if (a.rating < b.rating) {
-        return 1
-      }
-      return 0;
-    })
+  getTopRated(): Array<Game>{
+    // Query the server
+    return Array<Game>()
   }
 
-  getMostRated():Array<Game> {
-    return this.list.sort( (a,b) => {
-      if (a.ratingCount > b.ratingCount) {
-        return -1
-      }
-      if (a.ratingCount < b.ratingCount) {
-        return 1
-      }
-      return 0;
-    })
+  getMostRated(){
+    // Query the server
+    return Array<Game>()
+  }
+
+  getGamesByGenre(genre: string): Array<Game> {
+    //query the server
+    return Array<Game>()
   }
 }

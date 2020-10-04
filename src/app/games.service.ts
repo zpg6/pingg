@@ -12,48 +12,24 @@ import { Game } from './game';
 export class GamesService {
 
   private gamesCollection: AngularFirestoreCollection;
-  private subject = new BehaviorSubject<Array<Game>>(new Array<Game>());
+  private subject = new BehaviorSubject<Map<string, Game>>(new Map<string, Game>());
   private detailing = new BehaviorSubject<Game>(new Game());
   private searchResults = new BehaviorSubject<Array<Game>>(new Array<Game>());
   private subscription: Subscription;
   private httpClient: HttpClient;
+  private serverURL = "https://smapi.ngrok.io"
 
   constructor(private firestore: AngularFirestore, private storage: AngularFireStorage, private http: HttpClient) {
     console.log("games service constructed")
 
     this.httpClient = http;
-    const databaseJSONRef = storage.ref('database/database.json');
-    var databaseURL = databaseJSONRef.getDownloadURL().subscribe(url => {
-      this.httpClient.get(url).toPromise().then(response => {
-        if (response) {
-          var arr = response as Array<any>
-          this.subject.next(arr.map(game => {
-            return JSON.parse(game) as Game
-          }))
-        }
-      }).catch( err => {
-        console.error(err);
-      })
-    })
 
-    this.gamesCollection = firestore.collection('GameList');
-    this.gamesCollection.snapshotChanges().subscribe(changes => {
-      changes.map(change => {
-        if (change.type === 'modified') {
-          let copy = this.subject.value
-          copy.forEach(function (game,index) {
-            let modified = change.payload.doc.data() as Game;
-            if (game.id === modified.id) {
-              copy[index] = modified;
-            }
-          })
-          this.subject.next(copy);
-        } else if (change.type === 'removed') {
-          this.subject.next(this.subject.value.filter(game => {
-            return (game.id.toString() !== change.payload.doc.id)
-          }))
-        }
-      })
+    this.httpClient.get(this.serverURL + '/database').toPromise().then(response => {
+      var map = response as Map<string, Game>
+      this.subject.next(map)
+    })
+    .catch(err => {
+      console.error(err)
     })
   }
 
@@ -72,14 +48,6 @@ export class GamesService {
   observeGame(): Observable<Game> {
     return this.detailing.asObservable();
   }
-
-  getGame(id: number): Game {
-    return this.subject.value.filter(game => {
-      return game.id == id
-    })[0];
-  }
-
-
 
   setGame(game: Game) {
     this.detailing.next(game);
@@ -101,8 +69,14 @@ export class GamesService {
     return this.searchResults.asObservable();
   }
 
+  getGame(id: string): Game {
+    var found = this.subject.value[id]
+    return found
+  }
+
   search(query: string) {
-    this.searchResults.next(this.subject.value.filter(game => {
+
+    this.searchResults.next(this.subject.value.values.prototype.filter(game => {
       return game.searchableIndex[query]
     }).sort((a,b) =>  {
       if (a.rating > b.rating) {
@@ -114,15 +88,4 @@ export class GamesService {
       return 0;
     }).slice(0,5));
   }
-
-  // getGame(id: string): Observable<Game> {
-  //   console.log(`Looking for game with id = ${id}`);
-  //   this.subject.value.forEach(game => {
-  //     if (`${game.id}` === id) {
-  //       console.log('found game in loop')
-  //       this.detailing.next(game);
-  //     }
-  //   })
-  //   return this.observeGame();
-  // }
 }

@@ -38,11 +38,6 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     }));
     console.log('Subscription created @ GameCardListComponent')
     console.log('Games Subscription being created @ GameCardListComponent')
-    this.subscription = this.gamesService.getGames().subscribe(message => {
-      this.list = message;
-      this.loading = false;
-      console.log('Games Subscription updated @ GameCardListComponent')
-    });
     
   }
 
@@ -59,6 +54,8 @@ export class GameCardListComponent implements OnInit, OnDestroy {
 
   getSetArray(set: string) {
     console.log("get set array")
-    return this.arrayService.getArray(set);
+    let result = this.arrayService.getArray(set);
+    this.loading = false;
+    return result
   }
 }

@@ -27,12 +27,14 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       this.subscriptionGame.add(gamesService.observeGame().subscribe(game => {
         this.game = game;
         if (game?.similarGames?.length > 0) {
-          this.gamesService.getGames().subscribe(arr => {
-            this.recommended = arr.filter(listing => {
-              return this.game.similarGames.includes(listing.id);
-            })
-          })
-          console.log(`hunted for games = ${game.similarGames}`)
+          var similarGames = []
+          for (var i=0; i<game.similarGames?.length; i++) {
+            var similarGame = this.gamesService.getGame(game.similarGames[i].toString())
+            if (similarGame) {
+              similarGames.push(similarGame)
+            }
+          }
+          this.recommended = similarGames
         }
       }))
       this.subscription.add(observerService.getMessage().subscribe(message => {

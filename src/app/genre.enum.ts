@@ -6,7 +6,7 @@ export enum Genre {
     Puzzle = "Puzzle",
     Racing = "Racing",
     RealTimeStrategy = "Real Time Strategy (RTS)",
-    RolePlaying = "Role Playing (RPG)",
+    RolePlaying = "Role-Playing (RPG)",
     Simulator = "Simulator",
     Sport = "Sport",
     Strategy = "Strategy",
