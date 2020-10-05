@@ -2505,12 +2505,13 @@ ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
 /*!********************************************************!*\
   !*** ./src/app/report-issue/report-issue.component.ts ***!
   \********************************************************/
-/*! exports provided: ReportIssueComponent */
+/*! exports provided: ReportIssueComponent, Error */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportIssueComponent", function() { return ReportIssueComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Error", function() { return Error; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
@@ -2532,6 +2533,7 @@ class ReportIssueComponent {
             console.log('Subscription updated @ ReportIssueComponent');
         }));
         console.log('Subscription created @ ReportIssueComponent');
+        this.afs = firestore;
     }
     ngOnInit() {
     }
@@ -2550,13 +2552,16 @@ class ReportIssueComponent {
         // send report here
         var input = document.getElementById("issuefield").value;
         this.closeModal();
+        let error = new Error();
+        error.text = input;
+        error.userID = this.appData.uid;
         return new Promise((resolve, reject) => {
             this.afs
                 .collection("Reports") // specify the collection
                 .doc(this.appData.uid.toString()) // specify the document
-                .collection("text")
-                .doc(input.toString())
-                .set(JSON.parse(JSON.stringify(input))) //set all data
+                //.collection("text")
+                //.doc(input.toString())
+                .set(JSON.parse(JSON.stringify(error))) //set all data
                 .then(res => { }, err => reject(err));
         });
     }
@@ -2600,6 +2605,12 @@ ReportIssueComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
                 styleUrls: ['./report-issue.component.css']
             }]
     }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }]; }, null); })();
+class Error {
+    constructor() {
+        this.text = "";
+        this.userID = "";
+    }
+}
 
 
 /***/ }),

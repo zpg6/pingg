@@ -25,6 +25,7 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
         console.log('Subscription updated @ ReportIssueComponent')
       }));
       console.log('Subscription created @ ReportIssueComponent')
+      this.afs = firestore;
   }
 
   ngOnInit() {
@@ -49,14 +50,24 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
     var input = (<HTMLInputElement>document.getElementById("issuefield")).value;
     this.closeModal();
     
+    let error = new Error();
+    error.text = input;
+    error.userID = this.appData.uid;
+
     return new Promise<any>((resolve, reject) =>{
       this.afs
           .collection("Reports") // specify the collection
           .doc(this.appData.uid.toString())// specify the document
-          .collection("text")
-          .doc(input.toString())
-          .set(JSON.parse(JSON.stringify(input))) //set all data
+          //.collection("text")
+          //.doc(input.toString())
+          .set(JSON.parse(JSON.stringify(error))) //set all data
           .then(res => {}, err => reject(err));
     });
   }
+}
+
+export class Error {
+
+  text: String = "";
+  userID: String = "";
 }
