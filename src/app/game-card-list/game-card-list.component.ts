@@ -17,10 +17,10 @@ export class GameCardListComponent implements OnInit, OnDestroy {
 
   list = Array<Game>();
   sections = ['Top Rated','Most Rated','Arcade','Shooter','Platform']
-  loading = true;
   appData: AppData;
   subscription = new Subscription();
   appDataSubscription = new Subscription();
+  arrayOfGames = new Array<Game>()
 
   constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router, private arrayService: GameArraysService) {}
 
@@ -32,6 +32,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.getSetArray('set')
     this.appDataSubscription.add(this.observerService.getMessage().subscribe(message => {
       this.appData = message;
       console.log('Subscription updated @ GameCardListComponent')
@@ -54,8 +55,9 @@ export class GameCardListComponent implements OnInit, OnDestroy {
 
   getSetArray(set: string) {
     console.log("get set array")
-    let result = this.arrayService.getArray(set);
-    this.loading = false;
-    return result
+    //let result = this.arrayService.getArray(set);
+    this.gamesService.getAll().subscribe( gamesArray => {
+      this.arrayOfGames = gamesArray
+    })
   }
 }

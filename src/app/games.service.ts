@@ -13,6 +13,7 @@ export class GamesService {
 
   private gamesCollection: AngularFirestoreCollection;
   private subject = new BehaviorSubject<Map<string, Game>>(new Map<string, Game>());
+  private subjectArray = new BehaviorSubject<Array<Game>>(new Array<Game>())
   private detailing = new BehaviorSubject<Game>(new Game());
   private searchResults = new BehaviorSubject<Array<Game>>(new Array<Game>());
   private subscription: Subscription;
@@ -26,10 +27,16 @@ export class GamesService {
 
     this.httpClient.get(this.serverURL + '/database').toPromise().then(response => {
       var map = response as Map<string, Game>
-      this.subject.next(map)
+      this.subject.next(map);
+      var array = [];
+      for (const key in map) {
+        array.push(map[key]);
+      }
+      this.subjectArray.next(array);
+      console.log(this.subjectArray.value)
     })
     .catch(err => {
-      console.error(err)
+      console.error(err);
     })
   }
 
@@ -87,5 +94,9 @@ export class GamesService {
       }
       return 0;
     }).slice(0,5));
+  }
+
+  getAll(): Observable<Array<Game>> {
+    return this.subjectArray.asObservable()
   }
 }
