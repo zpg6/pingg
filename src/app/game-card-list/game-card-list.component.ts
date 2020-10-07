@@ -7,6 +7,9 @@ import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
 import { GameArraysService } from '../game-arrays.service'
+import { HttpClient } from '@angular/common/http';
+import { Genre } from '../genre.enum';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-game-card-list',
@@ -16,13 +19,19 @@ import { GameArraysService } from '../game-arrays.service'
 export class GameCardListComponent implements OnInit, OnDestroy {
 
   list = Array<Game>();
-  sections = ['Top Rated','Most Rated','Arcade','Shooter','Platform']
+  sections = ['Top Rated','Most Rated']
   appData: AppData;
   subscription = new Subscription();
   appDataSubscription = new Subscription();
   arrayOfGames = new Array<Game>()
+  private serverURL = "https://smapi.ngrok.io"
 
-  constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router, private arrayService: GameArraysService) {}
+  constructor(private gamesService: GamesService, private observerService: ObserverService,
+              private router: Router, private http: HttpClient) {
+                for (const genre in Genre) {
+                  this.sections.push(genre)
+                }
+              }
 
   openGame(game: Game) {
     this.appData.navbarPage = NavbarPage.game;
@@ -39,7 +48,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     }));
     console.log('Subscription created @ GameCardListComponent')
     console.log('Games Subscription being created @ GameCardListComponent')
-    
+
   }
 
   ngOnDestroy() {
@@ -59,5 +68,30 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     this.gamesService.getAll().subscribe( gamesArray => {
       this.arrayOfGames = gamesArray
     })
+  }
+
+  getFrom(set: string): Observable<Array<Game>> {
+    if (set === 'Top Rated') {
+      return this.getTopRated();
+    }
+    else if (set === 'Most Rated') {
+      return this.getMostRated();
+    }
+    else {
+      this.getGamesByGenre(set);
+    }
+  }
+
+  getTopRated(): Observable<Array<Game>> {
+    return this.http.get<Array<Game>>(this.serverURL + '/top-rated')
+  }
+
+  getMostRated(): Observable<Array<Game>>{
+    return this.http.get<Array<Game>>(this.serverURL + '/most-rated')
+  }
+
+  getGamesByGenre(genre: string): Observable<Array<Game>> {
+    var body = {'genre': genre}
+    return this.http.post<Array<Game>>(this.serverURL + '/genre', {body})
   }
 }
