@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
-import { Game } from '../game';
+import { MiniGame } from '../mini-game';
 import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
@@ -18,7 +18,7 @@ export class GameCardComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   expanded = '';
 
-  constructor() {
+  constructor(private gamesService: GamesService) {
   }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class GameCardComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  @Input() game: Game;
+  @Input() game: MiniGame;
 
   getTitle():string {
     let name = this.game.name;
@@ -38,14 +38,6 @@ export class GameCardComponent implements OnInit, OnDestroy {
       return name.substring(0,24) + '...'
     } else {
       return name
-    }
-  }
-
-  getGenre():string {
-    if (this.game?.genres?.length > 0) {
-      return this.game.genres[0];
-    } else {
-      return '';
     }
   }
 }

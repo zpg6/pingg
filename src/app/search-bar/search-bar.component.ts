@@ -6,6 +6,7 @@ import { switchMap, filter, map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '\@angular/fire/firestore'
 import { GamesService } from '../games.service';
 import { Game } from '../game';
+import { MiniGame } from '../mini-game';
 import { ObserverService } from '../observer.service';
 import { AppData } from '../app-data';
 import { NavbarPage } from '../navbar-page.enum';
@@ -56,9 +57,9 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.updateObserver();
   }
 
-  openGame(game: Game) {
+  openGame(game: MiniGame) {
     this.appData.navbarPage = NavbarPage.game;
-    this.gamesService.setGame(game);
+    this.gamesService.setGameID(game.id.toString());
     this.appData.searchBarOpen = false;
     this.updateObserver();
     this.router.navigate(['/game'], {queryParams: {id: game.id}});

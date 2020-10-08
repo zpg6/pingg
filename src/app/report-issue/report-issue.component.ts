@@ -58,8 +58,6 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
       this.afs
           .collection("Reports") // specify the collection
           .doc(this.appData.uid.toString())// specify the document
-          //.collection("text")
-          //.doc(input.toString())
           .set(JSON.parse(JSON.stringify(error))) //set all data
           .then(res => {}, err => reject(err));
     });

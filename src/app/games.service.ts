@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators';
+import { MiniGame } from './mini-game';
 import { Game } from './game';
 
 @Injectable({
@@ -13,7 +14,9 @@ export class GamesService {
 
   private gamesCollection: AngularFirestoreCollection;
   private subject = new BehaviorSubject<Map<string, Game>>(new Map<string, Game>());
+  private miniSubject = new BehaviorSubject<Map<string, MiniGame>>(new Map<string, MiniGame>())
   private subjectArray = new BehaviorSubject<Array<Game>>(new Array<Game>())
+  private miniSubjectArray = new BehaviorSubject<Array<MiniGame>>(new Array<MiniGame>())
   private detailing = new BehaviorSubject<Game>(new Game());
   private searchResults = new BehaviorSubject<Array<Game>>(new Array<Game>());
   private subscription: Subscription;
@@ -25,15 +28,14 @@ export class GamesService {
 
     this.httpClient = http;
 
-    this.httpClient.get(this.serverURL + '/database').toPromise().then(response => {
+    this.httpClient.get(this.serverURL + '/mini-game-database').toPromise().then(response => {
       var map = response as Map<string, Game>
-      this.subject.next(map);
+      this.miniSubject.next(map);
       var array = [];
       for (const key in map) {
         array.push(map[key]);
       }
-      this.subjectArray.next(array);
-      console.log(this.subjectArray.value)
+      this.miniSubjectArray.next(array.slice(0,5));
     })
     .catch(err => {
       console.error(err);
@@ -56,11 +58,8 @@ export class GamesService {
     return this.detailing.asObservable();
   }
 
-  setGame(game: Game) {
-    this.detailing.next(game);
-  }
-
   setGameID(id: string) {
+    this.detailing.next(null);
     if (!id || id.length == 0) { return }
     this.subscription = this.firestore.collection('GameList').doc(id).snapshotChanges().subscribe(change => {
       console.log(`updating game ${change.payload.id}`)
@@ -98,5 +97,13 @@ export class GamesService {
 
   getAll(): Observable<Array<Game>> {
     return this.subjectArray.asObservable()
+  }
+
+  getAllMiniGames(): Observable<Array<MiniGame>> {
+    return this.miniSubjectArray.asObservable()
+  }
+
+  getMiniGame(id: string): MiniGame {
+    return this.miniSubject.value[id];
   }
 }

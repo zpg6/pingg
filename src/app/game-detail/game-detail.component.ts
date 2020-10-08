@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { AppData } from '../app-data';
 import { Game } from '../game';
+import { MiniGame } from '../mini-game';
 import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
@@ -29,7 +30,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
         if (game?.similarGames?.length > 0) {
           var similarGames = []
           for (var i=0; i<game.similarGames?.length; i++) {
-            var similarGame = this.gamesService.getGame(game.similarGames[i].toString())
+            var similarGame = this.gamesService.getMiniGame(game.similarGames[i].toString())
             if (similarGame) {
               similarGames.push(similarGame)
             }
@@ -55,7 +56,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
 
   openGame(game: Game) {
     this.appData.navbarPage = NavbarPage.game;
-    this.gamesService.setGame(game);
+    this.gamesService.setGameID(game.id.toString());
     this.updateObserver();
     this.router.navigate(['/game'], {queryParams: {id: game.id}});
   }

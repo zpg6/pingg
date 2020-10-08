@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { AppData } from '../app-data';
 import { Game } from '../game';
+import { MiniGame } from '../mini-game';
 import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
@@ -23,7 +24,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   appDataSubscription = new Subscription();
-  arrayOfGames = new Array<Game>()
+  arrayOfMiniGames = new Array<MiniGame>()
   private serverURL = "https://smapi.ngrok.io"
 
   constructor(private gamesService: GamesService, private observerService: ObserverService,
@@ -33,11 +34,11 @@ export class GameCardListComponent implements OnInit, OnDestroy {
                 }
               }
 
-  openGame(game: Game) {
+  openGame(miniGame: MiniGame) {
     this.appData.navbarPage = NavbarPage.game;
-    this.gamesService.setGame(game);
+    this.gamesService.setGameID(miniGame.id.toString());
     this.updateObserver();
-    this.router.navigate(['/game'], {queryParams: {id: game.id}});
+    this.router.navigate(['/game'], {queryParams: {id: miniGame.id}});
   }
 
   ngOnInit() {
@@ -65,21 +66,22 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   getSetArray(set: string) {
     console.log("get set array")
     //let result = this.arrayService.getArray(set);
-    this.gamesService.getAll().subscribe( gamesArray => {
-      this.arrayOfGames = gamesArray
+    this.gamesService.getAllMiniGames().subscribe( gamesArray => {
+      this.arrayOfMiniGames = gamesArray
     })
   }
 
-  getFrom(set: string): Observable<Array<Game>> {
-    if (set === 'Top Rated') {
-      return this.getTopRated();
-    }
-    else if (set === 'Most Rated') {
-      return this.getMostRated();
-    }
-    else {
-      this.getGamesByGenre(set);
-    }
+  getFrom(set: string): Array<MiniGame> {
+    return this.arrayOfMiniGames;
+    // if (set === 'Top Rated') {
+    //   return this.getTopRated();
+    // }
+    // else if (set === 'Most Rated') {
+    //   return this.getMostRated();
+    // }
+    // else {
+    //   this.getGamesByGenre(set);
+    // }
   }
 
   getTopRated(): Observable<Array<Game>> {
