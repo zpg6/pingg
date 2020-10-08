@@ -32,6 +32,9 @@ export class GameCardListComponent implements OnInit, OnDestroy {
                 for (const genre in Genre) {
                   this.sections.push(genre)
                 }
+                this.gamesService.getAllMiniGames().subscribe( gamesArray => {
+                  this.arrayOfMiniGames = gamesArray
+                })
               }
 
   openGame(miniGame: MiniGame) {
@@ -66,9 +69,6 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   getSetArray(set: string) {
     console.log("get set array")
     //let result = this.arrayService.getArray(set);
-    this.gamesService.getAllMiniGames().subscribe( gamesArray => {
-      this.arrayOfMiniGames = gamesArray
-    })
   }
 
   getFrom(set: string): Array<MiniGame> {

@@ -907,6 +907,9 @@ class GameCardListComponent {
         for (const genre in _genre_enum__WEBPACK_IMPORTED_MODULE_3__["Genre"]) {
             this.sections.push(genre);
         }
+        this.gamesService.getAllMiniGames().subscribe(gamesArray => {
+            this.arrayOfMiniGames = gamesArray;
+        });
     }
     openGame(miniGame) {
         this.appData.navbarPage = _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].game;
@@ -934,9 +937,6 @@ class GameCardListComponent {
     getSetArray(set) {
         console.log("get set array");
         //let result = this.arrayService.getArray(set);
-        this.gamesService.getAllMiniGames().subscribe(gamesArray => {
-            this.arrayOfMiniGames = gamesArray;
-        });
     }
     getFrom(set) {
         return this.arrayOfMiniGames;
@@ -1384,7 +1384,7 @@ class GamesService {
             for (const key in map) {
                 array.push(map[key]);
             }
-            this.miniSubjectArray.next(array.slice(0, 5));
+            this.miniSubjectArray.next(array.slice(0, 7));
         })
             .catch(err => {
             console.error(err);
