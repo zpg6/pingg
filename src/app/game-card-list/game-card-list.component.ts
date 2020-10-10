@@ -102,7 +102,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
                     })
   }
 
-  async getMostRated() {
+  getMostRated() {
     var body = {'offset': 0}
     this.http.post(this.serverURL + '/most-rated', {body})
                     .toPromise()
