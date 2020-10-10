@@ -95,7 +95,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
       return this.http.post(this.serverURL + '/top-rated', {body})
                     .toPromise()
                     .then(games => {
-                      this.topSevenTopRated = games as Array<Game>
+                      this.topSevenTopRated = games as Array<MiniGame>
                     })
                     .catch(err => {
                       console.error(err)
@@ -107,7 +107,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     this.http.post(this.serverURL + '/most-rated', {body})
                     .toPromise()
                     .then(games => {
-                      this.topSevenMostRated = games as Array<Game>
+                      this.topSevenMostRated = games as Array<MiniGame>
                     })
                     .catch(err => {
                       console.error(err)
@@ -119,7 +119,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     this.http.post(this.serverURL + '/most-rated', {body})
     .toPromise()
     .then(games => {
-      this.topSevenGenres[genre] = games as Array<Game>
+      this.topSevenGenres[genre] = games as Array<MiniGame>
     })
     .catch(err => {
       console.error(err)
