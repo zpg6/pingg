@@ -7,7 +7,6 @@ import { MiniGame } from '../mini-game';
 import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
-import { GameArraysService } from '../game-arrays.service'
 import { HttpClient } from '@angular/common/http';
 import { Genre } from '../genre.enum';
 import { map } from 'rxjs/operators';
@@ -71,29 +70,57 @@ export class GameCardListComponent implements OnInit, OnDestroy {
     //let result = this.arrayService.getArray(set);
   }
 
-  getFrom(set: string): Array<MiniGame> {
-    return this.arrayOfMiniGames;
-    // if (set === 'Top Rated') {
-    //   return this.getTopRated();
-    // }
-    // else if (set === 'Most Rated') {
-    //   return this.getMostRated();
-    // }
-    // else {
-    //   this.getGamesByGenre(set);
-    // }
+  getFrom(set: string): Promise<Array<MiniGame>> {
+    if (set === 'Top Rated') {
+      return this.getTopRated();
+    }
+    else if (set === 'Most Rated') {
+      return this.getMostRated();
+    }
+    else {
+      this.getGamesByGenre(set);
+    }
   }
 
-  getTopRated(): Observable<Array<Game>> {
-    return this.http.get<Array<Game>>(this.serverURL + '/top-rated')
+  async getTopRated(): Promise<Array<MiniGame>> {
+    var body = {'offset': 0}
+    return new Promise((res) => {
+      return this.http.post<Array<MiniGame>>(this.serverURL + '/top-rated', {body})
+                    .toPromise()
+                    .then(games => {
+                      res(games as Array<MiniGame>)
+                    })
+                    .catch(err => {
+                      console.error(err)
+                    })
+    })
   }
 
-  getMostRated(): Observable<Array<Game>>{
-    return this.http.get<Array<Game>>(this.serverURL + '/most-rated')
+  async getMostRated(): Promise<Array<MiniGame>> {
+    var body = {'offset': 0}
+    return new Promise((res) => {
+      return this.http.post<Array<MiniGame>>(this.serverURL + '/most-rated', {body})
+                    .toPromise()
+                    .then(games => {
+                      res(games as Array<MiniGame>)
+                    })
+                    .catch(err => {
+                      console.error(err)
+                    })
+    })
   }
 
-  getGamesByGenre(genre: string): Observable<Array<Game>> {
-    var body = {'genre': genre}
-    return this.http.post<Array<Game>>(this.serverURL + '/genre', {body})
+  getGamesByGenre(genre: string): Promise<Array<MiniGame>> {
+    var body = {'genre': genre, 'offset': 0}
+    return new Promise((res) => {
+      return this.http.post<Array<MiniGame>>(this.serverURL + '/genre', {body})
+                    .toPromise()
+                    .then(games => {
+                      res(games as Array<MiniGame>)
+                    })
+                    .catch(err => {
+                      console.error(err)
+                    })
+    })
   }
 }
