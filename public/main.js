@@ -906,6 +906,7 @@ class GameCardListComponent {
         this.appDataSubscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
         this.arrayOfMiniGames = new Array();
         this.serverURL = "https://smapi.ngrok.io";
+        this.topSevenGenres = {};
         for (const genre in _genre_enum__WEBPACK_IMPORTED_MODULE_4__["Genre"]) {
             this.sections.push(genre);
         }
@@ -927,6 +928,11 @@ class GameCardListComponent {
         }));
         console.log('Subscription created @ GameCardListComponent');
         console.log('Games Subscription being created @ GameCardListComponent');
+        this.getTopRated();
+        this.getMostRated();
+        for (const genre in _genre_enum__WEBPACK_IMPORTED_MODULE_4__["Genre"]) {
+            this.getGamesByGenre(genre);
+        }
     }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
@@ -942,56 +948,48 @@ class GameCardListComponent {
     }
     getFrom(set) {
         if (set === 'Top Rated') {
-            return this.getTopRated();
+            return this.topSevenTopRated;
         }
         else if (set === 'Most Rated') {
-            return this.getMostRated();
+            return this.topSevenMostRated;
         }
         else {
-            this.getGamesByGenre(set);
+            return this.topSevenGenres[set];
         }
     }
     getTopRated() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            var body = { 'offset': 0 };
-            return new Promise((res) => {
-                return this.http.post(this.serverURL + '/top-rated', { body })
-                    .toPromise()
-                    .then(games => {
-                    res(games);
-                })
-                    .catch(err => {
-                    console.error(err);
-                });
-            });
+        var body = { 'offset': 0 };
+        return this.http.post(this.serverURL + '/top-rated', { body })
+            .toPromise()
+            .then(games => {
+            this.topSevenTopRated = games;
+        })
+            .catch(err => {
+            console.error(err);
         });
     }
     getMostRated() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             var body = { 'offset': 0 };
-            return new Promise((res) => {
-                return this.http.post(this.serverURL + '/most-rated', { body })
-                    .toPromise()
-                    .then(games => {
-                    res(games);
-                })
-                    .catch(err => {
-                    console.error(err);
-                });
+            this.http.post(this.serverURL + '/most-rated', { body })
+                .toPromise()
+                .then(games => {
+                this.topSevenMostRated = games;
+            })
+                .catch(err => {
+                console.error(err);
             });
         });
     }
     getGamesByGenre(genre) {
         var body = { 'genre': genre, 'offset': 0 };
-        return new Promise((res) => {
-            return this.http.post(this.serverURL + '/genre', { body })
-                .toPromise()
-                .then(games => {
-                res(games);
-            })
-                .catch(err => {
-                console.error(err);
-            });
+        this.http.post(this.serverURL + '/most-rated', { body })
+            .toPromise()
+            .then(games => {
+            this.topSevenGenres[genre] = games;
+        })
+            .catch(err => {
+            console.error(err);
         });
     }
 }
@@ -3184,7 +3182,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })
