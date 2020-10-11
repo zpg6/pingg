@@ -1,7 +1,8 @@
 <div class="card post-card">
   <div class="card-content is-dark">
-    <div class="columns is-vcentered is-mobile">
-      <div class="column is-1 has-text-centered">
+    <div class="columns is-vcentered" style="margin-left: -20px;">
+
+      <div class="column is-1 has-text-centered is-hidden-touch">
         <button class="button is-medium is-text">
           <span class="icon is-medium">
             <i class="fas fa-arrow-up fa-2x"></i>
@@ -14,6 +15,25 @@
           </span>
         </button>
       </div>
+
+
+      <div class="column is-1 has-text-centered is-centered is-hidden-desktop">
+        <p class="buttons" style="color: #95EF72; margin: 5px;">
+          <button class="button is-medium is-text" style="margin: 5px;">
+            <span class="icon is-medium">
+              <i class="fas fa-arrow-up fa-2x"></i>
+            </span>
+          </button>
+          <span style="margin: 5px;">{{this.rand % 1000}}</span>
+          <button class="button is-medium is-text" style="margin: 5px;">
+            <span class="icon is-medium">
+              <i class="fas fa-arrow-down fa-2x"></i>
+            </span>
+          </button>
+        </p>
+      </div>
+
+
       <div class="column is-11">
         <div class="media">
           <div class="media-left">
@@ -33,7 +53,7 @@
           Here is some text as the contents of this post. Here is some text as the contents of this post.
           <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
           <br><br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          <time datetime="2016-1-1" style="font-weight: bold;">11:09 PM - 1 Jan 2016</time>
         </div>
       </div>
     </div>
