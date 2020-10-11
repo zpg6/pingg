@@ -1,0 +1,14 @@
+<div class="modal-background" (click)="closeModal()"></div>
+<div class="modal-card" style="margin: 0px;">
+  <header class="modal-card-head">
+    <p class="modal-card-title">New Post</p>
+    <button class="delete" aria-label="close" (click)="closeModal()"></button>
+  </header>
+  <section class="modal-card-body has-text-dark">
+    New Post
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-success" (click)="addPost()">Add</button>
+    <button class="button" (click)="closeModal()">Cancel</button>
+  </footer>
+</div>

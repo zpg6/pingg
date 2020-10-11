@@ -8,6 +8,8 @@ export class AppData {
   isAuthenticated: boolean = false;
   reportingIssue: boolean = false;
   searchBarOpen: boolean = false;
+  newPostModalOpen: boolean = false;
+  newChannelModalOpen: boolean = false;
   username: String = null;
   email: String = null;
   uid: String = null;

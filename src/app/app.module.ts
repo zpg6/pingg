@@ -35,7 +35,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BrowseChannelsComponent } from './browse-channels/browse-channels.component';
 import { BrowseGenresComponent } from './browse-genres/browse-genres.component';
 import { BrowsePlatformsComponent } from './browse-platforms/browse-platforms.component'
-import { ScrollingModule } from '@angular/cdk/scrolling'
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NewPostModalComponent } from './new-post-modal/new-post-modal.component';
+import { NewChannelModalComponent } from './new-channel-modal/new-channel-modal.component'
 // // currently there is a bug while building the app with --prod
 // // - https://github.com/RaphaelJenni/FirebaseUI-Angular/issues/76
 // // the plugin exposes the two libraries as well. You can use those:
@@ -106,6 +108,8 @@ export function playerFactory() {
     BrowseChannelsComponent,
     BrowseGenresComponent,
     BrowsePlatformsComponent,
+    NewPostModalComponent,
+    NewChannelModalComponent,
   ],
   providers: [ObserverService,GamesService, { provide: BUCKET, useValue: 'cs1530group11.appspot.com' }],
   bootstrap: [AppComponent]

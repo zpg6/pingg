@@ -31,6 +31,14 @@
     <app-report-issue></app-report-issue>
   </div>
 
+  <div class="modal {{this.appData?.newPostModalOpen ? 'is-active':''}}">
+    <app-new-post-modal></app-new-post-modal>
+  </div>
+
+  <div class="modal {{this.appData?.newChannelModalOpen ? 'is-active':''}}">
+    <app-new-channel-modal></app-new-channel-modal>
+  </div>
+
   <div class="modal {{this.appData?.searchBarOpen ? 'is-active':''}}">
     <app-search-bar></app-search-bar>
   </div>
@@ -45,18 +53,6 @@
           <router-outlet></router-outlet>
         </div>
       </div>
-
-      <!-- <div *ngIf="this.appData?.navbarPage !== 'Connect'" class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
-        <div style="display: inline-block;">
-          <div class="columns is-centered">
-            <div class="column is-three-quarters content-fg">
-              <div class="container" style="margin-bottom: 60px;">
-                <router-outlet *ngIf="this.appData?.isAuthenticated"></router-outlet>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
     </div>
   </div>

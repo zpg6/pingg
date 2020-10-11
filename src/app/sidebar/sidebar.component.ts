@@ -47,6 +47,16 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
   }
 
+  newPost() {
+    this.appData.newPostModalOpen = true;
+    this.updateObserver();
+  }
+
+  newChannel() {
+    this.appData.newChannelModalOpen = true;
+    this.updateObserver();
+  }
+
   channelClicked(channel: string) {
     this.activeChannel = channel
   }
