@@ -1,24 +1,41 @@
 <div class="card post-card">
   <div class="card-content is-dark">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img style="border-radius: 50%; margin-right: 2px; width: 96px;" src="https://api.adorable.io/avatars/100/{{this.rand}}@adorable.io.png">
-        </figure>
+    <div class="columns is-vcentered" style="margin-left: -20px;">
+      <div class="column is-1 has-text-centered">
+        <button class="button is-medium is-text">
+          <span class="icon is-medium">
+            <i class="fas fa-arrow-up fa-2x"></i>
+          </span>
+        </button>
+        <p style="color: #95EF72; margin: 5px;">{{this.rand % 1000}}</p>
+        <button class="button is-medium is-text">
+          <span class="icon is-medium">
+            <i class="fas fa-arrow-down fa-2x"></i>
+          </span>
+        </button>
       </div>
-      <div class="media-content">
-        <p class="title is-4 has-text-light">John Smith</p>
-        <p class="subtitle is-6 has-text-light">@johnsmith</p>
-      </div>
-    </div>
+      <div class="column is-11">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img style="border-radius: 50%; margin-right: 2px; width: 96px;" src="https://api.adorable.io/avatars/100/{{this.rand}}@adorable.io.png">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 has-text-light">John Smith</p>
+            <p class="subtitle is-6 has-text-light">@johnsmith</p>
+          </div>
+        </div>
 
-    <div class="content has-text-light">
-      Here is some text as the contents of this post. Here is some text as the contents of this post.
-      Here is some text as the contents of this post. Here is some text as the contents of this post.
-      Here is some text as the contents of this post. Here is some text as the contents of this post.
-      <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <div class="content has-text-light">
+          Here is some text as the contents of this post. Here is some text as the contents of this post.
+          Here is some text as the contents of this post. Here is some text as the contents of this post.
+          Here is some text as the contents of this post. Here is some text as the contents of this post.
+          <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
+          <br><br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
+      </div>
     </div>
   </div>
 </div>
