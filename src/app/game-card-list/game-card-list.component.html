@@ -1,6 +1,19 @@
+<div class="card post-card" *ngFor="let set of sections">
+  <div class="card-content is-dark">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-3 has-text-light">{{set}}</p>
+        <ul class="images">
+          <li *ngFor="let item of getFrom(set)">
+            <app-game-card [game]="item" (click)="openGame(item)"></app-game-card>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-  <div *ngFor="let set of sections" style="margin-top: 40px; margin-bottom: 40px;">
+  <!-- <div *ngFor="let set of sections" style="margin-top: 40px; margin-bottom: 40px;">
 
     <p class="title">{{set}}</p>
 
@@ -10,7 +23,7 @@
       </li>
     </ul>
 
-  </div>
+  </div> -->
 
   <!-- <div *ngFor="let set of sections" style="margin-top: 40px; margin-bottom: 40px;">
 

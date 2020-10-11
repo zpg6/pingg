@@ -13,12 +13,8 @@ li {
   margin: 5px;
 }
 
-example-viewport {
-  height: auto;
-  width: 100%;
-  border: 1px solid white;
-}
-
-.example-item {
-  height: auto;
+.post-card {
+  border-radius: 15px;
+  margin-bottom: 25px;
+  background-color: #363636;
 }
