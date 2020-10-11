@@ -1010,7 +1010,7 @@ class GameCardListComponent {
     }
     getTopRated() {
         var body = { 'offset': 0 };
-        return this.http.post(this.serverURL + '/top-rated', { body })
+        return this.http.post(this.serverURL + '/top-rated', body)
             .toPromise()
             .then(games => {
             this.topSevenTopRated = games;
@@ -1021,7 +1021,7 @@ class GameCardListComponent {
     }
     getMostRated() {
         var body = { 'offset': 0 };
-        this.http.post(this.serverURL + '/most-rated', { body })
+        this.http.post(this.serverURL + '/most-rated', body)
             .toPromise()
             .then(games => {
             this.topSevenMostRated = games;
@@ -1032,7 +1032,7 @@ class GameCardListComponent {
     }
     getGamesByGenre(genre) {
         var body = { 'genre': genre, 'offset': 0 };
-        this.http.post(this.serverURL + '/most-rated', { body })
+        this.http.post(this.serverURL + '/most-rated', body)
             .toPromise()
             .then(games => {
             this.topSevenGenres[genre] = games;
@@ -3582,7 +3582,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })

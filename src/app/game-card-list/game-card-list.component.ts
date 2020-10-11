@@ -92,7 +92,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
 
   getTopRated() {
     var body = {'offset': 0}
-      return this.http.post(this.serverURL + '/top-rated', {body})
+      return this.http.post(this.serverURL + '/top-rated', body)
                     .toPromise()
                     .then(games => {
                       this.topSevenTopRated = games as Array<MiniGame>
@@ -104,7 +104,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
 
   getMostRated() {
     var body = {'offset': 0}
-    this.http.post(this.serverURL + '/most-rated', {body})
+    this.http.post(this.serverURL + '/most-rated', body)
                     .toPromise()
                     .then(games => {
                       this.topSevenMostRated = games as Array<MiniGame>
@@ -116,7 +116,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
 
   getGamesByGenre(genre: string) {
     var body = {'genre': genre, 'offset': 0}
-    this.http.post(this.serverURL + '/most-rated', {body})
+    this.http.post(this.serverURL + '/most-rated', body)
     .toPromise()
     .then(games => {
       this.topSevenGenres[genre] = games as Array<MiniGame>
