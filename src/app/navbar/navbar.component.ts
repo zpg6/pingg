@@ -161,7 +161,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   description():string {
     if (this.appData.navbarPage === 'Feed') {
-      return 'Latest on your favorites...';
+      if (this.appData.selectedChannel === '' || this.appData.selectedChannel === '#all') {
+        return 'Latest on your favorites...';
+      }
+        return this.appData.selectedChannel;
     }
     if (this.appData.navbarPage === 'Map') {
       return 'Other players nearby...';

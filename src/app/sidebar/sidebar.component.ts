@@ -59,6 +59,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   channelClicked(channel: string) {
     this.activeChannel = channel
+    this.appData.selectedChannel = channel
+    this.updateObserver()
   }
 
   getOptions(section: string):string[] {
