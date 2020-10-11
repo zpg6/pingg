@@ -11,3 +11,9 @@ li {
   flex: 0 0 auto;
   margin: 5px;
 }
+
+.post-card {
+  border-radius: 15px;
+  margin-bottom: 25px;
+  background-color: #363636;
+}

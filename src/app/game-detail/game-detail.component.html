@@ -1,33 +1,40 @@
-
-<h1 *ngIf="!game">Game not retrieved.</h1>
-
 <section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-3">
-        <img src="https://{{game?.coverURL}}">
-      </div>
-      <div class="column">
-        <h1 class="title is-1">{{game?.name.split(' - ')[0] + (game?.name.split(' - ').length > 1 ? ' -':'')}}<br *ngIf="game?.name.split(' - ').length > 1">{{game?.name.split(' - ')[1]}}</h1>
-        <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
-        <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
-        <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
-        <div *ngFor="let p of game?.description.split('\n')">
-          <p style="margin-top: 10px">{{p}}</p>
+  <div class="container" style="margin-bottom: 100px;">
+
+    <div class="card post-card">
+      <div class="card-content is-dark">
+        <div class="media">
+          <div class="media-left">
+            <img src="https://{{game?.coverURL}}">
+          </div>
+          <div class="media-content has-text-light">
+            <h1 class="title is-1">{{game?.name.split(' - ')[0] + (game?.name.split(' - ').length > 1 ? ' -':'')}}<br *ngIf="game?.name.split(' - ').length > 1">{{game?.name.split(' - ')[1]}}</h1>
+            <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
+            <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
+            <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
+            <div *ngFor="let p of game?.description.split('\n')">
+              <p style="margin-top: 10px">{{p}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <ul class="images">
-      <li *ngFor="let screenshot of game?.screenshots">
-        <img src="https://{{screenshot}}" style="max-width: 600px; max-height: 600px;">
-      </li>
-    </ul>
 
-    <p class="title" style="margin-top: 30px;">Recommended Games</p>
-    <ul class="images">
-      <li *ngFor="let similar of recommended">
-        <app-game-card [game]="similar" (click)="openGame(similar)"></app-game-card>
-      </li>
-    </ul>
+    <div class="card post-card">
+      <div class="card-content is-dark">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-3 has-text-light">Recommended Games</p>
+            <ul class="images">
+              <li *ngFor="let similar of recommended">
+                <app-game-card [game]="similar" (click)="openGame(similar)"></app-game-card>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </section>
