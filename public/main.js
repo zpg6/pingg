@@ -1032,7 +1032,7 @@ class GameCardListComponent {
     }
     getGamesByGenre(genre) {
         var body = { 'genre': genre, 'offset': 0 };
-        this.http.post(this.serverURL + '/most-rated', body)
+        this.http.post(this.serverURL + '/genre', body)
             .toPromise()
             .then(games => {
             this.topSevenGenres[genre] = games;
