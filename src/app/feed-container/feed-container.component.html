@@ -1,27 +1,35 @@
 <section class="section">
   <div class="container" style="margin-bottom: 100px;">
 
-    <div class="field has-addons" style="margin-bottom: 20px;">
-      <p class="control">
-        <a class="button is-info is-selected">
-          Newest
-        </a>
-      </p>
-      <p class="control">
-        <a class="button">
-          Oldest
-        </a>
-      </p>
-      <p class="control">
-        <a class="button">
-          Popular
-        </a>
-      </p>
-      <p class="control">
-        <a class="button">
-          Trending
-        </a>
-      </p>
+    <div class="card post-card">
+      <div class="card-content is-dark">
+        <div class="media">
+          <div class="media-content">
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-info is-selected">
+                  Newest
+                </a>
+              </p>
+              <p class="control">
+                <a class="button">
+                  Oldest
+                </a>
+              </p>
+              <p class="control">
+                <a class="button">
+                  Popular
+                </a>
+              </p>
+              <p class="control">
+                <a class="button">
+                  Trending
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div *ngFor="let number of nums">
