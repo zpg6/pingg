@@ -1472,7 +1472,7 @@ class GamesService {
             for (const key in map) {
                 array.push(map[key]);
             }
-            this.miniSubjectArray.next(array.slice(0, 7));
+            this.miniSubjectArray.next(array);
         })
             .catch(err => {
             console.error(err);
