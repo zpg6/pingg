@@ -43,10 +43,22 @@
     <app-search-bar></app-search-bar>
   </div>
 
-  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
+  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage === 'Feed'" style="padding: 0px;">
     <div class="dashboard is-full-height">
 
       <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
+
+      <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+        <div style="display: inline-block;">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Feed' && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
+    <div class="dashboard is-full-height">
 
       <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
         <div style="display: inline-block;">
