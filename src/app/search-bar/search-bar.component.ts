@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 export class SearchBarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
-  results: Array<Game> = new Array<Game>();
+  results: Array<MiniGame> = new Array<MiniGame>();
   subscription = new Subscription();
   subscriptionResults = new Subscription();
 

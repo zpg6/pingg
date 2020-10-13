@@ -10,7 +10,7 @@ export class PostCellComponent implements OnInit {
   rand;
 
   constructor() {
-    this.rand = Math.round(Math.random()*10000+Math.random()*100);
+    this.rand = Math.round(Math.random()*100+Math.random()*100);
    }
 
   ngOnInit(): void {

@@ -28,6 +28,7 @@
     "firebase": "^7.20.0",
     "firebaseui": "^4.6.1",
     "firebaseui-angular": "^5.0.1",
+    "generate-avatar": "^1.4.6",
     "lottie-web": "^5.7.3",
     "ng-lottie": "^0.3.2",
     "ngx-lottie": "^6.4.0",

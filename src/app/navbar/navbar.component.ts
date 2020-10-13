@@ -8,6 +8,7 @@ import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular
 import {AngularFireAuth} from '@angular/fire/auth';
 import { GamesService } from '../games.service';
 import { Game } from '../game';
+import { MiniGame } from '../mini-game';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ import { Game } from '../game';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   appData: AppData;
-  searchResult = Array<Game>();
+  searchResult = Array<MiniGame>();
   subscription = new Subscription();
   subscriptionRoute = new Subscription();
   subscriptionGame = new Subscription();

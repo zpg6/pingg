@@ -18,7 +18,7 @@ export class GamesService {
   private subjectArray = new BehaviorSubject<Array<Game>>(new Array<Game>())
   private miniSubjectArray = new BehaviorSubject<Array<MiniGame>>(new Array<MiniGame>())
   private detailing = new BehaviorSubject<Game>(new Game());
-  private searchResults = new BehaviorSubject<Array<Game>>(new Array<Game>());
+  private searchResults = new BehaviorSubject<Array<MiniGame>>(new Array<MiniGame>());
   private subscription: Subscription;
   private httpClient: HttpClient;
   private serverURL = "https://smapi.ngrok.io"
@@ -67,7 +67,7 @@ export class GamesService {
     })
   }
 
-  getResults(): Observable<Array<Game>> {
+  getResults(): Observable<Array<MiniGame>> {
     return this.searchResults.asObservable();
   }
 
@@ -78,7 +78,7 @@ export class GamesService {
 
   search(query: string) {
 
-    this.searchResults.next(this.subject.value.values.prototype.filter(game => {
+    this.searchResults.next(this.miniSubjectArray.value.filter(game => {
       return game.searchableIndex[query]
     }).sort((a,b) =>  {
       if (a.rating > b.rating) {

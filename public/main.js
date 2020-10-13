@@ -1507,7 +1507,7 @@ class GamesService {
         return found;
     }
     search(query) {
-        this.searchResults.next(this.subject.value.values.prototype.filter(game => {
+        this.searchResults.next(this.miniSubjectArray.value.filter(game => {
             return game.searchableIndex[query];
         }).sort((a, b) => {
             if (a.rating > b.rating) {
@@ -2666,7 +2666,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class PostCellComponent {
     constructor() {
-        this.rand = Math.round(Math.random() * 10000 + Math.random() * 100);
+        this.rand = Math.round(Math.random() * 100 + Math.random() * 100);
     }
     ngOnInit() {
     }
