@@ -1547,27 +1547,16 @@ var Genre;
 (function (Genre) {
     Genre["Fighting"] = "Fighting";
     Genre["Shooter"] = "Shooter";
-    Genre["Music"] = "Music";
     Genre["Platform"] = "Platform";
     Genre["Puzzle"] = "Puzzle";
     Genre["Racing"] = "Racing";
-    Genre["RealTimeStrategy"] = "Real Time Strategy (RTS)";
-    Genre["RolePlaying"] = "Role-Playing (RPG)";
     Genre["Simulator"] = "Simulator";
     Genre["Sport"] = "Sport";
-    Genre["Strategy"] = "Strategy";
-    Genre["TurnBasedStrategy"] = "Turn-based strategy (TBS)";
     Genre["Tactical"] = "Tactical";
-    Genre["QuizTrivia"] = "Quiz/Trivia";
-    Genre["HackSlashBeatEmUp"] = "Hack and slash/Beat 'em up";
-    Genre["Pinball"] = "Pinball";
     Genre["Adventure"] = "Adventure";
     Genre["Arcade"] = "Arcade";
-    Genre["VisualNovel"] = "Visual Novel";
     Genre["Indie"] = "Indie";
-    Genre["CardBoardGame"] = "Card & Board Game";
     Genre["MOBA"] = "MOBA";
-    Genre["PointAndClick"] = "Point-and-click";
 })(Genre || (Genre = {}));
 
 
