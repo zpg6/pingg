@@ -1,4 +1,4 @@
-<section class="section">
+<section *ngIf="game" class="section">
   <div class="container" style="margin-bottom: 100px;">
 
     <div class="card post-card">
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="card post-card">
+    <div class="card post-card" *ngIf="this.game.similarGames.length > 0">
       <div class="card-content is-dark">
         <div class="media">
           <div class="media-content">

@@ -22,11 +22,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   subscriptionRoute = new Subscription();
   subscriptionGame = new Subscription();
   subscriptionResults = new Subscription();
-  title = 'Stock Manager';
+  title = 'pingg';
   searchBox = '';
   updated = false;
   user = '';
-  game: Game;
+  game= new Game();
 
   constructor(private observerService: ObserverService, private router: Router,
     private afAuth: AngularFireAuth, private gamesService: GamesService) {

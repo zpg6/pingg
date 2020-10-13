@@ -61,13 +61,9 @@ export class GamesService {
   setGameID(id: string) {
     this.detailing.next(null);
     if (!id || id.length == 0) { return }
-    this.subscription = this.firestore.collection('GameList').doc(id).snapshotChanges().subscribe(change => {
-      console.log(`updating game ${change.payload.id}`)
-      if (change.type === 'added' || change.type === 'modified' || change.type === 'value') {
-        this.detailing.next(change.payload.data() as Game);
-      } else if (change.type === 'removed') {
-        this.detailing.next(new Game());
-      }
+    var body: {} = {'id':id}
+    this.http.post(this.serverURL + '/game/querybyid', body).toPromise().then(game =>{
+      this.detailing.next(game as Game);
     })
   }
 
