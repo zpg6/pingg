@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
 import {AngularFireAuth} from '@angular/fire/auth';
 
@@ -17,7 +18,7 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
   loading = true;
 
   constructor(private observerService: ObserverService,
-    private afAuth: AngularFireAuth) {
+    private afAuth: AngularFireAuth, private firestore: AngularFirestore) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -34,6 +35,20 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
           this.appData.username = d.displayName;
           this.appData.email = d.email;
           this.appData.uid = d.uid;
+          this.firestore.collection('UserList').doc('d.uid').get().toPromise().then(document => {
+              let data = document.data()
+              if (data) {
+                this.appData.profile.city = data["city"]
+                this.appData.profile.state = data["state"]
+                this.appData.profile.currentPing = data["currentPing"]
+                this.appData.profile.id = d.uid
+                this.appData.profile.screenNames = data["screenNames"]
+                this.appData.profile.firstName = data["firstName"]
+                this.appData.profile.lastName = data["lastName"]
+              } else {
+                //TODO ask the user to enter some info for their profile and send it to firestore
+              }
+          })
           this.updateObserver();
         }
         else{
