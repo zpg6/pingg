@@ -1,4 +1,6 @@
 import { NavbarPage } from '../app/navbar-page.enum'
+import { ProfileContainerComponent } from './profile-container/profile-container.component';
+import { Profile } from './profile';
 
 export class AppData {
   title = 'pingg';
@@ -17,4 +19,5 @@ export class AppData {
   email: String = null;
   uid: String = null;
   isAuthenticated: boolean = false;
+  profile: Profile = new Profile();
 }

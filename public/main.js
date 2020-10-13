@@ -34,6 +34,8 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppData", function() { return AppData; });
 /* harmony import */ var _app_navbar_page_enum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app/navbar-page.enum */ "./src/app/navbar-page.enum.ts");
+/* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile */ "./src/app/profile.ts");
+
 
 class AppData {
     constructor() {
@@ -49,6 +51,7 @@ class AppData {
         this.email = null;
         this.uid = null;
         this.isAuthenticated = false;
+        this.profile = new _profile__WEBPACK_IMPORTED_MODULE_1__["Profile"]();
     }
 }
 
@@ -2859,6 +2862,32 @@ ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
                 styleUrls: ['./profile-container.component.css']
             }]
     }], function () { return []; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/profile.ts":
+/*!****************************!*\
+  !*** ./src/app/profile.ts ***!
+  \****************************/
+/*! exports provided: Profile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Profile", function() { return Profile; });
+class Profile {
+    constructor() {
+        this.id = "";
+        this.currentPing = 0;
+        this.city = "";
+        this.state = "";
+        this.firstName = "";
+        this.lastName = "";
+        this.handle = "";
+        this.screenNames = {};
+    }
+}
 
 
 /***/ }),
