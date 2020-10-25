@@ -2,43 +2,16 @@
   <div class="card-content is-dark">
     <div class="columns is-vcentered" style="margin-left: -20px;">
 
-      <div class="column is-1 has-text-centered is-hidden-touch">
-        <button class="button is-medium is-text">
-          <span class="icon is-medium">
-            <i class="fas fa-arrow-up fa-2x"></i>
-          </span>
-        </button>
-        <p style="color: #95EF72; margin: 5px;">{{this.rand % 1000}}</p>
-        <button class="button is-medium is-text">
-          <span class="icon is-medium">
-            <i class="fas fa-arrow-down fa-2x"></i>
-          </span>
-        </button>
+      <div class="column is-1 has-text-centered vote-box">
+        <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"> </span>
+        <p class="subtitle is-4">{{votes}}</p>
       </div>
-
-
-      <div class="column is-1 has-text-centered is-centered is-hidden-desktop">
-        <p class="buttons" style="color: #95EF72; margin: 5px;">
-          <button class="button is-medium is-text" style="margin: 5px;">
-            <span class="icon is-medium">
-              <i class="fas fa-arrow-up fa-2x"></i>
-            </span>
-          </button>
-          <span style="margin: 5px;">{{this.rand % 1000}}</span>
-          <button class="button is-medium is-text" style="margin: 5px;">
-            <span class="icon is-medium">
-              <i class="fas fa-arrow-down fa-2x"></i>
-            </span>
-          </button>
-        </p>
-      </div>
-
 
       <div class="column is-11">
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48">
-              <img style="border-radius: 50%; margin-right: 2px; width: 96px;" src="https://api.adorable.io/avatars/100/{{this.rand}}@adorable.io.png">
+              <img style="border-radius: 50%; margin-right: 2px; width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.rand}}.svg">
             </figure>
           </div>
           <div class="media-content">

@@ -7,3 +7,22 @@
 a {
   color: #95EF72;
 }
+
+.vote-box {
+  margin-left: 1.0rem;
+}
+
+.vote {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('../../assets/images/upvote.png');
+  background-position: 0 -25px;
+}
+
+
+.vote.on {
+  background-position: 0 2px;
+}
