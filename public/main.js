@@ -3522,9 +3522,10 @@ class SignInButtonsComponent {
                         this.appData.profile.screenNames = data["screenNames"];
                         this.appData.profile.firstName = data["firstName"];
                         this.appData.profile.lastName = data["lastName"];
+                        this.appData.profile.handle = data["handle"];
                     }
                     else {
-                        //TODO ask the user to enter some info for their profile and send it to firestore
+                        //TODO ask the user to enter screennames and game it's for, handle for our site, first name, and last name for their profile. Send it to firestore and update this.appData.profile. Then use APIs to get city, state, and ping
                     }
                 });
                 this.updateObserver();
@@ -3654,7 +3655,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })
