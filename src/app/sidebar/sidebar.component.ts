@@ -5,6 +5,7 @@ import { Genre } from '../genre.enum';
 import { Platform } from '../platform.enum';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,13 +14,14 @@ import { ObserverService } from '../observer.service';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
 
+  title = ''
   appData: AppData;
   subscription = new Subscription();
   expanded = '';
   activeChannel = '#all';
   channels = ['#all', '#channel1', '#channel2', '#channel3'];
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private ar: ActivatedRoute) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -28,7 +30,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
       console.log('Subscription created @ SidebarComponent')
   }
   ngOnInit() {
-
+    this.ar.url.subscribe(url => {
+      var page = url[0].path.toString()
+      page = page[0].toUpperCase() + page.substring(1,page.length)
+      console.log(page)
+      this.title = page
+    })
   }
 
   ngOnDestroy() {
@@ -91,10 +98,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   getTitles():string[] {
-    if (this.appData.navbarPage === NavbarPage.feed) {
+    if (this.title === 'Feed') {
       return ['Channels']
     }
-    if (this.appData.navbarPage === NavbarPage.games) {
+    if (this.title === 'Games') {
       return ['Sort By','Filter By']
     }
     return [];

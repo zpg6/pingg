@@ -1,37 +1,58 @@
-<section class="section">
-  <div class="container" style="margin-bottom: 100px;">
+<!-- Hero head: will stick at the top -->
+<div class="hero-head">
+  <app-navbar></app-navbar>
+</div>
 
-    <div class="card post-card">
-      <div class="card-content is-dark">
-        <div class="media">
-          <div class="media-content">
-            <div class="field has-addons">
-              <p class="control">
-                <a class="button is-info is-selected">
-                  Newest
-                </a>
-              </p>
-              <p class="control">
-                <a class="button">
-                  Popular
-                </a>
-              </p>
-              <p class="control">
-                <a class="button">
-                  Trending
-                </a>
-              </p>
+
+<div class="hero-body content-bg" style="padding: 0px;">
+  <div class="dashboard is-full-height">
+
+    <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+      <div style="display: inline-block;">
+
+
+        <section class="section">
+          <div class="container" style="margin-bottom: 100px;">
+
+            <div class="card post-card">
+              <div class="card-content is-dark">
+                <div class="media">
+                  <div class="media-content">
+                    <div class="field has-addons">
+                      <p class="control">
+                        <a class="button is-info is-selected">
+                          Newest
+                        </a>
+                      </p>
+                      <p class="control">
+                        <a class="button">
+                          Popular
+                        </a>
+                      </p>
+                      <p class="control">
+                        <a class="button">
+                          Trending
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngFor="let number of nums">
+              <app-post-cell></app-post-cell>
             </div>
           </div>
-        </div>
+        </section>
+
+
       </div>
     </div>
 
-    <div *ngFor="let number of nums">
-      <app-post-cell></app-post-cell>
-    </div>
   </div>
-</section>
+</div>
+
 
 
 

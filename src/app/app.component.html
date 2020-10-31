@@ -1,8 +1,4 @@
 <section class="hero is-centered is-dark is-fullheight">
-  <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
-    <app-navbar *ngIf="this.appData?.isAuthenticated"></app-navbar>
-  </div>
 
 
   <div class="modal is-active is-hidden-mobile" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px">
@@ -27,50 +23,32 @@
     <app-login-box></app-login-box>
   </div>
 
-  <div class="modal {{this.appData?.reportingIssue ? 'is-active':''}}">
-    <app-report-issue></app-report-issue>
-  </div>
 
-  <div class="modal {{this.appData?.newPostModalOpen ? 'is-active':''}}">
-    <app-new-post-modal></app-new-post-modal>
-  </div>
 
-  <div class="modal {{this.appData?.newChannelModalOpen ? 'is-active':''}}">
-    <app-new-channel-modal></app-new-channel-modal>
-  </div>
+  <div *ngIf="this.appData?.isAuthenticated">
 
-  <div class="modal {{this.appData?.searchBarOpen ? 'is-active':''}}">
-    <app-search-bar></app-search-bar>
-  </div>
 
-  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage === 'Feed'" style="padding: 0px;">
-    <div class="dashboard is-full-height">
-
-      <app-sidebar class="is-hidden-mobile" style="height: -webkit-fill-available; min-width: 200px"></app-sidebar>
-
-      <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
-        <div style="display: inline-block;">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-
+    <div class="modal {{this.appData?.reportingIssue ? 'is-active':''}}">
+      <app-report-issue></app-report-issue>
     </div>
-  </div>
 
-  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage !== 'Feed' && this.appData?.navbarPage !== 'Map'" style="padding: 0px;">
-    <div class="dashboard is-full-height">
-
-      <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
-        <div style="display: inline-block;">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-
+    <div class="modal {{this.appData?.newPostModalOpen ? 'is-active':''}}">
+      <app-new-post-modal></app-new-post-modal>
     </div>
+
+    <div class="modal {{this.appData?.newChannelModalOpen ? 'is-active':''}}">
+      <app-new-channel-modal></app-new-channel-modal>
+    </div>
+
+    <div class="modal {{this.appData?.searchBarOpen ? 'is-active':''}}">
+      <app-search-bar></app-search-bar>
+    </div>
+
+    <router-outlet></router-outlet>
+
+
   </div>
 
-  <div class="hero-body content-bg" *ngIf="this.appData?.isAuthenticated && this.appData?.navbarPage === 'Map'" style="padding: 0px;">
-    <router-outlet *ngIf="this.appData?.isAuthenticated"></router-outlet>
-  </div>
+
 
 </section>

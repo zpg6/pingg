@@ -10,7 +10,7 @@
 
     <aside class="menu has-text-light">
 
-      <div *ngIf="this.appData.navbarPage === 'Feed'">
+      <div *ngIf="this.title === 'Feed'">
         <button class="button is-danger" style="margin-bottom: 20px;" (click)="newPost()">
           <span class="icon">
             <i class="fas fa-pencil-alt"></i>
@@ -36,24 +36,6 @@
           </ul>
         </div>
       </div>
-
-      <div *ngIf="this.appData.navbarPage !== 'Feed'">
-        <div *ngFor="let title of getTitles()">
-          <p class="menu-label" style="margin-top: 1.5em;">
-            {{title}}
-          </p>
-
-          <ul class="menu-list" *ngIf="getSections(title).length > 0">
-            <div *ngFor="let section of getSections(title)">
-              <li><a class="{{ getOptions(section).length > 0 ? 'is-active':'' }}" (click)="toggleExpand(section)">{{section}}</a></li>
-              <ul *ngFor="let option of getOptions(section)" style="padding-left: 15px;">
-                <li><a class="menu-list-item">{{option}}</a></li>
-              </ul>
-            </div>
-          </ul>
-        </div>
-      </div>
-
 
       <br><br>
 

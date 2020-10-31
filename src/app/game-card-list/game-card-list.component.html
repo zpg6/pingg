@@ -1,3 +1,4 @@
+
 <div class="card post-card" *ngFor="let set of sections">
   <div class="card-content is-dark">
     <div class="media">
@@ -5,7 +6,7 @@
         <p class="title is-3 has-text-light">{{set}}</p>
         <ul class="images">
           <li *ngFor="let item of getFrom(set)">
-            <app-game-card [game]="item" (click)="openGame(item)"></app-game-card>
+            <app-game-card [game]="item" [routerLink]="'/games/'+item.id"></app-game-card>
           </li>
         </ul>
       </div>

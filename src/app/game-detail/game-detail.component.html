@@ -1,40 +1,56 @@
-<section *ngIf="game" class="section">
-  <div class="container" style="margin-bottom: 100px;">
+<!-- Hero head: will stick at the top -->
+<div class="hero-head">
+  <app-navbar></app-navbar>
+</div>
 
-    <div class="card post-card">
-      <div class="card-content is-dark">
-        <div class="media">
-          <div class="media-left">
-            <img src="https://{{game?.coverURL}}">
-          </div>
-          <div class="media-content has-text-light">
-            <h1 class="title is-1">{{game?.name.split(' - ')[0] + (game?.name.split(' - ').length > 1 ? ' -':'')}}<br *ngIf="game?.name.split(' - ').length > 1">{{game?.name.split(' - ')[1]}}</h1>
-            <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
-            <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
-            <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
-            <div *ngFor="let p of game?.description.split('\n')">
-              <p style="margin-top: 10px">{{p}}</p>
+<div class="hero-body content-bg" style="padding: 0px;">
+  <div class="dashboard is-full-height">
+
+    <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+      <div style="display: inline-block;">
+        <section *ngIf="game" class="section">
+          <div class="container" style="margin-bottom: 100px;">
+
+            <div class="card post-card">
+              <div class="card-content is-dark">
+                <div class="media">
+                  <div class="media-left">
+                    <img src="https://{{game?.coverURL}}">
+                  </div>
+                  <div class="media-content has-text-light">
+                    <h1 class="title is-1">{{game?.name?.split(' - ')[0] + (game?.name?.split(' - ')?.length > 1 ? ' -':'')}}<br *ngIf="game?.name?.split(' - ')?.length > 1">{{game?.name?.split(' - ')[1]}}</h1>
+                    <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
+                    <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
+                    <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
+                    <div *ngFor="let p of game?.description.split('\n')">
+                      <p style="margin-top: 10px">{{p}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="card post-card" *ngIf="this.game.similarGames.length > 0">
-      <div class="card-content is-dark">
-        <div class="media">
-          <div class="media-content">
-            <p class="title is-3 has-text-light">Recommended Games</p>
-            <ul class="images">
-              <li *ngFor="let similar of recommended">
-                <app-game-card [game]="similar" (click)="openGame(similar)"></app-game-card>
-              </li>
-            </ul>
+            <div class="card post-card" *ngIf="this.game?.similarGames?.length > 0">
+              <div class="card-content is-dark">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-3 has-text-light">Recommended Games</p>
+                    <ul class="images">
+                      <li *ngFor="let similar of recommended">
+                        <app-game-card [game]="similar" routerLink="['/games/'+similar.id]"></app-game-card>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
           </div>
-        </div>
+        </section>
       </div>
     </div>
 
 
   </div>
-</section>
+</div>
