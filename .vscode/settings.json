@@ -3,7 +3,9 @@
         "fullheight",
         "is",
         "is scrollable",
+        "is unselectable",
         "pingg",
-        "scrollable"
+        "scrollable",
+        "unselectable"
     ]
 }

@@ -6,8 +6,6 @@ export class AppData {
   title = 'pingg';
   tagline = 'Where better matches are made.';
 
-  navbarPage: NavbarPage = NavbarPage.feed
-
   selectedChannel: string = '';
 
   reportingIssue: boolean = false;

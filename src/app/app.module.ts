@@ -20,17 +20,17 @@ import player from 'lottie-web';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard'
 import { environment } from '../environments/environment';
 import {FirebaseUIModule} from 'firebaseui-angular';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import * as firebaseui from 'firebaseui';
 import { ReportIssueComponent } from './report-issue/report-issue.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameCardListComponent } from './game-card-list/game-card-list.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { ConversationsComponent } from './conversations/conversations.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BrowseChannelsComponent } from './browse-channels/browse-channels.component';
 import { BrowseGenresComponent } from './browse-genres/browse-genres.component';
@@ -85,7 +85,7 @@ export function playerFactory() {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    AngularFireStorageModule,
+    //AngularFireStorageModule,
     HttpClientModule,
     ScrollingModule,
   ],
@@ -113,7 +113,12 @@ export function playerFactory() {
     NewChannelModalComponent,
     PostCellComponent,
   ],
-  providers: [ObserverService,GamesService, { provide: BUCKET, useValue: 'cs1530group11.appspot.com' }],
+  providers: [
+    ObserverService,
+    GamesService,
+    AngularFireAuthGuard,
+    //{ provide: BUCKET, useValue: 'cs1530group11.appspot.com' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

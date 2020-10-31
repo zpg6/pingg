@@ -8,13 +8,30 @@ import { ChatContainerComponent } from './chat-container/chat-container.componen
 import { GameDetailComponent } from './game-detail/game-detail.component';
 
 const routes: Routes = [
-  { path: '', component: FeedContainerComponent },
-  { path: 'feed', component: FeedContainerComponent },
-  { path: 'map', component: MapContainerComponent },
-  { path: 'games', component: GamesContainerComponent },
-  { path: 'profile', component: ProfileContainerComponent },
-  { path: 'chat', component: ChatContainerComponent },
-  { path: 'game', component: GameDetailComponent },
+  {
+    path: '',
+    component: FeedContainerComponent
+  },
+  {
+    path: 'feed',
+    component: FeedContainerComponent
+  },
+  {
+    path: 'map',
+    component: MapContainerComponent
+  },
+  {
+    path: 'games',
+    component: GamesContainerComponent
+  },
+  {
+    path: 'games/:id',
+    component: GameDetailComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileContainerComponent,
+  },
 ];
 
 @NgModule({

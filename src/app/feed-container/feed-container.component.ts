@@ -36,12 +36,4 @@ export class FeedContainerComponent implements OnInit, OnDestroy {
     this.observerService.sendMessage(this.appData);
   }
 
-  isFeed():boolean {
-    return this.appData.navbarPage == NavbarPage.feed
-  }
-
-  getPage():string {
-    return this.appData.navbarPage
-  }
-
 }

@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+  title = 'pingg'
   appData: AppData;
   subscription = new Subscription();
   public lottieConfig: Object = {
@@ -37,35 +38,16 @@ export class AppComponent implements OnInit, OnDestroy {
         this.appData = message;
         console.log('Subscription updated @ AppComponent')
       }));
-      router.events.pipe(
-        filter( (event: NavigationStart) =>  {
-          return (event instanceof NavigationStart);
-        })
-      ).subscribe( (event: NavigationStart) => {
-        let url = event.url;
-        url = url.replace('/','');
-        if (url.includes('?')) {
-          url = url.substring(0, url.indexOf('?'));
-        }
-        console.log('url from appComp = ' + url);
-        let page = this.pageFromString(url);
-        if (page === NavbarPage.game) {
-          this.ar.queryParamMap
-            .subscribe(async (params) => {
-              let id = params.get('id');
-              console.log(`setting game id as ${id}`)
-              this.gamesService.setGameID(id);
-            }
-          );
-        }
-        if (this.appData.navbarPage !== page) {
-          this.appData.navbarPage = page;
-          this.updateObserver();
-        }
-      })
       console.log('Subscription created @ AppComponent')
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.ar.url.subscribe(url => {
+      var page = url[0].path.toString()
+      page = page[0].toUpperCase() + page.substring(1,page.length)
+      console.log(page)
+      this.title = page
+    })
+  }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks

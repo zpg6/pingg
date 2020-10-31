@@ -30,17 +30,24 @@ export class NavbarComponent implements OnInit, OnDestroy {
   game= new Game();
 
   constructor(private observerService: ObserverService, private router: Router,
-    private afAuth: AngularFireAuth, private gamesService: GamesService) {
+    private afAuth: AngularFireAuth, private gamesService: GamesService, private ar: ActivatedRoute) {
 
   }
-  ngOnInit() {
+  ngOnInit(){}
+
+  ngAfterViewInit() {
+    this.ar.url.subscribe(url => {
+      if (url && url.length>0) {
+        console.log(url)
+        var page = url[0].path.toString()
+        page = page[0].toUpperCase() + page.substring(1,page.length)
+        console.log(page)
+        this.title = page
+      }
+    })
     this.user = '' + this.randomIntFromInterval(1,100);
-    this.subscriptionResults.add(this.gamesService.getResults().subscribe(games =>{
+    this.subscriptionResults.add(this.gamesService.searchResults.asObservable().subscribe(games =>{
       this.searchResult = games;
-    }))
-    this.subscriptionGame.add(this.gamesService.observeGame().subscribe(game => {
-      console.log('game retrieved in navbar component:')
-      this.game = game;
     }))
     this.subscription.add(this.observerService.getMessage().subscribe(message => {
       this.appData = message;
@@ -98,7 +105,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (!(this.appData.isAuthenticated)) {
       return;
     }
-    if (this.appData.navbarPage === this.pageFromString(to)) {
+    if (this.title === this.pageFromString(to)) {
       return;
     }
     if (this.showMenu) {
@@ -107,15 +114,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (this.showSearchBox) {
       this.showSearchBox = false;
     }
-    let newPage = '/' + to.toLowerCase();
-    this.appData.navbarPage = this.pageFromString(to);
-    console.log('Navbar Page is now ' + this.appData.navbarPage);
-    this.updateObserver();
-    this.router.navigate([newPage]);
+    // let newPage = '/' + to.toLowerCase();
+    // this.router.navigate([newPage]);
   }
 
   getPage():string {
-    if (this.appData.navbarPage === NavbarPage.game) {
+    if (this.title === NavbarPage.game) {
       let name = this.game.name;
       if (name.length > 25) {
         return name.substring(0,24) + '...'
@@ -123,11 +127,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
         return name
       }
     }
-    return this.appData.navbarPage
+    return this.title
   }
 
   active(page: string):string {
-    return (this.appData.navbarPage === page) ? 'is-active':'';
+    return (this.title === page) ? 'is-active':'';
   }
 
   pageFromString(page: string):NavbarPage {
@@ -157,23 +161,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   showBar():boolean {
-    return this.appData.navbarPage !== NavbarPage.game
+    return this.title !== 'Games'
   }
 
   description():string {
-    if (this.appData.navbarPage === 'Feed') {
+    if (this.title === 'Feed') {
       if (this.appData.selectedChannel === '' || this.appData.selectedChannel === '#all') {
         return 'Latest on your favorites...';
       }
         return this.appData.selectedChannel;
     }
-    if (this.appData.navbarPage === 'Map') {
+    if (this.title === 'Map') {
       return 'Other players nearby...';
     }
-    if (this.appData.navbarPage === 'Games') {
+    if (this.title === 'Games') {
       return 'So many games...';
     }
-    if (this.appData.navbarPage === 'Profile') {
+    if (this.title === 'Profile') {
       return 'What makes you unique...';
     }
     return '';

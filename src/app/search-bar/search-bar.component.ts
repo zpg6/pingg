@@ -25,7 +25,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   subscriptionResults = new Subscription();
 
   constructor(private gamesService: GamesService, private observerService: ObserverService, private router: Router) {
-    this.subscriptionResults.add(this.gamesService.getResults().subscribe(results => {
+    this.subscriptionResults.add(this.gamesService.searchResults.asObservable().subscribe(results => {
       this.results = results;
     }));
     this.subscription.add(observerService.getMessage().subscribe(message => {
@@ -58,11 +58,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   }
 
   openGame(game: MiniGame) {
-    this.appData.navbarPage = NavbarPage.game;
-    this.gamesService.setGameID(game.id.toString());
+    //this.gamesService.setGameID(game.id.toString());
     this.appData.searchBarOpen = false;
     this.updateObserver();
-    this.router.navigate(['/game'], {queryParams: {id: game.id}});
+    this.router.navigate(['/game'+game.id]);
   }
 
 }

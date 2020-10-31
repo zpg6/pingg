@@ -3,7 +3,7 @@
 
   <!-- DESKTOP/WIDESCREEN VERSION -->
   <div class="navbar-brand is-hidden-touch">
-    <a class="navbar-item {{ active('Feed') }} is-unselectable" (click)="setPage('Feed')">
+    <a class="navbar-item" routerLinkActive="is-active" routerLink="/feed"  (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
@@ -19,7 +19,7 @@
 
   <!-- TABLET/MOBILE VERSION -->
   <div class="navbar-brand is-hidden-desktop">
-    <a class="navbar-item {{ active('Feed') }} is-unselectable" (click)="setPage('Feed')">
+    <a class="navbar-item" routerLinkActive="is-active" routerLink="/feed"  (click)="setPage('Feed')">
       <img src="../../assets/images/pingg_logo_wide.png" alt="pingg: Feed" width="112" height="28">
       <span class="icon has-text-light is-hidden-touch">
         <i class="fas fa-newspaper"></i>
@@ -67,21 +67,21 @@
 
     <div class="navbar-start is-hidden-touch">
 
-      <a class="navbar-item {{ active('Map') }}" (click)="setPage('Map')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/map"  (click)="setPage('Map')">
         <span class="icon has-text-light">
           <i class="fas fa-map-marked-alt"></i>
         </span>
         <span class="is-unselectable">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item {{ active('Games') }}" (click)="setPage('Games')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/games" (click)="setPage('Games')">
         <span class="icon has-text-light">
           <i class="fas fa-gamepad"></i>
         </span>
         <span class="is-unselectable">&nbsp;Games</span>
       </a>
 
-      <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/profile" (click)="setPage('Profile')">
         <span>
           <img style="border-radius: 50%; margin-right: 2px; margin-top: 5px; width: 22px; height: 22px;" src="https://avatars.dicebear.com/api/bottts/{{this.getUser()}}.svg">
         </span>
@@ -108,21 +108,21 @@
     <!-- TABLET/MOBILE VERSION -->
 
     <div class="navbar-start is-hidden-desktop">
-      <a class="navbar-item {{ active('Feed') }}" (click)="setPage('Feed')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/feed"  (click)="setPage('Feed')">
         <span class="icon has-text-light">
           <i class="fas fa-newspaper"></i>
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Feed</span>
       </a>
 
-      <a class="navbar-item {{ active('Map') }}" (click)="setPage('Map')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/map"  (click)="setPage('Map')">
         <span class="icon has-text-light">
           <i class="fas fa-map-marked-alt"></i>
         </span>
         <span class="is-unselectable has-text-light">&nbsp;Map</span>
       </a>
 
-      <a class="navbar-item {{ active('Games') }}" (click)="setPage('Games')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/games"  (click)="setPage('Games')">
         <span class="icon has-text-light">
           <i class="fas fa-gamepad"></i>
         </span>
@@ -130,7 +130,7 @@
       </a>
 
 
-      <a class="navbar-item {{ active('Profile') }}" (click)="setPage('Profile')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/profile"  (click)="setPage('Profile')">
         <span>
           <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://avatars.dicebear.com/api/bottts/{{this.getUser()}}.svg">
         </span>
