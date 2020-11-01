@@ -31,7 +31,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private observerService: ObserverService, private router: Router,
     private afAuth: AngularFireAuth, private gamesService: GamesService, private ar: ActivatedRoute) {
-
+      this.user = '' + this.randomIntFromInterval(1,100);
+      this.subscriptionResults.add(this.gamesService.searchResults.asObservable().subscribe(games =>{
+        this.searchResult = games;
+      }))
+      this.subscription.add(this.observerService.getMessage().subscribe(message => {
+        this.appData = message;
+        console.log('Subscription updated @ NavbarComponent')
+      }));
+      console.log('Subscription created @ NavbarComponent')
   }
   ngOnInit(){}
 
@@ -45,15 +53,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.title = page
       }
     })
-    this.user = '' + this.randomIntFromInterval(1,100);
-    this.subscriptionResults.add(this.gamesService.searchResults.asObservable().subscribe(games =>{
-      this.searchResult = games;
-    }))
-    this.subscription.add(this.observerService.getMessage().subscribe(message => {
-      this.appData = message;
-      console.log('Subscription updated @ NavbarComponent')
-    }));
-    console.log('Subscription created @ NavbarComponent')
   }
 
   ngOnDestroy() {

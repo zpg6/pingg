@@ -12,7 +12,7 @@ import { Game } from './game';
 })
 export class GamesService {
 
-  private serverURL = "http://35.184.151.207:9000/"
+  private serverURL = "https://cs1530group11.uc.r.appspot.com/"
   dbMap;
 
   searchResults = new BehaviorSubject<MiniGame[]>([])

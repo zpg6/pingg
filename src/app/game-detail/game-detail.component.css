@@ -12,6 +12,10 @@ li {
   margin: 5px;
 }
 
+img {
+  max-height: 600px;
+}
+
 .post-card {
   border-radius: 15px;
   margin-bottom: 25px;

@@ -17,7 +17,7 @@ import { ObserverService } from '../observer.service';
 export class GameDetailComponent implements OnInit {
 
   game: any;
-  recommended: Array<MiniGame>;
+  recommended: any[];
 
   constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute) {
       // subscribe to home component messages
@@ -25,11 +25,23 @@ export class GameDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(tag);
     this.ar.url.subscribe(url => {
       let id = url[url.length - 1]
       console.log(id.path.toString())
       this.gamesService.getGame(id.path.toString()).then(game => {
         this.game = game
+        this.recommended = []
+        console.log(this.game)
+        this.game.similarGames.forEach(similar => {
+          this.gamesService.getGame(similar).then(recGame => {
+            if (recGame) {
+              this.recommended.push(recGame)
+            }
+          })
+        })
       })
     })
   }

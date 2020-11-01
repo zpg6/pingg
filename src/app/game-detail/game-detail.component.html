@@ -21,7 +21,11 @@
                     <h1 class="title is-1">{{game?.name?.split(' - ')[0] + (game?.name?.split(' - ')?.length > 1 ? ' -':'')}}<br *ngIf="game?.name?.split(' - ')?.length > 1">{{game?.name?.split(' - ')[1]}}</h1>
                     <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
                     <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
-                    <span *ngFor="let genre of game?.genres" class="tag is-light" style="margin-right: 5px; margin-top: 20px; margin-bottom: 20px; cursor: pointer;">{{genre}}</span>
+                    Genres&nbsp;&nbsp;&nbsp;<span *ngFor="let genre of game?.genres" class="tag is-warning" style="margin-right: 5px; margin-top: 20px; margin-bottom: 10px; cursor: pointer;">{{genre}}</span>
+                    <br>
+                    Platforms&nbsp;&nbsp;&nbsp;<span *ngFor="let platform of game?.platforms" class="tag is-danger" style="margin-right: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">{{platform}}</span>
+                    <br>
+
                     <div *ngFor="let p of game?.description.split('\n')">
                       <p style="margin-top: 10px">{{p}}</p>
                     </div>
@@ -30,14 +34,34 @@
               </div>
             </div>
 
-            <div class="card post-card" *ngIf="this.game?.similarGames?.length > 0">
+            <div class="card post-card" *ngIf="this.game?.screenshots?.length > 0">
+              <div class="card-content is-dark">
+                <p class="title is-3 has-text-light">Screenshots</p>
+                <ul class="images">
+                  <li *ngFor="let item of this.game?.screenshots"><img src="http://{{item}}"></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card post-card" *ngIf="this.game?.videos?.length > 0">
+              <div class="card-content is-dark">
+                <p class="title is-3 has-text-light">Trailers and Gameplay</p>
+                <ul class="images">
+                  <li *ngFor="let item of this.game?.videos">
+                    <youtube-player [videoId]="item.split('watch?v=')[1]"></youtube-player>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card post-card" *ngIf="this.recommended?.length > 0">
               <div class="card-content is-dark">
                 <div class="media">
                   <div class="media-content">
                     <p class="title is-3 has-text-light">Recommended Games</p>
                     <ul class="images">
                       <li *ngFor="let similar of recommended">
-                        <app-game-card [game]="similar" routerLink="['/games/'+similar.id]"></app-game-card>
+                        <app-game-card [game]="similar" [routerLink]="['/games/'+similar.id]"></app-game-card>
                       </li>
                     </ul>
                   </div>

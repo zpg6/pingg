@@ -43,6 +43,9 @@ import { PostCellComponent } from './post-cell/post-cell.component'
 // // - https://github.com/RaphaelJenni/FirebaseUI-Angular/issues/76
 // // the plugin exposes the two libraries as well. You can use those:
 // import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { CardGridComponent } from './card-grid/card-grid.component';
+import { CardGridContainerComponent } from './card-grid-container/card-grid-container.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -88,6 +91,7 @@ export function playerFactory() {
     //AngularFireStorageModule,
     HttpClientModule,
     ScrollingModule,
+    YouTubePlayerModule
   ],
   declarations: [
     AppComponent,
@@ -112,6 +116,8 @@ export function playerFactory() {
     NewPostModalComponent,
     NewChannelModalComponent,
     PostCellComponent,
+    CardGridComponent,
+    CardGridContainerComponent,
   ],
   providers: [
     ObserverService,
