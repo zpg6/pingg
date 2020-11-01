@@ -2,9 +2,9 @@
 <div class="modal-content">
   <button class="delete" aria-label="close" (click)="closeModal()" style="float: right; margin: 10px;"></button>
   <article class="panel" style="background-color: whitesmoke;">
-    <div class="panel-heading" style="background-color: #3273dc; padding: 20px;">
+    <div class="panel-heading {{(results?.length == 0) ? 'panel-heading-active':''}}" style="background-color: #3273dc; padding: 20px;">
       <p class="control has-icons-left">
-        <input (keyup)="onkeyup($event)" class="input is-info" placeholder="search games...">
+        <input (keyup)="onkeyup($event)" class="input is-info" placeholder="Search Games, Users, and Posts...">
         <span class="icon is-left">
           <i class="fas fa-search" aria-hidden="true"></i>
         </span>

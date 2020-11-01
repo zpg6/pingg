@@ -25,3 +25,22 @@ img {
 .content-bg {
   background-color: #232324;
 }
+
+.card-footer {
+  border-top: 1px solid #95EF72;
+}
+
+.card-footer-item {
+  /* background-color: #232324; */
+  color: whitesmoke;
+}
+
+.card-footer-item:hover {
+  background-color: #171717;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+.card-footer-item:not(:last-child) {
+  border-right: 1px solid #95EF72;
+}
