@@ -61,7 +61,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     //this.gamesService.setGameID(game.id.toString());
     this.appData.searchBarOpen = false;
     this.updateObserver();
-    this.router.navigate(['/game'+game.id]);
+    this.router.navigate(['/games/'+game.id]);
   }
 
 }
