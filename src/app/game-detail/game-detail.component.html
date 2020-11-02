@@ -13,19 +13,49 @@
 
             <div class="card post-card">
               <div class="card-content is-dark">
-                <div class="media">
-                  <div class="media-left">
+                <h1 class="title is-1">
+                  {{game?.name}}
+                  <!-- {{game?.name?.split(' - ')[0] + (game?.name?.split(' - ')?.length > 1 ? ' -':'')}}<br *ngIf="game?.name?.split(' - ')?.length > 1">{{game?.name?.split(' - ')[1]}} -->
+                </h1>
+                <div class="columns is-centered is-vcentered has-text-light">
+                  <div class="column has-text-centered is-centered" style="max-width: 264px;">
                     <img src="https://{{game?.coverURL}}">
                   </div>
-                  <div class="media-content has-text-light">
-                    <h1 class="title is-1">{{game?.name?.split(' - ')[0] + (game?.name?.split(' - ')?.length > 1 ? ' -':'')}}<br *ngIf="game?.name?.split(' - ')?.length > 1">{{game?.name?.split(' - ')[1]}}</h1>
-                    <h2 class="">{{game?.rating | number : '1.2-2'}} / 100</h2>
-                    <progress class="progress is-small is-info" max="100" value="{{game?.rating}}" style="max-width: 100px;"></progress>
-                    Genres&nbsp;&nbsp;&nbsp;<span *ngFor="let genre of game?.genres" class="tag is-warning" style="margin-right: 5px; margin-top: 20px; margin-bottom: 10px; cursor: pointer;">{{genre}}</span>
-                    <br>
-                    Platforms&nbsp;&nbsp;&nbsp;<span *ngFor="let platform of game?.platforms" class="tag is-danger" style="margin-right: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">{{platform}}</span>
-                    <br>
-
+                  <div class="column has-text-light" style="margin-right: 20px;">
+                    <nav class="level has-text-centered">
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <p class="heading">Rating</p>
+                          <p class="title">{{game?.rating | number}} / 100</p>
+                        </div>
+                      </div>
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <p class="heading">Followers</p>
+                          <p class="title">123</p>
+                        </div>
+                      </div>
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <p class="heading">Genres</p>
+                          <div class="tags has-text-centered" style="max-width: 200px;">
+                            <span *ngFor="let genre of game?.genres" class="tag is-warning">
+                              {{genre}}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <p class="heading">Platforms</p>
+                          <div class="tags" style="max-width: 200px;">
+                            <span *ngFor="let platform of game?.platforms" class="tag is-danger">
+                              {{platform}}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
                     <div *ngFor="let p of game?.description.split('\n')">
                       <p style="margin-top: 10px">{{p}}</p>
                     </div>

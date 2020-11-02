@@ -18,29 +18,9 @@
         <a>Players</a>
       </p>
       <a class="panel-block is-active" *ngFor="let item of results" (click)="openGame(item)">
-        <nav class="level" style="width: 100%;">
-          <div class="level-left">
-            <div class="level-item">
-              <img src="https://{{item?.coverURL}}" style="max-height: 80px;">
-            </div>
-            <div class="level-item">
-              <p class="subtitle is-6 has-text-dark" style="margin-left: 10px; margin-right: 10px; font-weight: bold;">{{item?.name}}</p>
-            </div>
-          </div>
-          <div class="level-right">
-            <div class="level-item">
-              <span class="tag is-warning is-medium">
-                <span class="icon is-medium">
-                  <i class="fas fa-star"></i>
-                </span>
-                &nbsp;{{item?.rating| number:'1.2-2'}}
-              </span>
-            </div>
-          </div>
-        </nav>
-
-
-
+        <img src="https://{{item?.coverURL}}" style="max-height: 60px;">
+        <p class="subtitle has-text-dark" style="margin-left: 10px; margin-right: 10px;">{{item?.name}}</p>
+        <p class="subtitle has-text-dark">{{item?.rating| number:'1.2-2'}}/100</p>
       </a>
     </div>
   </article>

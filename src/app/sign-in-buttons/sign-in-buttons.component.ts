@@ -48,6 +48,10 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
                 this.appData.profile.handle = data["handle"]
               } else {
                 //TODO ask the user to enter screennames and game it's for, handle for our site, first name, and last name for their profile. Send it to firestore and update this.appData.profile. Then use APIs to get city, state, and ping
+                // modal opens
+                // user types
+                // account created
+                // user proceeds
               }
           })
           this.updateObserver();

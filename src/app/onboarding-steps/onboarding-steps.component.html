@@ -1,0 +1,47 @@
+
+
+<ul class="steps is-narrow is-medium is-centered has-content-centered">
+  <li class="steps-segment" [ngClass]="{
+    'is-active':(this.appData.onboardingPage == 0),
+    'has-gaps':(this.appData.onboardingPage == this.firstPage)
+  }">
+    <a href="#" class="has-text-dark">
+      <span class="steps-marker">
+        <span class="icon">
+          <i class="fa fa-user"></i>
+        </span>
+      </span>
+      <div class="steps-content">
+        <p class="heading">The Basics</p>
+      </div>
+    </a>
+  </li>
+  <li class="steps-segment" [ngClass]="{
+    'is-active':(this.appData.onboardingPage == 1),
+    'has-gaps':(this.appData.onboardingPage <= 1)
+  }">
+    <a href="#" class="has-text-dark">
+      <span class="steps-marker">
+        <span class="icon">
+          <i class="fa fa-at"></i>
+        </span>
+      </span>
+      <div class="steps-content">
+        <p class="heading">Screen Names</p>
+      </div>
+    </a>
+  </li>
+  <li class="steps-segment" [ngClass]="{
+    'is-active':(this.appData.onboardingPage == 2),
+    'has-gaps':(this.appData.onboardingPage <= 2)
+  }">
+    <span class="steps-marker">
+      <span class="icon">
+        <i class="fa fa-user-cog"></i>
+      </span>
+    </span>
+    <div class="steps-content">
+      <p class="heading">Customize</p>
+    </div>
+  </li>
+</ul>

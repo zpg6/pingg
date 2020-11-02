@@ -44,3 +44,12 @@ img {
 .card-footer-item:not(:last-child) {
   border-right: 1px solid #95EF72;
 }
+
+.heading {
+  margin-bottom: 1.0rem;
+}
+
+.level {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}

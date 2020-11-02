@@ -1,7 +1,7 @@
 <section class="hero is-centered is-dark is-fullheight">
 
 
-  <div class="modal is-active is-hidden-mobile" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px">
+  <div class="modal is-active is-hidden-mobile" *ngIf="!(this.appData?.isAuthenticated) || !(this.appData?.isOnboarded)" style="padding: 0px">
     <ng-lottie
           width="150vh"
           height="150vh"
@@ -10,7 +10,7 @@
         ></ng-lottie>
   </div>
 
-  <div class="modal is-active is-hidden-desktop is-hidden-tablet" *ngIf="!(this.appData?.isAuthenticated)" style="padding: 0px;">
+  <div class="modal is-active is-hidden-desktop is-hidden-tablet" *ngIf="!(this.appData?.isAuthenticated) || !(this.appData?.isOnboarded)" style="padding: 0px;">
     <ng-lottie
           width="200vw"
           height="200vw"
@@ -23,7 +23,9 @@
     <app-login-box></app-login-box>
   </div>
 
-
+  <div class="modal is-active" *ngIf="(this.appData.isAuthenticated) && !(this.appData.isOnboarded)">
+    <app-onboarding-modal></app-onboarding-modal>
+  </div>
 
   <div *ngIf="this.appData?.isAuthenticated">
 

@@ -3,7 +3,7 @@ import { AppData } from './app-data';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ObserverService } from './observer.service';
-import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { NavbarPage } from './navbar-page.enum';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
       }));
       console.log('Subscription created @ AppComponent')
   }
+
   ngOnInit() {
     this.ar.url.subscribe(url => {
       var page = url[0].path.toString()

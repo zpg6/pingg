@@ -1,0 +1,26 @@
+
+
+
+
+<div class="has-text-centered" *ngIf="this.screenNames.length != 0">
+  <div *ngFor="let screenName of screenNames">
+    <div class="columns is-centered is-vcentered">
+
+      <div class="column is-half">
+        <input class="input" type="text" placeholder="dacapatin1530">
+      </div>
+
+      <div class="column is-half">
+        <div class="tags" *ngIf="screenNamesToGamesArray[screenName]">
+          <span *ngFor="let game of screenNamesToGamesArray[screenName]" class="tag is-success">{{game}}</span>
+        </div>
+      </div>
+
+    </div>
+    <hr>
+  </div>
+</div>
+
+<div class="has-text-centered">
+  <button class="button is-link" (click)="addNew()">Add a Screen Name</button>
+</div>

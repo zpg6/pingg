@@ -46,6 +46,12 @@ import { PostCellComponent } from './post-cell/post-cell.component'
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CardGridComponent } from './card-grid/card-grid.component';
 import { CardGridContainerComponent } from './card-grid-container/card-grid-container.component';
+import { OnboardingModalComponent } from './onboarding-modal/onboarding-modal.component';
+import { OnboardingStepsComponent } from './onboarding-steps/onboarding-steps.component';
+import { ObBasicComponent } from './ob-basic/ob-basic.component';
+import { ObScreenNamesComponent } from './ob-screen-names/ob-screen-names.component';
+import { ObCustomizeComponent } from './ob-customize/ob-customize.component';
+import { GameSearchComponent } from './game-search/game-search.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -118,6 +124,12 @@ export function playerFactory() {
     PostCellComponent,
     CardGridComponent,
     CardGridContainerComponent,
+    OnboardingModalComponent,
+    OnboardingStepsComponent,
+    ObBasicComponent,
+    ObScreenNamesComponent,
+    ObCustomizeComponent,
+    GameSearchComponent,
   ],
   providers: [
     ObserverService,

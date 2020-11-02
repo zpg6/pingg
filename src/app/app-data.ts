@@ -16,6 +16,10 @@ export class AppData {
   username: String = null;
   email: String = null;
   uid: String = null;
+
   isAuthenticated: boolean = false;
+  isOnboarded: boolean = false;
+  onboardingPage = 0;
+
   profile: Profile = new Profile();
 }

@@ -1,0 +1,26 @@
+<div class="modal-background"></div>
+<div class="modal-card" style="margin: 0px;">
+  <header class="modal-card-head">
+    <p class="modal-card-title">Welcome!</p>
+  </header>
+  <section class="modal-card-body has-text-dark">
+    <app-onboarding-steps></app-onboarding-steps>
+
+    <div style="margin-top: 2.0rem;" *ngIf="this.appData.onboardingPage == 0">
+      <app-ob-basic></app-ob-basic>
+    </div>
+
+    <div style="margin-top: 2.0rem;" *ngIf="this.appData.onboardingPage == 1">
+      <app-ob-screen-names></app-ob-screen-names>
+    </div>
+
+    <div style="margin-top: 2.0rem;" *ngIf="this.appData.onboardingPage == 2">
+      <app-ob-customize></app-ob-customize>
+    </div>
+
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-info" *ngIf="this.appData.onboardingPage > firstPage" (click)="leftButtonClick()">{{leftButtonText()}}</button>
+    <button class="button is-success" (click)="rightButtonClick()">{{rightButtonText()}}</button>
+  </footer>
+</div>
