@@ -20,6 +20,13 @@ export class AppData {
   isAuthenticated: boolean = false;
   isOnboarded: boolean = false;
   onboardingPage = 0;
+  onboardingBasicsValid = true;
+  onboardingScreenNamesValid = true;
+  screenNames = [];
+  avatarVal = 50;
+  avatarSeed = Math.round(Math.random() * 100);
+  locationEnabled = false;
+  onboardingTempProfile = new Profile();
 
   profile: Profile = new Profile();
 }

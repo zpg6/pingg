@@ -1,2 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/bulma-o-steps/bulma-steps.min.css"
+@import "../node_modules/bulma-o-steps/bulma-steps.min.css";
+
+@import "../node_modules/css-checkbox-library/dist/css/checkboxes.min.css";

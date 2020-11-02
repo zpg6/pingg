@@ -2,20 +2,23 @@
 <div class="field">
   <label class="label">First Name</label>
   <div class="control">
-    <input class="input" type="text" placeholder="John">
+    <input class="input" type="text" placeholder="John" (keyup)="fnChange($event)" name="fn" #fn>
   </div>
+  <p class="help is-danger">{{fnError}}</p>
 </div>
 
 <div class="field">
   <label class="label">Last Name</label>
   <div class="control">
-    <input class="input" type="text" placeholder="Smith">
+    <input class="input" type="text" placeholder="Smith" (keyup)="lnChange($event)" name="ln" #ln>
   </div>
+  <p class="help is-danger">{{lnError}}</p>
 </div>
 
 <div class="field">
   <label class="label">Choose a Username</label>
   <div class="control">
-    <input class="input" type="text" placeholder="dacaptain1530">
+    <input class="input" type="text" placeholder="daCaptain1530" (keyup)="unChange($event)" name="un" #un>
   </div>
+  <p class="help is-danger">{{unError}}</p>
 </div>

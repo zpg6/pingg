@@ -27,6 +27,8 @@
     "@angular/youtube-player": "^10.2.6",
     "bulma": "^0.9.0",
     "bulma-o-steps": "^1.0.9",
+    "bulma-slider": "^2.0.4",
+    "css-checkbox-library": "^1.5.2",
     "firebase": "^7.20.0",
     "firebaseui": "^4.6.1",
     "firebaseui-angular": "^5.0.1",

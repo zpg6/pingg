@@ -20,7 +20,7 @@
 
   </section>
   <footer class="modal-card-foot">
-    <button class="button is-info" *ngIf="this.appData.onboardingPage > firstPage" (click)="leftButtonClick()">{{leftButtonText()}}</button>
-    <button class="button is-success" (click)="rightButtonClick()">{{rightButtonText()}}</button>
+    <button class="button" [disabled]="this.appData.onboardingPage <= firstPage" (click)="leftButtonClick()">{{leftButtonText()}}</button>
+    <button class="button is-success" (click)="rightButtonClick()" [disabled]="this.rightButtonDisabled()">{{rightButtonText()}}</button>
   </footer>
 </div>

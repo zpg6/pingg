@@ -1,1 +1,31 @@
-<p>ob-customize works!</p>
+
+<div class="columns is-centered is-vcentered">
+
+  <div class="column is-centered has-text-centered">
+    <figure class="">
+      <img style="max-width: 150px; border-radius: 50%; margin-right: 2px;" src="https://avatars.dicebear.com/api/bottts/{{imageKey()}}.svg">
+    </figure>
+  </div>
+
+  <div class="column is-two-thirds">
+    <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Choose an Avatar</p>
+    <input class="slider is-link" style="width: 100%;" step="1" min="0" max="1000" value="{{appData.avatarVal}}" type="range" (change)="onChange($event)">
+  </div>
+
+</div>
+
+<hr>
+
+<div class="columns is-centered is-vcentered">
+
+  <div class="column is-centered has-text-centered is-two-thirds">
+    <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Enable Location to access Player Map</p>
+  </div>
+
+  <div class="column is-centered has-text-centered">
+    <div class="ckbx-style-8">
+      <input type="checkbox" [checked]="appData.locationEnabled" id="ckbx-style-8-1" value="0" name="ckbx-style-8" (change)="onToggle($event)">
+      <label for="ckbx-style-8-1"></label>
+    </div>
+  </div>
+</div>

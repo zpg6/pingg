@@ -16,6 +16,7 @@ export class GamesService {
   dbMap;
 
   searchResults = new BehaviorSubject<MiniGame[]>([])
+  gameNames = new BehaviorSubject<any[]>([])
 
   constructor(private http: HttpClient) {
     this.http.get(this.serverURL + 'genre-database')
@@ -54,6 +55,19 @@ export class GamesService {
             .catch(err => {
               console.error(err)
             })
+  }
+
+  getNames() {
+    if (this.gameNames.value.length == 0) {
+      this.http.get<any[]>(this.serverURL + 'game-names')
+            .toPromise()
+            .then(games => {
+              this.gameNames.next(games)
+            })
+            .catch(err => {
+              console.error(err)
+            })
+    }
   }
 }
 

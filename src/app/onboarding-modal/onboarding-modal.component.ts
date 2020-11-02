@@ -23,8 +23,7 @@ export class OnboardingModalComponent implements OnInit {
   }
 
   leftButtonText() {
-    if (this.appData.onboardingPage > this.firstPage) return 'Back'
-    return ''
+    return 'Back'
   }
 
   rightButtonText() {
@@ -40,12 +39,19 @@ export class OnboardingModalComponent implements OnInit {
     }
   }
   rightButtonClick() {
-    if (this.appData.onboardingPage < this.lastPage) this.appData.onboardingPage++
+    if (this.appData.onboardingPage < this.lastPage) {
+
+      this.appData.onboardingPage++
+    }
     else {
       // submit the user
       this.appData.isOnboarded = true;
     }
     this.observerService.sendMessage(this.appData)
+  }
+
+  rightButtonDisabled() {
+    return !this.appData.onboardingBasicsValid
   }
 
 }
