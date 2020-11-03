@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
@@ -16,6 +16,10 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   expanded = '';
+
+  loading = false
+
+  @ViewChild('issue') issue: ElementRef;
 
   constructor(private observerService: ObserverService, private http: HttpClient) {
       // subscribe to home component messages
@@ -42,20 +46,22 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
   }
 
   sendReport() {
+    this.loading = true
     // send report here
-    var input = (<HTMLInputElement>document.getElementById("issuefield")).value;
-    this.closeModal();
-
     const now = new Date()
     let time = Math.round(now.getTime() / 1000)
-    let body = {"userID": this.appData.profile.id, "time": time, "text": input}
+    let body = {"userID": this.appData.profile.id, "time": time, "text": this.issue.nativeElement.value}
     let url = 'https://cs1530group11graph.uc.r.appspot.com/report-issue'
 
     this.http.post<any>(url, body).toPromise()
     .then(response => {
+      this.loading = false
+      this.closeModal();
     })
     .catch(err => {
+      this.loading = false
       console.error(err)
+      this.closeModal();
     })
   }
 }
