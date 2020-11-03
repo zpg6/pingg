@@ -17,9 +17,7 @@ export class NewPostModalComponent implements OnInit {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ ReportIssueComponent')
       }));
-      console.log('Subscription created @ ReportIssueComponent')
   }
 
   ngOnInit() {

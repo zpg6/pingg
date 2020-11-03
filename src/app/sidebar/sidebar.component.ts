@@ -25,15 +25,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ SidebarComponent')
       }));
-      console.log('Subscription created @ SidebarComponent')
   }
   ngOnInit() {
     this.ar.url.subscribe(url => {
       var page = url[0].path.toString()
       page = page[0].toUpperCase() + page.substring(1,page.length)
-      console.log(page)
       this.title = page
     })
   }

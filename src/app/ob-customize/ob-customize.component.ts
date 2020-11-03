@@ -32,7 +32,7 @@ export class ObCustomizeComponent implements OnInit {
 
   onChange(event: any) {
     this.appData.avatarVal = event.target.value;
-    this.appData.onboardingTempProfile.avatarVal = event.target.value;
+    this.appData.onboardingTempProfile.avatarVal = event.target.value * this.appData.avatarSeed;
     this.updateObserver()
   }
 
@@ -44,8 +44,6 @@ export class ObCustomizeComponent implements OnInit {
         if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {
           this.appData.onboardingTempProfile.latitude = pos.coords.latitude
           this.appData.onboardingTempProfile.longitude = pos.coords.longitude
-          console.log('✅')
-          console.log(pos)
           this.updateObserver()
         }
       })

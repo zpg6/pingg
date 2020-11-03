@@ -23,14 +23,12 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ SignInButtonsComponent')
       }));
-      console.log('Subscription created @ SignInButtonsComponent')
   }
+
   ngOnInit(): void {
     this.afAuth.authState.subscribe(d =>
       {
-        //console.log(d);
         if(d != null){
           this.appData.username = d.displayName;
           this.appData.email = d.email;
@@ -81,17 +79,14 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
   }
 
   successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
-    console.log('successCallback', data);
     this.appData.isAuthenticated = true;
     this.updateObserver();
   }
 
   errorCallback(data: FirebaseUISignInFailure) {
-    console.warn('errorCallback', data);
   }
 
   uiShownCallback() {
-    console.log('firebase ui shown.');
     this.loading = false;
   }
 }

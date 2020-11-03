@@ -27,7 +27,6 @@ export class ObScreenNamesComponent {
     this.gamesService.getNames()
     this.gamesService.gameNames.asObservable().subscribe(gameNames => {
       this.gameNames = gameNames
-      console.log(gameNames.length)
     })
   }
 
@@ -37,6 +36,7 @@ export class ObScreenNamesComponent {
 
   addNew() {
     //this.appData.profile.screenNames[]
+    this.appData.onboardingScreenNamesValid = false
     this.appData.screenNames.push({id: this.nextID, name: '', games: [], error: ''})
     this.updateObserver()
     this.nextID++
@@ -50,15 +50,32 @@ export class ObScreenNamesComponent {
   }
 
   unChange(event: any, screenNameID: number) {
-    console.log(event.target.value)
     var index = 0;
     this.appData.screenNames.forEach(obj => {
       if (screenNameID === obj.id) {
         this.appData.screenNames[index].name = event.target.value
         if (event.target.value.length > 3) {
           this.appData.screenNames[index].error = ''
+          let validNames = this.appData.screenNames.filter(sName => sName.name.length > 3)
+          var dupe = false
+          this.appData.screenNames.forEach(sName1 => {
+            this.appData.screenNames.forEach(sName2 => {
+              if (sName1.id !== sName2.id && sName1.name === sName2.name) {
+                dupe = true
+                this.appData.screenNames[index].error = 'Must be unique.'
+              }
+            })
+          })
+          if (!dupe && validNames.length == this.appData.screenNames.length) {
+            this.appData.onboardingScreenNamesValid = true
+          } else {
+            this.appData.onboardingScreenNamesValid = false
+          }
+          this.updateObserver()
         } else {
           this.appData.screenNames[index].error = 'Must be > 3 characters.'
+          this.appData.onboardingScreenNamesValid = false
+          this.updateObserver()
         }
       }
       index++
@@ -67,17 +84,18 @@ export class ObScreenNamesComponent {
   }
 
   onChange(event: any, screenNameID: number) {
-    console.log(event.target.value)
     let newItem = this.gameNames.find(game => game.name===event.target.value)
-    var index = 0;
-    this.appData.screenNames.forEach(obj => {
-      if (screenNameID === obj.id) {
-        if (!obj.games.find(gameName => event.target.value === gameName.name)) {
-          this.appData.screenNames[index].games.push(newItem)
+    if (newItem) {
+      var index = 0;
+      this.appData.screenNames.forEach(obj => {
+        if (screenNameID === obj.id) {
+          if (!obj.games.find(gameName => event.target.value === gameName.name)) {
+            this.appData.screenNames[index].games.push(newItem)
+          }
         }
-      }
-      index++
-    })
+        index++
+      })
+    }
     this.updateObserver()
     event.target.value = ''
   }

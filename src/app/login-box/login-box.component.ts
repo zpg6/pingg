@@ -28,9 +28,7 @@ export class LoginBoxComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ LoginBoxComponent')
       }));
-      console.log('Subscription created @ LoginBoxComponent')
   }
   ngOnInit() {}
 
@@ -51,6 +49,5 @@ export class LoginBoxComponent implements OnInit, OnDestroy {
 
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
 }

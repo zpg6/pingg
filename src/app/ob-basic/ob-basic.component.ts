@@ -26,6 +26,8 @@ export class ObBasicComponent implements OnInit {
 
   appData: AppData;
 
+  seeded = false
+
   constructor(private observerService: ObserverService, private http: HttpClient) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
@@ -37,9 +39,12 @@ export class ObBasicComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    this.fn.nativeElement.value = this.appData.onboardingTempProfile.firstName
-    this.ln.nativeElement.value = this.appData.onboardingTempProfile.lastName
-    this.un.nativeElement.value = this.appData.onboardingTempProfile.handle
+    if (!this.seeded) {
+      this.seeded = true
+      this.fn.nativeElement.value = this.appData.onboardingTempProfile.firstName
+      this.ln.nativeElement.value = this.appData.onboardingTempProfile.lastName
+      this.un.nativeElement.value = this.appData.onboardingTempProfile.handle
+    }
   }
 
   fnChange(event: any) {
@@ -114,7 +119,6 @@ export class ObBasicComponent implements OnInit {
                 .toPromise()
                 .then(response => {
                   let result = response.response
-                  console.log(result)
                   if (result.includes('No')) {
                     this.unError = ''
                     this.unSuccess = result
@@ -140,16 +144,12 @@ export class ObBasicComponent implements OnInit {
 
   validateFields() {
     // let errorsDefined = this.fnError && this.lnError && this.unError
-    // if (errorsDefined) console.log('errorsDefined')
 
     let errorsEmpty = (this.fnError === '') && (this.lnError === '') && (this.unError === '')
-    if (errorsEmpty) console.log('errorsEmpty')
 
     let allTouched = this.fnTouched && this.lnTouched && this.unTouched
-    if (allTouched) console.log('allTouched')
 
     this.appData.onboardingBasicsValid = errorsEmpty && allTouched
-    console.log(this.appData.onboardingBasicsValid)
     this.observerService.sendMessage(this.appData)
   }
 }

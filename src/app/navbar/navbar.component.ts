@@ -31,26 +31,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(private observerService: ObserverService, private router: Router,
     private afAuth: AngularFireAuth, private gamesService: GamesService, private ar: ActivatedRoute) {
-      this.user = '' + this.randomIntFromInterval(1,100);
       this.subscriptionResults.add(this.gamesService.searchResults.asObservable().subscribe(games =>{
         this.searchResult = games;
       }))
       this.subscription.add(this.observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ NavbarComponent')
       }));
-      console.log('Subscription created @ NavbarComponent')
   }
   ngOnInit(){}
 
   ngAfterViewInit() {
     this.ar.url.subscribe(url => {
       if (url && url.length>0) {
-        console.log(url)
         var page = url[0].path.toString()
-        page = page[0].toUpperCase() + page.substring(1,page.length)
-        console.log(page)
-        this.title = page
+        if (page && page[0]) {
+          page = page[0].toUpperCase() + page.substring(1,page.length)
+          this.title = page
+        }
       }
     })
   }
@@ -74,7 +71,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   getUser() {
-    return this.user;
+    return this.appData.profile.avatarVal;
   }
 
   randomIntFromInterval(min: number, max: number) { // min and max included
@@ -93,7 +90,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   search() {
     if (this.searchBox.length > 0) {
-      console.log('searched for: ' + this.searchBox);
       this.searchBox = '';
     }  else {
       this.showSearchBox = false;
@@ -156,7 +152,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logSearchBox() {
-    console.log(this.searchBox);
   }
 
   showBar():boolean {

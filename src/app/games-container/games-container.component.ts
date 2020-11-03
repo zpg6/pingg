@@ -18,9 +18,7 @@ export class GamesContainerComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ GamesContainerComponent')
       }));
-      console.log('Subscription created @ GamesContainerComponent')
   }
 
   ngOnInit() {

@@ -36,9 +36,7 @@ export class GameCardListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.appDataSubscription.add(this.observerService.getMessage().subscribe(message => {
       this.appData = message;
-      console.log('Subscription updated @ GameCardListComponent')
     }));
-    console.log('Subscription created @ GameCardListComponent')
   }
 
   ngOnDestroy() {

@@ -36,16 +36,15 @@ export class AppComponent implements OnInit, OnDestroy {
       this.environment = environment;
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ AppComponent')
       }));
-      console.log('Subscription created @ AppComponent')
   }
 
   ngOnInit() {
     this.ar.url.subscribe(url => {
       var page = url[0].path.toString()
-      page = page[0].toUpperCase() + page.substring(1,page.length)
-      console.log(page)
+      if (page && page[0]) {
+        page = page[0].toUpperCase() + page.substring(1,page.length)
+      }
       this.title = page
     })
   }
@@ -59,34 +58,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
 
   options: AnimationOptions = {
     path: '/assets/lottie-files/greenCircleExpanding.json',
   };
-
-  pageFromString(page: string):NavbarPage {
-    if (page.toLowerCase() === 'feed' || page.length == 0) {
-      return NavbarPage.feed;
-    }
-    if (page.toLowerCase() === 'map') {
-      return NavbarPage.map;
-    }
-    if (page.toLowerCase() === 'games') {
-      return NavbarPage.games;
-    }
-    if (page.toLowerCase() === 'profile') {
-      return NavbarPage.profile;
-    }
-    if (page.toLowerCase() === 'search') {
-      return NavbarPage.search;
-    }
-    if (page.toLowerCase() === 'game') {
-      return NavbarPage.game;
-    }
-    return NavbarPage.feed;
-  }
 
 
 

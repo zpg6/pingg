@@ -20,9 +20,7 @@ export class FeedContainerComponent implements OnInit, OnDestroy {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ FeedContainerComponent')
       }));
-      console.log('Subscription created @ FeedContainerComponent')
   }
   ngOnInit() {
 

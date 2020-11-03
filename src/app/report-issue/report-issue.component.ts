@@ -16,17 +16,12 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
   appData: AppData;
   subscription = new Subscription();
   expanded = '';
-  afs: AngularFirestore;
 
-  constructor(private observerService: ObserverService,
-              private firestore: AngularFirestore, private http: HttpClient) {
+  constructor(private observerService: ObserverService, private http: HttpClient) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
-        console.log('Subscription updated @ ReportIssueComponent')
       }));
-      console.log('Subscription created @ ReportIssueComponent')
-      this.afs = firestore;
   }
 
   ngOnInit() {
@@ -50,7 +45,7 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
     // send report here
     var input = (<HTMLInputElement>document.getElementById("issuefield")).value;
     this.closeModal();
-    
+
     const now = new Date()
     let time = Math.round(now.getTime() / 1000)
     let body = {"userID": this.appData.profile.id, "time": time, "text": input}
@@ -58,7 +53,6 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
 
     this.http.post<any>(url, body).toPromise()
     .then(response => {
-      console.log(response)
     })
     .catch(err => {
       console.error(err)

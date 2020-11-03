@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ObserverService } from '../observer.service';
 
 @Component({
   selector: 'app-profile-container',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileContainerComponent implements OnInit {
 
-  rand;
+  user;
 
-  constructor() {
-    this.rand = Math.round(Math.random()*10000+Math.random()*100);
+  constructor(private observerService: ObserverService) {
+    this.observerService.getMessage().subscribe(msg => {
+      this.user = msg.profile
+    })
   }
 
   ngOnInit(): void {

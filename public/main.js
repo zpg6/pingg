@@ -144,20 +144,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar-page.enum */ "./src/app/navbar-page.enum.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./observer.service */ "./src/app/observer.service.ts");
-/* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./games.service */ "./src/app/games.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var ngx_lottie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-lottie */ "./node_modules/ngx-lottie/__ivy_ngcc__/fesm2015/ngx-lottie.js");
-/* harmony import */ var _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login-box/login-box.component */ "./src/app/login-box/login-box.component.ts");
-/* harmony import */ var _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./onboarding-modal/onboarding-modal.component */ "./src/app/onboarding-modal/onboarding-modal.component.ts");
-/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
-/* harmony import */ var _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./new-post-modal/new-post-modal.component */ "./src/app/new-post-modal/new-post-modal.component.ts");
-/* harmony import */ var _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./new-channel-modal/new-channel-modal.component */ "./src/app/new-channel-modal/new-channel-modal.component.ts");
-/* harmony import */ var _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./search-bar/search-bar.component */ "./src/app/search-bar/search-bar.component.ts");
-
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./games.service */ "./src/app/games.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var ngx_lottie__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-lottie */ "./node_modules/ngx-lottie/__ivy_ngcc__/fesm2015/ngx-lottie.js");
+/* harmony import */ var _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login-box/login-box.component */ "./src/app/login-box/login-box.component.ts");
+/* harmony import */ var _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./onboarding-modal/onboarding-modal.component */ "./src/app/onboarding-modal/onboarding-modal.component.ts");
+/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
+/* harmony import */ var _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./new-post-modal/new-post-modal.component */ "./src/app/new-post-modal/new-post-modal.component.ts");
+/* harmony import */ var _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./new-channel-modal/new-channel-modal.component */ "./src/app/new-channel-modal/new-channel-modal.component.ts");
+/* harmony import */ var _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./search-bar/search-bar.component */ "./src/app/search-bar/search-bar.component.ts");
 
 
 
@@ -253,18 +251,17 @@ class AppComponent {
             path: '/assets/lottie-files/greenCircleExpanding.json',
         };
         // subscribe to home component messages
-        this.environment = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"];
+        this.environment = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"];
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ AppComponent');
         }));
-        console.log('Subscription created @ AppComponent');
     }
     ngOnInit() {
         this.ar.url.subscribe(url => {
             var page = url[0].path.toString();
-            page = page[0].toUpperCase() + page.substring(1, page.length);
-            console.log(page);
+            if (page && page[0]) {
+                page = page[0].toUpperCase() + page.substring(1, page.length);
+            }
             this.title = page;
         });
     }
@@ -276,31 +273,9 @@ class AppComponent {
         this.observerService.sendMessage(this.appData);
     }
     animationCreated(animationItem) {
-        console.log(animationItem);
-    }
-    pageFromString(page) {
-        if (page.toLowerCase() === 'feed' || page.length == 0) {
-            return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].feed;
-        }
-        if (page.toLowerCase() === 'map') {
-            return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].map;
-        }
-        if (page.toLowerCase() === 'games') {
-            return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].games;
-        }
-        if (page.toLowerCase() === 'profile') {
-            return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].profile;
-        }
-        if (page.toLowerCase() === 'search') {
-            return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].search;
-        }
-        if (page.toLowerCase() === 'game') {
-            return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].game;
-        }
-        return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_2__["NavbarPage"].feed;
     }
 }
-AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_4__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_5__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"])); };
+AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"])); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 6, vars: 5, consts: [[1, "hero", "is-centered", "is-dark", "is-fullheight"], ["class", "modal is-active is-hidden-mobile", "style", "padding: 0px", 4, "ngIf"], ["class", "modal is-active is-hidden-desktop is-hidden-tablet", "style", "padding: 0px;", 4, "ngIf"], ["class", "modal is-active", "style", "margin: 10px;", 4, "ngIf"], ["class", "modal is-active", 4, "ngIf"], [4, "ngIf"], [1, "modal", "is-active", "is-hidden-mobile", 2, "padding", "0px"], ["width", "150vh", "height", "150vh", 3, "options", "animationCreated"], [1, "modal", "is-active", "is-hidden-desktop", "is-hidden-tablet", 2, "padding", "0px"], ["width", "200vw", "height", "200vw", 3, "options", "animationCreated"], [1, "modal", "is-active", 2, "margin", "10px"], [1, "modal", "is-active"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AppComponent_div_1_Template, 2, 1, "div", 1);
@@ -320,7 +295,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.appData.isAuthenticated && !ctx.appData.isOnboarded);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.appData == null ? null : ctx.appData.isAuthenticated);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], ngx_lottie__WEBPACK_IMPORTED_MODULE_8__["LottieComponent"], _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_9__["LoginBoxComponent"], _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_10__["OnboardingModalComponent"], _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_11__["ReportIssueComponent"], _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_12__["NewPostModalComponent"], _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_13__["NewChannelModalComponent"], _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_14__["SearchBarComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterOutlet"]], styles: [".content-bg[_ngcontent-%COMP%] {\n  background-color: #232324;\n}\n\n.content-fg[_ngcontent-%COMP%] {\n  background-color: #292929;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7O0dBS0c7O0FBRUg7RUFDRSx5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSx5QkFBeUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIC5jaXJjbGVzLWJnIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi9hc3NldHMvaW1hZ2VzL3BpbmdnQ2lyY2xlcy5wbmcnKTtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xufSAqL1xuXG4uY29udGVudC1iZyB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMzIzMjQ7XG59XG5cbi5jb250ZW50LWZnIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI5MjkyOTtcbn1cbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], ngx_lottie__WEBPACK_IMPORTED_MODULE_7__["LottieComponent"], _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__["LoginBoxComponent"], _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_9__["OnboardingModalComponent"], _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_10__["ReportIssueComponent"], _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_11__["NewPostModalComponent"], _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_12__["NewChannelModalComponent"], _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_13__["SearchBarComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterOutlet"]], styles: [".content-bg[_ngcontent-%COMP%] {\n  background-color: #232324;\n}\n\n.content-fg[_ngcontent-%COMP%] {\n  background-color: #292929;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7O0dBS0c7O0FBRUg7RUFDRSx5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSx5QkFBeUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIC5jaXJjbGVzLWJnIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi9hc3NldHMvaW1hZ2VzL3BpbmdnQ2lyY2xlcy5wbmcnKTtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xufSAqL1xuXG4uY29udGVudC1iZyB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMzIzMjQ7XG59XG5cbi5jb250ZW50LWZnIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI5MjkyOTtcbn1cbiJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -328,7 +303,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
                 templateUrl: './app.component.html',
                 styleUrls: ['./app.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_4__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_5__["GamesService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }]; }, null); })();
 
 
 /***/ }),
@@ -1072,9 +1047,7 @@ class FeedContainerComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ FeedContainerComponent');
         }));
-        console.log('Subscription created @ FeedContainerComponent');
     }
     ngOnInit() {
     }
@@ -1221,9 +1194,7 @@ class GameCardListComponent {
     ngOnInit() {
         this.appDataSubscription.add(this.observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ GameCardListComponent');
         }));
-        console.log('Subscription created @ GameCardListComponent');
     }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
@@ -1589,11 +1560,9 @@ class GameDetailComponent {
         document.body.appendChild(tag);
         this.ar.url.subscribe(url => {
             let id = url[url.length - 1];
-            console.log(id.path.toString());
             this.gamesService.getGame(id.path.toString()).then(game => {
                 this.game = game;
                 this.recommended = [];
-                console.log(this.game);
                 this.game.similarGames.forEach(similar => {
                     this.gamesService.getGame(similar).then(recGame => {
                         if (recGame) {
@@ -1716,9 +1685,7 @@ class GameSearchComponent {
         }));
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ ReportIssueComponent');
         }));
-        console.log('Subscription created @ ReportIssueComponent');
     }
     ngOnInit() {
     }
@@ -1846,9 +1813,7 @@ class GamesContainerComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ GamesContainerComponent');
         }));
-        console.log('Subscription created @ GamesContainerComponent');
     }
     ngOnInit() {
     }
@@ -2035,9 +2000,7 @@ class LoginBoxComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ LoginBoxComponent');
         }));
-        console.log('Subscription created @ LoginBoxComponent');
     }
     ngOnInit() { }
     ngOnDestroy() {
@@ -2054,7 +2017,6 @@ class LoginBoxComponent {
         }
     }
     animationCreated(animationItem) {
-        console.log(animationItem);
     }
 }
 LoginBoxComponent.ɵfac = function LoginBoxComponent_Factory(t) { return new (t || LoginBoxComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"])); };
@@ -2341,25 +2303,22 @@ class NavbarComponent {
         this.game = new _game__WEBPACK_IMPORTED_MODULE_4__["Game"]();
         this.showMenu = false;
         this.showSearchBox = false;
-        this.user = '' + this.randomIntFromInterval(1, 100);
         this.subscriptionResults.add(this.gamesService.searchResults.asObservable().subscribe(games => {
             this.searchResult = games;
         }));
         this.subscription.add(this.observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ NavbarComponent');
         }));
-        console.log('Subscription created @ NavbarComponent');
     }
     ngOnInit() { }
     ngAfterViewInit() {
         this.ar.url.subscribe(url => {
             if (url && url.length > 0) {
-                console.log(url);
                 var page = url[0].path.toString();
-                page = page[0].toUpperCase() + page.substring(1, page.length);
-                console.log(page);
-                this.title = page;
+                if (page && page[0]) {
+                    page = page[0].toUpperCase() + page.substring(1, page.length);
+                    this.title = page;
+                }
             }
         });
     }
@@ -2381,7 +2340,7 @@ class NavbarComponent {
         this.updateObserver();
     }
     getUser() {
-        return this.user;
+        return this.appData.profile.avatarVal;
     }
     randomIntFromInterval(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -2394,7 +2353,6 @@ class NavbarComponent {
     }
     search() {
         if (this.searchBox.length > 0) {
-            console.log('searched for: ' + this.searchBox);
             this.searchBox = '';
         }
         else {
@@ -2454,7 +2412,6 @@ class NavbarComponent {
         return _navbar_page_enum__WEBPACK_IMPORTED_MODULE_1__["NavbarPage"].feed;
     }
     logSearchBox() {
-        console.log(this.searchBox);
     }
     showBar() {
         return this.title !== 'Games';
@@ -2701,9 +2658,7 @@ class NewChannelModalComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ ReportIssueComponent');
         }));
-        console.log('Subscription created @ ReportIssueComponent');
     }
     ngOnInit() {
     }
@@ -2787,9 +2742,7 @@ class NewPostModalComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ ReportIssueComponent');
         }));
-        console.log('Subscription created @ ReportIssueComponent');
     }
     ngOnInit() {
     }
@@ -2876,6 +2829,7 @@ class ObBasicComponent {
         this.fnTouched = false;
         this.lnTouched = false;
         this.unTouched = false;
+        this.seeded = false;
         this.loading = false;
         this.observerService.getMessage().subscribe(msg => {
             this.appData = msg;
@@ -2884,9 +2838,12 @@ class ObBasicComponent {
     ngOnInit() {
     }
     ngAfterViewChecked() {
-        this.fn.nativeElement.value = this.appData.onboardingTempProfile.firstName;
-        this.ln.nativeElement.value = this.appData.onboardingTempProfile.lastName;
-        this.un.nativeElement.value = this.appData.onboardingTempProfile.handle;
+        if (!this.seeded) {
+            this.seeded = true;
+            this.fn.nativeElement.value = this.appData.onboardingTempProfile.firstName;
+            this.ln.nativeElement.value = this.appData.onboardingTempProfile.lastName;
+            this.un.nativeElement.value = this.appData.onboardingTempProfile.handle;
+        }
     }
     fnChange(event) {
         if (!this.fnTouched)
@@ -2947,7 +2904,6 @@ class ObBasicComponent {
                     .toPromise()
                     .then(response => {
                     let result = response.response;
-                    console.log(result);
                     if (result.includes('No')) {
                         this.unError = '';
                         this.unSuccess = result;
@@ -2972,15 +2928,9 @@ class ObBasicComponent {
     }
     validateFields() {
         // let errorsDefined = this.fnError && this.lnError && this.unError
-        // if (errorsDefined) console.log('errorsDefined')
         let errorsEmpty = (this.fnError === '') && (this.lnError === '') && (this.unError === '');
-        if (errorsEmpty)
-            console.log('errorsEmpty');
         let allTouched = this.fnTouched && this.lnTouched && this.unTouched;
-        if (allTouched)
-            console.log('allTouched');
         this.appData.onboardingBasicsValid = errorsEmpty && allTouched;
-        console.log(this.appData.onboardingBasicsValid);
         this.observerService.sendMessage(this.appData);
     }
 }
@@ -2994,14 +2944,14 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.fn = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.ln = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.un = _t.first);
-    } }, decls: 29, vars: 8, consts: [[1, "field"], [1, "label"], [1, "control"], ["type", "text", "placeholder", "John", "name", "fn", 1, "input", 3, "keyup"], ["fn", ""], [1, "help", "is-danger"], ["type", "text", "placeholder", "Smith", "name", "ln", 1, "input", 3, "keyup"], ["ln", ""], [1, "field", "has-addons"], ["type", "text", "placeholder", "daCaptain1530", "name", "un", 1, "input", 3, "keyup"], ["un", ""], [3, "disabled", "click"], [1, "help", "is-success"]], template: function ObBasicComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 29, vars: 8, consts: [[1, "field"], [1, "label"], [1, "control"], ["type", "text", "placeholder", "John", "name", "fn", 1, "input", 3, "focus", "focusout"], ["fn", ""], [1, "help", "is-danger"], ["type", "text", "placeholder", "Smith", "name", "ln", 1, "input", 3, "focus", "focusout"], ["ln", ""], [1, "field", "has-addons"], ["type", "text", "placeholder", "daCaptain1530", "name", "un", 1, "input", 3, "focus", "focusout"], ["un", ""], [3, "disabled", "click"], [1, "help", "is-success"]], template: function ObBasicComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "label", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "First Name");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 3, 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function ObBasicComponent_Template_input_keyup_4_listener($event) { return ctx.fnChange($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("focus", function ObBasicComponent_Template_input_focus_4_listener($event) { return ctx.fnChange($event); })("focusout", function ObBasicComponent_Template_input_focusout_4_listener($event) { return ctx.fnChange($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p", 5);
@@ -3014,7 +2964,7 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "input", 6, 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function ObBasicComponent_Template_input_keyup_12_listener($event) { return ctx.lnChange($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("focus", function ObBasicComponent_Template_input_focus_12_listener($event) { return ctx.lnChange($event); })("focusout", function ObBasicComponent_Template_input_focusout_12_listener($event) { return ctx.lnChange($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p", 5);
@@ -3027,7 +2977,7 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 9, 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function ObBasicComponent_Template_input_keyup_20_listener($event) { return ctx.unChange($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("focus", function ObBasicComponent_Template_input_focus_20_listener($event) { return ctx.unChange($event); })("focusout", function ObBasicComponent_Template_input_focusout_20_listener($event) { return ctx.unChange($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 2);
@@ -3113,7 +3063,7 @@ class ObCustomizeComponent {
     }
     onChange(event) {
         this.appData.avatarVal = event.target.value;
-        this.appData.onboardingTempProfile.avatarVal = event.target.value;
+        this.appData.onboardingTempProfile.avatarVal = event.target.value * this.appData.avatarSeed;
         this.updateObserver();
     }
     onToggle(event) {
@@ -3124,8 +3074,6 @@ class ObCustomizeComponent {
                 if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {
                     this.appData.onboardingTempProfile.latitude = pos.coords.latitude;
                     this.appData.onboardingTempProfile.longitude = pos.coords.longitude;
-                    console.log('✅');
-                    console.log(pos);
                     this.updateObserver();
                 }
             });
@@ -3326,7 +3274,6 @@ class ObScreenNamesComponent {
         this.gamesService.getNames();
         this.gamesService.gameNames.asObservable().subscribe(gameNames => {
             this.gameNames = gameNames;
-            console.log(gameNames.length);
         });
     }
     updateObserver() {
@@ -3334,6 +3281,7 @@ class ObScreenNamesComponent {
     }
     addNew() {
         //this.appData.profile.screenNames[]
+        this.appData.onboardingScreenNamesValid = false;
         this.appData.screenNames.push({ id: this.nextID, name: '', games: [], error: '' });
         this.updateObserver();
         this.nextID++;
@@ -3345,16 +3293,34 @@ class ObScreenNamesComponent {
         this.updateObserver();
     }
     unChange(event, screenNameID) {
-        console.log(event.target.value);
         var index = 0;
         this.appData.screenNames.forEach(obj => {
             if (screenNameID === obj.id) {
                 this.appData.screenNames[index].name = event.target.value;
                 if (event.target.value.length > 3) {
                     this.appData.screenNames[index].error = '';
+                    let validNames = this.appData.screenNames.filter(sName => sName.name.length > 3);
+                    var dupe = false;
+                    this.appData.screenNames.forEach(sName1 => {
+                        this.appData.screenNames.forEach(sName2 => {
+                            if (sName1.id !== sName2.id && sName1.name === sName2.name) {
+                                dupe = true;
+                                this.appData.screenNames[index].error = 'Must be unique.';
+                            }
+                        });
+                    });
+                    if (!dupe && validNames.length == this.appData.screenNames.length) {
+                        this.appData.onboardingScreenNamesValid = true;
+                    }
+                    else {
+                        this.appData.onboardingScreenNamesValid = false;
+                    }
+                    this.updateObserver();
                 }
                 else {
                     this.appData.screenNames[index].error = 'Must be > 3 characters.';
+                    this.appData.onboardingScreenNamesValid = false;
+                    this.updateObserver();
                 }
             }
             index++;
@@ -3362,17 +3328,18 @@ class ObScreenNamesComponent {
         this.updateObserver();
     }
     onChange(event, screenNameID) {
-        console.log(event.target.value);
         let newItem = this.gameNames.find(game => game.name === event.target.value);
-        var index = 0;
-        this.appData.screenNames.forEach(obj => {
-            if (screenNameID === obj.id) {
-                if (!obj.games.find(gameName => event.target.value === gameName.name)) {
-                    this.appData.screenNames[index].games.push(newItem);
+        if (newItem) {
+            var index = 0;
+            this.appData.screenNames.forEach(obj => {
+                if (screenNameID === obj.id) {
+                    if (!obj.games.find(gameName => event.target.value === gameName.name)) {
+                        this.appData.screenNames[index].games.push(newItem);
+                    }
                 }
-            }
-            index++;
-        });
+                index++;
+            });
+        }
         this.updateObserver();
         event.target.value = '';
     }
@@ -3533,11 +3500,9 @@ class OnboardingModalComponent {
             let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + this.appData.profile.id;
             var body = this.appData.onboardingTempProfile;
             body.screenNames = this.appData.screenNames.map(nameObj => JSON.stringify(nameObj));
-            console.log(body);
             this.http.post(url, body)
                 .toPromise()
                 .then(response => {
-                console.log(response.response);
                 this.appData.isOnboarded = true;
                 this.observerService.sendMessage(this.appData);
             })
@@ -3548,7 +3513,8 @@ class OnboardingModalComponent {
         this.observerService.sendMessage(this.appData);
     }
     rightButtonDisabled() {
-        return !this.appData.onboardingBasicsValid;
+        return (this.appData.onboardingPage == 0 && !this.appData.onboardingBasicsValid) ||
+            (this.appData.onboardingPage == 1 && !this.appData.onboardingScreenNamesValid);
     }
 }
 OnboardingModalComponent.ɵfac = function OnboardingModalComponent_Factory(t) { return new (t || OnboardingModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
@@ -4041,16 +4007,21 @@ PostCellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileContainerComponent", function() { return ProfileContainerComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+
 
 
 class ProfileContainerComponent {
-    constructor() {
-        this.rand = Math.round(Math.random() * 10000 + Math.random() * 100);
+    constructor(observerService) {
+        this.observerService = observerService;
+        this.observerService.getMessage().subscribe(msg => {
+            this.user = msg.profile;
+        });
     }
     ngOnInit() {
     }
 }
-ProfileContainerComponent.ɵfac = function ProfileContainerComponent_Factory(t) { return new (t || ProfileContainerComponent)(); };
+ProfileContainerComponent.ɵfac = function ProfileContainerComponent_Factory(t) { return new (t || ProfileContainerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"])); };
 ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProfileContainerComponent, selectors: [["app-profile-container"]], decls: 53, vars: 1, consts: [[1, "hero-head"], [1, "hero-body", "content-bg", 2, "padding", "0px"], [1, "dashboard", "is-full-height"], [1, "dashboard-main", "is-scrollable", "is-dark", 2, "max-width", "100%", "overflow-x", "hidden"], [2, "display", "inline-block"], [1, "section"], [1, "container", 2, "margin-bottom", "100px"], [1, "card", "post-card"], [1, "card-content", "is-dark"], [1, "media"], [1, "media-left"], [1, "image", "is-128x128"], [2, "border-radius", "50%", "margin-right", "2px", 3, "src"], [1, "media-content"], [1, "title", "is-2", "has-text-light"], [1, "subtitle", "is-4", "has-text-light"], [1, "subtitle", "is-6", "has-text-light", 2, "font-weight", "bolder"], ["datetime", "2016-1-1"], [1, "title", "is-3", "has-text-light"]], template: function ProfileContainerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-navbar");
@@ -4149,7 +4120,7 @@ ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "https://avatars.dicebear.com/api/bottts/", ctx.rand, ".svg", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "https://avatars.dicebear.com/api/bottts/", ctx.user.avatarVal, ".svg", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     } }, styles: [".post-card[_ngcontent-%COMP%] {\n  border-radius: 15px;\n  margin-bottom: 25px;\n  background-color: #363636;\n}\n\na[_ngcontent-%COMP%] {\n  color: #95EF72;\n}\n\n.content-bg[_ngcontent-%COMP%] {\n  background-color: #232324;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmlsZS1jb250YWluZXIvcHJvZmlsZS1jb250YWluZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIseUJBQXlCO0FBQzNCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQiIsImZpbGUiOiJzcmMvYXBwL3Byb2ZpbGUtY29udGFpbmVyL3Byb2ZpbGUtY29udGFpbmVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9zdC1jYXJkIHtcbiAgYm9yZGVyLXJhZGl1czogMTVweDtcbiAgbWFyZ2luLWJvdHRvbTogMjVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzM2MzYzNjtcbn1cblxuYSB7XG4gIGNvbG9yOiAjOTVFRjcyO1xufVxuXG4uY29udGVudC1iZyB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMzIzMjQ7XG59XG5cblxuIl19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ProfileContainerComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -4158,7 +4129,7 @@ ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
                 templateUrl: './profile-container.component.html',
                 styleUrls: ['./profile-container.component.css']
             }]
-    }], function () { return []; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }]; }, null); })();
 
 
 /***/ }),
@@ -4205,28 +4176,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
 
 
 
 
 class ReportIssueComponent {
-    constructor(observerService, firestore, http) {
+    constructor(observerService, http) {
         this.observerService = observerService;
-        this.firestore = firestore;
         this.http = http;
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.expanded = '';
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ ReportIssueComponent');
         }));
-        console.log('Subscription created @ ReportIssueComponent');
-        this.afs = firestore;
     }
     ngOnInit() {
     }
@@ -4251,14 +4216,13 @@ class ReportIssueComponent {
         let url = 'https://cs1530group11graph.uc.r.appspot.com/report-issue';
         this.http.post(url, body).toPromise()
             .then(response => {
-            console.log(response);
         })
             .catch(err => {
             console.error(err);
         });
     }
 }
-ReportIssueComponent.ɵfac = function ReportIssueComponent_Factory(t) { return new (t || ReportIssueComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); };
+ReportIssueComponent.ɵfac = function ReportIssueComponent_Factory(t) { return new (t || ReportIssueComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
 ReportIssueComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ReportIssueComponent, selectors: [["app-report-issue"]], decls: 14, vars: 0, consts: [[1, "modal-background", 3, "click"], [1, "modal-card", 2, "margin", "0px"], [1, "modal-card-head"], [1, "modal-card-title"], ["aria-label", "close", 1, "delete", 3, "click"], [1, "modal-card-body", "has-text-dark"], ["id", "issuefield", "name", "issuefield", "rows", "4", "cols", "50"], [1, "modal-card-foot"], [1, "button", "is-success", 3, "click"], [1, "button", 3, "click"]], template: function ReportIssueComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ReportIssueComponent_Template_div_click_0_listener() { return ctx.closeModal(); });
@@ -4296,7 +4260,7 @@ ReportIssueComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
                 templateUrl: './report-issue.component.html',
                 styleUrls: ['./report-issue.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }]; }, null); })();
 class Error {
     constructor() {
         this.text = "";
@@ -4403,9 +4367,7 @@ class SearchBarComponent {
         }));
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ ReportIssueComponent');
         }));
-        console.log('Subscription created @ ReportIssueComponent');
     }
     ngOnInit() {
     }
@@ -4580,15 +4542,12 @@ class SidebarComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ SidebarComponent');
         }));
-        console.log('Subscription created @ SidebarComponent');
     }
     ngOnInit() {
         this.ar.url.subscribe(url => {
             var page = url[0].path.toString();
             page = page[0].toUpperCase() + page.substring(1, page.length);
-            console.log(page);
             this.title = page;
         });
     }
@@ -4724,13 +4683,10 @@ class SignInButtonsComponent {
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
-            console.log('Subscription updated @ SignInButtonsComponent');
         }));
-        console.log('Subscription created @ SignInButtonsComponent');
     }
     ngOnInit() {
         this.afAuth.authState.subscribe(d => {
-            //console.log(d);
             if (d != null) {
                 this.appData.username = d.displayName;
                 this.appData.email = d.email;
@@ -4776,15 +4732,12 @@ class SignInButtonsComponent {
         }
     }
     successCallback(data) {
-        console.log('successCallback', data);
         this.appData.isAuthenticated = true;
         this.updateObserver();
     }
     errorCallback(data) {
-        console.warn('errorCallback', data);
     }
     uiShownCallback() {
-        console.log('firebase ui shown.');
         this.loading = false;
     }
 }
@@ -4877,7 +4830,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })
