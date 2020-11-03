@@ -1,4 +1,4 @@
-<div class="columns is-hidden-mobile is-vcentered">
+<div class="columns is-hidden-touch is-vcentered">
   <div class="column is-1 is-centered has-text-centered">
 
     <div class="subtitle is-4" style="font-weight: bolder;">
@@ -21,14 +21,14 @@
               <div class="media" style="border-top:none; margin-right: 2.5rem;">
                 <div class="media-left">
                   <figure class="image is-96x96">
-                    <img style="width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.rand}}.svg">
+                    <img style="width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.post?.user?.avatarVal}}.svg">
                   </figure>
                 </div>
                 <div class="media-content">
 
 
-                  <p class="title is-4">John Smith</p>
-                  <p class="subtitle is-6">@johnsmith</p>
+                  <p class="title is-4">{{this.post?.user?.firstName}} {{this.post?.user?.lastName}}</p>
+                  <p class="subtitle is-6">@{{this.post?.user?.handle}}</p>
 
                   <p class="heading">10 min ago</p>
 
@@ -44,8 +44,8 @@
 
             <div>
               <div class="media" style="border: none;">
-                <div class="media-left has-text-centered" routerLink="/games/{{game.id}}">
-                  <img style="max-height: 80px;" src="https://{{game.coverURL}}">
+                <div class="media-left has-text-centered" routerLink="/games/{{post?.game?.id}}">
+                  <img style="max-height: 80px;" src="https://{{post?.game?.coverURL}}">
                   <p class="subtitle has-text-light" style="font-weight: bolder;">
                     {{this.gameName()}}
                   </p>
@@ -54,6 +54,9 @@
 
 
                   <p class="body has-text-light" style="padding-right: 1.0rem;">
+                    Here is some text as the contents of this post. Here is some text as the contents of this post.
+                    Here is some text as the contents of this post. Here is some text as the contents of this post.
+                    Here is some text as the contents of this post. Here is some text as the contents of this post.
                     Here is some text as the contents of this post. Here is some text as the contents of this post.
                     Here is some text as the contents of this post. Here is some text as the contents of this post.
                     Here is some text as the contents of this post. Here is some text as the contents of this post.
@@ -80,8 +83,10 @@
   </div>
 </div>
 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-<div class="columns is-mobile is-vcentered is-hidden-desktop is-hidden-tablet">
+
+<div class="columns is-mobile is-vcentered is-hidden-desktop">
   <div class="column is-2 has-text-centered">
 
     <div class="subtitle is-4" style="font-weight: bolder;">
@@ -106,7 +111,7 @@
 
 
             <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@johnsmith</p>
+            <p class="subtitle is-6">@{{this.post?.user?.handle}}</p>
 
 
           </div>

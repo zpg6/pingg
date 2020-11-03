@@ -21,11 +21,23 @@
 
                   <nav class="level" style="padding: 0px 10px;">
                     <div class="level-left">
-                      <div class="level-item">
-                        <a class="button is-danger">New Post</a>
+                      <div class="media" style="border-top: none;">
+                        <div class="media-left">
+                          <img src="../../assets/images/pingg_logo.png" style="max-width: 100px;">
+                        </div>
+                        <div class="media-content">
+                          <p class="title">Main Feed</p>
+                          <!-- <p class="heading"></p> -->
+                        </div>
                       </div>
                     </div>
                     <div class="level-right">
+                      <div class="level-item is-hidden-mobile" style="margin-right: 2.0rem;">
+                        <a class="button is-danger">New Post</a>
+                      </div>
+                      <div class="level-item is-hidden-desktop is-hidden-tablet">
+                        <a class="button is-danger">New Post</a>
+                      </div>
                       <div class="level-item">
                         <div class="field has-addons">
                           <p class="control">
@@ -57,8 +69,8 @@
 
 
 
-            <div *ngFor="let number of nums">
-              <app-post-cell></app-post-cell>
+            <div *ngFor="let post of posts">
+              <app-post-cell [post]="post"></app-post-cell>
             </div>
 
 

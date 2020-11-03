@@ -3,6 +3,7 @@ import { NavbarPage } from '../navbar-page.enum'
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-feed-hero',
@@ -11,19 +12,32 @@ import { ObserverService } from '../observer.service';
 })
 export class FeedContainerComponent implements OnInit, OnDestroy {
 
+  example = 'Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post.'
+
   appData: AppData;
   subscription = new Subscription();
   title = 'Stock Manager';
-  nums:number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  posts: any[] = [];
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private gamesService: GamesService) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
       }));
   }
   ngOnInit() {
-
+    let games = this.gamesService.getSet('Most Rated')
+    var i = 0, max = games.length
+    for (i = 0; i<max; i++) {
+      let index = Math.round(Math.random()*max)
+      this.posts.push({
+        id: i,
+        user: this.appData.profile,
+        game: games[index],
+        text: this.example,
+        time: new Date(),
+      })
+    }
   }
 
   ngOnDestroy() {

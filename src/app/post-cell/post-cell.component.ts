@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GamesService } from '../games.service';
 
 @Component({
@@ -8,19 +8,19 @@ import { GamesService } from '../games.service';
 })
 export class PostCellComponent implements OnInit {
 
-  rand;
-  game;
+
+
   votes = 0;
   voted = false;
+  rand;
+  @Input('post') post;
 
-  constructor(private gamesService: GamesService) {
-    this.rand = Math.round(Math.random()*100+Math.random()*100);
-    let names = gamesService.getSet('Top Rated')
-    let index = Math.round(Math.random()*names.length)
-    this.game = names[index]
-   }
+  constructor() {
+    this.rand = Math.round(Math.random() * 1000)
+  }
 
   ngOnInit(): void {
+
   }
 
   vote() {
@@ -33,10 +33,12 @@ export class PostCellComponent implements OnInit {
   }
 
   gameName() {
-    if (this.game.name.length > 15) {
-      return this.game.name.slice(0,15) + '...'
-    } else {
-      return this.game.name
+    if (this.post?.game?.name) {
+      if (this.post?.game?.name.length > 15) {
+        return this.post?.game?.name.slice(0,15) + '...'
+      } else {
+        return this.post?.game?.name
+      }
     }
   }
 
