@@ -40,6 +40,11 @@ export class FeedContainerComponent implements OnInit, OnDestroy {
     }
   }
 
+  newPost() {
+    this.appData.newPostModalOpen = true
+    this.updateObserver()
+  }
+
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();

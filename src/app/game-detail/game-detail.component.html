@@ -63,23 +63,24 @@
                 </div>
               </div>
               <footer class="card-footer">
-                <a href="#" class="card-footer-item">
+                <a class="card-footer-item">
                   <span class="icon has-text-light is-medium">
                     <i class="fas fa-pencil-alt"></i>
                   </span>
                   New Post
                 </a>
-                <a href="#" class="card-footer-item">
+                <a class="card-footer-item" (click)="rateGame()">
                   <span class="icon has-text-light is-medium">
                     <i class="fas fa-star"></i>
                   </span>
                   Rate Game
                 </a>
-                <a href="#" class="card-footer-item">
+
+                <a class="card-footer-item {{this.isFollowedLocally == true ? 'is-active':''}}" (click)="changeFollow()">
                   <span class="icon has-text-light is-medium">
                     <i class="fas fa-rss"></i>
                   </span>
-                  Follow
+                  Follow{{this.isFollowedLocally && this.isFollowedLocally == true ? 'ing':''}}
                 </a>
               </footer>
             </div>

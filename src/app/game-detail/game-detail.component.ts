@@ -8,6 +8,7 @@ import { MiniGame } from '../mini-game';
 import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-game-detail',
@@ -18,10 +19,16 @@ export class GameDetailComponent implements OnInit {
 
   game: any;
   recommended: any[];
+  appData: AppData
 
-  constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute) {
+  followButtonCount = 0;
+  lastFollow: Date;
+
+  isFollowedLocally;
+
+  constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient) {
       // subscribe to home component messages
-
+    this.observerService.getMessage().subscribe(msg => this.appData = msg)
   }
 
   ngOnInit() {
@@ -33,6 +40,7 @@ export class GameDetailComponent implements OnInit {
       this.gamesService.getGame(id.path.toString()).then(game => {
         this.game = game
         this.recommended = []
+        this.doesFollow()
         this.game.similarGames.forEach(similar => {
           this.gamesService.getGame(similar).then(recGame => {
             if (recGame) {
@@ -42,5 +50,71 @@ export class GameDetailComponent implements OnInit {
         })
       })
     })
+  }
+
+  rateGame() {
+    this.appData.gameBeingRated = this.game
+    this.appData.rateGameModalOpen = true
+    this.observerService.sendMessage(this.appData)
+  }
+
+  doesFollow() {
+    let url = 'https://cs1530group11.uc.appspot.com/users/' + this.appData.profile.id + '/games-followed/'
+      let body = { gameID: this.game.id }
+      this.http.post<any>(url, body).toPromise()
+               .then(response => {
+                  console.log(response)
+                  if (response.response.properties) {
+                    if (response.response.properties.includes(this.game.id)) {
+                      this.isFollowedLocally = true
+                    }
+                  }
+               })
+               .catch(err => console.error(err))
+  }
+
+  changeFollow() {
+    let prev = this.isFollowedLocally
+    this.isFollowedLocally = !this.isFollowedLocally
+    if (prev) {
+      this.unFollowGame()
+    } else {
+      this.followGame()
+    }
+  }
+
+  followGame() {
+    let now = new Date().getSeconds()
+    let then = this.lastFollow.getSeconds()
+    let diff = now - then
+    if (!this.lastFollow || this.followButtonCount < 5 || diff > 2) {
+      if (diff > 2) {this.followButtonCount = 0}
+      this.followButtonCount++
+      this.lastFollow = new Date()
+      let url = 'https://cs1530group11.uc.appspot.com/users/' + this.appData.profile.id + '/followed-game/'
+      let body = { gameID: this.game.id }
+      this.http.post<any>(url, body).toPromise()
+               .then(response => {
+                  console.log(response)
+                  if (response.response == 'Success!') {
+                    //this.isFollowedLocally = true
+                  }
+               })
+               .catch(err => console.error(err))
+    }
+  }
+
+  unFollowGame() {
+
+    let url = 'https://cs1530group11.uc.appspot.com/users/' + this.appData.profile.id + '/unfollowed-game/'
+    let body = { gameID: this.game.id }
+    this.http.post<any>(url, body).toPromise()
+              .then(response => {
+                console.log(response)
+                if (response.response == 'Success!') {
+                  //this.isFollowedLocally = false
+                }
+              })
+              .catch(err => console.error(err))
   }
 }

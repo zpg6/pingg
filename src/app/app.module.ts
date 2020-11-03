@@ -54,7 +54,8 @@ import { ObCustomizeComponent } from './ob-customize/ob-customize.component';
 import { GameSearchComponent } from './game-search/game-search.component';
 import { PingService } from './ping.service';
 import { FooterCardComponent } from './footer-card/footer-card.component';
-import { UserCellComponent } from './user-cell/user-cell.component'
+import { UserCellComponent } from './user-cell/user-cell.component';
+import { RateGameModalComponent } from './rate-game-modal/rate-game-modal.component'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -135,6 +136,7 @@ export function playerFactory() {
     GameSearchComponent,
     FooterCardComponent,
     UserCellComponent,
+    RateGameModalComponent,
   ],
   providers: [
     ObserverService,

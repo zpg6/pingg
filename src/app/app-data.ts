@@ -11,7 +11,7 @@ export class AppData {
   reportingIssue: boolean = false;
   searchBarOpen: boolean = false;
   newPostModalOpen: boolean = false;
-  newChannelModalOpen: boolean = false;
+  rateGameModalOpen: boolean = false;
 
   username: String = null;
   email: String = null;
@@ -29,4 +29,6 @@ export class AppData {
   onboardingTempProfile = new Profile();
   position;
   profile: Profile = new Profile();
+
+  gameBeingRated;
 }

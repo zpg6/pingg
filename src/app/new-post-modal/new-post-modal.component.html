@@ -5,10 +5,43 @@
     <button class="delete" aria-label="close" (click)="closeModal()"></button>
   </header>
   <section class="modal-card-body has-text-dark">
-    New Post
+
+    <div *ngIf="!this.game">
+      <label class="label">Choose a Game</label>
+      <input list="gameList" (change)="onChange($event)" class="input" type="text" placeholder="start typing.." [disabled]="this.game">
+      <datalist id="gameList">
+        <option *ngFor="let name of gameNames" value="{{name.name}}">{{name.name}}</option>
+      </datalist>
+    </div>
+
+    <nav class="level" style="margin-top: 1.0rem;">
+      <div class="level-left">
+        <div class="level-item" *ngIf="game && game?.coverURL">
+          <img style="max-height: 96px;" src="https://{{game?.coverURL}}">
+        </div>
+        <div class="level-item">
+          <p class="subtitle has-text-dark" style="font-weight: bolder;">
+            {{game?.name}}
+          </p>
+        </div>
+
+      </div>
+      <div class="level-right">
+        <div class="level-item" *ngIf="this.game">
+          <button class="button is-small is-danger" (click)="removeGame()">
+            <span class="icon is-small">
+              <i class="fas fa-trash-alt"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <textarea class="textarea" placeholder="What's on your mind..." [disabled]="!this.game"></textarea>
+    <!-- <p class="help">Feel free to add a video link, we'll do our best to fetch a thumbnail!</p> -->
   </section>
   <footer class="modal-card-foot">
-    <button class="button is-success" (click)="addPost()">Add</button>
+    <button class="button is-success" (click)="addPost()" [disabled]="!this.game || !this.postText">Post</button>
     <button class="button" (click)="closeModal()">Cancel</button>
   </footer>
 </div>

@@ -9,5 +9,5 @@ export class Profile {
     screenNames: {} = {};
     latitude = 1;
     longitude = 1;
-    avatarVal;
+    avatarVal = 50;
 }

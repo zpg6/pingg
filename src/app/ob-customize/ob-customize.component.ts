@@ -24,6 +24,7 @@ export class ObCustomizeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.appData.onboardingTempProfile.avatarVal = 50 * this.appData.avatarSeed
   }
 
   imageKey() {

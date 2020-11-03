@@ -1,0 +1,48 @@
+<div class="modal-background" (click)="closeModal()"></div>
+<div class="modal-card" style="margin: 0px;">
+  <header class="modal-card-head">
+    <p class="modal-card-title">Rate {{getName()}}</p>
+    <button class="delete" aria-label="close" (click)="closeModal()"></button>
+  </header>
+  <section class="modal-card-body has-text-dark">
+
+
+    <nav class="level" style="margin-top: 1.0rem;">
+      <div class="level-left">
+        <div class="level-item" *ngIf="game && game?.coverURL">
+          <img style="max-height: 96px;" src="https://{{game?.coverURL}}">
+        </div>
+        <div class="level-item">
+          <p class="subtitle has-text-dark" style="font-weight: bolder; max-width: 200px;">
+            {{game?.name}}
+          </p>
+        </div>
+
+      </div>
+      <div class="level-right">
+        <div class="level-item" *ngIf="this.game">
+
+          <p class="subtitle is-6 has-text-dark" style="margin-bottom: 1.5rem; font-weight: bolder;">Current Rating</p>
+          <br>
+          <span class="tag is-warning is-medium">
+            <span class="icon is-medium">
+              <i class="fas fa-star"></i>
+            </span>
+            &nbsp;{{game?.rating| number:'1.2-2'}}
+          </span>
+
+        </div>
+      </div>
+    </nav>
+
+    <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Your Rating</p>
+    <input class="slider is-link" style="width: 100%;" step="0.001" min="0.000" max="100.000" value="{{appData.avatarVal}}" type="range" (change)="onChange($event)">
+
+
+
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-success">Save</button>
+    <button class="button" (click)="closeModal()">Cancel</button>
+  </footer>
+</div>
