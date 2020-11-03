@@ -4,6 +4,7 @@ import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
 import { Injectable} from '@angular/core'
 import { AngularFirestore } from '@angular/fire/firestore';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-report-issue',
@@ -18,7 +19,7 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
   afs: AngularFirestore;
 
   constructor(private observerService: ObserverService,
-              private firestore: AngularFirestore) {
+              private firestore: AngularFirestore, private http: HttpClient) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -50,17 +51,18 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
     var input = (<HTMLInputElement>document.getElementById("issuefield")).value;
     this.closeModal();
     
-    let error = new Error();
-    error.text = input;
-    error.userID = this.appData.uid;
+    const now = new Date()
+    let time = Math.round(now.getTime() / 1000)
+    let body = {"userID": this.appData.profile.id, "time": time, "text": input}
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/report-issue'
 
-    return new Promise<any>((resolve, reject) =>{
-      this.afs
-          .collection("Reports") // specify the collection
-          .doc(this.appData.uid.toString())// specify the document
-          .set(JSON.parse(JSON.stringify(error))) //set all data
-          .then(res => {}, err => reject(err));
-    });
+    this.http.post<any>(url, body).toPromise()
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.error(err)
+    })
   }
 }
 
