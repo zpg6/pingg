@@ -4728,7 +4728,6 @@ class SignInButtonsComponent {
         this.afAuth.authState.subscribe(d => {
             //console.log(d);
             if (d != null) {
-                this.appData.isAuthenticated = true;
                 this.appData.username = d.displayName;
                 this.appData.email = d.email;
                 this.appData.uid = d.uid;
@@ -4736,7 +4735,7 @@ class SignInButtonsComponent {
                 this.appData.onboardingTempProfile.id = d.uid;
                 let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid;
                 this.http.get(url).toPromise().then(profileObj => {
-                    var data = profileObj.properties;
+                    var data = profileObj.response.properties;
                     if (data) {
                         data.screenNames = data.screenNames.map(nameObj => {
                             return JSON.parse(nameObj);
@@ -4745,8 +4744,9 @@ class SignInButtonsComponent {
                         this.appData.isOnboarded = true;
                         this.updateObserver();
                     }
+                    this.appData.isAuthenticated = true;
+                    this.updateObserver();
                 });
-                this.updateObserver();
             }
             else {
                 this.appData.isAuthenticated = false;
