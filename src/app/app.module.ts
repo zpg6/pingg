@@ -52,6 +52,7 @@ import { ObBasicComponent } from './ob-basic/ob-basic.component';
 import { ObScreenNamesComponent } from './ob-screen-names/ob-screen-names.component';
 import { ObCustomizeComponent } from './ob-customize/ob-customize.component';
 import { GameSearchComponent } from './game-search/game-search.component';
+import { PingService } from './ping.service'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -97,7 +98,7 @@ export function playerFactory() {
     //AngularFireStorageModule,
     HttpClientModule,
     ScrollingModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
   ],
   declarations: [
     AppComponent,
@@ -135,6 +136,7 @@ export function playerFactory() {
     ObserverService,
     GamesService,
     AngularFireAuthGuard,
+    PingService,
     //{ provide: BUCKET, useValue: 'cs1530group11.appspot.com' }
   ],
   bootstrap: [AppComponent]

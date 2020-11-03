@@ -50,7 +50,7 @@ class AppData {
         this.isAuthenticated = false;
         this.isOnboarded = false;
         this.onboardingPage = 0;
-        this.onboardingBasicsValid = true;
+        this.onboardingBasicsValid = false;
         this.onboardingScreenNamesValid = true;
         this.screenNames = [];
         this.avatarVal = 50;
@@ -394,9 +394,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
 /* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
 /* harmony import */ var _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./game-search/game-search.component */ "./src/app/game-search/game-search.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
+/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./ping.service */ "./src/app/ping.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
 
 
 
@@ -459,6 +460,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const firebaseUiAuthConfig = {
     signInFlow: 'popup',
     signInOptions: [
@@ -496,6 +498,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"],
         _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"],
         _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthGuard"],
+        _ping_service__WEBPACK_IMPORTED_MODULE_48__["PingService"],
     ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
@@ -507,7 +510,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             //AngularFireStorageModule,
             _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
             _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["ScrollingModule"],
-            _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"]
+            _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
         _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
@@ -559,7 +562,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     //AngularFireStorageModule,
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
                     _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["ScrollingModule"],
-                    _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"]
+                    _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"],
                 ],
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
@@ -597,11 +600,12 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"],
                     _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"],
                     _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthGuard"],
+                    _ping_service__WEBPACK_IMPORTED_MODULE_48__["PingService"],
                 ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
             }]
     }], null, null); })();
-_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_48__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgComponentOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgTemplateOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgSwitchDefault"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgPlural"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["NgPluralCase"], _angular_router__WEBPACK_IMPORTED_MODULE_49__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_49__["RouterLink"], _angular_router__WEBPACK_IMPORTED_MODULE_49__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_49__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_49__["ɵangular_packages_router_router_l"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMap"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBaseLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBicyclingLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapCircle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapGroundOverlay"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapInfoWindow"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapKmlLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapMarker"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolygon"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolyline"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapRectangle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTrafficLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTransitLayer"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["BaseDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieComponent"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseuiAngularLibraryComponent"], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_50__["Dir"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkScrollable"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkFixedSizeVirtualScroll"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkVirtualForOf"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkVirtualScrollViewport"], _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayer"], _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_49__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgComponentOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgTemplateOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgSwitchDefault"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgPlural"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["NgPluralCase"], _angular_router__WEBPACK_IMPORTED_MODULE_50__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_50__["RouterLink"], _angular_router__WEBPACK_IMPORTED_MODULE_50__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_50__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_50__["ɵangular_packages_router_router_l"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMap"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBaseLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBicyclingLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapCircle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapGroundOverlay"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapInfoWindow"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapKmlLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapMarker"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolygon"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolyline"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapRectangle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTrafficLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTransitLayer"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["BaseDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieComponent"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseuiAngularLibraryComponent"], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_51__["Dir"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkScrollable"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkFixedSizeVirtualScroll"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkVirtualForOf"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkVirtualScrollViewport"], _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayer"], _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
     _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
     _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_5__["FeedContainerComponent"],
     _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__["LoginBoxComponent"],
@@ -630,7 +634,7 @@ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_con
     _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_44__["ObBasicComponent"],
     _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_45__["ObScreenNamesComponent"],
     _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_46__["ObCustomizeComponent"],
-    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__["GameSearchComponent"]], [_angular_common__WEBPACK_IMPORTED_MODULE_48__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["UpperCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["LowerCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["JsonPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["SlicePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["DecimalPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["PercentPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["I18nPluralPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["I18nSelectPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_48__["KeyValuePipe"]]);
+    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__["GameSearchComponent"]], [_angular_common__WEBPACK_IMPORTED_MODULE_49__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["UpperCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["LowerCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["JsonPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["SlicePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["DecimalPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["PercentPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["I18nPluralPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["I18nSelectPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_49__["KeyValuePipe"]]);
 
 
 /***/ }),
@@ -2857,6 +2861,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObBasicComponent", function() { return ObBasicComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
 
 
 
@@ -2864,11 +2870,13 @@ const _c0 = ["fn"];
 const _c1 = ["ln"];
 const _c2 = ["un"];
 class ObBasicComponent {
-    constructor(observerService) {
+    constructor(observerService, http) {
         this.observerService = observerService;
-        this.fnError = '';
-        this.lnError = '';
-        this.unError = '';
+        this.http = http;
+        this.fnTouched = false;
+        this.lnTouched = false;
+        this.unTouched = false;
+        this.loading = false;
         this.observerService.getMessage().subscribe(msg => {
             this.appData = msg;
         });
@@ -2881,68 +2889,102 @@ class ObBasicComponent {
         this.un.nativeElement.value = this.appData.onboardingTempProfile.handle;
     }
     fnChange(event) {
+        if (!this.fnTouched)
+            this.fnTouched = true;
         this.appData.onboardingTempProfile.firstName = event.target.value;
         this.validateFirstName();
     }
     lnChange(event) {
+        if (!this.lnTouched)
+            this.lnTouched = true;
         this.appData.onboardingTempProfile.lastName = event.target.value;
         this.validateLastName();
     }
     unChange(event) {
+        if (!this.unTouched)
+            this.unTouched = true;
         this.appData.onboardingTempProfile.handle = event.target.value;
-        this.validateUsername();
+        this.validateFields();
     }
     validateFirstName() {
-        // var issueFound = false
-        // if (this.appData.onboardingTempProfile.firstName.length == 0) {
-        //   issueFound = true
-        //   this.fnError = 'Please enter your first name.'
-        // }
-        // else if (false) {
-        //   // TODO: check for more issues with first name
-        // }
-        // else {
-        //   this.fnError = ''
-        //   this.validateFields()
-        // }
-        // return !issueFound
+        var issueFound = false;
+        if (this.appData.onboardingTempProfile.firstName.length == 0) {
+            issueFound = true;
+            this.fnError = 'Please enter your first name.';
+        }
+        else if (false) {}
+        else {
+            this.fnError = '';
+        }
+        this.validateFields();
+        return !issueFound;
     }
     validateLastName() {
-        // var issueFound = false
-        // if (this.appData.onboardingTempProfile.lastName.length == 0) {
-        //   issueFound = true
-        //   this.lnError = 'Please enter your last name.'
-        // }
-        // else if (false) {
-        //   // TODO: check for more issues with last name
-        // }
-        // else {
-        //   this.lnError = ''
-        //   this.validateFields()
-        // }
-        // return !issueFound
+        var issueFound = false;
+        if (this.appData.onboardingTempProfile.lastName.length == 0) {
+            issueFound = true;
+            this.lnError = 'Please enter your last name.';
+        }
+        else if (false) {}
+        else {
+            this.lnError = '';
+        }
+        this.validateFields();
+        return !issueFound;
     }
     validateUsername() {
-        // var issueFound = false
-        // if (this.appData.onboardingTempProfile.handle.length == 0) {
-        //   issueFound = true
-        //   this.unError = 'Please enter your last name.'
-        // }
-        // else if (false) {
-        //   // TODO: check for more issues with last name
-        // }
-        // else {
-        //   this.unError = ''
-        //   this.validateFields()
-        // }
-        // return !issueFound
+        this.loading = true;
+        return new Promise((resolve, reject) => {
+            if (this.appData.onboardingTempProfile.handle.length == 0) {
+                this.unError = 'Please enter your desired username.';
+                this.loading = false;
+                resolve(false);
+            }
+            else {
+                // TODO: check for more issues with username
+                let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + this.appData.onboardingTempProfile.handle;
+                this.http.get(url)
+                    .toPromise()
+                    .then(response => {
+                    let result = response.response;
+                    console.log(result);
+                    if (result.includes('No')) {
+                        this.unError = '';
+                        this.unSuccess = result;
+                        this.validateFields();
+                        this.loading = false;
+                        resolve(true);
+                    }
+                    else {
+                        this.unSuccess = '';
+                        this.unError = result;
+                        this.validateFields();
+                        this.loading = false;
+                        resolve(false);
+                    }
+                }).catch(err => {
+                    console.error(err);
+                    this.unError = err;
+                    this.loading = false;
+                });
+            }
+        });
     }
     validateFields() {
-        // this.appData.onboardingBasicsValid = this.validateFirstName() && this.validateLastName() && this.validateUsername()
-        // this.observerService.sendMessage(this.appData)
+        // let errorsDefined = this.fnError && this.lnError && this.unError
+        // if (errorsDefined) console.log('errorsDefined')
+        let errorsEmpty = (this.fnError === '') && (this.lnError === '') && (this.unError === '');
+        if (errorsEmpty)
+            console.log('errorsEmpty');
+        let allTouched = this.fnTouched && this.lnTouched && this.unTouched;
+        if (allTouched)
+            console.log('allTouched');
+        this.appData.onboardingBasicsValid = errorsEmpty && allTouched;
+        console.log(this.appData.onboardingBasicsValid);
+        this.observerService.sendMessage(this.appData);
     }
 }
-ObBasicComponent.ɵfac = function ObBasicComponent_Factory(t) { return new (t || ObBasicComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"])); };
+ObBasicComponent.ɵfac = function ObBasicComponent_Factory(t) { return new (t || ObBasicComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
 ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ObBasicComponent, selectors: [["app-ob-basic"]], viewQuery: function ObBasicComponent_Query(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c1, true);
@@ -2952,7 +2994,7 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.fn = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.ln = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.un = _t.first);
-    } }, decls: 24, vars: 3, consts: [[1, "field"], [1, "label"], [1, "control"], ["type", "text", "placeholder", "John", "name", "fn", 1, "input", 3, "keyup"], ["fn", ""], [1, "help", "is-danger"], ["type", "text", "placeholder", "Smith", "name", "ln", 1, "input", 3, "keyup"], ["ln", ""], ["type", "text", "placeholder", "daCaptain1530", "name", "un", 1, "input", 3, "keyup"], ["un", ""]], template: function ObBasicComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 29, vars: 8, consts: [[1, "field"], [1, "label"], [1, "control"], ["type", "text", "placeholder", "John", "name", "fn", 1, "input", 3, "keyup"], ["fn", ""], [1, "help", "is-danger"], ["type", "text", "placeholder", "Smith", "name", "ln", 1, "input", 3, "keyup"], ["ln", ""], [1, "field", "has-addons"], ["type", "text", "placeholder", "daCaptain1530", "name", "un", 1, "input", 3, "keyup"], ["un", ""], [3, "disabled", "click"], [1, "help", "is-success"]], template: function ObBasicComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "label", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "First Name");
@@ -2979,18 +3021,27 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "label", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Choose a Username");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "label", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Choose a Username");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 8, 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 9, 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function ObBasicComponent_Template_input_keyup_20_listener($event) { return ctx.unChange($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "button", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ObBasicComponent_Template_button_click_23_listener() { return ctx.validateUsername(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, " Verify ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "p", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "p", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
@@ -2998,7 +3049,12 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.lnError);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMapInterpolate1"]("button is-link ", ctx.loading ? "is-loading" : "", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.loading);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.unError);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.unSuccess);
     } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29iLWJhc2ljL29iLWJhc2ljLmNvbXBvbmVudC5jc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ObBasicComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -3007,7 +3063,7 @@ ObBasicComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
                 templateUrl: './ob-basic.component.html',
                 styleUrls: ['./ob-basic.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }]; }, { fn: [{
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, { fn: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
             args: ['fn']
         }], ln: [{
@@ -3033,12 +3089,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObCustomizeComponent", function() { return ObCustomizeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _ng_web_apis_geolocation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-web-apis/geolocation */ "./node_modules/@ng-web-apis/geolocation/__ivy_ngcc__/fesm2015/ng-web-apis-geolocation.js");
+
 
 
 
 class ObCustomizeComponent {
-    constructor(observerService) {
+    constructor(observerService, geolocationService) {
         this.observerService = observerService;
+        this.geolocationService = geolocationService;
         this.locationAttempted = false;
         observerService.getMessage().subscribe(msg => {
             this.appData = msg;
@@ -3054,18 +3113,28 @@ class ObCustomizeComponent {
     }
     onChange(event) {
         this.appData.avatarVal = event.target.value;
+        this.appData.onboardingTempProfile.avatarVal = event.target.value;
         this.updateObserver();
     }
     onToggle(event) {
         this.appData.locationEnabled = !this.appData.locationEnabled;
         if (!this.locationAttempted && this.appData.locationEnabled) {
             // geolocation
+            this.geolocationService.subscribe(pos => {
+                if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {
+                    this.appData.onboardingTempProfile.latitude = pos.coords.latitude;
+                    this.appData.onboardingTempProfile.longitude = pos.coords.longitude;
+                    console.log('✅');
+                    console.log(pos);
+                    this.updateObserver();
+                }
+            });
             this.locationAttempted = true;
         }
         this.updateObserver();
     }
 }
-ObCustomizeComponent.ɵfac = function ObCustomizeComponent_Factory(t) { return new (t || ObCustomizeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"])); };
+ObCustomizeComponent.ɵfac = function ObCustomizeComponent_Factory(t) { return new (t || ObCustomizeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ng_web_apis_geolocation__WEBPACK_IMPORTED_MODULE_2__["GeolocationService"])); };
 ObCustomizeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ObCustomizeComponent, selectors: [["app-ob-customize"]], decls: 17, vars: 3, consts: [[1, "columns", "is-centered", "is-vcentered"], [1, "column", "is-centered", "has-text-centered"], [1, ""], [2, "max-width", "150px", "border-radius", "50%", "margin-right", "2px", 3, "src"], [1, "column", "is-two-thirds"], [1, "subtitle", "is-6", "has-text-dark", 2, "margin-bottom", "0.5rem", "font-weight", "bolder"], ["step", "1", "min", "0", "max", "1000", "type", "range", 1, "slider", "is-link", 2, "width", "100%", 3, "value", "change"], [1, "column", "is-centered", "has-text-centered", "is-two-thirds"], [1, "ckbx-style-8"], ["type", "checkbox", "id", "ckbx-style-8-1", "value", "0", "name", "ckbx-style-8", 3, "checked", "change"], ["for", "ckbx-style-8-1"]], template: function ObCustomizeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
@@ -3113,7 +3182,7 @@ ObCustomizeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
                 templateUrl: './ob-customize.component.html',
                 styleUrls: ['./ob-customize.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }, { type: _ng_web_apis_geolocation__WEBPACK_IMPORTED_MODULE_2__["GeolocationService"] }]; }, null); })();
 
 
 /***/ }),
@@ -3131,7 +3200,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
 /* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../games.service */ "./src/app/games.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ping.service */ "./src/app/ping.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
 
 
 
@@ -3238,13 +3309,19 @@ function ObScreenNamesComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.appData.screenNames);
 } }
 class ObScreenNamesComponent {
-    constructor(observerService, gamesService) {
+    constructor(observerService, gamesService, ping) {
         this.observerService = observerService;
         this.gamesService = gamesService;
+        this.ping = ping;
         this.gameNames = [];
         this.nextID = 0;
         this.observerService.getMessage().subscribe(msg => {
             this.appData = msg;
+        });
+        this.ping.pingStream.subscribe(pingVal => {
+            if (this.appData) {
+                this.appData.onboardingTempProfile.ping = pingVal;
+            }
         });
         this.gamesService.getNames();
         this.gamesService.gameNames.asObservable().subscribe(gameNames => {
@@ -3312,7 +3389,7 @@ class ObScreenNamesComponent {
         this.updateObserver();
     }
 }
-ObScreenNamesComponent.ɵfac = function ObScreenNamesComponent_Factory(t) { return new (t || ObScreenNamesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_2__["GamesService"])); };
+ObScreenNamesComponent.ɵfac = function ObScreenNamesComponent_Factory(t) { return new (t || ObScreenNamesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_2__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ping_service__WEBPACK_IMPORTED_MODULE_3__["PingService"])); };
 ObScreenNamesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ObScreenNamesComponent, selectors: [["app-ob-screen-names"]], decls: 4, vars: 1, consts: [["class", "has-text-centered", 4, "ngIf"], [1, "has-text-centered"], [1, "button", "is-link", 3, "click"], [4, "ngFor", "ngForOf"], [1, "columns", "is-centered", "is-vcentered"], [1, "column", "is-2"], [1, "button", "is-danger", 2, "margin-top", "1.5rem", 3, "click"], [1, "icon", "is-medium"], [1, "fas", "fa-trash-alt"], [1, "column", "is-5"], [1, "field"], [1, "label"], [1, "control"], ["type", "text", "placeholder", "username", 1, "input", 3, "value", "name", "keyup"], ["un", ""], ["list", "gameList", "type", "text", "placeholder", "start typing..", 1, "input", 3, "change"], ["id", "gameList"], [3, "value", 4, "ngFor", "ngForOf"], [1, "help", "is-danger"], ["class", "field is-grouped is-grouped-multiline", 4, "ngIf"], [3, "value"], [1, "field", "is-grouped", "is-grouped-multiline"], ["class", "control", 4, "ngFor", "ngForOf"], [1, "tags", "has-addons"], [1, "tag", "is-info"], [1, "tag", "is-delete", 3, "click"]], template: function ObScreenNamesComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ObScreenNamesComponent_div_0_Template, 2, 1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
@@ -3323,7 +3400,7 @@ ObScreenNamesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.appData.screenNames.length != 0);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29iLXNjcmVlbi1uYW1lcy9vYi1zY3JlZW4tbmFtZXMuY29tcG9uZW50LmNzcyJ9 */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29iLXNjcmVlbi1uYW1lcy9vYi1zY3JlZW4tbmFtZXMuY29tcG9uZW50LmNzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ObScreenNamesComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -3331,7 +3408,7 @@ ObScreenNamesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
                 templateUrl: './ob-screen-names.component.html',
                 styleUrls: ['./ob-screen-names.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_2__["GamesService"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_2__["GamesService"] }, { type: _ping_service__WEBPACK_IMPORTED_MODULE_3__["PingService"] }]; }, null); })();
 
 
 /***/ }),
@@ -3392,11 +3469,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnboardingModalComponent", function() { return OnboardingModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
-/* harmony import */ var _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../onboarding-steps/onboarding-steps.component */ "./src/app/onboarding-steps/onboarding-steps.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ob-basic/ob-basic.component */ "./src/app/ob-basic/ob-basic.component.ts");
-/* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
-/* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../onboarding-steps/onboarding-steps.component */ "./src/app/onboarding-steps/onboarding-steps.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ob-basic/ob-basic.component */ "./src/app/ob-basic/ob-basic.component.ts");
+/* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
+/* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
+
 
 
 
@@ -3421,8 +3500,9 @@ function OnboardingModalComponent_div_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 class OnboardingModalComponent {
-    constructor(observerService) {
+    constructor(observerService, http) {
         this.observerService = observerService;
+        this.http = http;
         this.firstPage = 0;
         this.lastPage = 2;
         this.observerService.getMessage().subscribe(msg => {
@@ -3450,8 +3530,20 @@ class OnboardingModalComponent {
             this.appData.onboardingPage++;
         }
         else {
-            // submit the user
-            this.appData.isOnboarded = true;
+            let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + this.appData.profile.id;
+            var body = this.appData.onboardingTempProfile;
+            body.screenNames = this.appData.screenNames.map(nameObj => JSON.stringify(nameObj));
+            console.log(body);
+            this.http.post(url, body)
+                .toPromise()
+                .then(response => {
+                console.log(response.response);
+                this.appData.isOnboarded = true;
+                this.observerService.sendMessage(this.appData);
+            })
+                .catch(err => {
+                console.error(err);
+            });
         }
         this.observerService.sendMessage(this.appData);
     }
@@ -3459,7 +3551,7 @@ class OnboardingModalComponent {
         return !this.appData.onboardingBasicsValid;
     }
 }
-OnboardingModalComponent.ɵfac = function OnboardingModalComponent_Factory(t) { return new (t || OnboardingModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"])); };
+OnboardingModalComponent.ɵfac = function OnboardingModalComponent_Factory(t) { return new (t || OnboardingModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
 OnboardingModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: OnboardingModalComponent, selectors: [["app-onboarding-modal"]], decls: 15, vars: 7, consts: [[1, "modal-background"], [1, "modal-card", 2, "margin", "0px"], [1, "modal-card-head"], [1, "modal-card-title"], [1, "modal-card-body", "has-text-dark"], ["style", "margin-top: 2.0rem;", 4, "ngIf"], [1, "modal-card-foot"], [1, "button", 3, "disabled", "click"], [1, "button", "is-success", 3, "disabled", "click"], [2, "margin-top", "2.0rem"]], template: function OnboardingModalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
@@ -3500,7 +3592,7 @@ OnboardingModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.rightButtonDisabled());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.rightButtonText());
-    } }, directives: [_onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_2__["OnboardingStepsComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_4__["ObBasicComponent"], _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_5__["ObScreenNamesComponent"], _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_6__["ObCustomizeComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29uYm9hcmRpbmctbW9kYWwvb25ib2FyZGluZy1tb2RhbC5jb21wb25lbnQuY3NzIn0= */"] });
+    } }, directives: [_onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_3__["OnboardingStepsComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_5__["ObBasicComponent"], _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_6__["ObScreenNamesComponent"], _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_7__["ObCustomizeComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29uYm9hcmRpbmctbW9kYWwvb25ib2FyZGluZy1tb2RhbC5jb21wb25lbnQuY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OnboardingModalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -3508,7 +3600,7 @@ OnboardingModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
                 templateUrl: './onboarding-modal.component.html',
                 styleUrls: ['./onboarding-modal.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -3603,6 +3695,51 @@ OnboardingStepsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
                 styleUrls: ['./onboarding-steps.component.css']
             }]
     }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }]; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/ping.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/ping.service.ts ***!
+  \*********************************/
+/*! exports provided: PingService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PingService", function() { return PingService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+
+
+
+class PingService {
+    constructor(http) {
+        this.http = http;
+        this.pingStream = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.ping = 0;
+        this.url = "https://cors-test.appspot.com/test";
+        let timeStart = performance.now();
+        this.http.get(this.url)
+            .subscribe((data) => {
+            let timeEnd = performance.now();
+            let ping = timeEnd - timeStart;
+            this.ping = ping;
+            this.pingStream.next(ping);
+        });
+    }
+}
+PingService.ɵfac = function PingService_Factory(t) { return new (t || PingService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+PingService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: PingService, factory: PingService.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PingService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -4039,13 +4176,15 @@ __webpack_require__.r(__webpack_exports__);
 class Profile {
     constructor() {
         this.id = "";
-        this.currentPing = 0;
+        this.ping = 1;
         this.city = "";
         this.state = "";
         this.firstName = "";
         this.lastName = "";
         this.handle = "";
         this.screenNames = {};
+        this.latitude = 1;
+        this.longitude = 1;
     }
 }
 
@@ -4555,7 +4694,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
 
@@ -4572,10 +4711,10 @@ function SignInButtonsComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 class SignInButtonsComponent {
-    constructor(observerService, afAuth, firestore) {
+    constructor(observerService, afAuth, http) {
         this.observerService = observerService;
         this.afAuth = afAuth;
-        this.firestore = firestore;
+        this.http = http;
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.loading = true;
         // subscribe to home component messages
@@ -4593,24 +4732,18 @@ class SignInButtonsComponent {
                 this.appData.username = d.displayName;
                 this.appData.email = d.email;
                 this.appData.uid = d.uid;
-                this.firestore.collection('UserList').doc('d.uid').get().toPromise().then(document => {
-                    let data = document.data();
+                this.appData.profile.id = d.uid;
+                this.appData.onboardingTempProfile.id = d.uid;
+                let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid;
+                this.http.get(url).toPromise().then(profileObj => {
+                    var data = profileObj.properties;
                     if (data) {
-                        this.appData.profile.city = data["city"];
-                        this.appData.profile.state = data["state"];
-                        this.appData.profile.currentPing = data["currentPing"];
-                        this.appData.profile.id = d.uid;
-                        this.appData.profile.screenNames = data["screenNames"];
-                        this.appData.profile.firstName = data["firstName"];
-                        this.appData.profile.lastName = data["lastName"];
-                        this.appData.profile.handle = data["handle"];
-                    }
-                    else {
-                        //TODO ask the user to enter screennames and game it's for, handle for our site, first name, and last name for their profile. Send it to firestore and update this.appData.profile. Then use APIs to get city, state, and ping
-                        // modal opens
-                        // user types
-                        // account created
-                        // user proceeds
+                        data.screenNames = data.screenNames.map(nameObj => {
+                            return JSON.parse(nameObj);
+                        });
+                        this.appData.profile = data;
+                        this.appData.isOnboarded = true;
+                        this.updateObserver();
                     }
                 });
                 this.updateObserver();
@@ -4651,7 +4784,7 @@ class SignInButtonsComponent {
         this.loading = false;
     }
 }
-SignInButtonsComponent.ɵfac = function SignInButtonsComponent_Factory(t) { return new (t || SignInButtonsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"])); };
+SignInButtonsComponent.ɵfac = function SignInButtonsComponent_Factory(t) { return new (t || SignInButtonsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); };
 SignInButtonsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SignInButtonsComponent, selectors: [["app-sign-in-buttons"]], decls: 5, vars: 1, consts: [[4, "ngIf"], [3, "signInSuccessWithAuthResult", "signInFailure", "uiShown"], [1, "button", "is-small", "is-danger", "is-outlined", "is-inverted", 2, "margin-right", "15px", 3, "click"], [1, "button", "is-large", "is-text", "is-loading"]], template: function SignInButtonsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, SignInButtonsComponent_div_0_Template, 2, 0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "firebase-ui", 1);
@@ -4672,7 +4805,7 @@ SignInButtonsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
                 templateUrl: './sign-in-buttons.component.html',
                 styleUrls: ['./sign-in-buttons.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }, { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),

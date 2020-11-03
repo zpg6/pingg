@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppData } from '../app-data';
 import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
+import { PingService } from '../ping.service';
 
 @Component({
   selector: 'app-ob-screen-names',
@@ -14,9 +15,14 @@ export class ObScreenNamesComponent {
   gameNames = []
   nextID = 0
 
-  constructor(private observerService: ObserverService, private gamesService: GamesService) {
+  constructor(private observerService: ObserverService, private gamesService: GamesService, private ping: PingService) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
+    })
+    this.ping.pingStream.subscribe(pingVal => {
+      if (this.appData) {
+        this.appData.onboardingTempProfile.ping = pingVal
+      }
     })
     this.gamesService.getNames()
     this.gamesService.gameNames.asObservable().subscribe(gameNames => {

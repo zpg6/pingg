@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppData } from '../app-data';
 import { GamesService } from '../games.service';
@@ -14,13 +15,18 @@ export class ObBasicComponent implements OnInit {
   @ViewChild('ln') ln: ElementRef
   @ViewChild('un') un: ElementRef
 
-  fnError = ''
-  lnError = ''
-  unError = ''
+  fnError
+  lnError
+  unError
+  unSuccess
+
+  fnTouched = false;
+  lnTouched = false;
+  unTouched = false;
 
   appData: AppData;
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private http: HttpClient) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
     })
@@ -37,79 +43,113 @@ export class ObBasicComponent implements OnInit {
   }
 
   fnChange(event: any) {
+    if (!this.fnTouched) this.fnTouched = true
     this.appData.onboardingTempProfile.firstName = event.target.value
     this.validateFirstName()
   }
 
   lnChange(event: any) {
+    if (!this.lnTouched) this.lnTouched = true
     this.appData.onboardingTempProfile.lastName = event.target.value
-
     this.validateLastName()
   }
 
   unChange(event: any) {
+    if (!this.unTouched) this.unTouched = true
     this.appData.onboardingTempProfile.handle = event.target.value
-
-    this.validateUsername()
+    this.validateFields()
   }
 
   validateFirstName() {
-    // var issueFound = false
+    var issueFound = false
 
-    // if (this.appData.onboardingTempProfile.firstName.length == 0) {
-    //   issueFound = true
-    //   this.fnError = 'Please enter your first name.'
-    // }
-    // else if (false) {
-    //   // TODO: check for more issues with first name
-    // }
-    // else {
-    //   this.fnError = ''
-    //   this.validateFields()
-    // }
+    if (this.appData.onboardingTempProfile.firstName.length == 0) {
+      issueFound = true
+      this.fnError = 'Please enter your first name.'
+    }
+    else if (false) {
+      // TODO: check for more issues with first name
+    }
+    else {
+      this.fnError = ''
+    }
+    this.validateFields()
 
-    // return !issueFound
+    return !issueFound
   }
 
   validateLastName() {
-    // var issueFound = false
+    var issueFound = false
 
-    // if (this.appData.onboardingTempProfile.lastName.length == 0) {
-    //   issueFound = true
-    //   this.lnError = 'Please enter your last name.'
-    // }
-    // else if (false) {
-    //   // TODO: check for more issues with last name
-    // }
-    // else {
-    //   this.lnError = ''
-    //   this.validateFields()
-    // }
+    if (this.appData.onboardingTempProfile.lastName.length == 0) {
+      issueFound = true
+      this.lnError = 'Please enter your last name.'
+    }
+    else if (false) {
+      // TODO: check for more issues with last name
+    }
+    else {
+      this.lnError = ''
+    }
+    this.validateFields()
 
-    // return !issueFound
+    return !issueFound
   }
 
-  validateUsername() {
-    // var issueFound = false
+  loading = false
 
-    // if (this.appData.onboardingTempProfile.handle.length == 0) {
-    //   issueFound = true
-    //   this.unError = 'Please enter your last name.'
-    // }
-    // else if (false) {
-    //   // TODO: check for more issues with last name
-    // }
-    // else {
-    //   this.unError = ''
-    //   this.validateFields()
-    // }
+  validateUsername(): Promise<boolean> {
+    this.loading = true
+    return new Promise<boolean>( (resolve,reject) => {
 
-    // return !issueFound
+      if (this.appData.onboardingTempProfile.handle.length == 0) {
+        this.unError = 'Please enter your desired username.'
+        this.loading = false
+        resolve(false)
+      }
+      else {
+        // TODO: check for more issues with username
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + this.appData.onboardingTempProfile.handle
+        this.http.get<any>(url)
+                .toPromise()
+                .then(response => {
+                  let result = response.response
+                  console.log(result)
+                  if (result.includes('No')) {
+                    this.unError = ''
+                    this.unSuccess = result
+                    this.validateFields()
+                    this.loading = false
+                    resolve(true)
+                  } else {
+                    this.unSuccess = ''
+                    this.unError = result
+                    this.validateFields()
+                    this.loading = false
+                    resolve(false)
+                  }
+                }).catch(err => {
+                  console.error(err)
+                  this.unError = err
+                  this.loading = false
+                })
+      }
+    })
   }
 
 
   validateFields() {
-    // this.appData.onboardingBasicsValid = this.validateFirstName() && this.validateLastName() && this.validateUsername()
-    // this.observerService.sendMessage(this.appData)
+    // let errorsDefined = this.fnError && this.lnError && this.unError
+    // if (errorsDefined) console.log('errorsDefined')
+
+    let errorsEmpty = (this.fnError === '') && (this.lnError === '') && (this.unError === '')
+    if (errorsEmpty) console.log('errorsEmpty')
+
+    let allTouched = this.fnTouched && this.lnTouched && this.unTouched
+    if (allTouched) console.log('allTouched')
+
+    this.appData.onboardingBasicsValid = errorsEmpty && allTouched
+    console.log(this.appData.onboardingBasicsValid)
+    this.observerService.sendMessage(this.appData)
   }
 }

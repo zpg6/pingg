@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
+import {GeolocationService} from '@ng-web-apis/geolocation';
 
 @Component({
   selector: 'app-ob-customize',
@@ -12,7 +13,7 @@ export class ObCustomizeComponent implements OnInit {
   locationAttempted = false;
   appData: AppData;
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private geolocationService: GeolocationService) {
     observerService.getMessage().subscribe(msg => {
       this.appData = msg
     })
@@ -31,6 +32,7 @@ export class ObCustomizeComponent implements OnInit {
 
   onChange(event: any) {
     this.appData.avatarVal = event.target.value;
+    this.appData.onboardingTempProfile.avatarVal = event.target.value;
     this.updateObserver()
   }
 
@@ -38,6 +40,15 @@ export class ObCustomizeComponent implements OnInit {
     this.appData.locationEnabled = !this.appData.locationEnabled
     if (!this.locationAttempted && this.appData.locationEnabled) {
       // geolocation
+      this.geolocationService.subscribe(pos => {
+        if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {
+          this.appData.onboardingTempProfile.latitude = pos.coords.latitude
+          this.appData.onboardingTempProfile.longitude = pos.coords.longitude
+          console.log('✅')
+          console.log(pos)
+          this.updateObserver()
+        }
+      })
       this.locationAttempted = true
     }
     this.updateObserver()

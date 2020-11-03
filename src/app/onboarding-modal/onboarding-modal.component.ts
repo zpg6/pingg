@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
@@ -13,7 +14,7 @@ export class OnboardingModalComponent implements OnInit {
   lastPage = 2
   appData: AppData
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private http: HttpClient) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
     })
@@ -44,8 +45,20 @@ export class OnboardingModalComponent implements OnInit {
       this.appData.onboardingPage++
     }
     else {
-      // submit the user
-      this.appData.isOnboarded = true;
+      let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + this.appData.profile.id
+      var body = this.appData.onboardingTempProfile
+      body.screenNames = this.appData.screenNames.map(nameObj => JSON.stringify(nameObj))
+      console.log(body)
+      this.http.post<any>(url, body)
+               .toPromise()
+               .then(response => {
+                 console.log(response.response)
+                 this.appData.isOnboarded = true
+                 this.observerService.sendMessage(this.appData)
+               })
+               .catch(err => {
+                 console.error(err)
+               })
     }
     this.observerService.sendMessage(this.appData)
   }

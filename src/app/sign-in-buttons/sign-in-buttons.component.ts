@@ -2,9 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppData } from '../app-data';
 import { Subscription } from 'rxjs';
 import { ObserverService } from '../observer.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
 import {AngularFireAuth} from '@angular/fire/auth';
+import { HttpClient } from '@angular/common/http';
+import { Profile } from '../profile'
 
 @Component({
   selector: 'app-sign-in-buttons',
@@ -18,7 +19,7 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
   loading = true;
 
   constructor(private observerService: ObserverService,
-    private afAuth: AngularFireAuth, private firestore: AngularFirestore) {
+    private afAuth: AngularFireAuth, private http: HttpClient) {
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -35,25 +36,22 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
           this.appData.username = d.displayName;
           this.appData.email = d.email;
           this.appData.uid = d.uid;
-          this.firestore.collection('UserList').doc('d.uid').get().toPromise().then(document => {
-              let data = document.data()
-              if (data) {
-                this.appData.profile.city = data["city"]
-                this.appData.profile.state = data["state"]
-                this.appData.profile.currentPing = data["currentPing"]
-                this.appData.profile.id = d.uid
-                this.appData.profile.screenNames = data["screenNames"]
-                this.appData.profile.firstName = data["firstName"]
-                this.appData.profile.lastName = data["lastName"]
-                this.appData.profile.handle = data["handle"]
-              } else {
-                //TODO ask the user to enter screennames and game it's for, handle for our site, first name, and last name for their profile. Send it to firestore and update this.appData.profile. Then use APIs to get city, state, and ping
-                // modal opens
-                // user types
-                // account created
-                // user proceeds
-              }
+          this.appData.profile.id = d.uid
+          this.appData.onboardingTempProfile.id = d.uid
+
+          let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid
+          this.http.get<any>(url).toPromise().then(profileObj => {
+            var data = profileObj.properties
+            if (data) {
+              data.screenNames = data.screenNames.map(nameObj => {
+                return JSON.parse(nameObj)
+              })
+              this.appData.profile = data
+              this.appData.isOnboarded = true;
+              this.updateObserver();
+            }
           })
+
           this.updateObserver();
         }
         else{
