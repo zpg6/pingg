@@ -53,7 +53,8 @@ import { ObScreenNamesComponent } from './ob-screen-names/ob-screen-names.compon
 import { ObCustomizeComponent } from './ob-customize/ob-customize.component';
 import { GameSearchComponent } from './game-search/game-search.component';
 import { PingService } from './ping.service';
-import { FooterCardComponent } from './footer-card/footer-card.component'
+import { FooterCardComponent } from './footer-card/footer-card.component';
+import { UserCellComponent } from './user-cell/user-cell.component'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -133,6 +134,7 @@ export function playerFactory() {
     ObCustomizeComponent,
     GameSearchComponent,
     FooterCardComponent,
+    UserCellComponent,
   ],
   providers: [
     ObserverService,

@@ -31,31 +31,26 @@
 
             <div class="card post-card">
               <div class="card-content is-dark">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-3 has-text-light">Recent Posts</p>
-                  </div>
-                </div>
+                <p class="title is-3 has-text-light">Screen Names</p>
+              </div>
+            </div>
+
+
+            <div class="card post-card">
+              <div class="card-content is-dark">
+                <p class="title is-3 has-text-light">Followers</p>
+                <ul class="users">
+                  <li *ngFor="let person of followers"><app-user-cell [user]="person"></app-user-cell></li>
+                </ul>
               </div>
             </div>
 
             <div class="card post-card">
               <div class="card-content is-dark">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-3 has-text-light">Followers</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card post-card">
-              <div class="card-content is-dark">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-3 has-text-light">Following</p>
-                  </div>
-                </div>
+                <p class="title is-3 has-text-light">Following</p>
+                <ul class="users">
+                  <li *ngFor="let person of following"><app-user-cell [user]="person"></app-user-cell></li>
+                </ul>
               </div>
             </div>
 
@@ -64,20 +59,17 @@
                 <div class="media">
                   <div class="media-content">
                     <p class="title is-3 has-text-light">Favorite Games</p>
+                    <ul class="images">
+                      <li *ngFor="let game of games">
+                        <app-game-card [game]="game" [routerLink]="'/games/'+game.id"></app-game-card>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="card post-card">
-              <div class="card-content is-dark">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-3 has-text-light">Channels</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <app-post-cell *ngFor="let post of posts" [post]="post"></app-post-cell>
 
 
           </div>

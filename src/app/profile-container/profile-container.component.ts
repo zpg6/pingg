@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
 
 @Component({
@@ -11,8 +12,14 @@ import { ObserverService } from '../observer.service';
 export class ProfileContainerComponent implements OnInit {
 
   user;
+  posts = [];
+  games;
+  example = 'Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post.'
+  followers = []
+  following = []
 
-  constructor(private observerService: ObserverService, private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
+
+  constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
 
   }
 
@@ -22,13 +29,41 @@ export class ProfileContainerComponent implements OnInit {
       let profile = this.observerService.getMessageOnce().profile
       if (id === profile.id) {
         this.user = profile
-        console.log(this.user)
+        this.games = this.gamesService.getSet('Most Rated')
+        var i = 0, max = this.games.length
+        for (i = 0; i<max; i++) {
+          this.followers.push(this.user)
+          this.following.push(this.user)
+          let index = Math.round(Math.random()*max)
+          this.posts.push({
+            id: i,
+            user: this.user,
+            game: this.games[index],
+            text: this.example,
+            time: new Date(),
+          })
+        }
       } else {
         let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + id
         this.http.get<any>(url).toPromise().then(profileObj => {
           var data = profileObj.response.properties
           if (data) {
             this.user = data
+
+            this.games = this.gamesService.getSet('Most Rated')
+            var i = 0, max = this.games.length
+            for (i = 0; i<max; i++) {
+              console.log(i)
+              let index = Math.round(Math.random()*max)
+              this.posts.push({
+                id: i,
+                user: this.user,
+                game: this.games[index],
+                text: this.example,
+                time: new Date(),
+              })
+            }
+
           }
           else {
             this.router.navigate(['/profile/'+profile.id])
