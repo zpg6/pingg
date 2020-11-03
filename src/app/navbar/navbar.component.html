@@ -28,7 +28,7 @@
     </a>
     <a class="navbar-item" *ngIf="!this.showSearchBox">
       <p class="subtitle is-size-7 is-unselectable">
-        <b style="font-size: larger;">{{this.getPage()}}</b><br><i>{{description()}}</i>
+        <b style="font-size: larger;">{{getPage()}}</b><br><i>{{description()}}</i>
       </p>
     </a>
     <div class="navbar-item" *ngIf="this.showSearchBox" style="margin-right: -25px;">
@@ -81,7 +81,7 @@
         <span class="is-unselectable">&nbsp;Games</span>
       </a>
 
-      <a class="navbar-item" routerLinkActive="is-active" routerLink="/profile" (click)="setPage('Profile')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/profile/{{this.appData.profile.id}}" (click)="setPage('Profile')">
         <span>
           <img style="border-radius: 50%; margin-right: 2px; margin-top: 5px; width: 22px; height: 22px;" src="https://avatars.dicebear.com/api/bottts/{{this.getUser()}}.svg">
         </span>
@@ -130,7 +130,7 @@
       </a>
 
 
-      <a class="navbar-item" routerLinkActive="is-active" routerLink="/profile"  (click)="setPage('Profile')">
+      <a class="navbar-item" routerLinkActive="is-active" routerLink="/profile/{{this.appData.profile.id}}"  (click)="setPage('Profile')">
         <span>
           <img style="border-radius: 50%; margin-right: 2px; width: 22px; height: 22px;" src="https://avatars.dicebear.com/api/bottts/{{this.getUser()}}.svg">
         </span>

@@ -39,6 +39,7 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
           let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid
           this.http.get<any>(url).toPromise().then(profileObj => {
             var data = profileObj.response.properties
+            console.log(data)
             if (data) {
               data.screenNames = data.screenNames.map(nameObj => {
                 return JSON.parse(nameObj)

@@ -47,6 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
       }
       this.title = page
     })
+
   }
 
   ngOnDestroy() {

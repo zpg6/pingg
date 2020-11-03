@@ -1,34 +1,129 @@
-<div class="card post-card">
-  <div class="card-content is-dark">
-    <div class="columns is-vcentered" style="margin-left: -20px;">
+<div class="columns is-hidden-mobile is-vcentered">
+  <div class="column is-1 is-centered has-text-centered">
 
-      <div class="column is-1 has-text-centered vote-box">
-        <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"> </span>
-        <p class="subtitle is-4">{{votes}}</p>
+    <div class="subtitle is-4" style="font-weight: bolder;">
+      <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"></span>
+      <br>
+      <a></a>{{votes}}
+    </div>
+  </div>
+
+  <div class="column is-11">
+    <div class="card post-card">
+      <div class="card-content is-dark">
+
+
+        <div class="media has-text-light">
+
+          <div class="media-left" style="border-top:none; border-right: solid 1px grey;">
+
+            <div>
+              <div class="media" style="border-top:none; margin-right: 2.5rem;">
+                <div class="media-left">
+                  <figure class="image is-96x96">
+                    <img style="width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.rand}}.svg">
+                  </figure>
+                </div>
+                <div class="media-content">
+
+
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+
+                  <p class="heading">10 min ago</p>
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="media-content" style="margin-left: 2.0rem;">
+
+            <div>
+              <div class="media" style="border: none;">
+                <div class="media-left has-text-centered" routerLink="/games/{{game.id}}">
+                  <img style="max-height: 80px;" src="https://{{game.coverURL}}">
+                  <p class="subtitle has-text-light" style="font-weight: bolder;">
+                    {{this.gameName()}}
+                  </p>
+                </div>
+                <div class="media-content">
+
+
+                  <p class="body has-text-light" style="padding-right: 1.0rem;">
+                    Here is some text as the contents of this post. Here is some text as the contents of this post.
+                    Here is some text as the contents of this post. Here is some text as the contents of this post.
+                    Here is some text as the contents of this post. Here is some text as the contents of this post.
+                    <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+
+
       </div>
+    </div>
 
-      <div class="column is-11">
-        <div class="media">
+
+  </div>
+</div>
+
+
+<div class="columns is-mobile is-vcentered is-hidden-desktop is-hidden-tablet">
+  <div class="column is-2 has-text-centered">
+
+    <div class="subtitle is-4" style="font-weight: bolder;">
+      <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"></span>
+      <br>
+      {{votes}}
+    </div>
+  </div>
+
+  <div class="column is-10">
+    <div class="card post-card">
+      <div class="card-content is-dark">
+
+
+        <div class="media" style="border: none;">
           <div class="media-left">
             <figure class="image is-48x48">
               <img style="border-radius: 50%; margin-right: 2px; width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.rand}}.svg">
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-4 has-text-light">John Smith</p>
-            <p class="subtitle is-6 has-text-light">@johnsmith</p>
+
+
+            <p class="title is-4">John Smith</p>
+            <p class="subtitle is-6">@johnsmith</p>
+
+
           </div>
         </div>
 
-        <div class="content has-text-light">
+
+        <p class="body has-text-light">
           Here is some text as the contents of this post. Here is some text as the contents of this post.
           Here is some text as the contents of this post. Here is some text as the contents of this post.
           Here is some text as the contents of this post. Here is some text as the contents of this post.
           <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
-          <br><br>
-          <time datetime="2016-1-1" style="font-weight: bold;">11:09 PM - 1 Jan 2016</time>
-        </div>
+        </p>
+
+
       </div>
     </div>
+
+
   </div>
 </div>

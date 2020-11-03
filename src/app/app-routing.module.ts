@@ -9,10 +9,6 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: FeedContainerComponent
-  },
-  {
     path: 'feed',
     component: FeedContainerComponent
   },
@@ -29,8 +25,12 @@ const routes: Routes = [
     component: GameDetailComponent
   },
   {
-    path: 'profile',
+    path: 'profile/:id',
     component: ProfileContainerComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'feed'
   },
 ];
 

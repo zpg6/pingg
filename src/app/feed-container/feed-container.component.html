@@ -16,33 +16,54 @@
 
             <div class="card post-card">
               <div class="card-content is-dark">
-                <div class="media">
-                  <div class="media-content">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <a class="button is-info is-selected">
-                          Newest
-                        </a>
-                      </p>
-                      <p class="control">
-                        <a class="button">
-                          Popular
-                        </a>
-                      </p>
-                      <p class="control">
-                        <a class="button">
-                          Trending
-                        </a>
-                      </p>
+
+                <div class="media-content">
+
+                  <nav class="level" style="padding: 0px 10px;">
+                    <div class="level-left">
+                      <div class="level-item">
+                        <a class="button is-danger">New Post</a>
+                      </div>
                     </div>
-                  </div>
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field has-addons">
+                          <p class="control">
+                            <a class="button is-info is-selected">
+                              Newest
+                            </a>
+                          </p>
+                          <p class="control">
+                            <a class="button">
+                              Popular
+                            </a>
+                          </p>
+                          <p class="control">
+                            <a class="button">
+                              Trending
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+
+
                 </div>
+
               </div>
             </div>
+
+
+
 
             <div *ngFor="let number of nums">
               <app-post-cell></app-post-cell>
             </div>
+
+
+            <app-footer-card></app-footer-card>
+
           </div>
         </section>
 

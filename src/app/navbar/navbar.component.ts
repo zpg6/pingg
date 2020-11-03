@@ -38,9 +38,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.appData = message;
       }));
   }
-  ngOnInit(){}
-
-  ngAfterViewInit() {
+  ngOnInit(){
     this.ar.url.subscribe(url => {
       if (url && url.length>0) {
         var page = url[0].path.toString()
@@ -50,6 +48,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
       }
     })
+  }
+
+  ngAfterViewInit() {
+
   }
 
   ngOnDestroy() {
@@ -114,14 +116,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   getPage():string {
-    if (this.title === NavbarPage.game) {
-      let name = this.game.name;
-      if (name.length > 25) {
-        return name.substring(0,24) + '...'
-      } else {
-        return name
-      }
-    }
+    // if (this.title === 'Games') {
+    //   let name = this.game.name;
+    //   if (name.length > 25) {
+    //     return name.substring(0,24) + '...'
+    //   } else {
+    //     return name
+    //   }
+    // }
     return this.title
   }
 
