@@ -23,14 +23,15 @@
         <div class="level-item" *ngIf="this.game">
 
           <p class="subtitle is-6 has-text-dark" style="margin-bottom: 1.5rem; font-weight: bolder;">Current Rating</p>
-          <br>
+
+        </div>
+        <div class="level-item">
           <span class="tag is-warning is-medium">
             <span class="icon is-medium">
               <i class="fas fa-star"></i>
             </span>
             &nbsp;{{game?.rating| number:'1.2-2'}}
           </span>
-
         </div>
       </div>
     </nav>
