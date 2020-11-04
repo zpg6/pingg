@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
 
@@ -11,6 +11,7 @@ import { ObserverService } from '../observer.service';
 })
 export class ProfileContainerComponent implements OnInit {
 
+  @ViewChild('scrollable') scrollable: ElementRef;
   user;
   posts = [];
   games;
@@ -18,12 +19,19 @@ export class ProfileContainerComponent implements OnInit {
   followers = []
   following = []
 
+  loaded = 0;
 
   constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.observerService.getMessage().subscribe(msg => this.user = msg.profile)
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (!(event instanceof NavigationEnd)) {
+          return;
+      }
+      this.scrollToTop()
+    });
     this.ar.url.subscribe(url => {
       let id = url[url.length - 1].path.toString()
       let profile = this.observerService.getMessageOnce().profile
@@ -74,6 +82,14 @@ export class ProfileContainerComponent implements OnInit {
           }
         })
       }
+    })
+  }
+
+  scrollToTop() {
+    this.scrollable.nativeElement.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     })
   }
 

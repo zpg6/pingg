@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { AppData } from '../app-data';
@@ -17,6 +17,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GameDetailComponent implements OnInit {
 
+  @ViewChild('scrollable') scrollable: ElementRef;
   game: any;
   recommended: any[];
   appData: AppData
@@ -26,12 +27,20 @@ export class GameDetailComponent implements OnInit {
 
   isFollowedLocally;
 
-  constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient) {
+  constructor(private observerService: ObserverService, private gamesService: GamesService,
+    private ar: ActivatedRoute, private http: HttpClient, private router: Router)
+  {
       // subscribe to home component messages
     this.observerService.getMessage().subscribe(msg => this.appData = msg)
   }
 
   ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (!(event instanceof NavigationEnd)) {
+          return;
+      }
+      this.scrollToTop()
+    });
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
@@ -49,6 +58,14 @@ export class GameDetailComponent implements OnInit {
           })
         })
       })
+    })
+  }
+
+  scrollToTop() {
+    this.scrollable.nativeElement.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     })
   }
 

@@ -65,6 +65,9 @@ export class AppComponent implements OnInit, OnDestroy {
     path: '/assets/lottie-files/greenCircleExpanding.json',
   };
 
+  onActivated() {
+    window.scroll(0,0)
+  }
 
 
 }
