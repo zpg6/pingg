@@ -39,6 +39,8 @@ export class RateGameModalComponent implements OnInit {
 
 
   closeModal() {
+    this.appData.gameBeingRated = undefined
+    this.rating = 75.000
     this.appData.rateGameModalOpen = false;
     this.updateObserver()
   }

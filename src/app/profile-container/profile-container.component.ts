@@ -20,7 +20,7 @@ export class ProfileContainerComponent implements OnInit {
 
 
   constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
-
+    this.observerService.getMessage().subscribe(msg => this.user = msg.profile)
   }
 
   ngOnInit(): void {
@@ -29,16 +29,18 @@ export class ProfileContainerComponent implements OnInit {
       let profile = this.observerService.getMessageOnce().profile
       if (id === profile.id) {
         this.user = profile
-        this.games = this.gamesService.getSet('Most Rated')
-        var i = 0, max = this.games.length
+        this.getGames()
+        this.getFollowers()
+        this.getFollowing()
+        let gamesFiller = this.gamesService.getSet('Most Rated')
+        var i = 0, max = gamesFiller.length
         for (i = 0; i<max; i++) {
-          this.followers.push(this.user)
-          this.following.push(this.user)
+          console.log(i)
           let index = Math.round(Math.random()*max)
           this.posts.push({
             id: i,
             user: this.user,
-            game: this.games[index],
+            game: gamesFiller[index],
             text: this.example,
             time: new Date(),
           })
@@ -49,16 +51,18 @@ export class ProfileContainerComponent implements OnInit {
           var data = profileObj.response.properties
           if (data) {
             this.user = data
-
-            this.games = this.gamesService.getSet('Most Rated')
-            var i = 0, max = this.games.length
+            this.getGames()
+            this.getFollowers()
+            this.getFollowing()
+            let gamesFiller = this.gamesService.getSet('Most Rated')
+            var i = 0, max = gamesFiller.length
             for (i = 0; i<max; i++) {
               console.log(i)
               let index = Math.round(Math.random()*max)
               this.posts.push({
                 id: i,
                 user: this.user,
-                game: this.games[index],
+                game: gamesFiller[index],
                 text: this.example,
                 time: new Date(),
               })
@@ -71,6 +75,40 @@ export class ProfileContainerComponent implements OnInit {
         })
       }
     })
+  }
+
+  getGames() {
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/games-followed/'
+    this.http.get<any>(url).toPromise()
+              .then(response => {
+                console.log(response)
+                this.games = response.response
+              })
+              .catch(err => console.error(err))
+  }
+
+  getFollowers() {
+
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/followers'
+    this.http.get<any>(url).toPromise()
+              .then(response => {
+                console.log(response)
+                this.followers = response.response
+              })
+              .catch(err => console.error(err))
+
+  }
+
+  getFollowing() {
+
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/following'
+    this.http.get<any>(url).toPromise()
+              .then(response => {
+                console.log(response)
+                this.following = response.response
+              })
+              .catch(err => console.error(err))
+
   }
 
 }

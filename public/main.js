@@ -1508,7 +1508,7 @@ function GameDetailComponent_section_6_div_50_li_5_Template(rf, ctx) { if (rf & 
 } if (rf & 2) {
     const item_r11 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "http://", item_r11, "", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "https://", item_r11, "", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function GameDetailComponent_section_6_div_50_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 8);
@@ -1731,7 +1731,7 @@ class GameDetailComponent {
         this.observerService.sendMessage(this.appData);
     }
     doesFollow() {
-        let url = 'https://cs1530group11.uc.appspot.com/users/' + this.appData.profile.id + '/games-followed/';
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/games-followed/';
         let body = { gameID: this.game.id };
         this.http.post(url, body).toPromise()
             .then(response => {
@@ -1755,30 +1755,24 @@ class GameDetailComponent {
         }
     }
     followGame() {
-        let now = new Date().getSeconds();
-        let then = this.lastFollow.getSeconds();
-        let diff = now - then;
-        if (!this.lastFollow || this.followButtonCount < 5 || diff > 2) {
-            if (diff > 2) {
-                this.followButtonCount = 0;
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game';
+        let body = { gameID: this.game.id };
+        console.log('follow url = ' + url);
+        console.log(body);
+        this.http.post(url, body).toPromise()
+            .then(response => {
+            console.log(response);
+            if (response.response == 'Success!') {
+                //this.isFollowedLocally = true
             }
-            this.followButtonCount++;
-            this.lastFollow = new Date();
-            let url = 'https://cs1530group11.uc.appspot.com/users/' + this.appData.profile.id + '/followed-game/';
-            let body = { gameID: this.game.id };
-            this.http.post(url, body).toPromise()
-                .then(response => {
-                console.log(response);
-                if (response.response == 'Success!') {
-                    //this.isFollowedLocally = true
-                }
-            })
-                .catch(err => console.error(err));
-        }
+        })
+            .catch(err => console.error(err));
     }
     unFollowGame() {
-        let url = 'https://cs1530group11.uc.appspot.com/users/' + this.appData.profile.id + '/unfollowed-game/';
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/unfollowed-game';
         let body = { gameID: this.game.id };
+        console.log('unfollow url = ' + url);
+        console.log(body);
         this.http.post(url, body).toPromise()
             .then(response => {
             console.log(response);
@@ -3036,6 +3030,7 @@ class NewPostModalComponent {
     }
     closeModal() {
         this.game = undefined;
+        this.postText = undefined;
         this.appData.newPostModalOpen = false;
         this.updateObserver();
     }
@@ -4447,6 +4442,7 @@ function ProfileContainerComponent_li_32_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const person_r4 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/profile/", person_r4.id, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("user", person_r4);
 } }
 function ProfileContainerComponent_li_38_Template(rf, ctx) { if (rf & 1) {
@@ -4456,6 +4452,7 @@ function ProfileContainerComponent_li_38_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const person_r5 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/profile/", person_r5.id, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("user", person_r5);
 } }
 function ProfileContainerComponent_li_46_Template(rf, ctx) { if (rf & 1) {
@@ -4484,6 +4481,7 @@ class ProfileContainerComponent {
         this.example = 'Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post.';
         this.followers = [];
         this.following = [];
+        this.observerService.getMessage().subscribe(msg => this.user = msg.profile);
     }
     ngOnInit() {
         this.ar.url.subscribe(url => {
@@ -4491,16 +4489,18 @@ class ProfileContainerComponent {
             let profile = this.observerService.getMessageOnce().profile;
             if (id === profile.id) {
                 this.user = profile;
-                this.games = this.gamesService.getSet('Most Rated');
-                var i = 0, max = this.games.length;
+                this.getGames();
+                this.getFollowers();
+                this.getFollowing();
+                let gamesFiller = this.gamesService.getSet('Most Rated');
+                var i = 0, max = gamesFiller.length;
                 for (i = 0; i < max; i++) {
-                    this.followers.push(this.user);
-                    this.following.push(this.user);
+                    console.log(i);
                     let index = Math.round(Math.random() * max);
                     this.posts.push({
                         id: i,
                         user: this.user,
-                        game: this.games[index],
+                        game: gamesFiller[index],
                         text: this.example,
                         time: new Date(),
                     });
@@ -4512,15 +4512,18 @@ class ProfileContainerComponent {
                     var data = profileObj.response.properties;
                     if (data) {
                         this.user = data;
-                        this.games = this.gamesService.getSet('Most Rated');
-                        var i = 0, max = this.games.length;
+                        this.getGames();
+                        this.getFollowers();
+                        this.getFollowing();
+                        let gamesFiller = this.gamesService.getSet('Most Rated');
+                        var i = 0, max = gamesFiller.length;
                         for (i = 0; i < max; i++) {
                             console.log(i);
                             let index = Math.round(Math.random() * max);
                             this.posts.push({
                                 id: i,
                                 user: this.user,
-                                game: this.games[index],
+                                game: gamesFiller[index],
                                 text: this.example,
                                 time: new Date(),
                             });
@@ -4533,9 +4536,36 @@ class ProfileContainerComponent {
             }
         });
     }
+    getGames() {
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/games-followed/';
+        this.http.get(url).toPromise()
+            .then(response => {
+            console.log(response);
+            this.games = response.response;
+        })
+            .catch(err => console.error(err));
+    }
+    getFollowers() {
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/followers';
+        this.http.get(url).toPromise()
+            .then(response => {
+            console.log(response);
+            this.followers = response.response;
+        })
+            .catch(err => console.error(err));
+    }
+    getFollowing() {
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/following';
+        this.http.get(url).toPromise()
+            .then(response => {
+            console.log(response);
+            this.following = response.response;
+        })
+            .catch(err => console.error(err));
+    }
 }
 ProfileContainerComponent.ɵfac = function ProfileContainerComponent_Factory(t) { return new (t || ProfileContainerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_2__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
-ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProfileContainerComponent, selectors: [["app-profile-container"]], decls: 48, vars: 8, consts: [[1, "hero-head"], [1, "hero-body", "content-bg", 2, "padding", "0px"], [1, "dashboard", "is-full-height"], [1, "dashboard-main", "is-scrollable", "is-dark", 2, "max-width", "100%", "overflow-x", "hidden"], [2, "display", "inline-block"], [1, "section"], [1, "container", 2, "margin-bottom", "100px"], [1, "card", "post-card"], [1, "card-content", "is-dark"], [1, "media"], [1, "media-left"], [1, "image", "is-128x128"], [2, "border-radius", "50%", "margin-right", "2px", 3, "src"], [1, "media-content"], [1, "title", "is-2", "has-text-light"], [1, "subtitle", "is-4", "has-text-light"], [1, "subtitle", "is-6", "has-text-light", 2, "font-weight", "bolder"], ["datetime", "2016-1-1"], [1, "title", "is-3", "has-text-light"], [1, "users"], [4, "ngFor", "ngForOf"], [1, "images"], [3, "post", 4, "ngFor", "ngForOf"], [3, "user"], [3, "game", "routerLink"], [3, "post"]], template: function ProfileContainerComponent_Template(rf, ctx) { if (rf & 1) {
+ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProfileContainerComponent, selectors: [["app-profile-container"]], decls: 48, vars: 8, consts: [[1, "hero-head"], [1, "hero-body", "content-bg", 2, "padding", "0px"], [1, "dashboard", "is-full-height"], [1, "dashboard-main", "is-scrollable", "is-dark", 2, "max-width", "100%", "overflow-x", "hidden"], [2, "display", "inline-block"], [1, "section"], [1, "container", 2, "margin-bottom", "100px"], [1, "card", "post-card"], [1, "card-content", "is-dark"], [1, "media"], [1, "media-left"], [1, "image", "is-128x128"], [2, "border-radius", "50%", "margin-right", "2px", 3, "src"], [1, "media-content"], [1, "title", "is-2", "has-text-light"], [1, "subtitle", "is-4", "has-text-light"], [1, "subtitle", "is-6", "has-text-light", 2, "font-weight", "bolder"], ["datetime", "2016-1-1"], [1, "title", "is-3", "has-text-light"], [1, "users"], [4, "ngFor", "ngForOf"], [1, "images"], [3, "post", 4, "ngFor", "ngForOf"], [3, "user", "routerLink"], [3, "game", "routerLink"], [3, "post"]], template: function ProfileContainerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-navbar");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -4583,7 +4613,7 @@ ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Followers");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "ul", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, ProfileContainerComponent_li_32_Template, 2, 1, "li", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, ProfileContainerComponent_li_32_Template, 2, 2, "li", 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -4593,7 +4623,7 @@ ProfileContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "Following");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "ul", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](38, ProfileContainerComponent_li_38_Template, 2, 1, "li", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](38, ProfileContainerComponent_li_38_Template, 2, 2, "li", 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -4744,6 +4774,8 @@ class RateGameModalComponent {
         this.observerService.sendMessage(this.appData);
     }
     closeModal() {
+        this.appData.gameBeingRated = undefined;
+        this.rating = 75.000;
         this.appData.rateGameModalOpen = false;
         this.updateObserver();
     }
@@ -4886,6 +4918,7 @@ class ReportIssueComponent {
         const now = new Date();
         let time = Math.round(now.getTime() / 1000);
         let body = { "userID": this.appData.profile.id, "time": time, "text": this.issue.nativeElement.value };
+        this.issue.nativeElement.value = '';
         let url = 'https://cs1530group11graph.uc.r.appspot.com/report-issue';
         this.http.post(url, body).toPromise()
             .then(response => {
@@ -4905,7 +4938,7 @@ ReportIssueComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.issue = _t.first);
-    } }, decls: 14, vars: 1, consts: [[1, "modal-background", 3, "click"], [1, "modal-card", 2, "margin", "0px"], [1, "modal-card-head"], [1, "modal-card-title"], ["aria-label", "close", 1, "delete", 3, "click"], [1, "modal-card-body", "has-text-dark"], ["id", "issuefield", "name", "issue", "placeholder", "Describe the issue you're having...", 1, "textarea", 3, "disabled"], ["issue", ""], [1, "modal-card-foot"], [1, "button", "is-success", 3, "click"], [1, "button", 3, "click"]], template: function ReportIssueComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 14, vars: 1, consts: [[1, "modal-background", 3, "click"], [1, "modal-card", 2, "margin", "0px"], [1, "modal-card-head"], [1, "modal-card-title"], ["aria-label", "close", 1, "delete", 3, "click"], [1, "modal-card-body", "has-text-dark"], ["name", "issue", "placeholder", "Describe the issue you're having...", 1, "textarea", 3, "disabled"], ["issue", ""], [1, "modal-card-foot"], [1, "button", "is-success", 3, "click"], [1, "button", 3, "click"]], template: function ReportIssueComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ReportIssueComponent_Template_div_click_0_listener() { return ctx.closeModal(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();

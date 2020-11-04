@@ -51,6 +51,7 @@ export class ReportIssueComponent implements OnInit, OnDestroy {
     const now = new Date()
     let time = Math.round(now.getTime() / 1000)
     let body = {"userID": this.appData.profile.id, "time": time, "text": this.issue.nativeElement.value}
+    this.issue.nativeElement.value = ''
     let url = 'https://cs1530group11graph.uc.r.appspot.com/report-issue'
 
     this.http.post<any>(url, body).toPromise()

@@ -46,6 +46,7 @@ export class NewPostModalComponent implements OnInit {
 
   closeModal() {
     this.game = undefined
+    this.postText = undefined
     this.appData.newPostModalOpen = false;
     this.updateObserver()
   }

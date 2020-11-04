@@ -40,7 +40,7 @@
               <div class="card-content is-dark">
                 <p class="title is-3 has-text-light">Followers</p>
                 <ul class="users">
-                  <li *ngFor="let person of followers"><app-user-cell [user]="person"></app-user-cell></li>
+                  <li *ngFor="let person of followers"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
                 </ul>
               </div>
             </div>
@@ -49,7 +49,7 @@
               <div class="card-content is-dark">
                 <p class="title is-3 has-text-light">Following</p>
                 <ul class="users">
-                  <li *ngFor="let person of following"><app-user-cell [user]="person"></app-user-cell></li>
+                  <li *ngFor="let person of following"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
                 </ul>
               </div>
             </div>
