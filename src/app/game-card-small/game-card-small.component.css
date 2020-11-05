@@ -1,0 +1,50 @@
+.game-image {
+  height: 133px;
+  border-radius: 2px;
+  padding: 0px;
+  -webkit-transition: 0.1s ease-out;
+  -moz-transition: 0.1s ease-out;
+  -o-transition: 0.1s ease-out;
+  -ms-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+  /* border: 2px solid whitesmoke; */
+}
+
+.game-container {
+  position: relative;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  border-radius: 2px;
+  transition: .1s;
+  background-color: #000000c1;
+}
+
+.game-container:hover .game-overlay {
+  opacity: 1;
+}
+
+.game-container:hover .game-image {
+  opacity: 1;
+}
+
+.game-text {
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 20%;
+  padding: 5px;
+}
+
+.game-text-title {
+  font-size: 14px;
+  margin-bottom: 5px;
+}

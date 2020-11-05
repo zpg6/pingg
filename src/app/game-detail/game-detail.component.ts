@@ -77,17 +77,16 @@ export class GameDetailComponent implements OnInit {
 
   doesFollow() {
     let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/games-followed/'
-    let body = { gameID: this.game.id }
-    this.http.post<any>(url, body).toPromise()
-              .then(response => {
-                console.log(response)
-                if (response.response.properties) {
-                  if (response.response.properties.includes(this.game.id)) {
-                    this.isFollowedLocally = true
-                  }
-                }
-              })
-              .catch(err => console.error(err))
+    this.http.get<any>(url)
+        .toPromise()
+        .then(response => {
+          if (response.response.properties) {
+            if (response.response.properties.includes(this.game.id)) {
+              this.isFollowedLocally = true
+            }
+          }
+        })
+        .catch(err => console.error(err))
   }
 
   changeFollow() {

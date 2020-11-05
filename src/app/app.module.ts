@@ -58,7 +58,9 @@ import { UserCellComponent } from './user-cell/user-cell.component';
 import { RateGameModalComponent } from './rate-game-modal/rate-game-modal.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { UploaderComponent } from './uploader/uploader.component';
-import { UploadZoneDirective } from './upload-zone.directive'
+import { UploadZoneDirective } from './upload-zone.directive';
+import { FeedComponent } from './feed/feed.component';
+import { GameCardSmallComponent } from './game-card-small/game-card-small.component'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -143,6 +145,8 @@ export function playerFactory() {
     UploadTaskComponent,
     UploaderComponent,
     UploadZoneDirective,
+    FeedComponent,
+    GameCardSmallComponent,
   ],
   providers: [
     ObserverService,

@@ -51,7 +51,7 @@ export class NewPostModalComponent implements OnInit {
   }
 
   requestClose() {
-    if (!this.isDisabled()) {
+    if (!this.isLoading()) {
       this.closeModal()
     }
   }

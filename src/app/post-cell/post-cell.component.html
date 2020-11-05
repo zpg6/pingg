@@ -54,14 +54,10 @@
 
 
                   <p class="body has-text-light" style="padding-right: 1.0rem;">
-                    Here is some text as the contents of this post. Here is some text as the contents of this post.
-                    Here is some text as the contents of this post. Here is some text as the contents of this post.
-                    Here is some text as the contents of this post. Here is some text as the contents of this post.
-                    Here is some text as the contents of this post. Here is some text as the contents of this post.
-                    Here is some text as the contents of this post. Here is some text as the contents of this post.
-                    Here is some text as the contents of this post. Here is some text as the contents of this post.
-                    <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
+                    {{post?.text}}
                   </p>
+
+                  <img src="{{post?.imageURL}}" *ngIf="post.imageURL" style="max-height: 600px; max-width: 600px; margin-top: 2.0rem;">
 
                 </div>
               </div>

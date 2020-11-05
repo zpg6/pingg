@@ -6,7 +6,7 @@
         <p class="title is-3 has-text-light">{{set}}</p>
         <ul class="images">
           <li *ngFor="let item of getFrom(set)">
-            <app-game-card [game]="item" [routerLink]="'/games/'+item.id"></app-game-card>
+            <app-game-card [game]="item"></app-game-card>
           </li>
         </ul>
       </div>

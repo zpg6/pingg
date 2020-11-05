@@ -112,12 +112,17 @@
                     <p class="title is-3 has-text-light">Recommended Games</p>
                     <ul class="images">
                       <li *ngFor="let similar of recommended">
-                        <app-game-card [game]="similar" [routerLink]="['/games/'+similar.id]"></app-game-card>
+                        <app-game-card [game]="similar"></app-game-card>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
+            </div>
+
+
+            <div *ngIf="game && game.id">
+              <app-feed [gameID]="game.id"></app-feed>
             </div>
 
 

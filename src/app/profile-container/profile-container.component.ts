@@ -37,49 +37,29 @@ export class ProfileContainerComponent implements OnInit {
       let profile = this.observerService.getMessageOnce().profile
       if (id === profile.id) {
         this.user = profile
-        this.getGames()
+        this.fillInScreenNames()
         this.getFollowers()
         this.getFollowing()
-        let gamesFiller = this.gamesService.getSet('Most Rated')
-        var i = 0, max = gamesFiller.length
-        for (i = 0; i<max; i++) {
-          console.log(i)
-          let index = Math.round(Math.random()*max)
-          this.posts.push({
-            id: i,
-            user: this.user,
-            game: gamesFiller[index],
-            text: this.example,
-            time: new Date(),
-          })
-        }
+        this.getGames()
+        this.getPosts()
       } else {
         let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + id
         this.http.get<any>(url).toPromise().then(profileObj => {
           var data = profileObj.response.properties
           if (data) {
             this.user = data
-            this.getGames()
+            this.fillInScreenNames()
             this.getFollowers()
             this.getFollowing()
-            let gamesFiller = this.gamesService.getSet('Most Rated')
-            var i = 0, max = gamesFiller.length
-            for (i = 0; i<max; i++) {
-              console.log(i)
-              let index = Math.round(Math.random()*max)
-              this.posts.push({
-                id: i,
-                user: this.user,
-                game: gamesFiller[index],
-                text: this.example,
-                time: new Date(),
-              })
-            }
-
+            this.getGames()
+            this.getPosts()
           }
           else {
             this.router.navigate(['/profile/'+profile.id])
           }
+        }).catch(err => {
+          console.error(err)
+          this.router.navigate(['/profile/'+profile.id])
         })
       }
     })
@@ -93,11 +73,52 @@ export class ProfileContainerComponent implements OnInit {
     })
   }
 
+  fillInScreenNames() {
+    if (this.user.screenNames) {
+
+      var i = 0
+      for (i = 0; i < this.user.screenNames.length; i++) {
+        this.user.screenNames[i].games = this.gamesService.getSet('Top Rated').slice(0,7)
+      }
+
+      // this.user.screenNames.forEach(name => {
+      //   if (name && name.games && name.games.length > 0) {
+      //     name.games.forEach(game => {
+      //       this.gamesService.getGame(game.id)
+      //         .then(gameObj => {
+      //           this.addGame(name.id, gameObj)
+      //           console.log(gameObj)
+      //         })
+      //         .catch(err => console.error(err))
+      //     })
+      //   }
+      // })
+    }
+  }
+
+  addGame(nameID: string, game: any) {
+    if (!this.user || !this.user.screenNames) return
+    var i = 0
+    for (i = 0; i < this.user.screenNames.length; i++) {
+      if (this.user.screenNames[i].id == nameID) {
+        if(this.user.screenNames[i].games) {
+          var j = 0
+          for (j = 0; j < this.user.screenNames[i].games.length; j++) {
+            if (this.user.screenNames[i].games[j].id === game.id) {
+              this.user.screenNames[i].games[j] = game
+              return
+            }
+          }
+        }
+      }
+      return
+    }
+  }
+
   getGames() {
     let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/games-followed/'
     this.http.get<any>(url).toPromise()
               .then(response => {
-                console.log(response)
                 this.games = response.response
               })
               .catch(err => console.error(err))
@@ -125,6 +146,10 @@ export class ProfileContainerComponent implements OnInit {
               })
               .catch(err => console.error(err))
 
+  }
+
+  getPosts() {
+    //let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/following'
   }
 
 }

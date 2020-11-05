@@ -33,9 +33,11 @@ export class GameCardComponent implements OnInit, OnDestroy {
   @Input() game: MiniGame;
 
   getTitle():string {
+    if (!this.game || !this.game.name || this.game.name.length == 0)
+      return
     let name = this.game.name;
     if (name.length > 25) {
-      return name.substring(0,24) + '...'
+      return name.slice(0,24) + '...'
     } else {
       return name
     }

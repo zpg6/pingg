@@ -22,46 +22,90 @@
                   </div>
                   <div class="media-content">
                     <p class="title is-2 has-text-light">{{user.firstName}} {{user.lastName}}</p>
-                    <p class="subtitle is-4 has-text-light">{{user.handle}}</p>
+                    <p class="subtitle is-4 has-text-light">@{{user.handle}}</p>
                     <p class="subtitle is-6 has-text-light" style="font-weight: bolder;">Last Online:&nbsp;&nbsp;<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time></p>
                   </div>
                 </div>
               </div>
             </div>
 
+
+
+            <div class="columns">
+              <div class="column is-half">
+
+
+                <div class="card post-card">
+                  <div class="card-content is-dark">
+                    <p class="title is-3 has-text-light">Following {{following?.length > 0 ? '('+following.length+')':''}}</p>
+                    <p *ngIf="!following || following.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                    <ul class="users">
+                      <li *ngFor="let person of following"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="column is-half">
+
+
+                <div class="card post-card">
+                  <div class="card-content is-dark">
+                    <p class="title is-3 has-text-light">Followers {{followers?.length > 0 ? '('+followers.length+')':''}}</p>
+                    <p *ngIf="!followers || followers.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                    <ul class="users">
+                      <li *ngFor="let person of followers"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
             <div class="card post-card">
               <div class="card-content is-dark">
                 <p class="title is-3 has-text-light">Screen Names</p>
+                <div *ngIf="user && user.screenNames">
+                  <div *ngFor="let name of user.screenNames" class="columns is-vcentered">
+                    <div class="column is-2 has-text-centered">
+                      <p class="heading" style="font-size: x-large; color: whitesmoke; text-transform: none;">{{name.name}}</p>
+                    </div>
+                    <div class="column is-10">
+                      <p *ngIf="!name.games || name.games.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                      <ul class="images-grid" *ngIf="name.games">
+                        <li *ngFor="let game of name.games">
+                            <app-game-card-small [game]="game"></app-game-card-small>
+                        </li>
+                      </ul>
+                    </div>
+                    <hr *ngIf="user.screenNames[user.screenNames.length-1].id !== name.id">
+                  </div>
+                </div>
               </div>
             </div>
 
 
-            <div class="card post-card">
-              <div class="card-content is-dark">
-                <p class="title is-3 has-text-light">Followers</p>
-                <ul class="users">
-                  <li *ngFor="let person of followers"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
-                </ul>
-              </div>
-            </div>
 
-            <div class="card post-card">
-              <div class="card-content is-dark">
-                <p class="title is-3 has-text-light">Following</p>
-                <ul class="users">
-                  <li *ngFor="let person of following"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
-                </ul>
-              </div>
-            </div>
+
+
+
+
+
+
 
             <div class="card post-card">
               <div class="card-content is-dark">
                 <div class="media">
                   <div class="media-content">
-                    <p class="title is-3 has-text-light">Favorite Games</p>
+                    <p class="title is-3 has-text-light">Following Games {{games?.length > 0 ? '('+games.length+')':''}}</p>
                     <ul class="images">
-                      <li *ngFor="let game of games">
-                        <app-game-card [game]="game" [routerLink]="'/games/'+game.id"></app-game-card>
+                      <p *ngIf="!games || games.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                      <li *ngFor="let game of games" class="">
+                        <app-game-card [game]="game"></app-game-card>
                       </li>
                     </ul>
                   </div>
@@ -69,7 +113,7 @@
               </div>
             </div>
 
-            <app-post-cell *ngFor="let post of posts" [post]="post"></app-post-cell>
+            <app-feed [userID]="this.user.id"></app-feed>
 
 
           </div>

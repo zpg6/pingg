@@ -23,13 +23,26 @@ a {
   overflow-y: hidden;
 }
 
+.images-grid {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.grid-image {
+  margin: 8px;
+}
+
 .users {
   margin: 0px;
   padding: 0px;
   display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 li {

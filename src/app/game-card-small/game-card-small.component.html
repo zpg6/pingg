@@ -1,11 +1,10 @@
 
-
 <div class="game-container" routerLink="/games/{{game?.id}}">
-  <img src="https://{{game.coverURL}}" class="game-image">
+  <img src="https://{{game?.coverURL}}" class="game-image">
   <div class="game-overlay">
     <div class="game-text">
       <p class="game-text-title" style="font-weight: bolder;">{{getTitle()}}</p>
-      <p>{{game.rating | number : '1.2-2'}} / 100</p>
+      <p>{{game?.rating | number : '1.2-2'}} / 100</p>
     </div>
   </div>
 </div>

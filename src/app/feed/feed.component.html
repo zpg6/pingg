@@ -1,0 +1,54 @@
+<div class="card post-card">
+  <div class="card-content is-dark">
+
+    <div class="media-content">
+
+      <nav class="level" style="padding: 0px 10px;">
+        <div class="level-left">
+          <p class="title">Recent Posts</p>
+        </div>
+        <div class="level-right">
+          <div class="level-item is-hidden-mobile" style="margin-right: 1.5rem;" (click)="newPost()">
+            <a class="button is-danger">New Post</a>
+          </div>
+          <div class="level-item is-hidden-desktop is-hidden-tablet" (click)="newPost()">
+            <a class="button is-danger">New Post</a>
+          </div>
+          <div class="level-item" *ngIf="posts && posts.length > 0">
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-info is-selected">
+                  Newest
+                </a>
+              </p>
+              <p class="control">
+                <a class="button">
+                  Popular
+                </a>
+              </p>
+              <p class="control">
+                <a class="button">
+                  Trending
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+<div *ngIf="!posts || posts.length == 0">
+  <p class="subtitle" style="margin: 50px">
+    {{emptyMessage()}}
+  </p>
+</div>
+
+<div *ngFor="let post of posts">
+  <app-post-cell [post]="post"></app-post-cell>
+</div>
