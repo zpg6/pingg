@@ -60,7 +60,8 @@ import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadZoneDirective } from './upload-zone.directive';
 import { FeedComponent } from './feed/feed.component';
-import { GameCardSmallComponent } from './game-card-small/game-card-small.component'
+import { GameCardSmallComponent } from './game-card-small/game-card-small.component';
+import { LazyImageComponent } from './lazy-image/lazy-image.component'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -147,6 +148,7 @@ export function playerFactory() {
     UploadZoneDirective,
     FeedComponent,
     GameCardSmallComponent,
+    LazyImageComponent,
   ],
   providers: [
     ObserverService,

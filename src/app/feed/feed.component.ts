@@ -31,19 +31,19 @@ export class FeedComponent implements OnInit {
       url += this.gameID
       valid = true
     }
-    else if (this.userID) {
-      url += ''
-      valid = true
-    }
-    else if (this.main) {
-      url += ''
-      valid = true
-    }
-    console.log(valid)
+    // else if (this.userID) {
+    //   url += ''
+    //   valid = true
+    // }
+    // else if (this.main) {
+    //   url += ''
+    //   valid = true
+    // }
     if (valid) {
       this.http.get<any>(url)
         .toPromise()
         .then(response => {
+          console.table(response.response)
           this.posts = response.response
         })
         .catch(err => {

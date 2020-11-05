@@ -26,3 +26,17 @@ a {
 .vote.on {
   background-position: 0 2px;
 }
+
+
+.images-grid {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.grid-image {
+  margin: 8px;
+}

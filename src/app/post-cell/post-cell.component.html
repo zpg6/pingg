@@ -13,63 +13,27 @@
       <div class="card-content is-dark">
 
 
-        <div class="media has-text-light">
-
-          <div class="media-left" style="border-top:none; border-right: solid 1px grey;">
-
-            <div>
-              <div class="media" style="border-top:none; margin-right: 2.5rem;">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img style="width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.post?.user?.avatarVal}}.svg">
-                  </figure>
-                </div>
-                <div class="media-content">
-
-
-                  <p class="title is-4">{{this.post?.user?.firstName}} {{this.post?.user?.lastName}}</p>
-                  <p class="subtitle is-6">@{{this.post?.user?.handle}}</p>
-
-                  <p class="heading">10 min ago</p>
-
-                </div>
-              </div>
-            </div>
-
-
-
+        <div class="columns is-mobile is-vcentered">
+          <div class="column is-1">
+            <app-user-cell [user]="post?.user"></app-user-cell>
           </div>
-
-          <div class="media-content" style="margin-left: 2.0rem;">
-
-            <div>
-              <div class="media" style="border: none;">
-                <div class="media-left has-text-centered" routerLink="/games/{{post?.game?.id}}">
-                  <img style="max-height: 80px;" src="https://{{post?.game?.coverURL}}">
-                  <p class="subtitle has-text-light" style="font-weight: bolder;">
-                    {{this.gameName()}}
-                  </p>
-                </div>
-                <div class="media-content">
-
-
-                  <p class="body has-text-light" style="padding-right: 1.0rem;">
-                    {{post?.text}}
-                  </p>
-
-                  <img src="{{post?.imageURL}}" *ngIf="post.imageURL" style="max-height: 600px; max-width: 600px; margin-top: 2.0rem;">
-
-                </div>
-              </div>
-            </div>
-
-
-
+          <div class="column has-text-centered images-grid" style="width: 10%;">
+            <li class="grid-image"><app-game-card-small [game]="post?.game"></app-game-card-small></li>
           </div>
+          <div class="column is-9">
+            <p class="body has-text-light" style="padding-right: 1.0rem; margin-bottom: 2.0rem">
+              {{post?.text}}
+            </p>
 
+            <app-lazy-image
+              *ngIf="post.imageURL"
+              [srcURL]="post?.imageURL"
+              [maxHeight]="600"
+              [maxWidth]="600"
+            >
+            </app-lazy-image>
+          </div>
         </div>
-
-
 
 
       </div>
@@ -97,34 +61,27 @@
       <div class="card-content is-dark">
 
 
-        <div class="media" style="border: none;">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img style="border-radius: 50%; margin-right: 2px; width: 96px;" src="https://avatars.dicebear.com/api/bottts/{{this.rand}}.svg">
-            </figure>
+        <div class="columns is-mobile is-vcentered">
+          <div class="column is-half">
+            <app-user-cell [user]="post?.user"></app-user-cell>
           </div>
-          <div class="media-content">
-
-
-            <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@{{this.post?.user?.handle}}</p>
-
-
+          <div class="column is-half images-grid">
+            <li class="grid-image"><app-game-card-small [game]="post?.game"></app-game-card-small></li>
           </div>
+
         </div>
 
-
-        <p class="body has-text-light">
-          Here is some text as the contents of this post. Here is some text as the contents of this post.
-          Here is some text as the contents of this post. Here is some text as the contents of this post.
-          Here is some text as the contents of this post. Here is some text as the contents of this post.
-          <a href="#">#channel1</a>&nbsp;<a href="#">#channel2</a>
+        <p class="body has-text-light" style="padding-right: 1.0rem; margin-bottom: 2.0rem">
+          {{post?.text}}
         </p>
 
-
-      </div>
-    </div>
-
+        <app-lazy-image
+          *ngIf="post.imageURL"
+          [srcURL]="post?.imageURL"
+          [maxHeight]="600"
+          [maxWidth]="600"
+        >
+        </app-lazy-image>
 
   </div>
 </div>

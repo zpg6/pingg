@@ -1,0 +1,14 @@
+
+
+<img
+  alt="{{alt}}"
+  src="{{srcURL}}"
+  [ngClass]="{'is-hidden': loading}"
+  [ngStyle]="{
+    'max-height': maxHeight ? maxHeight+'px':'none',
+    'max-width': maxWidth ? maxWidth+'px':'none',
+    'min-height': minHeight ? minHeight+'px':'none',
+    'min-width': minWidth ? minWidth+'px':'none'
+  }"
+  (load)="loaded($event)"
+>

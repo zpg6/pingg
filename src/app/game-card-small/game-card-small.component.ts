@@ -15,11 +15,13 @@ export class GameCardSmallComponent implements OnInit {
   @Input('game') game: any;
 
   getTitle():string {
-    let name = this.game.name;
-    if (name.length > 18) {
-      return name.slice(0,18) + '...'
-    } else {
-      return name
+    if (this.game && this.game.name) {
+      let name = this.game.name;
+      if (name.length > 18) {
+        return name.slice(0,18) + '...'
+      } else {
+        return name
+      }
     }
   }
 
