@@ -1,0 +1,8 @@
+.progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+img {
+  max-height: 200px;
+  max-width: 200px;
+}

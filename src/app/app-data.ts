@@ -31,4 +31,8 @@ export class AppData {
   profile: Profile = new Profile();
 
   gameBeingRated;
+
+  file: File;
+  postImageURL;
+  postImagePath;
 }

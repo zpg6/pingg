@@ -1,0 +1,21 @@
+.uploadZone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 200;
+  height: 125px;
+  border: 0.15rem dashed#3273dc;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+}
+.uploadZone.hovering {
+    border: 2px solid #3273dc;
+    color: #dadada !important;
+}
+
+.file-label {
+    font-size: 1.0em;
+}
+

@@ -1,0 +1,39 @@
+<nav class="level">
+
+  <div class="level-left">
+    <div class="level-item">
+
+          <div *ngIf="(snapshot | async) as snap">
+
+            <div *ngIf="downloadURL as url">
+              <img [src]="url"><br>
+            </div>
+
+
+          </div>
+
+    </div>
+  </div>
+
+  <div class="level-right" *ngIf="percentage | async as pct">
+    <div class="level-item">
+      {{ pct | number }}%
+    </div>
+    <div class="level-item">
+      <progress class="progress is-info"
+                  [value]="pct"
+                  max="100">
+      </progress>
+    </div>
+    <div class="level-item">
+      <button class="button is-small is-danger" *ngIf="pct >= 100" (click)="deleteThisFile()">
+        <span class="icon is-small">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+</nav>
+
+<hr>

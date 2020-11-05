@@ -1,8 +1,8 @@
-<div class="modal-background" (click)="closeModal()"></div>
+<div class="modal-background" (click)="requestClose()"></div>
 <div class="modal-card" style="margin: 0px;">
   <header class="modal-card-head">
     <p class="modal-card-title">New Post</p>
-    <button class="delete" aria-label="close" (click)="closeModal()"></button>
+    <button class="delete" aria-label="close" (click)="requestClose()"></button>
   </header>
   <section class="modal-card-body has-text-dark">
 
@@ -37,11 +37,13 @@
       </div>
     </nav>
 
-    <textarea class="textarea" placeholder="What's on your mind..." [disabled]="!this.game"></textarea>
+    <textarea class="textarea is-link" placeholder="What's on your mind..." [disabled]="!this.game" style="margin-bottom: 1.0rem;" (focus)="changePost($event)" (focusout)="changePost($event)" name="postTextBox" #postTextBox></textarea>
+    <label class="label" *ngIf="this.game && !appData.file" style="margin-top: 0.5rem;">Attach an Image...</label>
+    <app-uploader *ngIf="this.game"></app-uploader>
     <!-- <p class="help">Feel free to add a video link, we'll do our best to fetch a thumbnail!</p> -->
   </section>
   <footer class="modal-card-foot">
-    <button class="button is-success" (click)="addPost()" [disabled]="!this.game || !this.postText">Post</button>
-    <button class="button" (click)="closeModal()">Cancel</button>
+    <button class="button is-success {{isLoading() ? 'is-loading':''}}" (click)="sendPost()" [disabled]="isDisabled()">Post</button>
+    <button class="button" (click)="requestClose()">Cancel</button>
   </footer>
 </div>

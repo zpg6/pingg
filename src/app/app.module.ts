@@ -55,7 +55,10 @@ import { GameSearchComponent } from './game-search/game-search.component';
 import { PingService } from './ping.service';
 import { FooterCardComponent } from './footer-card/footer-card.component';
 import { UserCellComponent } from './user-cell/user-cell.component';
-import { RateGameModalComponent } from './rate-game-modal/rate-game-modal.component'
+import { RateGameModalComponent } from './rate-game-modal/rate-game-modal.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { UploaderComponent } from './uploader/uploader.component';
+import { UploadZoneDirective } from './upload-zone.directive'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -98,7 +101,7 @@ export function playerFactory() {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    //AngularFireStorageModule,
+    AngularFireStorageModule,
     HttpClientModule,
     ScrollingModule,
     YouTubePlayerModule,
@@ -137,13 +140,16 @@ export function playerFactory() {
     FooterCardComponent,
     UserCellComponent,
     RateGameModalComponent,
+    UploadTaskComponent,
+    UploaderComponent,
+    UploadZoneDirective,
   ],
   providers: [
     ObserverService,
     GamesService,
     AngularFireAuthGuard,
     PingService,
-    //{ provide: BUCKET, useValue: 'cs1530group11.appspot.com' }
+    { provide: BUCKET, useValue: 'cs1530group11.appspot.com' }
   ],
   bootstrap: [AppComponent]
 })

@@ -274,9 +274,6 @@ class AppComponent {
     }
     animationCreated(animationItem) {
     }
-    onActivated() {
-        window.scroll(0, 0);
-    }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"])); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 6, vars: 5, consts: [[1, "hero", "is-centered", "is-dark", "is-fullheight"], ["class", "modal is-active is-hidden-mobile", "style", "padding: 0px", 4, "ngIf"], ["class", "modal is-active is-hidden-desktop is-hidden-tablet", "style", "padding: 0px;", 4, "ngIf"], ["class", "modal is-active", "style", "margin: 10px;", 4, "ngIf"], ["class", "modal is-active", 4, "ngIf"], [4, "ngIf"], [1, "modal", "is-active", "is-hidden-mobile", 2, "padding", "0px"], ["width", "150vh", "height", "150vh", 3, "options", "animationCreated"], [1, "modal", "is-active", "is-hidden-desktop", "is-hidden-tablet", 2, "padding", "0px"], ["width", "200vw", "height", "200vw", 3, "options", "animationCreated"], [1, "modal", "is-active", 2, "margin", "10px"], [1, "modal", "is-active"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
@@ -343,42 +340,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
-/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth-guard.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
-/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
-/* harmony import */ var _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./game-card/game-card.component */ "./src/app/game-card/game-card.component.ts");
-/* harmony import */ var _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./game-card-list/game-card-list.component */ "./src/app/game-card-list/game-card-list.component.ts");
-/* harmony import */ var _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./game-detail/game-detail.component */ "./src/app/game-detail/game-detail.component.ts");
-/* harmony import */ var _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./conversations/conversations.component */ "./src/app/conversations/conversations.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./search-bar/search-bar.component */ "./src/app/search-bar/search-bar.component.ts");
-/* harmony import */ var _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./browse-channels/browse-channels.component */ "./src/app/browse-channels/browse-channels.component.ts");
-/* harmony import */ var _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./browse-genres/browse-genres.component */ "./src/app/browse-genres/browse-genres.component.ts");
-/* harmony import */ var _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./browse-platforms/browse-platforms.component */ "./src/app/browse-platforms/browse-platforms.component.ts");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
-/* harmony import */ var _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./new-post-modal/new-post-modal.component */ "./src/app/new-post-modal/new-post-modal.component.ts");
-/* harmony import */ var _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./new-channel-modal/new-channel-modal.component */ "./src/app/new-channel-modal/new-channel-modal.component.ts");
-/* harmony import */ var _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./post-cell/post-cell.component */ "./src/app/post-cell/post-cell.component.ts");
-/* harmony import */ var _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/youtube-player */ "./node_modules/@angular/youtube-player/__ivy_ngcc__/fesm2015/youtube-player.js");
-/* harmony import */ var _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./card-grid/card-grid.component */ "./src/app/card-grid/card-grid.component.ts");
-/* harmony import */ var _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./card-grid-container/card-grid-container.component */ "./src/app/card-grid-container/card-grid-container.component.ts");
-/* harmony import */ var _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./onboarding-modal/onboarding-modal.component */ "./src/app/onboarding-modal/onboarding-modal.component.ts");
-/* harmony import */ var _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./onboarding-steps/onboarding-steps.component */ "./src/app/onboarding-steps/onboarding-steps.component.ts");
-/* harmony import */ var _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./ob-basic/ob-basic.component */ "./src/app/ob-basic/ob-basic.component.ts");
-/* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
-/* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
-/* harmony import */ var _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./game-search/game-search.component */ "./src/app/game-search/game-search.component.ts");
-/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./ping.service */ "./src/app/ping.service.ts");
-/* harmony import */ var _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./footer-card/footer-card.component */ "./src/app/footer-card/footer-card.component.ts");
-/* harmony import */ var _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./user-cell/user-cell.component */ "./src/app/user-cell/user-cell.component.ts");
-/* harmony import */ var _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./rate-game-modal/rate-game-modal.component */ "./src/app/rate-game-modal/rate-game-modal.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth-guard.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
+/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
+/* harmony import */ var _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./game-card/game-card.component */ "./src/app/game-card/game-card.component.ts");
+/* harmony import */ var _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./game-card-list/game-card-list.component */ "./src/app/game-card-list/game-card-list.component.ts");
+/* harmony import */ var _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./game-detail/game-detail.component */ "./src/app/game-detail/game-detail.component.ts");
+/* harmony import */ var _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./conversations/conversations.component */ "./src/app/conversations/conversations.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./search-bar/search-bar.component */ "./src/app/search-bar/search-bar.component.ts");
+/* harmony import */ var _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./browse-channels/browse-channels.component */ "./src/app/browse-channels/browse-channels.component.ts");
+/* harmony import */ var _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./browse-genres/browse-genres.component */ "./src/app/browse-genres/browse-genres.component.ts");
+/* harmony import */ var _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./browse-platforms/browse-platforms.component */ "./src/app/browse-platforms/browse-platforms.component.ts");
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
+/* harmony import */ var _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./new-post-modal/new-post-modal.component */ "./src/app/new-post-modal/new-post-modal.component.ts");
+/* harmony import */ var _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./new-channel-modal/new-channel-modal.component */ "./src/app/new-channel-modal/new-channel-modal.component.ts");
+/* harmony import */ var _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./post-cell/post-cell.component */ "./src/app/post-cell/post-cell.component.ts");
+/* harmony import */ var _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/youtube-player */ "./node_modules/@angular/youtube-player/__ivy_ngcc__/fesm2015/youtube-player.js");
+/* harmony import */ var _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./card-grid/card-grid.component */ "./src/app/card-grid/card-grid.component.ts");
+/* harmony import */ var _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./card-grid-container/card-grid-container.component */ "./src/app/card-grid-container/card-grid-container.component.ts");
+/* harmony import */ var _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./onboarding-modal/onboarding-modal.component */ "./src/app/onboarding-modal/onboarding-modal.component.ts");
+/* harmony import */ var _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./onboarding-steps/onboarding-steps.component */ "./src/app/onboarding-steps/onboarding-steps.component.ts");
+/* harmony import */ var _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./ob-basic/ob-basic.component */ "./src/app/ob-basic/ob-basic.component.ts");
+/* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
+/* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
+/* harmony import */ var _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./game-search/game-search.component */ "./src/app/game-search/game-search.component.ts");
+/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./ping.service */ "./src/app/ping.service.ts");
+/* harmony import */ var _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./footer-card/footer-card.component */ "./src/app/footer-card/footer-card.component.ts");
+/* harmony import */ var _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./user-cell/user-cell.component */ "./src/app/user-cell/user-cell.component.ts");
+/* harmony import */ var _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./rate-game-modal/rate-game-modal.component */ "./src/app/rate-game-modal/rate-game-modal.component.ts");
+/* harmony import */ var _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./upload-task/upload-task.component */ "./src/app/upload-task/upload-task.component.ts");
+/* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
+/* harmony import */ var _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./upload-zone.directive */ "./src/app/upload-zone.directive.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
+
 
 
 
@@ -445,10 +447,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 const firebaseUiAuthConfig = {
     signInFlow: 'popup',
     signInOptions: [
-        firebase_app__WEBPACK_IMPORTED_MODULE_23__["auth"].GoogleAuthProvider.PROVIDER_ID,
+        firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].GoogleAuthProvider.PROVIDER_ID,
         {
             scopes: [
                 'public_profile',
@@ -459,16 +464,16 @@ const firebaseUiAuthConfig = {
             customParameters: {
                 'auth_type': 'reauthenticate'
             },
-            provider: firebase_app__WEBPACK_IMPORTED_MODULE_23__["auth"].FacebookAuthProvider.PROVIDER_ID
+            provider: firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].FacebookAuthProvider.PROVIDER_ID
         },
-        firebase_app__WEBPACK_IMPORTED_MODULE_23__["auth"].TwitterAuthProvider.PROVIDER_ID,
-        firebase_app__WEBPACK_IMPORTED_MODULE_23__["auth"].GithubAuthProvider.PROVIDER_ID,
+        firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].TwitterAuthProvider.PROVIDER_ID,
+        firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].GithubAuthProvider.PROVIDER_ID,
         {
             requireDisplayName: true,
-            provider: firebase_app__WEBPACK_IMPORTED_MODULE_23__["auth"].EmailAuthProvider.PROVIDER_ID
+            provider: firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].EmailAuthProvider.PROVIDER_ID
         },
     ],
-    credentialHelper: firebaseui__WEBPACK_IMPORTED_MODULE_24__["auth"].CredentialHelper.ACCOUNT_CHOOSER_COM
+    credentialHelper: firebaseui__WEBPACK_IMPORTED_MODULE_25__["auth"].CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -481,20 +486,21 @@ AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule
 AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [
         _observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"],
         _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"],
-        _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthGuard"],
-        _ping_service__WEBPACK_IMPORTED_MODULE_48__["PingService"],
+        _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AngularFireAuthGuard"],
+        _ping_service__WEBPACK_IMPORTED_MODULE_49__["PingService"],
+        { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["BUCKET"], useValue: 'cs1530group11.appspot.com' }
     ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
             _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"],
             ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"].forRoot({ player: playerFactory }),
-            _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_21__["environment"].firebase),
+            _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].firebase),
             _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"],
-            firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
-            //AngularFireStorageModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
-            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["ScrollingModule"],
-            _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"],
+            firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+            _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_31__["HttpClientModule"],
+            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["ScrollingModule"],
+            _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayerModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
         _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
@@ -506,35 +512,37 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
         _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
         _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-        _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__["ReportIssueComponent"],
-        _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__["GameCardComponent"],
-        _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__["GameCardListComponent"],
-        _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__["GameDetailComponent"],
-        _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__["ConversationsComponent"],
-        _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_31__["SearchBarComponent"],
-        _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_32__["BrowseChannelsComponent"],
-        _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_33__["BrowseGenresComponent"],
-        _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_34__["BrowsePlatformsComponent"],
-        _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_36__["NewPostModalComponent"],
-        _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewChannelModalComponent"],
-        _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_38__["PostCellComponent"],
-        _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_40__["CardGridComponent"],
-        _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_41__["CardGridContainerComponent"],
-        _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_42__["OnboardingModalComponent"],
-        _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingStepsComponent"],
-        _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_44__["ObBasicComponent"],
-        _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_45__["ObScreenNamesComponent"],
-        _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_46__["ObCustomizeComponent"],
-        _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__["GameSearchComponent"],
-        _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_49__["FooterCardComponent"],
-        _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_50__["UserCellComponent"],
-        _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_51__["RateGameModalComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__["ReportIssueComponent"],
+        _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__["GameCardComponent"],
+        _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__["GameCardListComponent"],
+        _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__["GameDetailComponent"],
+        _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__["ConversationsComponent"],
+        _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__["SearchBarComponent"],
+        _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__["BrowseChannelsComponent"],
+        _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__["BrowseGenresComponent"],
+        _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__["BrowsePlatformsComponent"],
+        _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewPostModalComponent"],
+        _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewChannelModalComponent"],
+        _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__["PostCellComponent"],
+        _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__["CardGridComponent"],
+        _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__["CardGridContainerComponent"],
+        _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingModalComponent"],
+        _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingStepsComponent"],
+        _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__["ObBasicComponent"],
+        _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__["ObScreenNamesComponent"],
+        _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__["ObCustomizeComponent"],
+        _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__["GameSearchComponent"],
+        _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__["FooterCardComponent"],
+        _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__["UserCellComponent"],
+        _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__["RateGameModalComponent"],
+        _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__["UploadTaskComponent"],
+        _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__["UploaderComponent"],
+        _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__["UploadZoneDirective"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-        _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseUIModule"], 
-        //AngularFireStorageModule,
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
-        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["ScrollingModule"],
-        _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"]] }); })();
+        _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseUIModule"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_31__["HttpClientModule"],
+        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["ScrollingModule"],
+        _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayerModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -543,13 +551,13 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
                     _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"],
                     ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"].forRoot({ player: playerFactory }),
-                    _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_21__["environment"].firebase),
+                    _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].firebase),
                     _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"],
-                    firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
-                    //AngularFireStorageModule,
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_30__["HttpClientModule"],
-                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["ScrollingModule"],
-                    _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayerModule"],
+                    firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+                    _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
+                    _angular_common_http__WEBPACK_IMPORTED_MODULE_31__["HttpClientModule"],
+                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["ScrollingModule"],
+                    _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayerModule"],
                 ],
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
@@ -562,40 +570,44 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
                     _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
                     _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-                    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__["ReportIssueComponent"],
-                    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__["GameCardComponent"],
-                    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__["GameCardListComponent"],
-                    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__["GameDetailComponent"],
-                    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__["ConversationsComponent"],
-                    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_31__["SearchBarComponent"],
-                    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_32__["BrowseChannelsComponent"],
-                    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_33__["BrowseGenresComponent"],
-                    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_34__["BrowsePlatformsComponent"],
-                    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_36__["NewPostModalComponent"],
-                    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewChannelModalComponent"],
-                    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_38__["PostCellComponent"],
-                    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_40__["CardGridComponent"],
-                    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_41__["CardGridContainerComponent"],
-                    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_42__["OnboardingModalComponent"],
-                    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingStepsComponent"],
-                    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_44__["ObBasicComponent"],
-                    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_45__["ObScreenNamesComponent"],
-                    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_46__["ObCustomizeComponent"],
-                    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__["GameSearchComponent"],
-                    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_49__["FooterCardComponent"],
-                    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_50__["UserCellComponent"],
-                    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_51__["RateGameModalComponent"],
+                    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__["ReportIssueComponent"],
+                    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__["GameCardComponent"],
+                    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__["GameCardListComponent"],
+                    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__["GameDetailComponent"],
+                    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__["ConversationsComponent"],
+                    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__["SearchBarComponent"],
+                    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__["BrowseChannelsComponent"],
+                    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__["BrowseGenresComponent"],
+                    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__["BrowsePlatformsComponent"],
+                    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewPostModalComponent"],
+                    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewChannelModalComponent"],
+                    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__["PostCellComponent"],
+                    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__["CardGridComponent"],
+                    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__["CardGridContainerComponent"],
+                    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingModalComponent"],
+                    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingStepsComponent"],
+                    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__["ObBasicComponent"],
+                    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__["ObScreenNamesComponent"],
+                    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__["ObCustomizeComponent"],
+                    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__["GameSearchComponent"],
+                    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__["FooterCardComponent"],
+                    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__["UserCellComponent"],
+                    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__["RateGameModalComponent"],
+                    _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__["UploadTaskComponent"],
+                    _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__["UploaderComponent"],
+                    _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__["UploadZoneDirective"],
                 ],
                 providers: [
                     _observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"],
                     _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"],
-                    _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthGuard"],
-                    _ping_service__WEBPACK_IMPORTED_MODULE_48__["PingService"],
+                    _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AngularFireAuthGuard"],
+                    _ping_service__WEBPACK_IMPORTED_MODULE_49__["PingService"],
+                    { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["BUCKET"], useValue: 'cs1530group11.appspot.com' }
                 ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
             }]
     }], null, null); })();
-_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_52__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgComponentOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgTemplateOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgSwitchDefault"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgPlural"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["NgPluralCase"], _angular_router__WEBPACK_IMPORTED_MODULE_53__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_53__["RouterLink"], _angular_router__WEBPACK_IMPORTED_MODULE_53__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_53__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_53__["ɵangular_packages_router_router_l"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMap"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBaseLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBicyclingLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapCircle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapGroundOverlay"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapInfoWindow"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapKmlLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapMarker"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolygon"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolyline"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapRectangle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTrafficLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTransitLayer"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["BaseDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieComponent"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_22__["FirebaseuiAngularLibraryComponent"], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_54__["Dir"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkScrollable"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkFixedSizeVirtualScroll"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkVirtualForOf"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_35__["CdkVirtualScrollViewport"], _angular_youtube_player__WEBPACK_IMPORTED_MODULE_39__["YouTubePlayer"], _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_56__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgComponentOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgTemplateOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgSwitchDefault"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgPlural"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["NgPluralCase"], _angular_router__WEBPACK_IMPORTED_MODULE_57__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_57__["RouterLink"], _angular_router__WEBPACK_IMPORTED_MODULE_57__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_57__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_57__["ɵangular_packages_router_router_l"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMap"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBaseLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBicyclingLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapCircle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapGroundOverlay"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapInfoWindow"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapKmlLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapMarker"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolygon"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolyline"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapRectangle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTrafficLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTransitLayer"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["BaseDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieComponent"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseuiAngularLibraryComponent"], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_58__["Dir"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkScrollable"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkFixedSizeVirtualScroll"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkVirtualForOf"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkVirtualScrollViewport"], _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayer"], _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
     _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
     _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_5__["FeedContainerComponent"],
     _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__["LoginBoxComponent"],
@@ -605,29 +617,32 @@ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_con
     _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
     _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
     _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_25__["ReportIssueComponent"],
-    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_26__["GameCardComponent"],
-    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_27__["GameCardListComponent"],
-    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_28__["GameDetailComponent"],
-    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_29__["ConversationsComponent"],
-    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_31__["SearchBarComponent"],
-    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_32__["BrowseChannelsComponent"],
-    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_33__["BrowseGenresComponent"],
-    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_34__["BrowsePlatformsComponent"],
-    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_36__["NewPostModalComponent"],
-    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewChannelModalComponent"],
-    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_38__["PostCellComponent"],
-    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_40__["CardGridComponent"],
-    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_41__["CardGridContainerComponent"],
-    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_42__["OnboardingModalComponent"],
-    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingStepsComponent"],
-    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_44__["ObBasicComponent"],
-    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_45__["ObScreenNamesComponent"],
-    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_46__["ObCustomizeComponent"],
-    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_47__["GameSearchComponent"],
-    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_49__["FooterCardComponent"],
-    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_50__["UserCellComponent"],
-    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_51__["RateGameModalComponent"]], [_angular_common__WEBPACK_IMPORTED_MODULE_52__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["UpperCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["LowerCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["JsonPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["SlicePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["DecimalPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["PercentPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["I18nPluralPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["I18nSelectPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_52__["KeyValuePipe"]]);
+    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__["ReportIssueComponent"],
+    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__["GameCardComponent"],
+    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__["GameCardListComponent"],
+    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__["GameDetailComponent"],
+    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__["ConversationsComponent"],
+    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__["SearchBarComponent"],
+    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__["BrowseChannelsComponent"],
+    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__["BrowseGenresComponent"],
+    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__["BrowsePlatformsComponent"],
+    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewPostModalComponent"],
+    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewChannelModalComponent"],
+    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__["PostCellComponent"],
+    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__["CardGridComponent"],
+    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__["CardGridContainerComponent"],
+    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingModalComponent"],
+    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingStepsComponent"],
+    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__["ObBasicComponent"],
+    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__["ObScreenNamesComponent"],
+    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__["ObCustomizeComponent"],
+    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__["GameSearchComponent"],
+    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__["FooterCardComponent"],
+    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__["UserCellComponent"],
+    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__["RateGameModalComponent"],
+    _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__["UploadTaskComponent"],
+    _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__["UploaderComponent"],
+    _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__["UploadZoneDirective"]], [_angular_common__WEBPACK_IMPORTED_MODULE_56__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["UpperCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["LowerCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["JsonPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["SlicePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["DecimalPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["PercentPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["I18nPluralPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["I18nSelectPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_56__["KeyValuePipe"]]);
 
 
 /***/ }),
@@ -2970,36 +2985,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPostModalComponent", function() { return NewPostModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
-/* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../games.service */ "./src/app/games.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../games.service */ "./src/app/games.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
 
 
 
 
 
 
+
+
+
+const _c0 = ["postTextBox"];
 function NewPostModalComponent_div_7_option_5_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 23);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const name_r4 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", name_r4.name);
+    const name_r7 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("value", name_r7.name);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](name_r4.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](name_r7.name);
 } }
 function NewPostModalComponent_div_7_Template(rf, ctx) { if (rf & 1) {
-    const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "label", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "label", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Choose a Game");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function NewPostModalComponent_div_7_Template_input_change_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r5.onChange($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function NewPostModalComponent_div_7_Template_input_change_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r8.onChange($event); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "datalist", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, NewPostModalComponent_div_7_option_5_Template, 2, 2, "option", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "datalist", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, NewPostModalComponent_div_7_option_5_Template, 2, 2, "option", 22);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -3011,7 +3033,7 @@ function NewPostModalComponent_div_7_Template(rf, ctx) { if (rf & 1) {
 } }
 function NewPostModalComponent_div_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -3019,21 +3041,31 @@ function NewPostModalComponent_div_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "https://", ctx_r1.game == null ? null : ctx_r1.game.coverURL, "", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function NewPostModalComponent_div_15_Template(rf, ctx) { if (rf & 1) {
-    const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_div_15_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.removeGame(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "i", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_div_15_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.removeGame(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "i", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
+function NewPostModalComponent_label_18_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "label", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Attach an Image...");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function NewPostModalComponent_app_uploader_19_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-uploader");
+} }
 class NewPostModalComponent {
-    constructor(observerService, gamesService) {
+    constructor(observerService, gamesService, http) {
         this.observerService = observerService;
         this.gamesService = gamesService;
+        this.http = http;
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
+        this.loading = false;
         // subscribe to home component messages
         this.subscription.add(observerService.getMessage().subscribe(message => {
             this.appData = message;
@@ -3052,12 +3084,18 @@ class NewPostModalComponent {
     updateObserver() {
         this.observerService.sendMessage(this.appData);
     }
-    addPost() {
-        this.closeModal();
+    changePost(event) {
+        this.postText = event.target.value;
+    }
+    requestClose() {
+        if (!this.isDisabled()) {
+            this.closeModal();
+        }
     }
     closeModal() {
         this.game = undefined;
         this.postText = undefined;
+        this.postTextBox.nativeElement.value = '';
         this.appData.newPostModalOpen = false;
         this.updateObserver();
     }
@@ -3081,11 +3119,71 @@ class NewPostModalComponent {
         }
         event.target.value = '';
     }
+    sendPost() {
+        this.loading = true;
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/post/' + Object(uuid__WEBPACK_IMPORTED_MODULE_2__["v4"])();
+        console.log(url);
+        console.log(Date.now());
+        var body = {
+            user: {
+                id: this.appData.profile.id,
+                avatarVal: this.appData.profile.avatarVal,
+                handle: this.appData.profile.handle
+            },
+            game: {
+                id: this.game.id,
+                coverURL: this.game.coverURL,
+                rating: this.game.rating,
+                name: this.game.name,
+            },
+            time: Date.now(),
+            text: this.postText,
+            isComment: '',
+            parentPostID: ''
+        };
+        if (this.appData.file && this.appData.postImageURL && this.appData.postImagePath) {
+            body['imageURL'] = this.appData.postImageURL;
+            body['imagePath'] = this.appData.postImagePath;
+        }
+        console.log(body);
+        this.http.post(url, body)
+            .toPromise()
+            .then(response => {
+            this.deleteFile();
+            console.log(response);
+            this.loading = false;
+            this.closeModal();
+        })
+            .catch(err => {
+            this.deleteFile();
+            console.error(err);
+            this.loading = false;
+            this.closeModal();
+        });
+    }
+    isDisabled() {
+        return !this.game || !this.postText || !this.postText.length || this.postText.length < 10;
+    }
+    isLoading() {
+        return this.loading;
+    }
+    deleteFile() {
+        var appData = this.observerService.getMessageOnce();
+        appData.postImageURL = undefined;
+        appData.postImagePath = undefined;
+        appData.file = undefined;
+        this.observerService.sendMessage(appData);
+    }
 }
-NewPostModalComponent.ɵfac = function NewPostModalComponent_Factory(t) { return new (t || NewPostModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_3__["GamesService"])); };
-NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NewPostModalComponent, selectors: [["app-new-post-modal"]], decls: 22, vars: 6, consts: [[1, "modal-background", 3, "click"], [1, "modal-card", 2, "margin", "0px"], [1, "modal-card-head"], [1, "modal-card-title"], ["aria-label", "close", 1, "delete", 3, "click"], [1, "modal-card-body", "has-text-dark"], [4, "ngIf"], [1, "level", 2, "margin-top", "1.0rem"], [1, "level-left"], ["class", "level-item", 4, "ngIf"], [1, "level-item"], [1, "subtitle", "has-text-dark", 2, "font-weight", "bolder"], [1, "level-right"], ["placeholder", "What's on your mind...", 1, "textarea", 3, "disabled"], [1, "modal-card-foot"], [1, "button", "is-success", 3, "disabled", "click"], [1, "button", 3, "click"], [1, "label"], ["list", "gameList", "type", "text", "placeholder", "start typing..", 1, "input", 3, "disabled", "change"], ["id", "gameList"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "max-height", "96px", 3, "src"], [1, "button", "is-small", "is-danger", 3, "click"], [1, "icon", "is-small"], [1, "fas", "fa-trash-alt"]], template: function NewPostModalComponent_Template(rf, ctx) { if (rf & 1) {
+NewPostModalComponent.ɵfac = function NewPostModalComponent_Factory(t) { return new (t || NewPostModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"])); };
+NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NewPostModalComponent, selectors: [["app-new-post-modal"]], viewQuery: function NewPostModalComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true);
+    } if (rf & 2) {
+        var _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.postTextBox = _t.first);
+    } }, decls: 25, vars: 11, consts: [[1, "modal-background", 3, "click"], [1, "modal-card", 2, "margin", "0px"], [1, "modal-card-head"], [1, "modal-card-title"], ["aria-label", "close", 1, "delete", 3, "click"], [1, "modal-card-body", "has-text-dark"], [4, "ngIf"], [1, "level", 2, "margin-top", "1.0rem"], [1, "level-left"], ["class", "level-item", 4, "ngIf"], [1, "level-item"], [1, "subtitle", "has-text-dark", 2, "font-weight", "bolder"], [1, "level-right"], ["placeholder", "What's on your mind...", "name", "postTextBox", 1, "textarea", "is-link", 2, "margin-bottom", "1.0rem", 3, "disabled", "focus", "focusout"], ["postTextBox", ""], ["class", "label", "style", "margin-top: 0.5rem;", 4, "ngIf"], [1, "modal-card-foot"], [3, "disabled", "click"], [1, "button", 3, "click"], [1, "label"], ["list", "gameList", "type", "text", "placeholder", "start typing..", 1, "input", 3, "disabled", "change"], ["id", "gameList"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "max-height", "96px", 3, "src"], [1, "button", "is-small", "is-danger", 3, "click"], [1, "icon", "is-small"], [1, "fas", "fa-trash-alt"], [1, "label", 2, "margin-top", "0.5rem"]], template: function NewPostModalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_div_click_0_listener() { return ctx.closeModal(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_div_click_0_listener() { return ctx.requestClose(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "header", 2);
@@ -3093,7 +3191,7 @@ NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "New Post");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_button_click_5_listener() { return ctx.closeModal(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_button_click_5_listener() { return ctx.requestClose(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "section", 5);
@@ -3111,16 +3209,20 @@ NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, NewPostModalComponent_div_15_Template, 4, 0, "div", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "textarea", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "textarea", 13, 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("focus", function NewPostModalComponent_Template_textarea_focus_16_listener($event) { return ctx.changePost($event); })("focusout", function NewPostModalComponent_Template_textarea_focusout_16_listener($event) { return ctx.changePost($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "footer", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "button", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_button_click_18_listener() { return ctx.addPost(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Post");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, NewPostModalComponent_label_18_Template, 2, 0, "label", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, NewPostModalComponent_app_uploader_19_Template, 1, 0, "app-uploader", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "button", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_button_click_20_listener() { return ctx.closeModal(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "Cancel");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "footer", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "button", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_button_click_21_listener() { return ctx.sendPost(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Post");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "button", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function NewPostModalComponent_Template_button_click_23_listener() { return ctx.requestClose(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Cancel");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -3136,8 +3238,13 @@ NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.game);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.game || !ctx.postText);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25ldy1wb3N0LW1vZGFsL25ldy1wb3N0LW1vZGFsLmNvbXBvbmVudC5jc3MifQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.game && !ctx.appData.file);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.game);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMapInterpolate1"]("button is-success ", ctx.isLoading() ? "is-loading" : "", "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.isDisabled());
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_7__["UploaderComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25ldy1wb3N0LW1vZGFsL25ldy1wb3N0LW1vZGFsLmNvbXBvbmVudC5jc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NewPostModalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -3145,7 +3252,10 @@ NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
                 templateUrl: './new-post-modal.component.html',
                 styleUrls: ['./new-post-modal.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_3__["GamesService"] }]; }, null); })();
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }]; }, { postTextBox: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
+            args: ['postTextBox']
+        }] }); })();
 
 
 /***/ }),
@@ -5533,6 +5643,304 @@ SignInButtonsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
                 styleUrls: ['./sign-in-buttons.component.css']
             }]
     }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_2__["ObserverService"] }, { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }]; }, null); })();
+
+
+/***/ }),
+
+/***/ "./src/app/upload-task/upload-task.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/upload-task/upload-task.component.ts ***!
+  \******************************************************/
+/*! exports provided: UploadTaskComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadTaskComponent", function() { return UploadTaskComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+
+
+
+
+
+
+function UploadTaskComponent_div_3_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "img", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const url_r4 = ctx.ngIf;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", url_r4, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+} }
+function UploadTaskComponent_div_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, UploadTaskComponent_div_3_div_1_Template, 3, 1, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.downloadURL);
+} }
+function UploadTaskComponent_div_5_button_7_Template(rf, ctx) { if (rf & 1) {
+    const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "button", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UploadTaskComponent_div_5_button_7_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r8); const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2); return ctx_r7.deleteThisFile(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "span", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "i", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} }
+function UploadTaskComponent_div_5_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](3, "number");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "progress", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](7, UploadTaskComponent_div_5_button_7_Template, 3, 0, "button", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const pct_r5 = ctx.ngIf;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](3, 3, pct_r5), "% ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", pct_r5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", pct_r5 >= 100);
+} }
+class UploadTaskComponent {
+    constructor(storage, observerService) {
+        this.storage = storage;
+        this.observerService = observerService;
+    }
+    ngOnInit() {
+        this.startUpload();
+    }
+    startUpload() {
+        // The storage path
+        const path = `posts/${Date.now()}_${this.file.name}`;
+        // Reference to storage bucket
+        const ref = this.storage.ref(path);
+        // The main task
+        this.task = this.storage.upload(path, this.file);
+        // Progress monitoring
+        this.percentage = this.task.percentageChanges();
+        this.snapshot = this.task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log), 
+        // The file's download URL
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["finalize"])(() => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.downloadURL = yield ref.getDownloadURL().toPromise();
+            var appData = this.observerService.getMessageOnce();
+            appData.postImageURL = this.downloadURL.toString();
+            console.log(appData.postImageURL);
+            appData.postImagePath = path;
+            this.observerService.sendMessage(appData);
+            //this.db.collection('files').add( { downloadURL: this.downloadURL, path });
+        })));
+    }
+    deleteThisFile() {
+        var appData = this.observerService.getMessageOnce();
+        appData.postImageURL = undefined;
+        appData.postImagePath = undefined;
+        appData.file = undefined;
+        this.observerService.sendMessage(appData);
+    }
+    isActive(snapshot) {
+        return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes;
+    }
+}
+UploadTaskComponent.ɵfac = function UploadTaskComponent_Factory(t) { return new (t || UploadTaskComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__["AngularFireStorage"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_4__["ObserverService"])); };
+UploadTaskComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: UploadTaskComponent, selectors: [["app-upload-task"]], inputs: { file: "file" }, decls: 8, vars: 6, consts: [[1, "level"], [1, "level-left"], [1, "level-item"], [4, "ngIf"], ["class", "level-right", 4, "ngIf"], [3, "src"], [1, "level-right"], ["max", "100", 1, "progress", "is-info", 3, "value"], ["class", "button is-small is-danger", 3, "click", 4, "ngIf"], [1, "button", "is-small", "is-danger", 3, "click"], [1, "icon", "is-small"], [1, "fas", "fa-trash-alt"]], template: function UploadTaskComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "nav", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, UploadTaskComponent_div_3_Template, 2, 1, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](4, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](5, UploadTaskComponent_div_5_Template, 8, 5, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](6, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](7, "hr");
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](4, 2, ctx.snapshot));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](6, 4, ctx.percentage));
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["DecimalPipe"]], styles: [".progress[_ngcontent-%COMP%]::-webkit-progress-value {\n  -webkit-transition: width 0.1s ease;\n  transition: width 0.1s ease;\n}\n\nimg[_ngcontent-%COMP%] {\n  max-height: 200px;\n  max-width: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkLXRhc2svdXBsb2FkLXRhc2suY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1DQUEyQjtFQUEzQiwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvdXBsb2FkLXRhc2svdXBsb2FkLXRhc2suY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wcm9ncmVzczo6LXdlYmtpdC1wcm9ncmVzcy12YWx1ZSB7XG4gIHRyYW5zaXRpb246IHdpZHRoIDAuMXMgZWFzZTtcbn1cblxuaW1nIHtcbiAgbWF4LWhlaWdodDogMjAwcHg7XG4gIG1heC13aWR0aDogMjAwcHg7XG59XG4iXX0= */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](UploadTaskComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+                selector: 'app-upload-task',
+                templateUrl: './upload-task.component.html',
+                styleUrls: ['./upload-task.component.css']
+            }]
+    }], function () { return [{ type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__["AngularFireStorage"] }, { type: _observer_service__WEBPACK_IMPORTED_MODULE_4__["ObserverService"] }]; }, { file: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }] }); })();
+
+
+/***/ }),
+
+/***/ "./src/app/upload-zone.directive.ts":
+/*!******************************************!*\
+  !*** ./src/app/upload-zone.directive.ts ***!
+  \******************************************/
+/*! exports provided: UploadZoneDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadZoneDirective", function() { return UploadZoneDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class UploadZoneDirective {
+    constructor() {
+        this.dropped = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.hovered = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    onDrop($event) {
+        $event.preventDefault();
+        this.dropped.emit($event.dataTransfer.files);
+        this.hovered.emit(false);
+    }
+    onDragOver($event) {
+        $event.preventDefault();
+        this.hovered.emit(true);
+    }
+    onDragLeave($event) {
+        $event.preventDefault();
+        this.hovered.emit(false);
+    }
+}
+UploadZoneDirective.ɵfac = function UploadZoneDirective_Factory(t) { return new (t || UploadZoneDirective)(); };
+UploadZoneDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: UploadZoneDirective, selectors: [["", "uploadZone", ""]], hostBindings: function UploadZoneDirective_HostBindings(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("drop", function UploadZoneDirective_drop_HostBindingHandler($event) { return ctx.onDrop($event); })("dragover", function UploadZoneDirective_dragover_HostBindingHandler($event) { return ctx.onDragOver($event); })("dragleave", function UploadZoneDirective_dragleave_HostBindingHandler($event) { return ctx.onDragLeave($event); });
+    } }, outputs: { dropped: "dropped", hovered: "hovered" } });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UploadZoneDirective, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
+        args: [{
+                selector: '[uploadZone]'
+            }]
+    }], function () { return []; }, { dropped: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], hovered: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
+        }], onDrop: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
+            args: ['drop', ['$event']]
+        }], onDragOver: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
+            args: ['dragover', ['$event']]
+        }], onDragLeave: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
+            args: ['dragleave', ['$event']]
+        }] }); })();
+
+
+/***/ }),
+
+/***/ "./src/app/uploader/uploader.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/uploader/uploader.component.ts ***!
+  \************************************************/
+/*! exports provided: UploaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploaderComponent", function() { return UploaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _upload_zone_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../upload-zone.directive */ "./src/app/upload-zone.directive.ts");
+/* harmony import */ var _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../upload-task/upload-task.component */ "./src/app/upload-task/upload-task.component.ts");
+
+
+
+
+
+
+function UploaderComponent_div_0_Template(rf, ctx) { if (rf & 1) {
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("hovered", function UploaderComponent_div_0_Template_div_hovered_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.toggleHover($event); })("dropped", function UploaderComponent_div_0_Template_div_dropped_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r4.onDrop($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Drag and Drop an Image File");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "label", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function UploaderComponent_div_0_Template_input_change_5_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r5.onDrop($event.target.files); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "span", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "span", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "i", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "span", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, " or choose from file browser\u2026 ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("hovering", ctx_r0.isHovering);
+} }
+function UploaderComponent_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-upload-task", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("file", ctx_r1.appData.file);
+} }
+class UploaderComponent {
+    constructor(observerService) {
+        this.observerService = observerService;
+        this.observerService.getMessage().subscribe(msg => this.appData = msg);
+    }
+    toggleHover(event) {
+        this.isHovering = event;
+    }
+    onDrop(files) {
+        this.appData.file = files.item(0);
+    }
+    logFiles() {
+        console.log(this.appData.file);
+    }
+}
+UploaderComponent.ɵfac = function UploaderComponent_Factory(t) { return new (t || UploaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"])); };
+UploaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: UploaderComponent, selectors: [["app-uploader"]], decls: 2, vars: 2, consts: [["class", "uploadZone", "uploadZone", "", 3, "hovering", "hovered", "dropped", 4, "ngIf"], [4, "ngIf"], ["uploadZone", "", 1, "uploadZone", 3, "hovered", "dropped"], [1, "file"], [1, "file-label"], ["type", "file", 1, "file-input", 3, "change"], [1, "file-cta"], [1, "file-icon"], [1, "fa", "fa-upload"], [3, "file"]], template: function UploaderComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, UploaderComponent_div_0_Template, 11, 2, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, UploaderComponent_div_1_Template, 2, 1, "div", 1);
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.appData.file);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.appData.file);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _upload_zone_directive__WEBPACK_IMPORTED_MODULE_3__["UploadZoneDirective"], _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_4__["UploadTaskComponent"]], styles: [".uploadZone[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-weight: 200;\n  height: 125px;\n  border: 0.15rem dashed#3273dc;\n  border-radius: 5px;\n  background: white;\n  margin: 10px 0;\n}\n.uploadZone.hovering[_ngcontent-%COMP%] {\n    border: 2px solid #3273dc;\n    color: #dadada !important;\n}\n.file-label[_ngcontent-%COMP%] {\n    font-size: 1.0em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkZXIvdXBsb2FkZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLHNCQUFzQjtFQUN0QixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLDZCQUE2QjtFQUM3QixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLGNBQWM7QUFDaEI7QUFDQTtJQUNJLHlCQUF5QjtJQUN6Qix5QkFBeUI7QUFDN0I7QUFFQTtJQUNJLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL3VwbG9hZGVyL3VwbG9hZGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXBsb2FkWm9uZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBmb250LXdlaWdodDogMjAwO1xuICBoZWlnaHQ6IDEyNXB4O1xuICBib3JkZXI6IDAuMTVyZW0gZGFzaGVkIzMyNzNkYztcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgbWFyZ2luOiAxMHB4IDA7XG59XG4udXBsb2FkWm9uZS5ob3ZlcmluZyB7XG4gICAgYm9yZGVyOiAycHggc29saWQgIzMyNzNkYztcbiAgICBjb2xvcjogI2RhZGFkYSAhaW1wb3J0YW50O1xufVxuXG4uZmlsZS1sYWJlbCB7XG4gICAgZm9udC1zaXplOiAxLjBlbTtcbn1cblxuIl19 */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UploaderComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-uploader',
+                templateUrl: './uploader.component.html',
+                styleUrls: ['./uploader.component.css']
+            }]
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_1__["ObserverService"] }]; }, null); })();
 
 
 /***/ }),
