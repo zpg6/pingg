@@ -5086,7 +5086,6 @@ class ProfileContainerComponent {
                         this.gamesService.getGame(game.id)
                             .then(gameObj => {
                             this.addGame(name.id, gameObj);
-                            console.log(gameObj);
                         })
                             .catch(err => console.error(err));
                     });
@@ -5105,7 +5104,6 @@ class ProfileContainerComponent {
                     for (j = 0; j < this.user.screenNames[i].games.length; j++) {
                         if (this.user.screenNames[i].games[j].id === game.id) {
                             this.user.screenNames[i].games[j] = game;
-                            console.log(i + ' ' + j);
                             return;
                         }
                     }
