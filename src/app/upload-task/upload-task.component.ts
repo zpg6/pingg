@@ -47,7 +47,7 @@ export class UploadTaskComponent implements OnInit {
         this.downloadURL = await ref.getDownloadURL().toPromise();
         var appData = this.observerService.getMessageOnce()
         appData.postImageURL = this.downloadURL.toString()
-        console.log(appData.postImageURL)
+
         appData.postImagePath = path
         this.observerService.sendMessage(appData)
         //this.db.collection('files').add( { downloadURL: this.downloadURL, path });
