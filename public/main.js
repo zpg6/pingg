@@ -5074,20 +5074,24 @@ class ProfileContainerComponent {
         if (this.user.screenNames) {
             var i = 0;
             for (i = 0; i < this.user.screenNames.length; i++) {
-                this.user.screenNames[i].games = this.gamesService.getSet('Top Rated').slice(0, 7);
+                if (typeof this.user.screenNames[i] === 'string') {
+                    this.user.screenNames[i] = JSON.parse(this.user.screenNames[i]);
+                }
+                //this.user.screenNames[i].games = this.gamesService.getSet('Top Rated').slice(0,7)
             }
-            // this.user.screenNames.forEach(name => {
-            //   if (name && name.games && name.games.length > 0) {
-            //     name.games.forEach(game => {
-            //       this.gamesService.getGame(game.id)
-            //         .then(gameObj => {
-            //           this.addGame(name.id, gameObj)
-            //           console.log(gameObj)
-            //         })
-            //         .catch(err => console.error(err))
-            //     })
-            //   }
-            // })
+            console.log(this.user.screenNames);
+            this.user.screenNames.forEach(name => {
+                if (name && name.games && name.games.length > 0) {
+                    name.games.forEach(game => {
+                        this.gamesService.getGame(game.id)
+                            .then(gameObj => {
+                            this.addGame(name.id, gameObj);
+                            console.log(gameObj);
+                        })
+                            .catch(err => console.error(err));
+                    });
+                }
+            });
         }
     }
     addGame(nameID, game) {
@@ -5095,18 +5099,19 @@ class ProfileContainerComponent {
             return;
         var i = 0;
         for (i = 0; i < this.user.screenNames.length; i++) {
-            if (this.user.screenNames[i].id == nameID) {
+            if (this.user.screenNames[i].id === nameID) {
                 if (this.user.screenNames[i].games) {
                     var j = 0;
                     for (j = 0; j < this.user.screenNames[i].games.length; j++) {
                         if (this.user.screenNames[i].games[j].id === game.id) {
                             this.user.screenNames[i].games[j] = game;
+                            console.log(i + ' ' + j);
                             return;
                         }
                     }
                 }
+                return;
             }
-            return;
         }
     }
     getGames() {
