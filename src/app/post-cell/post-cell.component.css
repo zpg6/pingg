@@ -40,3 +40,26 @@ a {
 .grid-image {
   margin: 8px;
 }
+
+
+.card-footer-item {
+  /* background-color: #232324; */
+}
+
+.card-footer-item:hover {
+  background-color: #171717;
+  font-weight: bolder;
+}
+
+.card-footer-item.is-active {
+  background-color: #171717;
+  font-weight: bolder;
+}
+
+.card-footer {
+  border-top: 1px solid #95EF72;
+}
+
+.card-footer-item:not(:last-child) {
+  border-right: 1px solid #95EF72;
+}

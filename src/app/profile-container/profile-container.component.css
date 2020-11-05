@@ -49,3 +49,41 @@ li {
   flex: 0 0 auto;
   margin: 5px;
 }
+
+
+.card-footer-item {
+  /* background-color: #232324; */
+}
+
+.card-footer-item:hover {
+  background-color: #171717;
+  font-weight: bolder;
+}
+
+.card-footer-item.is-active {
+  background-color: #171717;
+  font-weight: bolder;
+}
+
+.card-footer {
+  border-top: 1px solid #95EF72;
+}
+
+.card-footer-item:not(:last-child) {
+  border-right: 1px solid #95EF72;
+}
+
+
+p.special-title {
+  text-decoration: none;
+  display: inline-table;
+}
+
+span.special-title:after {
+  content: "";
+  border-bottom: 0.3em solid #95EF72;
+  display: table-caption;
+  caption-side: bottom;
+  position: relative;
+  margin-top:-0.15em;
+}

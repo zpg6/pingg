@@ -21,6 +21,8 @@ export class ProfileContainerComponent implements OnInit {
 
   loaded = 0;
 
+  usersOwnProfile = false
+
   constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.observerService.getMessage().subscribe(msg => this.user = msg.profile)
   }
@@ -37,12 +39,14 @@ export class ProfileContainerComponent implements OnInit {
       let profile = this.observerService.getMessageOnce().profile
       if (id === profile.id) {
         this.user = profile
+        this.usersOwnProfile = true
         this.fillInScreenNames()
         this.getFollowers()
         this.getFollowing()
         this.getGames()
         this.getPosts()
       } else {
+        this.usersOwnProfile = false
         let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + id
         this.http.get<any>(url).toPromise().then(profileObj => {
           var data = profileObj.response.properties

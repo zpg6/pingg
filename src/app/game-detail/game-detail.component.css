@@ -26,25 +26,22 @@ img {
   background-color: #232324;
 }
 
-.card-footer {
-  border-top: 1px solid #95EF72;
-}
-
 .card-footer-item {
   /* background-color: #232324; */
-  color: whitesmoke;
 }
 
 .card-footer-item:hover {
   background-color: #171717;
-  color: whitesmoke;
   font-weight: bolder;
 }
 
 .card-footer-item.is-active {
   background-color: #171717;
-  color: whitesmoke;
   font-weight: bolder;
+}
+
+.card-footer {
+  border-top: 1px solid #95EF72;
 }
 
 .card-footer-item:not(:last-child) {
@@ -58,4 +55,8 @@ img {
 .level {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+a {
+  color: #95EF72;
 }

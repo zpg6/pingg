@@ -27,6 +27,26 @@
                   </div>
                 </div>
               </div>
+              <footer class="card-footer">
+                <a class="card-footer-item" *ngIf="!usersOwnProfile">
+                  <span class="icon is-medium" style="color: #95EF72;">
+                    <i class="fas fa-user-plus"></i>
+                  </span>
+                  Follow
+                </a>
+                <a class="card-footer-item">
+                  <span class="icon is-medium" style="color: #95EF72;">
+                    <i class="fas fa-comments"></i>
+                  </span>
+                  Another Button
+                </a>
+                <a class="card-footer-item" *ngIf="usersOwnProfile">
+                  <span class="icon is-medium" style="color: #95EF72;">
+                    <i class="fas fa-user-edit"></i>
+                  </span>
+                  Edit Profile
+                </a>
+              </footer>
             </div>
 
 
@@ -40,7 +60,7 @@
                     <p class="title is-3 has-text-light">Following {{following?.length > 0 ? '('+following.length+')':''}}</p>
                     <p *ngIf="!following || following.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
                     <ul class="users">
-                      <li *ngFor="let person of following"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
+                      <li *ngFor="let person of following"><app-user-cell [user]="person"></app-user-cell></li>
                     </ul>
                   </div>
                 </div>
@@ -52,10 +72,12 @@
 
                 <div class="card post-card">
                   <div class="card-content is-dark">
-                    <p class="title is-3 has-text-light">Followers {{followers?.length > 0 ? '('+followers.length+')':''}}</p>
+                    <p class="title is-3 has-text-light">
+                      Followers {{followers?.length > 0 ? '('+followers.length+')':''}}
+                    </p>
                     <p *ngIf="!followers || followers.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
                     <ul class="users">
-                      <li *ngFor="let person of followers"><app-user-cell [user]="person" routerLink="/profile/{{person.id}}"></app-user-cell></li>
+                      <li *ngFor="let person of followers"><app-user-cell [user]="person"></app-user-cell></li>
                     </ul>
                   </div>
                 </div>
