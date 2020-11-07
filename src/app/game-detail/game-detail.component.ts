@@ -9,6 +9,7 @@ import { GamesService } from '../games.service';
 import { NavbarPage } from '../navbar-page.enum';
 import { ObserverService } from '../observer.service';
 import { HttpClient } from '@angular/common/http';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-game-detail',
@@ -28,7 +29,7 @@ export class GameDetailComponent implements OnInit {
   isFollowedLocally;
 
   constructor(private observerService: ObserverService, private gamesService: GamesService,
-    private ar: ActivatedRoute, private http: HttpClient, private router: Router)
+    private ar: ActivatedRoute, private http: HttpClient, private router: Router, private sanitizer: DomSanitizer)
   {
       // subscribe to home component messages
     this.observerService.getMessage().subscribe(msg => this.appData = msg)
@@ -59,6 +60,10 @@ export class GameDetailComponent implements OnInit {
         })
       })
     })
+  }
+
+  getLink(input: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(input)
   }
 
   scrollToTop() {

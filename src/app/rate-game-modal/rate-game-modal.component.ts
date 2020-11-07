@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
@@ -8,24 +8,40 @@ import { ObserverService } from '../observer.service';
   templateUrl: './rate-game-modal.component.html',
   styleUrls: ['./rate-game-modal.component.css']
 })
-export class RateGameModalComponent implements OnInit {
+export class RateGameModalComponent implements OnInit, OnChanges {
 
   appData: AppData;
   subscription = new Subscription();
   game;
-  rating = 75.000;
+  rating;
+  @ViewChild('slider') slider: ElementRef
 
   constructor(private observerService: ObserverService) {
       // subscribe to home component messages
-      this.subscription.add(observerService.getMessage().subscribe(message => {
+      observerService.getMessage().subscribe(message => {
         this.appData = message;
-        this.game = message.gameBeingRated
-        this.rating = this.game
-      }));
+        this.game = this.appData.gameBeingRated
+        if (this.game) {
+          this.rating = this.game.rating
+        }
+      })
   }
 
   ngOnInit() {
+    if (this.game && this.rating) {
+      this.slider.nativeElement.value = this.rating
+    }
+  }
 
+  ngOnChanges() {
+    if (this.game) {
+      this.game = this.appData.gameBeingRated
+      this.rating = this.game.rating
+      if (this.rating && this.slider.nativeElement.value) {
+        this.slider.nativeElement.value = this.rating
+      }
+      console.log(this.game)
+    }
   }
 
   ngOnDestroy() {

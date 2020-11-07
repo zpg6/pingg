@@ -22,7 +22,7 @@
       <div class="level-right">
         <div class="level-item" *ngIf="this.game">
 
-          <p class="subtitle is-6 has-text-dark" style="margin-bottom: 1.5rem; font-weight: bolder;">Current Rating</p>
+          <p class="subtitle is-6 has-text-dark" style="font-weight: bolder;">Current Rating</p>
 
         </div>
         <div class="level-item">
@@ -36,8 +36,8 @@
       </div>
     </nav>
 
-    <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Your Rating</p>
-    <input class="slider is-link" style="width: 100%;" step="0.001" min="0.000" max="100.000" value="{{appData.avatarVal}}" type="range" (change)="onChange($event)">
+    <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Your Rating: {{this.rating| number:'1.2-2'}}</p>
+    <input class="slider is-link" style="width: 100%;" step="0.001" min="0.000" max="100.000" value="{{this.rating}}" type="range" (change)="onChange($event)">
 
 
 

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
+import { PostsService } from '../posts.service';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-profile-container',
@@ -11,9 +13,10 @@ import { ObserverService } from '../observer.service';
 })
 export class ProfileContainerComponent implements OnInit {
 
+  ticks = 0;
   @ViewChild('scrollable') scrollable: ElementRef;
   user;
-  posts = [];
+  posts;
   games;
   example = 'Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post. Here is some text as the contents of this post.'
   followers = []
@@ -23,8 +26,17 @@ export class ProfileContainerComponent implements OnInit {
 
   usersOwnProfile = false
 
-  constructor(private observerService: ObserverService, private gamesService: GamesService, private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
+  constructor(private observerService: ObserverService,
+              private gamesService: GamesService,
+              private ar: ActivatedRoute,
+              private http: HttpClient,
+              private router: Router,
+              private postsService: PostsService,
+              private profileService: ProfileService)
+
+  {
     this.observerService.getMessage().subscribe(msg => this.user = msg.profile)
+    this.posts = undefined
   }
 
   ngOnInit(): void {
@@ -39,12 +51,9 @@ export class ProfileContainerComponent implements OnInit {
       let profile = this.observerService.getMessageOnce().profile
       if (id === profile.id) {
         this.user = profile
+        this.setupPage(profile.id)
         this.usersOwnProfile = true
-        this.fillInScreenNames()
-        this.getFollowers()
-        this.getFollowing()
-        this.getGames()
-        this.getPosts()
+
       } else {
         this.usersOwnProfile = false
         let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + id
@@ -52,11 +61,7 @@ export class ProfileContainerComponent implements OnInit {
           var data = profileObj.response.properties
           if (data) {
             this.user = data
-            this.fillInScreenNames()
-            this.getFollowers()
-            this.getFollowing()
-            this.getGames()
-            this.getPosts()
+            this.setupPage(data.id)
           }
           else {
             this.router.navigate(['/profile/'+profile.id])
@@ -67,6 +72,35 @@ export class ProfileContainerComponent implements OnInit {
         })
       }
     })
+  }
+
+  setupPage(userID: string) {
+    this.postsService.getUserPosts(userID)
+      .then(response => {
+        console.log('✅')
+        this.posts = response.response
+      })
+      .catch(err => { console.error(err) })
+
+      this.fillInScreenNames()
+
+    this.profileService.getFollowers(userID)
+      .then(response => {
+        this.followers = response.response
+      })
+      .catch(err => { console.error(err) })
+
+    this.profileService.getFollowing(userID)
+      .then(response => {
+        this.following = response.response
+      })
+      .catch(err => { console.error(err) })
+
+    this.profileService.getGames(userID)
+      .then(response => {
+        this.games = response.response
+      })
+      .catch(err => { console.error(err) })
   }
 
   scrollToTop() {
@@ -89,8 +123,6 @@ export class ProfileContainerComponent implements OnInit {
 
         //this.user.screenNames[i].games = this.gamesService.getSet('Top Rated').slice(0,7)
       }
-
-      console.log(this.user.screenNames)
 
       this.user.screenNames.forEach(name => {
         if (name && name.games && name.games.length > 0) {
@@ -125,41 +157,5 @@ export class ProfileContainerComponent implements OnInit {
     }
   }
 
-  getGames() {
-    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/games-followed/'
-    this.http.get<any>(url).toPromise()
-              .then(response => {
-                this.games = response.response
-              })
-              .catch(err => console.error(err))
-  }
-
-  getFollowers() {
-
-    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/followers'
-    this.http.get<any>(url).toPromise()
-              .then(response => {
-                console.log(response)
-                this.followers = response.response
-              })
-              .catch(err => console.error(err))
-
-  }
-
-  getFollowing() {
-
-    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/following'
-    this.http.get<any>(url).toPromise()
-              .then(response => {
-                console.log(response)
-                this.following = response.response
-              })
-              .catch(err => console.error(err))
-
-  }
-
-  getPosts() {
-    //let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.user.id + '/following'
-  }
 
 }

@@ -20,26 +20,19 @@
             </ul>
           </div>
           <div class="column is-10">
-            <div class="media" style="margin-bottom: 0.5rem;" routerLink="/profile/{{post?.user?.id}}">
+            <div class="media" style="margin-bottom: 0.5rem;">
               <div class="media-left">
-                <img src="https://avatars.dicebear.com/api/bottts/{{post?.user?.avatarVal}}.svg" style="width: 50px; height: 50px;">
+                <img routerLink="/profile/{{post?.user?.id}}" src="https://avatars.dicebear.com/api/bottts/{{post?.user?.avatarVal}}.svg" style="width: 50px; height: 50px;">
               </div>
               <div class="media-content">
 
-                <span class="subtitle is-4 has-text-light" style="margin-bottom: 0.0rem;">
-                  {{post?.user.firstName}} {{post?.user.lastName}}&nbsp;
-                </span>
 
-                <span class="subtitle is-5" style="font-weight: bolder; margin-bottom: 0.0rem; text-shadow: 0 0 whitesmoke; color: gray;">
-                  <i>@{{post?.user.handle}}</i>&nbsp;&nbsp;
-                </span>
-
-                <span class="subtitle is-6" style="margin-bottom: 0.0rem; color: lightgray;">
-                  5 min ago
-                </span>
+                <p class="subtitle is-6 has-text-light" style="margin-bottom: 0.0rem;">
+                  <a style="color: #95EF72; font-weight: bolder;" routerLink="/profile/{{post?.user?.id}}">@{{post?.user.handle}}</a> ⋅ {{post?.time | relativeTime}}
+                </p>
 
 
-                <p class="body has-text-light" style="padding-right: 1.0rem; margin-top: 0.5rem; margin-bottom: 1.0rem">
+                <p class="subtitle is-5 has-text-light" style="padding-right: 1.0rem; margin-top: 0.5rem; margin-bottom: 1.0rem">
                   {{post?.text}}
                 </p>
 

@@ -20,21 +20,46 @@ export class NewPostModalComponent implements OnInit {
   postText;
   loading = false;
 
+  dropdownSetter = ''
+  wasSet = false
+
+  @ViewChild('dropdown') dropdown: ElementRef;
+
   @ViewChild('postTextBox') postTextBox: ElementRef
 
   constructor(private observerService: ObserverService, private gamesService: GamesService, private http: HttpClient)
   {
+      this.wasSet = false
       // subscribe to home component messages
       this.subscription.add(observerService.getMessage().subscribe(message => {
         this.appData = message;
+        this.fetchGameFromLock()
       }));
       this.gamesService.getNames()
       this.gamesService.gameNames.asObservable().subscribe(gameNames => {
         this.gameNames = gameNames
+        this.fetchGameFromLock()
       })
   }
 
+  fetchGameFromLock() {
+    if (!this.game && this.gameNames && this.appData.postGameLock && this.dropdownSetter === '') {
+      let newItem = this.gameNames.find(game => game.id===this.appData.postGameLock)
+      if (newItem) {
+        this.dropdownSetter = newItem.name
+        this.game = newItem
+        this.getCover()
+        this.wasSet = true
+      }
+      this.appData.postGameLock = undefined
+      this.updateObserver()
+    }
+  }
+
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
 
   }
 
@@ -57,6 +82,9 @@ export class NewPostModalComponent implements OnInit {
   }
 
   closeModal() {
+    this.wasSet = false
+    this.dropdownSetter = ''
+    this.dropdown.nativeElement.value = ''
     this.game = undefined
     this.postText = undefined
     this.postTextBox.nativeElement.value = ''
@@ -72,8 +100,14 @@ export class NewPostModalComponent implements OnInit {
     }
   }
 
+  canRemoveGame() {
+    return !this.wasSet
+  }
+
   removeGame() {
-    this.game = undefined
+    if (this.canRemoveGame()) {
+      this.game = undefined
+    }
   }
 
   onChange(event: any) {

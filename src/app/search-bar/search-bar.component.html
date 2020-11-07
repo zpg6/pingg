@@ -2,21 +2,15 @@
 <div class="modal-content">
   <button class="delete" aria-label="close" (click)="closeModal()" style="float: right; margin: 10px;"></button>
   <article class="panel" style="background-color: whitesmoke;">
-    <div class="panel-heading {{(results?.length == 0) ? 'panel-heading-active':''}}" style="background-color: #3273dc; padding: 20px;">
+    <div class="panel-heading" style="background-color: #3273dc; padding: 20px;" [ngClass]="{'panel-heading-empty': !results || results?.length == 0}">
       <p class="control has-icons-left">
-        <input (keyup)="onkeyup($event)" class="input is-info" placeholder="Search Games, Users, and Posts...">
+        <input (keyup)="onkeyup($event)" class="input is-info" placeholder="Search Games by Title...">
         <span class="icon is-left">
           <i class="fas fa-search" aria-hidden="true"></i>
         </span>
       </p>
     </div>
     <div *ngIf="results?.length > 0">
-      <p class="panel-tabs">
-        <a class="is-active">All</a>
-        <a>Games</a>
-        <a>Posts</a>
-        <a>Players</a>
-      </p>
       <a class="panel-block is-active" *ngFor="let item of results" (click)="openGame(item)">
         <nav class="level" style="width: 100%;">
           <div class="level-left">

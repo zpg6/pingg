@@ -35,4 +35,5 @@ export class AppData {
   file: File;
   postImageURL;
   postImagePath;
+  postGameLock;
 }

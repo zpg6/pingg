@@ -62,6 +62,9 @@ import { UploadZoneDirective } from './upload-zone.directive';
 import { FeedComponent } from './feed/feed.component';
 import { GameCardSmallComponent } from './game-card-small/game-card-small.component';
 import { LazyImageComponent } from './lazy-image/lazy-image.component'
+import { PostsService } from './posts.service'
+import { ProfileService } from './profile.service';
+import { RelativeTimePipe } from './relative-time.pipe'
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -149,12 +152,15 @@ export function playerFactory() {
     FeedComponent,
     GameCardSmallComponent,
     LazyImageComponent,
+    RelativeTimePipe,
   ],
   providers: [
     ObserverService,
     GamesService,
     AngularFireAuthGuard,
     PingService,
+    PostsService,
+    ProfileService,
     { provide: BUCKET, useValue: 'cs1530group11.appspot.com' }
   ],
   bootstrap: [AppComponent]

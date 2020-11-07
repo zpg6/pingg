@@ -14,67 +14,7 @@
         <section class="section">
           <div class="container" style="margin-bottom: 100px;">
 
-            <div class="card post-card">
-              <div class="card-content is-dark">
-
-                <div class="media-content">
-
-                  <nav class="level" style="padding: 0px 10px;">
-                    <div class="level-left">
-                      <div class="media" style="border-top: none;">
-                        <div class="media-left">
-                          <img src="../../assets/images/pingg_logo.png" style="max-width: 100px;">
-                        </div>
-                        <div class="media-content">
-                          <p class="title">Main Feed</p>
-                          <!-- <p class="heading"></p> -->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="level-right">
-                      <div class="level-item is-hidden-mobile" style="margin-right: 2.0rem;" (click)="newPost()">
-                        <a class="button is-danger">New Post</a>
-                      </div>
-                      <div class="level-item is-hidden-desktop is-hidden-tablet" (click)="newPost()">
-                        <a class="button is-danger">New Post</a>
-                      </div>
-                      <div class="level-item">
-                        <div class="field has-addons">
-                          <p class="control">
-                            <a class="button is-info is-selected">
-                              Newest
-                            </a>
-                          </p>
-                          <p class="control">
-                            <a class="button">
-                              Popular
-                            </a>
-                          </p>
-                          <p class="control">
-                            <a class="button">
-                              Trending
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </nav>
-
-
-                </div>
-
-              </div>
-            </div>
-
-
-
-
-            <div *ngFor="let post of posts">
-              <app-post-cell [post]="post"></app-post-cell>
-            </div>
-
-
-            <!-- <app-footer-card></app-footer-card> -->
+            <app-feed [main]="true"></app-feed>
 
           </div>
         </section>

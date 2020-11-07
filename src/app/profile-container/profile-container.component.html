@@ -135,7 +135,7 @@
               </div>
             </div>
 
-            <app-feed [userID]="this.user.id"></app-feed>
+            <app-feed [userID]="this.user.id" *ngIf="this.user && this.user.id && this.posts"></app-feed>
 
 
           </div>
