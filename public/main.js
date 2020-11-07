@@ -3516,9 +3516,12 @@ class NewPostModalComponent {
         }
     }
     closeModal() {
+        var _a, _b;
         this.wasSet = false;
         this.dropdownSetter = '';
-        this.dropdown.nativeElement.value = '';
+        if ((_b = (_a = this.dropdown) === null || _a === void 0 ? void 0 : _a.nativeElement) === null || _b === void 0 ? void 0 : _b.value) {
+            this.dropdown.nativeElement.value = '';
+        }
         this.game = undefined;
         this.postText = undefined;
         this.postTextBox.nativeElement.value = '';

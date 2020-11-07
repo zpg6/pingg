@@ -84,7 +84,9 @@ export class NewPostModalComponent implements OnInit {
   closeModal() {
     this.wasSet = false
     this.dropdownSetter = ''
-    this.dropdown.nativeElement.value = ''
+    if (this.dropdown?.nativeElement?.value) {
+      this.dropdown.nativeElement.value = ''
+    }
     this.game = undefined
     this.postText = undefined
     this.postTextBox.nativeElement.value = ''
