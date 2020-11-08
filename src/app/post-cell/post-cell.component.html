@@ -92,31 +92,71 @@
   </div>
 
   <div class="column is-10">
+
     <div class="card post-card">
       <div class="card-content is-dark">
 
 
-        <div class="columns is-mobile is-vcentered">
-          <div class="column is-half">
-            <app-user-cell [user]="post?.user"></app-user-cell>
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <ul class="images-grid">
+              <li class="grid-image"><app-game-card-small [game]="post?.game"></app-game-card-small></li>
+            </ul>
           </div>
-          <div class="column is-half images-grid">
-            <li class="grid-image"><app-game-card-small [game]="post?.game"></app-game-card-small></li>
-          </div>
+          <div class="column is-10">
+            <div class="media" style="margin-bottom: 0.5rem;">
+              <div class="media-left">
+                <img routerLink="/profile/{{post?.user?.id}}" src="https://avatars.dicebear.com/api/bottts/{{post?.user?.avatarVal}}.svg" style="width: 50px; height: 50px;">
+              </div>
+              <div class="media-content">
 
+
+                <p class="subtitle is-6 has-text-light" style="margin-bottom: 0.0rem;">
+                  <a style="color: #95EF72; font-weight: bolder;" routerLink="/profile/{{post?.user?.id}}">@{{post?.user.handle}}</a> ⋅ {{post?.time | relativeTime}}
+                </p>
+
+
+                <p class="subtitle is-5 has-text-light" style="padding-right: 1.0rem; margin-top: 0.5rem; margin-bottom: 1.0rem">
+                  {{post?.text}}
+                </p>
+
+              </div>
+            </div>
+
+            <app-lazy-image
+              *ngIf="post.imageURL"
+              [srcURL]="post?.imageURL"
+              [maxHeight]="600"
+              [maxWidth]="600"
+            >
+            </app-lazy-image>
+
+          </div>
         </div>
 
-        <p class="body has-text-light" style="padding-right: 1.0rem; margin-bottom: 2.0rem">
-          {{post?.text}}
-        </p>
 
-        <app-lazy-image
-          *ngIf="post.imageURL"
-          [srcURL]="post?.imageURL"
-          [maxHeight]="600"
-          [maxWidth]="600"
-        >
-        </app-lazy-image>
+      </div>
+      <footer class="card-footer">
+        <a class="card-footer-item">
+          <span class="icon is-medium" style="color: #95EF72;">
+            <i class="fas fa-pencil-alt"></i>
+          </span>
+          Comment
+        </a>
+        <a class="card-footer-item" shareButton="facebook">
+          <span class="icon is-medium" style="color: #95EF72;">
+            <i class="fab fa-facebook"></i>
+          </span>
+          Share
+        </a>
+        <a class="card-footer-item" shareButton="twitter">
+          <span class="icon is-medium" style="color: #95EF72;">
+            <i class="fab fa-twitter"></i>
+          </span>
+          Share
+        </a>
+      </footer>
+    </div>
 
   </div>
 </div>
