@@ -4450,7 +4450,7 @@ class OnboardingModalComponent {
                 console.error(err);
             });
             let sn = new Set();
-            Object.keys(this.appData.onboardingTempProfile.screenNames).forEach(screenName => {
+            this.appData.screenNames.forEach(screenName => {
                 screenName[screenName].games.forEach(screenGame => {
                     sn.add(screenGame.id);
                 });
