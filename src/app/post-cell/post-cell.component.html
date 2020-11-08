@@ -47,13 +47,38 @@
             >
             </app-lazy-image>
 
+
+
           </div>
+
+        </div>
+        <div *ngIf="this.comments && this.comments?.length > 0">
+          <p class="heading has-text-light" style="margin-bottom: 1.5rem;">Comments ({{comments.length}}):</p>
+          <app-comment *ngFor="let comment of comments" [post]="comment"></app-comment>
         </div>
 
 
       </div>
+
+
+      <div *ngIf="isCommenting" style="padding: 10px 50px;">
+        <div class="field has-addons">
+          <button class="delete" aria-label="close" (click)="closeComment()" style="margin: 10px;"></button>
+          <div class="control is-expanded">
+            <input class="input is-success" placeholder="Comment on this post...." type="text" name="commentBoxD" #commentBoxD>
+          </div>
+          <div class="control">
+            <button class="button is-success" [ngClass]="{'is-loading':loading}" style="background-color: #95EF72; color: #000;" (click)="sendComment()" [disabled]="loading">
+              Add Comment
+            </button>
+          </div>
+        </div>
+        <p class="help is-danger" *ngIf="commentError">{{commentError}}</p>
+      </div>
+
+
       <footer class="card-footer">
-        <a class="card-footer-item">
+        <a class="card-footer-item" (click)="isCommenting = true">
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fas fa-pencil-alt"></i>
           </span>
@@ -73,7 +98,6 @@
         </a>
       </footer>
     </div>
-
 
   </div>
 </div>
@@ -131,13 +155,33 @@
             >
             </app-lazy-image>
 
+            <div *ngIf="this.comments && this.comments?.length > 0">
+              <app-comment *ngFor="let comment of comments" [post]="comment"></app-comment>
+            </div>
+
           </div>
         </div>
 
 
       </div>
+
+      <div *ngIf="isCommenting" style="padding: 10px 5px;">
+        <div class="field has-addons">
+          <button class="delete" aria-label="close" (click)="closeComment()" style="margin: 10px;"></button>
+          <div class="control is-expanded">
+            <input class="input is-success" placeholder="Comment on this post...." type="text" name="commentBoxM" #commentBoxM>
+          </div>
+          <div class="control">
+            <button class="button is-success" [ngClass]="{'is-loading':loading}" style="background-color: #95EF72; color: #000;" (click)="sendComment()" [disabled]="loading">
+              Send
+            </button>
+          </div>
+        </div>
+        <p class="help is-danger" *ngIf="commentError">{{commentError}}</p>
+      </div>
+
       <footer class="card-footer">
-        <a class="card-footer-item">
+        <a class="card-footer-item" (click)="isCommenting = true">
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fas fa-pencil-alt"></i>
           </span>

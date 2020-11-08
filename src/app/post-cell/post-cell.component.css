@@ -63,3 +63,7 @@ a {
 .card-footer-item:not(:last-child) {
   border-right: 1px solid #95EF72;
 }
+
+.is-success.input, .is-success.textarea {
+  border-color: #95EF72;
+}

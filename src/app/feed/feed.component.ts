@@ -16,6 +16,27 @@ export class FeedComponent implements OnInit, OnChanges {
   appData: AppData;
   posts: any[] = [];
 
+  isPersonalized = false
+
+  personalize(doIt: boolean) {
+    if (doIt !== this.isPersonalized) {
+      this.isPersonalized = doIt
+      if (doIt) {
+        this.adjustFeedToPersonalized()
+      } else {
+        this.adjustFeedToMain()
+      }
+    }
+  }
+
+  titleHelper() {
+    if (this.isPersonalized) {
+      return 'For Me'
+    } else {
+      return 'on pingg'
+    }
+  }
+
   constructor(private observerService: ObserverService, private http: HttpClient) {
       // subscribe to home component messages
       observerService.getMessage().subscribe(message => {
@@ -124,6 +145,19 @@ export class FeedComponent implements OnInit, OnChanges {
 
   adjustFeedToMain() {
     var url = 'https://cs1530group11graph.uc.r.appspot.com/posts/'
+    this.http.get<any>(url)
+        .toPromise()
+        .then(response => {
+          console.table(response.response)
+          this.posts = response.response
+        })
+        .catch(err => {
+          console.error(err)
+        })
+  }
+
+  adjustFeedToPersonalized() {
+    var url = 'https://cs1530group11graph.uc.r.appspot.com/posts/personalized/' + this.appData.profile.id
     this.http.get<any>(url)
         .toPromise()
         .then(response => {

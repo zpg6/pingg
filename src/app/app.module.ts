@@ -67,6 +67,7 @@ import { ProfileService } from './profile.service';
 import { RelativeTimePipe } from './relative-time.pipe'
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { CommentComponent } from './comment/comment.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -157,6 +158,7 @@ export function playerFactory() {
     GameCardSmallComponent,
     LazyImageComponent,
     RelativeTimePipe,
+    CommentComponent,
   ],
   providers: [
     ObserverService,
