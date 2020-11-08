@@ -1,0 +1,29 @@
+<!-- Hero head: will stick at the top -->
+<div class="hero-head">
+  <app-navbar></app-navbar>
+</div>
+
+
+<div class="hero-body content-bg" style="padding: 0px;">
+  <div class="dashboard is-full-height">
+
+    <div class="dashboard-main is-scrollable is-dark" style="max-width: 100%; overflow-x: hidden;">
+      <div style="display: inline-block;">
+
+
+        <section class="section">
+          <div class="container" style="margin-bottom: 100px;">
+
+            <div *ngIf="this.post">
+              <app-post-cell [post]="post"></app-post-cell>
+            </div>
+
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -50,12 +50,12 @@
 </div>
 
 
-<div *ngIf="!posts || posts.length == 0">
+<div *ngIf="!appData?.posts || appData?.posts.length == 0">
   <p class="subtitle" style="margin: 50px">
     {{emptyMessage()}}
   </p>
 </div>
 
-<div *ngFor="let post of posts">
+<div *ngFor="let post of appData?.posts">
   <app-post-cell [post]="post"></app-post-cell>
 </div>

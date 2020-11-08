@@ -14,7 +14,6 @@ export class FeedComponent implements OnInit, OnChanges {
   @Input('gameID') gameID: any;
   @Input('userID') userID: any;
   appData: AppData;
-  posts: any[] = [];
 
   isPersonalized = false
 
@@ -108,8 +107,8 @@ export class FeedComponent implements OnInit, OnChanges {
         .toPromise()
         .then(response => {
           console.table(response.response)
-          this.posts = []
-          this.posts = response.response
+          this.appData.posts = []
+          this.appData.posts = response.response
         })
         .catch(err => {
           console.error(err)
@@ -124,7 +123,7 @@ export class FeedComponent implements OnInit, OnChanges {
           .toPromise()
           .then(response => {
             console.table(response.response)
-            this.posts = response.response
+            this.appData.posts = response.response
           })
           .catch(err => {
             console.error(err)
@@ -139,7 +138,7 @@ export class FeedComponent implements OnInit, OnChanges {
           .toPromise()
           .then(response => {
             console.table(response.response)
-            this.posts = response.response
+            this.appData.posts = response.response
           })
           .catch(err => {
             console.error(err)
@@ -153,7 +152,7 @@ export class FeedComponent implements OnInit, OnChanges {
         .toPromise()
         .then(response => {
           console.table(response.response)
-          this.posts = response.response
+          this.appData.posts = response.response
         })
         .catch(err => {
           console.error(err)
@@ -166,7 +165,7 @@ export class FeedComponent implements OnInit, OnChanges {
         .toPromise()
         .then(response => {
           console.table(response.response)
-          this.posts = response.response
+          this.appData.posts = response.response
         })
         .catch(err => {
           console.error(err)

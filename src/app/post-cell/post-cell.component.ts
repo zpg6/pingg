@@ -32,6 +32,14 @@ export class PostCellComponent implements OnInit {
 
     if (this.post && this.post?.id) {
 
+      let urlUV = 'https://cs1530group11graph.uc.r.appspot.com/' + this.appData.profile.id + '/has-upvoted/' + this.post.id
+      this.http.get<any>(urlUV).toPromise()
+                .then(response => {
+                  console.log(response)
+                  this.voted = true
+                })
+                .catch(err => console.error(err))
+
       let url = 'https://cs1530group11graph.uc.r.appspot.com/posts/comments/' + this.post.id
       this.http.get<any>(url).toPromise()
                 .then(response => {
@@ -44,28 +52,22 @@ export class PostCellComponent implements OnInit {
   }
 
   vote() {
-    if (this.voted) {
-      if (this.post.numUpvotes > 0) this.post.numUpvotes--;
+    if (!this.voted) {
       let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/upvoted-post'
       let body = { postID: this.post.id }
       this.http.post<any>(url, body).toPromise()
                 .then(response => {
                   console.log(response)
-                  if (response.response == 'Success!') {
-                    //this.isFollowedLocally = true
-                  }
+                  this.post.numUpvotes = response.newUpvoteCount
                 })
                 .catch(err => console.error(err))
     } else {
-      this.post.numUpvotes++;
       let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/downvoted-post'
       let body = { postID: this.post.id }
       this.http.post<any>(url, body).toPromise()
                 .then(response => {
                   console.log(response)
-                  if (response.response == 'Success!') {
-                    //this.isFollowedLocally = true
-                  }
+                  this.post.numUpvotes = response.newUpvoteCount
                 })
                 .catch(err => console.error(err))
     }
@@ -148,6 +150,14 @@ export class PostCellComponent implements OnInit {
           this.isCommenting = false
           this.isCommenting = false
           commentM ? this.commentBoxM.nativeElement.value = '':this.commentBoxD.nativeElement.value = ''
+          let url = 'https://cs1530group11graph.uc.r.appspot.com/posts/comments/' + this.post.id
+          this.http.get<any>(url).toPromise()
+                .then(response => {
+                  console.log(response)
+                  this.comments = []
+                  this.comments = response.response
+                })
+                .catch(err => console.error(err))
         })
         .catch(err => {
           console.error(err)

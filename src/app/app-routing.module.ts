@@ -6,6 +6,7 @@ import { GamesContainerComponent } from './games-container/games-container.compo
 import { ProfileContainerComponent } from './profile-container/profile-container.component';
 import { ChatContainerComponent } from './chat-container/chat-container.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'games/:id',
     component: GameDetailComponent
+  },
+  {
+    path: 'post/:id',
+    component: SinglePostComponent,
   },
   {
     path: 'profile/:id',

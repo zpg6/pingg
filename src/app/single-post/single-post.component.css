@@ -1,0 +1,13 @@
+.is-three-quarters {
+  background-color: black;
+}
+
+.post-card {
+  border-radius: 15px;
+  margin-bottom: 25px;
+  background-color: #363636;
+}
+
+.content-bg {
+  background-color: #232324;
+}

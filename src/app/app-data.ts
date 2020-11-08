@@ -36,4 +36,6 @@ export class AppData {
   postImageURL;
   postImagePath;
   postGameLock;
+
+  posts: any[]
 }

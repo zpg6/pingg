@@ -40,14 +40,30 @@
             </div>
 
             <app-lazy-image
-              *ngIf="post.imageURL"
+              *ngIf="post?.imageURL"
               [srcURL]="post?.imageURL"
-              [maxHeight]="600"
-              [maxWidth]="600"
+              [maxHeight]="80"
+              [maxWidth]="80"
             >
             </app-lazy-image>
 
-
+            <div *ngIf="this.post?.metadata">
+              <div *ngFor="let meta of post?.metadata">
+                <article class="message is-dark">
+                  <div class="message-body">
+                    <div class="media">
+                      <div class="media-left">
+                        <img [src]="meta?.image">
+                      </div>
+                      <div class="media-content">
+                        <p class="subtitle"><a [href]="meta?.url" target="_blank">{{meta?.title}}</a></p>
+                        {{meta?.description}}
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
 
           </div>
 
@@ -84,13 +100,13 @@
           </span>
           Comment
         </a>
-        <a class="card-footer-item" shareButton="facebook">
+        <a class="card-footer-item" shareButton="facebook" [url]="'https://pingg.tech/post/'+post?.id">
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fab fa-facebook"></i>
           </span>
           Share
         </a>
-        <a class="card-footer-item" shareButton="twitter">
+        <a class="card-footer-item" shareButton="twitter" [url]="'https://pingg.tech/post/'+post?.id">
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fab fa-twitter"></i>
           </span>
@@ -148,10 +164,10 @@
             </div>
 
             <app-lazy-image
-              *ngIf="post.imageURL"
+              *ngIf="post?.imageURL"
               [srcURL]="post?.imageURL"
-              [maxHeight]="600"
-              [maxWidth]="600"
+              [maxHeight]="80"
+              [maxWidth]="80"
             >
             </app-lazy-image>
 
@@ -187,13 +203,13 @@
           </span>
           Comment
         </a>
-        <a class="card-footer-item" shareButton="facebook">
+        <a class="card-footer-item" shareButton="facebook" [url]="'https://pingg.tech/post/'+post?.id">
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fab fa-facebook"></i>
           </span>
           Share
         </a>
-        <a class="card-footer-item" shareButton="twitter">
+        <a class="card-footer-item" shareButton="twitter" [url]="'https://pingg.tech/post/'+post?.id">
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fab fa-twitter"></i>
           </span>

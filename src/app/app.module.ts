@@ -68,6 +68,7 @@ import { RelativeTimePipe } from './relative-time.pipe'
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { CommentComponent } from './comment/comment.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -159,6 +160,7 @@ export function playerFactory() {
     LazyImageComponent,
     RelativeTimePipe,
     CommentComponent,
+    SinglePostComponent,
   ],
   providers: [
     ObserverService,
