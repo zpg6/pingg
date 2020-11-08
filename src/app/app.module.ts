@@ -65,6 +65,8 @@ import { LazyImageComponent } from './lazy-image/lazy-image.component'
 import { PostsService } from './posts.service'
 import { ProfileService } from './profile.service';
 import { RelativeTimePipe } from './relative-time.pipe'
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -111,6 +113,8 @@ export function playerFactory() {
     HttpClientModule,
     ScrollingModule,
     YouTubePlayerModule,
+    ShareButtonsModule,
+    ShareIconsModule,
   ],
   declarations: [
     AppComponent,

@@ -31,29 +31,31 @@ export class FeedComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes) {
 
-    if (changes?.userID?.currentValue && this.previousValue?.userID !== changes.userID.currentValue) {
-      this.previousValue.userID = this.userID
-      this.userID = changes.userID.currentValue
-      this.gameID = undefined
-      this.main = undefined
-      this.adjustFeedToUser(this.userID)
-    }
+    // if (changes?.userID?.currentValue && this.previousValue?.userID !== changes.userID.currentValue) {
+    //   this.previousValue.userID = this.userID
+    //   this.userID = changes.userID.currentValue
+    //   this.gameID = undefined
+    //   this.main = undefined
+    //   this.adjustFeedToUser(this.userID)
+    // }
 
-    else if (changes?.main?.currentValue && this.previousValue?.main !== changes.main.currentValue) {
-      this.previousValue.main = this.main
-      this.main = changes.main.currentValue
-      this.userID = undefined
-      this.gameID = undefined
-      this.adjustFeedToMain()
-    }
+    // else if (changes?.main?.currentValue && this.previousValue?.main !== changes.main.currentValue) {
+    //   this.previousValue.main = this.main
+    //   this.main = changes.main.currentValue
+    //   this.userID = undefined
+    //   this.gameID = undefined
+    //   this.adjustFeedToMain()
+    // }
 
-    else if (changes?.gameID?.currentValue && this.previousValue?.gameID !== changes.gameID.currentValue) {
-      this.previousValue.gameID = this.gameID
-      this.gameID = changes.gameID.currentValue
-      this.userID = undefined
-      this.main = undefined
-      this.adjustFeedToGame(this.gameID)
-    }
+    // else if (changes?.gameID?.currentValue && this.previousValue?.gameID !== changes.gameID.currentValue) {
+    //   this.previousValue.gameID = this.gameID
+    //   this.gameID = changes.gameID.currentValue
+    //   this.userID = undefined
+    //   this.main = undefined
+    //   this.adjustFeedToGame(this.gameID)
+    // }
+
+    this.setupFeed()
 
   }
 

@@ -54,7 +54,7 @@ export class ObScreenNamesComponent {
     this.appData.screenNames.forEach(obj => {
       if (screenNameID === obj.id) {
         this.appData.screenNames[index].name = event.target.value
-        if (event.target.value.length > 3) {
+        if (event.target.value.length > 3 && event.target.value.length <= 15) {
           this.appData.screenNames[index].error = ''
           let validNames = this.appData.screenNames.filter(sName => sName.name.length > 3)
           var dupe = false
@@ -73,7 +73,7 @@ export class ObScreenNamesComponent {
           }
           this.updateObserver()
         } else {
-          this.appData.screenNames[index].error = 'Must be > 3 characters.'
+          this.appData.screenNames[index].error = 'Must be at least 3 characters and at most 15.'
           this.appData.onboardingScreenNamesValid = false
           this.updateObserver()
         }

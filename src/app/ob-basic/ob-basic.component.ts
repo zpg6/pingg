@@ -28,6 +28,8 @@ export class ObBasicComponent implements OnInit {
 
   seeded = false
 
+  unVerified = false
+
   constructor(private observerService: ObserverService, private http: HttpClient) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
@@ -60,8 +62,7 @@ export class ObBasicComponent implements OnInit {
   }
 
   unChange(event: any) {
-    if (!this.unTouched) this.unTouched = true
-    this.appData.onboardingTempProfile.handle = event.target.value
+    this.unVerified = false
     this.validateFields()
   }
 
@@ -104,22 +105,31 @@ export class ObBasicComponent implements OnInit {
   loading = false
 
   validateUsername(): Promise<boolean> {
+    let un = this.un.nativeElement.value
     this.loading = true
     return new Promise<boolean>( (resolve,reject) => {
 
-      if (this.appData.onboardingTempProfile.handle.length == 0) {
+      if (un.length == 0) {
         this.unError = 'Please enter your desired username.'
+        this.loading = false
+        resolve(false)
+      }
+      else if (un.length > 15) {
+        this.unError = 'Please limit to 15 characters.'
         this.loading = false
         resolve(false)
       }
       else {
         // TODO: check for more issues with username
-        let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + this.appData.onboardingTempProfile.handle
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + un
         this.http.get<any>(url)
                 .toPromise()
                 .then(response => {
                   let result = response.response
                   if (result.includes('No')) {
+                    if (!this.unTouched) this.unTouched = true
+                    this.appData.onboardingTempProfile.handle = un
+                    this.unVerified = true
                     this.unError = ''
                     this.unSuccess = result
                     this.validateFields()
@@ -149,7 +159,9 @@ export class ObBasicComponent implements OnInit {
 
     let allTouched = this.fnTouched && this.lnTouched && this.unTouched
 
-    this.appData.onboardingBasicsValid = errorsEmpty && allTouched
+    let verified = this.appData.onboardingTempProfile.handle !== '' && this.unVerified
+
+    this.appData.onboardingBasicsValid = errorsEmpty && allTouched && verified
     this.observerService.sendMessage(this.appData)
   }
 }

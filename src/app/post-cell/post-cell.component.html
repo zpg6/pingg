@@ -4,7 +4,7 @@
     <div class="subtitle is-4" style="font-weight: bolder;">
       <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"></span>
       <br>
-      <a></a>{{votes}}
+      <a></a>{{this.post?.numUpvotes}}
     </div>
   </div>
 
@@ -57,13 +57,19 @@
           <span class="icon is-medium" style="color: #95EF72;">
             <i class="fas fa-pencil-alt"></i>
           </span>
-          Add Comment
+          Comment
         </a>
-        <a class="card-footer-item">
+        <a class="card-footer-item" shareButton="facebook">
           <span class="icon is-medium" style="color: #95EF72;">
-            <i class="fas fa-comments"></i>
+            <i class="fab fa-facebook"></i>
           </span>
-          View Comments (0)
+          Share
+        </a>
+        <a class="card-footer-item" shareButton="twitter">
+          <span class="icon is-medium" style="color: #95EF72;">
+            <i class="fab fa-twitter"></i>
+          </span>
+          Share
         </a>
       </footer>
     </div>
@@ -81,7 +87,7 @@
     <div class="subtitle is-4" style="font-weight: bolder;">
       <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"></span>
       <br>
-      {{votes}}
+      {{this.post?.numUpvotes}}
     </div>
   </div>
 

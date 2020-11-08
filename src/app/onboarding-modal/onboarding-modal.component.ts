@@ -57,6 +57,27 @@ export class OnboardingModalComponent implements OnInit {
                .catch(err => {
                  console.error(err)
                })
+      let sn: Set<string> = new Set()
+      Object.keys(this.appData.onboardingTempProfile.screenNames).forEach(screenName => {
+        screenName[screenName].games.forEach(screenGame => {
+          sn.add(screenGame.id)
+        })
+      })
+      sn.forEach(screenGame => {
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game'
+        let body = { gameID: screenGame }
+        console.log('follow url = '+url)
+        console.log(body)
+        this.http.post<any>(url, body).toPromise()
+                  .then(response => {
+                    console.log(response)
+                    if (response.response == 'Success!') {
+                      //this.isFollowedLocally = true
+                    }
+                  })
+                  .catch(err => console.error(err))
+      })
+
     }
     this.observerService.sendMessage(this.appData)
   }

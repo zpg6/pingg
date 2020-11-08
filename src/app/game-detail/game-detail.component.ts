@@ -28,6 +28,8 @@ export class GameDetailComponent implements OnInit {
 
   isFollowedLocally;
 
+  ytAPILoaded = false
+
   constructor(private observerService: ObserverService, private gamesService: GamesService,
     private ar: ActivatedRoute, private http: HttpClient, private router: Router, private sanitizer: DomSanitizer)
   {
@@ -42,9 +44,14 @@ export class GameDetailComponent implements OnInit {
       }
       this.scrollToTop()
     });
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    document.body.appendChild(tag);
+    if (!this.ytAPILoaded) {
+      // This code loads the IFrame Player API code asynchronously, according to the instructions at
+      // https://developers.google.com/youtube/iframe_api_reference#Getting_Started
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.ytAPILoaded = true;
+    }
     this.ar.url.subscribe(url => {
       let id = url[url.length - 1]
       this.gamesService.getGame(id.path.toString()).then(game => {
@@ -85,10 +92,13 @@ export class GameDetailComponent implements OnInit {
     this.http.get<any>(url)
         .toPromise()
         .then(response => {
-          if (response.response.properties) {
-            if (response.response.properties.includes(this.game.id)) {
-              this.isFollowedLocally = true
-            }
+          console.log(response)
+          if (response.response) {
+            response.response.forEach(game => {
+              if (`${game.id}` === `${this.game.id}`) {
+                this.isFollowedLocally = true
+              }
+            })
           }
         })
         .catch(err => console.error(err))

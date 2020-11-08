@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { AppData } from '../app-data';
 import { GamesService } from '../games.service';
+import { ObserverService } from '../observer.service';
 
 @Component({
   selector: 'app-post-cell',
@@ -8,15 +11,12 @@ import { GamesService } from '../games.service';
 })
 export class PostCellComponent implements OnInit {
 
-
-
-  votes = 0;
   voted = false;
-  rand;
   @Input('post') post;
+  appData: AppData
 
-  constructor() {
-    this.rand = Math.round(Math.random() * 1000)
+  constructor(private observerService: ObserverService, private http: HttpClient) {
+    this.observerService.getMessage().subscribe(msg => this.appData = msg)
   }
 
   ngOnInit(): void {
@@ -25,9 +25,29 @@ export class PostCellComponent implements OnInit {
 
   vote() {
     if (this.voted) {
-      if (this.votes > 0) this.votes--;
+      if (this.post.numUpvotes > 0) this.post.numUpvotes--;
+      let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/upvoted-post'
+      let body = { postID: this.post.id }
+      this.http.post<any>(url, body).toPromise()
+                .then(response => {
+                  console.log(response)
+                  if (response.response == 'Success!') {
+                    //this.isFollowedLocally = true
+                  }
+                })
+                .catch(err => console.error(err))
     } else {
-      this.votes++;
+      this.post.numUpvotes++;
+      let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/downvoted-post'
+      let body = { postID: this.post.id }
+      this.http.post<any>(url, body).toPromise()
+                .then(response => {
+                  console.log(response)
+                  if (response.response == 'Success!') {
+                    //this.isFollowedLocally = true
+                  }
+                })
+                .catch(err => console.error(err))
     }
     this.voted = !this.voted
   }

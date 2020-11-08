@@ -63,17 +63,11 @@
                 </div>
               </div>
               <footer class="card-footer">
-                <a class="card-footer-item">
-                  <span class="icon is-medium" style="color: #95EF72;">
-                    <i class="fas fa-pencil-alt"></i>
-                  </span>
-                  New Post
-                </a>
                 <a class="card-footer-item" (click)="rateGame()">
                   <span class="icon is-medium" style="color: #95EF72;">
                     <i class="fas fa-star"></i>
                   </span>
-                  Rate Game
+                  Rate
                 </a>
 
                 <a class="card-footer-item {{this.isFollowedLocally == true ? 'is-active':''}}" (click)="changeFollow()">
@@ -81,6 +75,20 @@
                     <i class="fas fa-rss"></i>
                   </span>
                   Follow{{this.isFollowedLocally && this.isFollowedLocally == true ? 'ing':''}}
+                </a>
+
+                <a class="card-footer-item" shareButton="facebook">
+                  <span class="icon is-medium" style="color: #95EF72;">
+                    <i class="fab fa-facebook"></i>
+                  </span>
+                  Share
+                </a>
+
+                <a class="card-footer-item" shareButton="twitter">
+                  <span class="icon is-medium" style="color: #95EF72;">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                  Share
                 </a>
               </footer>
             </div>
