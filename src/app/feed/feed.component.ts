@@ -105,6 +105,7 @@ export class FeedComponent implements OnInit, OnChanges {
         .toPromise()
         .then(response => {
           console.table(response.response)
+          this.posts = []
           this.posts = response.response
         })
         .catch(err => {

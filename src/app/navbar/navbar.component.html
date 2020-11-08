@@ -31,28 +31,6 @@
         <b style="font-size: larger;">{{getPage()}}</b><br><i>{{description()}}</i>
       </p>
     </a>
-    <div class="navbar-item" *ngIf="this.showSearchBox" style="margin-right: -25px;">
-      <div class="field has-addons">
-        <p class="control has-icons-left">
-          <input class="input is-small is-dark" type="text" placeholder="Search">
-          <span class="icon is-left">
-            <i class="fas fa-search"></i>
-          </span>
-        </p>
-        <button class="button is-small is-info" (click)="search()">
-          <span class="icon">
-            <i class="fas fa-search"></i>
-          </span>
-        </button>
-      </div>
-    </div>
-    <a class="navbar-item" (click)="this.showSearchBox = !this.showSearchBox" *ngIf="!this.showSearchBox">
-      <button class="button is-small is-info">
-        <span class="icon">
-          <i class="fas fa-search"></i>
-        </span>
-      </button>
-    </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample" (click)="toggleMenu()">
       <span></span>
       <span></span>
@@ -143,6 +121,18 @@
       <a class="navbar-item has-text-light" (click)="logout()">
         Logout
       </a>
+      <div class="navbar-item">
+        <div class="field has-addons">
+          <div class="control">
+            <a class="button is-link is-outlined is-inverted" href="https://info.pingg.tech" target="_blank">
+              <span class="icon">
+                <i class="fas fa-question-circle"></i>
+              </span>
+              <span>Help</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
     </div>
 
