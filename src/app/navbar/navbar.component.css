@@ -17,3 +17,8 @@ span.red-number {
 /* a.navbar-item.is-active {
   border-bottom: 5px solid #95EF72;
 } */
+
+.button.is-success.is-inverted.is-outlined:hover, .button.is-success.is-inverted.is-outlined.is-hovered, .button.is-success.is-inverted.is-outlined:focus, .button.is-success.is-inverted.is-outlined.is-focused {
+  background-color: #fff;
+  color: #95EF72;
+}
