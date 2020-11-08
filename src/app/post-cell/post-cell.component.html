@@ -124,8 +124,8 @@
 <div class="columns is-mobile is-vcentered is-hidden-desktop">
   <div class="column is-2 has-text-centered">
 
-    <div class="subtitle is-4" style="font-weight: bolder;">
-      <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"></span>
+    <div class="subtitle is-4" style="font-weight: bolder;" *ngIf="this.voted && this.on">
+      <span class="vote" [ngClass]="{'on': this.on.value == true}" (click)="this.vote()"></span>
       <br>
       {{this.post?.numUpvotes}}
     </div>

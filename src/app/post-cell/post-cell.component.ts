@@ -4,6 +4,7 @@ import { AppData } from '../app-data';
 import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
 import { v4 as uuidv4 } from 'uuid'
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-post-cell',
@@ -12,9 +13,11 @@ import { v4 as uuidv4 } from 'uuid'
 })
 export class PostCellComponent implements OnInit {
 
-  voted = false;
+  voted;
   @Input('post') post;
   appData: AppData
+
+  on = new BehaviorSubject<boolean>(false)
 
   comments;
   loading = false;
@@ -24,19 +27,22 @@ export class PostCellComponent implements OnInit {
   @ViewChild('commentBoxD') commentBoxD: ElementRef
   @ViewChild('commentBoxM') commentBoxM: ElementRef
 
+  retrieved = false
+
   constructor(private observerService: ObserverService, private http: HttpClient) {
     this.observerService.getMessage().subscribe(msg => this.appData = msg)
   }
 
   ngOnInit(): void {
 
-    if (this.post && this.post?.id) {
-
+    if (this.post && this.post?.id && !this.retrieved) {
+      this.retrieved = true
       let urlUV = 'https://cs1530group11graph.uc.r.appspot.com/' + this.appData.profile.id + '/has-upvoted/' + this.post.id
       this.http.get<any>(urlUV).toPromise()
                 .then(response => {
-                  console.log(response)
-                  this.voted = true
+                  console.log(urlUV + ': '+ response.response)
+                  this.voted = `${response.response}`
+                  this.on.next(!this.voted.includes('not'))
                 })
                 .catch(err => console.error(err))
 
@@ -44,7 +50,9 @@ export class PostCellComponent implements OnInit {
       this.http.get<any>(url).toPromise()
                 .then(response => {
                   console.log(response)
-                  this.comments = response.response
+                  if (response.response && response.response.length > 0) {
+                    this.comments = response.response
+                  }
                 })
                 .catch(err => console.error(err))
     }
@@ -52,13 +60,16 @@ export class PostCellComponent implements OnInit {
   }
 
   vote() {
-    if (!this.voted) {
+    if (!this.voted) return
+    if (this.voted === 'has not upvoted') {
       let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/upvoted-post'
       let body = { postID: this.post.id }
       this.http.post<any>(url, body).toPromise()
                 .then(response => {
                   console.log(response)
                   this.post.numUpvotes = response.newUpvoteCount
+                  this.voted = 'has upvoted'
+                  this.on.next(!this.voted.includes('not'))
                 })
                 .catch(err => console.error(err))
     } else {
@@ -68,6 +79,8 @@ export class PostCellComponent implements OnInit {
                 .then(response => {
                   console.log(response)
                   this.post.numUpvotes = response.newUpvoteCount
+                  this.voted = 'has not upvoted'
+                  this.on.next(!this.voted.includes('not'))
                 })
                 .catch(err => console.error(err))
     }
