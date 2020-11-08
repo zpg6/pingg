@@ -30,7 +30,10 @@ export class FeedComponent implements OnInit, OnChanges {
   }
 
   titleHelper() {
-    if (this.isPersonalized) {
+    if (!this.main) {
+      return ''
+    }
+    else if (this.isPersonalized) {
       return 'For Me'
     } else {
       return 'on pingg'

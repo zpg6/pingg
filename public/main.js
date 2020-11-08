@@ -1352,7 +1352,10 @@ class FeedComponent {
         }
     }
     titleHelper() {
-        if (this.isPersonalized) {
+        if (!this.main) {
+            return '';
+        }
+        else if (this.isPersonalized) {
             return 'For Me';
         }
         else {
