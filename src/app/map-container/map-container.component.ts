@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { } from '@angular/google-maps';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-map-container',
@@ -8,9 +10,18 @@ import { } from '@angular/google-maps';
 })
 export class MapContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  points = new BehaviorSubject<any[]>([])
 
   ngOnInit(): void {
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/map/points'
+    this.http.get<any[]>(url)
+        .toPromise()
+        .then(response => {
+          this.points.next(response)
+          console.log(this.points)
+        })
   }
 
   // google maps zoom level

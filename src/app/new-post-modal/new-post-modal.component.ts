@@ -155,6 +155,12 @@ export class NewPostModalComponent implements OnInit {
         .then(response => {
           this.deleteFile()
           console.log(response)
+          if (this.appData.posts && this.appData.posts.length > 0) {
+            this.appData.posts.push(body)
+          } else {
+            this.appData.posts = [body]
+          }
+          this.updateObserver()
           this.loading = false
           this.closeModal()
         })
