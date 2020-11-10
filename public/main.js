@@ -7249,6 +7249,11 @@ class SignInButtonsComponent {
                     this.appData.isAuthenticated = true;
                     this.updateObserver();
                 });
+                let urlLastLogin = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid + '/last-login';
+                let body = { 'lastLogin': (Math.round(new Date().getTime())) };
+                this.http.post(urlLastLogin, body).toPromise().then(response => {
+                    console.log("Update login response: " + JSON.stringify(response));
+                });
             }
             else {
                 this.appData.isAuthenticated = false;
