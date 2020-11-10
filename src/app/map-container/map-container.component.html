@@ -6,17 +6,20 @@
 <div class="hero-body content-bg" style="padding: 0px;">
   <div class="dashboard is-full-height">
 
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ environment.maps.apiKey }}"></script>
 
-    <google-map
-        width="100vw"
-        height="93vh"
-        [zoom]="zoom"
-        [center]="center"
-        [options]="options"
-        style="margin-bottom: 20px; height: calc(100vh - 57px);"
-      >
-      </google-map>
+  <div>
+    <agm-map
+    id="mapThingy"
+    [styles]="styles"
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="13"
+    [disableDefaultUI]="false"
+    style="width:600px; height:600px"
+    #mapThingy
+    name="mapThingy"
+  >
+</agm-map></div>
 
   </div>
 </div>

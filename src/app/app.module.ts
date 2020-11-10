@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -117,6 +117,11 @@ export function playerFactory() {
     YouTubePlayerModule,
     ShareButtonsModule,
     ShareIconsModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyCvJ7fjvweZlcJhOSWyfJ8m7ZwwUO6L0VQ',
+      libraries:['visualization']
+    }),
+
   ],
   declarations: [
     AppComponent,

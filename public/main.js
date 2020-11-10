@@ -327,78 +327,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
-/* harmony import */ var _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./feed-container/feed-container.component */ "./src/app/feed-container/feed-container.component.ts");
-/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./observer.service */ "./src/app/observer.service.ts");
-/* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./games.service */ "./src/app/games.service.ts");
-/* harmony import */ var _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login-box/login-box.component */ "./src/app/login-box/login-box.component.ts");
-/* harmony import */ var _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sign-in-buttons/sign-in-buttons.component */ "./src/app/sign-in-buttons/sign-in-buttons.component.ts");
-/* harmony import */ var _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./map-container/map-container.component */ "./src/app/map-container/map-container.component.ts");
-/* harmony import */ var _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./games-container/games-container.component */ "./src/app/games-container/games-container.component.ts");
-/* harmony import */ var _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./profile-container/profile-container.component */ "./src/app/profile-container/profile-container.component.ts");
-/* harmony import */ var _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./chat-container/chat-container.component */ "./src/app/chat-container/chat-container.component.ts");
-/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
-/* harmony import */ var _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/google-maps */ "./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js");
-/* harmony import */ var ngx_lottie__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-lottie */ "./node_modules/ngx-lottie/__ivy_ngcc__/fesm2015/ngx-lottie.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
-/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
-/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
-/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth-guard.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
-/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
-/* harmony import */ var _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./game-card/game-card.component */ "./src/app/game-card/game-card.component.ts");
-/* harmony import */ var _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./game-card-list/game-card-list.component */ "./src/app/game-card-list/game-card-list.component.ts");
-/* harmony import */ var _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./game-detail/game-detail.component */ "./src/app/game-detail/game-detail.component.ts");
-/* harmony import */ var _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./conversations/conversations.component */ "./src/app/conversations/conversations.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./search-bar/search-bar.component */ "./src/app/search-bar/search-bar.component.ts");
-/* harmony import */ var _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./browse-channels/browse-channels.component */ "./src/app/browse-channels/browse-channels.component.ts");
-/* harmony import */ var _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./browse-genres/browse-genres.component */ "./src/app/browse-genres/browse-genres.component.ts");
-/* harmony import */ var _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./browse-platforms/browse-platforms.component */ "./src/app/browse-platforms/browse-platforms.component.ts");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
-/* harmony import */ var _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./new-post-modal/new-post-modal.component */ "./src/app/new-post-modal/new-post-modal.component.ts");
-/* harmony import */ var _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./new-channel-modal/new-channel-modal.component */ "./src/app/new-channel-modal/new-channel-modal.component.ts");
-/* harmony import */ var _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./post-cell/post-cell.component */ "./src/app/post-cell/post-cell.component.ts");
-/* harmony import */ var _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/youtube-player */ "./node_modules/@angular/youtube-player/__ivy_ngcc__/fesm2015/youtube-player.js");
-/* harmony import */ var _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./card-grid/card-grid.component */ "./src/app/card-grid/card-grid.component.ts");
-/* harmony import */ var _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./card-grid-container/card-grid-container.component */ "./src/app/card-grid-container/card-grid-container.component.ts");
-/* harmony import */ var _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./onboarding-modal/onboarding-modal.component */ "./src/app/onboarding-modal/onboarding-modal.component.ts");
-/* harmony import */ var _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./onboarding-steps/onboarding-steps.component */ "./src/app/onboarding-steps/onboarding-steps.component.ts");
-/* harmony import */ var _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./ob-basic/ob-basic.component */ "./src/app/ob-basic/ob-basic.component.ts");
-/* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
-/* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
-/* harmony import */ var _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./game-search/game-search.component */ "./src/app/game-search/game-search.component.ts");
-/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./ping.service */ "./src/app/ping.service.ts");
-/* harmony import */ var _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./footer-card/footer-card.component */ "./src/app/footer-card/footer-card.component.ts");
-/* harmony import */ var _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./user-cell/user-cell.component */ "./src/app/user-cell/user-cell.component.ts");
-/* harmony import */ var _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./rate-game-modal/rate-game-modal.component */ "./src/app/rate-game-modal/rate-game-modal.component.ts");
-/* harmony import */ var _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./upload-task/upload-task.component */ "./src/app/upload-task/upload-task.component.ts");
-/* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
-/* harmony import */ var _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./upload-zone.directive */ "./src/app/upload-zone.directive.ts");
-/* harmony import */ var _feed_feed_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./feed/feed.component */ "./src/app/feed/feed.component.ts");
-/* harmony import */ var _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./game-card-small/game-card-small.component */ "./src/app/game-card-small/game-card-small.component.ts");
-/* harmony import */ var _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./lazy-image/lazy-image.component */ "./src/app/lazy-image/lazy-image.component.ts");
-/* harmony import */ var _posts_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./posts.service */ "./src/app/posts.service.ts");
-/* harmony import */ var _profile_service__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./profile.service */ "./src/app/profile.service.ts");
-/* harmony import */ var _relative_time_pipe__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./relative-time.pipe */ "./src/app/relative-time.pipe.ts");
-/* harmony import */ var ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ngx-sharebuttons/buttons */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons-buttons.js");
-/* harmony import */ var ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ngx-sharebuttons/icons */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons-icons.js");
-/* harmony import */ var _comment_comment_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./comment/comment.component */ "./src/app/comment/comment.component.ts");
-/* harmony import */ var _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./single-post/single-post.component */ "./src/app/single-post/single-post.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
-/* harmony import */ var ngx_sharebuttons__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ngx-sharebuttons */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons.js");
-/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js");
-/* harmony import */ var ngx_sharebuttons_button__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ngx-sharebuttons/button */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons-button.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
+/* harmony import */ var _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./feed-container/feed-container.component */ "./src/app/feed-container/feed-container.component.ts");
+/* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./observer.service */ "./src/app/observer.service.ts");
+/* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./games.service */ "./src/app/games.service.ts");
+/* harmony import */ var _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login-box/login-box.component */ "./src/app/login-box/login-box.component.ts");
+/* harmony import */ var _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sign-in-buttons/sign-in-buttons.component */ "./src/app/sign-in-buttons/sign-in-buttons.component.ts");
+/* harmony import */ var _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./map-container/map-container.component */ "./src/app/map-container/map-container.component.ts");
+/* harmony import */ var _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./games-container/games-container.component */ "./src/app/games-container/games-container.component.ts");
+/* harmony import */ var _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./profile-container/profile-container.component */ "./src/app/profile-container/profile-container.component.ts");
+/* harmony import */ var _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./chat-container/chat-container.component */ "./src/app/chat-container/chat-container.component.ts");
+/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
+/* harmony import */ var _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/google-maps */ "./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js");
+/* harmony import */ var ngx_lottie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-lottie */ "./node_modules/ngx-lottie/__ivy_ngcc__/fesm2015/ngx-lottie.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! lottie-web */ "./node_modules/lottie-web/build/player/lottie.js");
+/* harmony import */ var lottie_web__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(lottie_web__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth-guard.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var firebaseui_angular__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! firebaseui-angular */ "./node_modules/firebaseui-angular/__ivy_ngcc__/fesm2015/firebaseui-angular.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var firebaseui__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! firebaseui */ "./node_modules/firebaseui/dist/esm.js");
+/* harmony import */ var _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./report-issue/report-issue.component */ "./src/app/report-issue/report-issue.component.ts");
+/* harmony import */ var _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./game-card/game-card.component */ "./src/app/game-card/game-card.component.ts");
+/* harmony import */ var _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./game-card-list/game-card-list.component */ "./src/app/game-card-list/game-card-list.component.ts");
+/* harmony import */ var _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./game-detail/game-detail.component */ "./src/app/game-detail/game-detail.component.ts");
+/* harmony import */ var _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./conversations/conversations.component */ "./src/app/conversations/conversations.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./search-bar/search-bar.component */ "./src/app/search-bar/search-bar.component.ts");
+/* harmony import */ var _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./browse-channels/browse-channels.component */ "./src/app/browse-channels/browse-channels.component.ts");
+/* harmony import */ var _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./browse-genres/browse-genres.component */ "./src/app/browse-genres/browse-genres.component.ts");
+/* harmony import */ var _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./browse-platforms/browse-platforms.component */ "./src/app/browse-platforms/browse-platforms.component.ts");
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
+/* harmony import */ var _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./new-post-modal/new-post-modal.component */ "./src/app/new-post-modal/new-post-modal.component.ts");
+/* harmony import */ var _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./new-channel-modal/new-channel-modal.component */ "./src/app/new-channel-modal/new-channel-modal.component.ts");
+/* harmony import */ var _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./post-cell/post-cell.component */ "./src/app/post-cell/post-cell.component.ts");
+/* harmony import */ var _angular_youtube_player__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/youtube-player */ "./node_modules/@angular/youtube-player/__ivy_ngcc__/fesm2015/youtube-player.js");
+/* harmony import */ var _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./card-grid/card-grid.component */ "./src/app/card-grid/card-grid.component.ts");
+/* harmony import */ var _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./card-grid-container/card-grid-container.component */ "./src/app/card-grid-container/card-grid-container.component.ts");
+/* harmony import */ var _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./onboarding-modal/onboarding-modal.component */ "./src/app/onboarding-modal/onboarding-modal.component.ts");
+/* harmony import */ var _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./onboarding-steps/onboarding-steps.component */ "./src/app/onboarding-steps/onboarding-steps.component.ts");
+/* harmony import */ var _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./ob-basic/ob-basic.component */ "./src/app/ob-basic/ob-basic.component.ts");
+/* harmony import */ var _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./ob-screen-names/ob-screen-names.component */ "./src/app/ob-screen-names/ob-screen-names.component.ts");
+/* harmony import */ var _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./ob-customize/ob-customize.component */ "./src/app/ob-customize/ob-customize.component.ts");
+/* harmony import */ var _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./game-search/game-search.component */ "./src/app/game-search/game-search.component.ts");
+/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./ping.service */ "./src/app/ping.service.ts");
+/* harmony import */ var _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./footer-card/footer-card.component */ "./src/app/footer-card/footer-card.component.ts");
+/* harmony import */ var _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./user-cell/user-cell.component */ "./src/app/user-cell/user-cell.component.ts");
+/* harmony import */ var _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./rate-game-modal/rate-game-modal.component */ "./src/app/rate-game-modal/rate-game-modal.component.ts");
+/* harmony import */ var _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./upload-task/upload-task.component */ "./src/app/upload-task/upload-task.component.ts");
+/* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
+/* harmony import */ var _upload_zone_directive__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./upload-zone.directive */ "./src/app/upload-zone.directive.ts");
+/* harmony import */ var _feed_feed_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./feed/feed.component */ "./src/app/feed/feed.component.ts");
+/* harmony import */ var _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./game-card-small/game-card-small.component */ "./src/app/game-card-small/game-card-small.component.ts");
+/* harmony import */ var _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./lazy-image/lazy-image.component */ "./src/app/lazy-image/lazy-image.component.ts");
+/* harmony import */ var _posts_service__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./posts.service */ "./src/app/posts.service.ts");
+/* harmony import */ var _profile_service__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./profile.service */ "./src/app/profile.service.ts");
+/* harmony import */ var _relative_time_pipe__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./relative-time.pipe */ "./src/app/relative-time.pipe.ts");
+/* harmony import */ var ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ngx-sharebuttons/buttons */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons-buttons.js");
+/* harmony import */ var ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ngx-sharebuttons/icons */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons-icons.js");
+/* harmony import */ var _comment_comment_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./comment/comment.component */ "./src/app/comment/comment.component.ts");
+/* harmony import */ var _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./single-post/single-post.component */ "./src/app/single-post/single-post.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
+/* harmony import */ var ngx_sharebuttons__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ngx-sharebuttons */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons.js");
+/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js");
+/* harmony import */ var ngx_sharebuttons_button__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ngx-sharebuttons/button */ "./node_modules/ngx-sharebuttons/__ivy_ngcc__/fesm2015/ngx-sharebuttons-button.js");
+
 
 
 
@@ -483,10 +485,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const firebaseUiAuthConfig = {
     signInFlow: 'popup',
     signInOptions: [
-        firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].GoogleAuthProvider.PROVIDER_ID,
+        firebase_app__WEBPACK_IMPORTED_MODULE_25__["auth"].GoogleAuthProvider.PROVIDER_ID,
         {
             scopes: [
                 'public_profile',
@@ -497,212 +500,220 @@ const firebaseUiAuthConfig = {
             customParameters: {
                 'auth_type': 'reauthenticate'
             },
-            provider: firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].FacebookAuthProvider.PROVIDER_ID
+            provider: firebase_app__WEBPACK_IMPORTED_MODULE_25__["auth"].FacebookAuthProvider.PROVIDER_ID
         },
-        firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].TwitterAuthProvider.PROVIDER_ID,
-        firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].GithubAuthProvider.PROVIDER_ID,
+        firebase_app__WEBPACK_IMPORTED_MODULE_25__["auth"].TwitterAuthProvider.PROVIDER_ID,
+        firebase_app__WEBPACK_IMPORTED_MODULE_25__["auth"].GithubAuthProvider.PROVIDER_ID,
         {
             requireDisplayName: true,
-            provider: firebase_app__WEBPACK_IMPORTED_MODULE_24__["auth"].EmailAuthProvider.PROVIDER_ID
+            provider: firebase_app__WEBPACK_IMPORTED_MODULE_25__["auth"].EmailAuthProvider.PROVIDER_ID
         },
     ],
-    credentialHelper: firebaseui__WEBPACK_IMPORTED_MODULE_25__["auth"].CredentialHelper.ACCOUNT_CHOOSER_COM
+    credentialHelper: firebaseui__WEBPACK_IMPORTED_MODULE_26__["auth"].CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 // Note we need a separate function as it's required
 // by the AOT compiler.
 function playerFactory() {
-    return lottie_web__WEBPACK_IMPORTED_MODULE_17___default.a;
+    return lottie_web__WEBPACK_IMPORTED_MODULE_18___default.a;
 }
 class AppModule {
 }
-AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]] });
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]] });
 AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [
-        _observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"],
-        _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"],
-        _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AngularFireAuthGuard"],
-        _ping_service__WEBPACK_IMPORTED_MODULE_49__["PingService"],
-        _posts_service__WEBPACK_IMPORTED_MODULE_59__["PostsService"],
-        _profile_service__WEBPACK_IMPORTED_MODULE_60__["ProfileService"],
-        { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["BUCKET"], useValue: 'cs1530group11.appspot.com' }
+        _observer_service__WEBPACK_IMPORTED_MODULE_7__["ObserverService"],
+        _games_service__WEBPACK_IMPORTED_MODULE_8__["GamesService"],
+        _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AngularFireAuthGuard"],
+        _ping_service__WEBPACK_IMPORTED_MODULE_50__["PingService"],
+        _posts_service__WEBPACK_IMPORTED_MODULE_60__["PostsService"],
+        _profile_service__WEBPACK_IMPORTED_MODULE_61__["ProfileService"],
+        { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_21__["BUCKET"], useValue: 'cs1530group11.appspot.com' }
     ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-            _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"],
-            ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"].forRoot({ player: playerFactory }),
-            _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].firebase),
-            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"],
-            firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
-            _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_31__["HttpClientModule"],
-            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["ScrollingModule"],
-            _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayerModule"],
-            ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_62__["ShareButtonsModule"],
-            ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_63__["ShareIconsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+            _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMapsModule"],
+            ngx_lottie__WEBPACK_IMPORTED_MODULE_17__["LottieModule"].forRoot({ player: playerFactory }),
+            _angular_fire__WEBPACK_IMPORTED_MODULE_19__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_23__["environment"].firebase),
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthModule"],
+            firebaseui_angular__WEBPACK_IMPORTED_MODULE_24__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+            _angular_fire_storage__WEBPACK_IMPORTED_MODULE_21__["AngularFireStorageModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_32__["HttpClientModule"],
+            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["ScrollingModule"],
+            _angular_youtube_player__WEBPACK_IMPORTED_MODULE_41__["YouTubePlayerModule"],
+            ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_63__["ShareButtonsModule"],
+            ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_64__["ShareIconsModule"],
+            _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmCoreModule"].forRoot({
+                apiKey: 'AIzaSyCvJ7fjvweZlcJhOSWyfJ8m7ZwwUO6L0VQ',
+                libraries: ['visualization']
+            }),
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-        _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
-        _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_5__["FeedContainerComponent"],
-        _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__["LoginBoxComponent"],
-        _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_9__["SignInButtonsComponent"],
-        _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_10__["MapContainerComponent"],
-        _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_11__["GamesContainerComponent"],
-        _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
-        _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
-        _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-        _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__["ReportIssueComponent"],
-        _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__["GameCardComponent"],
-        _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__["GameCardListComponent"],
-        _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__["GameDetailComponent"],
-        _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__["ConversationsComponent"],
-        _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__["SearchBarComponent"],
-        _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__["BrowseChannelsComponent"],
-        _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__["BrowseGenresComponent"],
-        _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__["BrowsePlatformsComponent"],
-        _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewPostModalComponent"],
-        _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewChannelModalComponent"],
-        _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__["PostCellComponent"],
-        _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__["CardGridComponent"],
-        _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__["CardGridContainerComponent"],
-        _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingModalComponent"],
-        _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingStepsComponent"],
-        _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__["ObBasicComponent"],
-        _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__["ObScreenNamesComponent"],
-        _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__["ObCustomizeComponent"],
-        _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__["GameSearchComponent"],
-        _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__["FooterCardComponent"],
-        _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__["UserCellComponent"],
-        _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__["RateGameModalComponent"],
-        _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__["UploadTaskComponent"],
-        _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__["UploaderComponent"],
-        _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__["UploadZoneDirective"],
-        _feed_feed_component__WEBPACK_IMPORTED_MODULE_56__["FeedComponent"],
-        _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_57__["GameCardSmallComponent"],
-        _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_58__["LazyImageComponent"],
-        _relative_time_pipe__WEBPACK_IMPORTED_MODULE_61__["RelativeTimePipe"],
-        _comment_comment_component__WEBPACK_IMPORTED_MODULE_64__["CommentComponent"],
-        _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_65__["SinglePostComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-        _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-        _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseUIModule"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_31__["HttpClientModule"],
-        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["ScrollingModule"],
-        _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayerModule"],
-        ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_62__["ShareButtonsModule"],
-        ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_63__["ShareIconsModule"]] }); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+        _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"],
+        _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_6__["FeedContainerComponent"],
+        _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_9__["LoginBoxComponent"],
+        _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_10__["SignInButtonsComponent"],
+        _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_11__["MapContainerComponent"],
+        _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_12__["GamesContainerComponent"],
+        _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_13__["ProfileContainerComponent"],
+        _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_14__["ChatContainerComponent"],
+        _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["SidebarComponent"],
+        _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_27__["ReportIssueComponent"],
+        _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_28__["GameCardComponent"],
+        _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_29__["GameCardListComponent"],
+        _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_30__["GameDetailComponent"],
+        _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_31__["ConversationsComponent"],
+        _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_33__["SearchBarComponent"],
+        _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_34__["BrowseChannelsComponent"],
+        _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_35__["BrowseGenresComponent"],
+        _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_36__["BrowsePlatformsComponent"],
+        _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewPostModalComponent"],
+        _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_39__["NewChannelModalComponent"],
+        _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_40__["PostCellComponent"],
+        _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_42__["CardGridComponent"],
+        _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_43__["CardGridContainerComponent"],
+        _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingModalComponent"],
+        _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_45__["OnboardingStepsComponent"],
+        _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_46__["ObBasicComponent"],
+        _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_47__["ObScreenNamesComponent"],
+        _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_48__["ObCustomizeComponent"],
+        _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_49__["GameSearchComponent"],
+        _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_51__["FooterCardComponent"],
+        _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_52__["UserCellComponent"],
+        _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_53__["RateGameModalComponent"],
+        _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_54__["UploadTaskComponent"],
+        _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_55__["UploaderComponent"],
+        _upload_zone_directive__WEBPACK_IMPORTED_MODULE_56__["UploadZoneDirective"],
+        _feed_feed_component__WEBPACK_IMPORTED_MODULE_57__["FeedComponent"],
+        _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_58__["GameCardSmallComponent"],
+        _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_59__["LazyImageComponent"],
+        _relative_time_pipe__WEBPACK_IMPORTED_MODULE_62__["RelativeTimePipe"],
+        _comment_comment_component__WEBPACK_IMPORTED_MODULE_65__["CommentComponent"],
+        _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_66__["SinglePostComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+        _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMapsModule"], ngx_lottie__WEBPACK_IMPORTED_MODULE_17__["LottieModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_19__["AngularFireModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_24__["FirebaseUIModule"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_21__["AngularFireStorageModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_32__["HttpClientModule"],
+        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["ScrollingModule"],
+        _angular_youtube_player__WEBPACK_IMPORTED_MODULE_41__["YouTubePlayerModule"],
+        ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_63__["ShareButtonsModule"],
+        ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_64__["ShareIconsModule"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmCoreModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                    _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-                    _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMapsModule"],
-                    ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieModule"].forRoot({ player: playerFactory }),
-                    _angular_fire__WEBPACK_IMPORTED_MODULE_18__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_22__["environment"].firebase),
-                    _angular_fire_auth__WEBPACK_IMPORTED_MODULE_19__["AngularFireAuthModule"],
-                    firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
-                    _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["AngularFireStorageModule"],
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_31__["HttpClientModule"],
-                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["ScrollingModule"],
-                    _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayerModule"],
-                    ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_62__["ShareButtonsModule"],
-                    ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_63__["ShareIconsModule"],
+                    _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+                    _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMapsModule"],
+                    ngx_lottie__WEBPACK_IMPORTED_MODULE_17__["LottieModule"].forRoot({ player: playerFactory }),
+                    _angular_fire__WEBPACK_IMPORTED_MODULE_19__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_23__["environment"].firebase),
+                    _angular_fire_auth__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthModule"],
+                    firebaseui_angular__WEBPACK_IMPORTED_MODULE_24__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig),
+                    _angular_fire_storage__WEBPACK_IMPORTED_MODULE_21__["AngularFireStorageModule"],
+                    _angular_common_http__WEBPACK_IMPORTED_MODULE_32__["HttpClientModule"],
+                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["ScrollingModule"],
+                    _angular_youtube_player__WEBPACK_IMPORTED_MODULE_41__["YouTubePlayerModule"],
+                    ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_63__["ShareButtonsModule"],
+                    ngx_sharebuttons_icons__WEBPACK_IMPORTED_MODULE_64__["ShareIconsModule"],
+                    _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmCoreModule"].forRoot({
+                        apiKey: 'AIzaSyCvJ7fjvweZlcJhOSWyfJ8m7ZwwUO6L0VQ',
+                        libraries: ['visualization']
+                    }),
                 ],
                 declarations: [
-                    _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                    _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
-                    _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_5__["FeedContainerComponent"],
-                    _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__["LoginBoxComponent"],
-                    _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_9__["SignInButtonsComponent"],
-                    _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_10__["MapContainerComponent"],
-                    _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_11__["GamesContainerComponent"],
-                    _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
-                    _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
-                    _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-                    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__["ReportIssueComponent"],
-                    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__["GameCardComponent"],
-                    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__["GameCardListComponent"],
-                    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__["GameDetailComponent"],
-                    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__["ConversationsComponent"],
-                    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__["SearchBarComponent"],
-                    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__["BrowseChannelsComponent"],
-                    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__["BrowseGenresComponent"],
-                    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__["BrowsePlatformsComponent"],
-                    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewPostModalComponent"],
-                    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewChannelModalComponent"],
-                    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__["PostCellComponent"],
-                    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__["CardGridComponent"],
-                    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__["CardGridContainerComponent"],
-                    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingModalComponent"],
-                    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingStepsComponent"],
-                    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__["ObBasicComponent"],
-                    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__["ObScreenNamesComponent"],
-                    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__["ObCustomizeComponent"],
-                    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__["GameSearchComponent"],
-                    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__["FooterCardComponent"],
-                    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__["UserCellComponent"],
-                    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__["RateGameModalComponent"],
-                    _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__["UploadTaskComponent"],
-                    _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__["UploaderComponent"],
-                    _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__["UploadZoneDirective"],
-                    _feed_feed_component__WEBPACK_IMPORTED_MODULE_56__["FeedComponent"],
-                    _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_57__["GameCardSmallComponent"],
-                    _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_58__["LazyImageComponent"],
-                    _relative_time_pipe__WEBPACK_IMPORTED_MODULE_61__["RelativeTimePipe"],
-                    _comment_comment_component__WEBPACK_IMPORTED_MODULE_64__["CommentComponent"],
-                    _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_65__["SinglePostComponent"],
+                    _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                    _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"],
+                    _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_6__["FeedContainerComponent"],
+                    _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_9__["LoginBoxComponent"],
+                    _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_10__["SignInButtonsComponent"],
+                    _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_11__["MapContainerComponent"],
+                    _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_12__["GamesContainerComponent"],
+                    _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_13__["ProfileContainerComponent"],
+                    _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_14__["ChatContainerComponent"],
+                    _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["SidebarComponent"],
+                    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_27__["ReportIssueComponent"],
+                    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_28__["GameCardComponent"],
+                    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_29__["GameCardListComponent"],
+                    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_30__["GameDetailComponent"],
+                    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_31__["ConversationsComponent"],
+                    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_33__["SearchBarComponent"],
+                    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_34__["BrowseChannelsComponent"],
+                    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_35__["BrowseGenresComponent"],
+                    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_36__["BrowsePlatformsComponent"],
+                    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewPostModalComponent"],
+                    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_39__["NewChannelModalComponent"],
+                    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_40__["PostCellComponent"],
+                    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_42__["CardGridComponent"],
+                    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_43__["CardGridContainerComponent"],
+                    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingModalComponent"],
+                    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_45__["OnboardingStepsComponent"],
+                    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_46__["ObBasicComponent"],
+                    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_47__["ObScreenNamesComponent"],
+                    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_48__["ObCustomizeComponent"],
+                    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_49__["GameSearchComponent"],
+                    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_51__["FooterCardComponent"],
+                    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_52__["UserCellComponent"],
+                    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_53__["RateGameModalComponent"],
+                    _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_54__["UploadTaskComponent"],
+                    _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_55__["UploaderComponent"],
+                    _upload_zone_directive__WEBPACK_IMPORTED_MODULE_56__["UploadZoneDirective"],
+                    _feed_feed_component__WEBPACK_IMPORTED_MODULE_57__["FeedComponent"],
+                    _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_58__["GameCardSmallComponent"],
+                    _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_59__["LazyImageComponent"],
+                    _relative_time_pipe__WEBPACK_IMPORTED_MODULE_62__["RelativeTimePipe"],
+                    _comment_comment_component__WEBPACK_IMPORTED_MODULE_65__["CommentComponent"],
+                    _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_66__["SinglePostComponent"],
                 ],
                 providers: [
-                    _observer_service__WEBPACK_IMPORTED_MODULE_6__["ObserverService"],
-                    _games_service__WEBPACK_IMPORTED_MODULE_7__["GamesService"],
-                    _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AngularFireAuthGuard"],
-                    _ping_service__WEBPACK_IMPORTED_MODULE_49__["PingService"],
-                    _posts_service__WEBPACK_IMPORTED_MODULE_59__["PostsService"],
-                    _profile_service__WEBPACK_IMPORTED_MODULE_60__["ProfileService"],
-                    { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_20__["BUCKET"], useValue: 'cs1530group11.appspot.com' }
+                    _observer_service__WEBPACK_IMPORTED_MODULE_7__["ObserverService"],
+                    _games_service__WEBPACK_IMPORTED_MODULE_8__["GamesService"],
+                    _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AngularFireAuthGuard"],
+                    _ping_service__WEBPACK_IMPORTED_MODULE_50__["PingService"],
+                    _posts_service__WEBPACK_IMPORTED_MODULE_60__["PostsService"],
+                    _profile_service__WEBPACK_IMPORTED_MODULE_61__["ProfileService"],
+                    { provide: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_21__["BUCKET"], useValue: 'cs1530group11.appspot.com' }
                 ],
-                bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+                bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
             }]
     }], null, null); })();
-_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_66__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgComponentOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgTemplateOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgSwitchDefault"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgPlural"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["NgPluralCase"], _angular_router__WEBPACK_IMPORTED_MODULE_67__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_67__["RouterLink"], _angular_router__WEBPACK_IMPORTED_MODULE_67__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_67__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_67__["ɵangular_packages_router_router_l"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["GoogleMap"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBaseLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapBicyclingLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapCircle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapGroundOverlay"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapInfoWindow"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapKmlLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapMarker"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolygon"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapPolyline"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapRectangle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTrafficLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_15__["MapTransitLayer"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["BaseDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_16__["LottieComponent"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_23__["FirebaseuiAngularLibraryComponent"], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_68__["Dir"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkScrollable"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkFixedSizeVirtualScroll"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkVirtualForOf"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_36__["CdkVirtualScrollViewport"], _angular_youtube_player__WEBPACK_IMPORTED_MODULE_40__["YouTubePlayer"], ngx_sharebuttons__WEBPACK_IMPORTED_MODULE_69__["ShareDirective"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaIconComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaDuotoneIconComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaLayersComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaLayersTextComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaLayersCounterComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaStackComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_70__["FaStackItemSizeDirective"], ngx_sharebuttons_button__WEBPACK_IMPORTED_MODULE_71__["ShareButton"], ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_62__["ShareButtons"], _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-    _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"],
-    _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_5__["FeedContainerComponent"],
-    _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_8__["LoginBoxComponent"],
-    _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_9__["SignInButtonsComponent"],
-    _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_10__["MapContainerComponent"],
-    _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_11__["GamesContainerComponent"],
-    _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_12__["ProfileContainerComponent"],
-    _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_13__["ChatContainerComponent"],
-    _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["SidebarComponent"],
-    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_26__["ReportIssueComponent"],
-    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_27__["GameCardComponent"],
-    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_28__["GameCardListComponent"],
-    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_29__["GameDetailComponent"],
-    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_30__["ConversationsComponent"],
-    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_32__["SearchBarComponent"],
-    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_33__["BrowseChannelsComponent"],
-    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_34__["BrowseGenresComponent"],
-    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_35__["BrowsePlatformsComponent"],
-    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_37__["NewPostModalComponent"],
-    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewChannelModalComponent"],
-    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_39__["PostCellComponent"],
-    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_41__["CardGridComponent"],
-    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_42__["CardGridContainerComponent"],
-    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_43__["OnboardingModalComponent"],
-    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingStepsComponent"],
-    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_45__["ObBasicComponent"],
-    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_46__["ObScreenNamesComponent"],
-    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_47__["ObCustomizeComponent"],
-    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_48__["GameSearchComponent"],
-    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_50__["FooterCardComponent"],
-    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_51__["UserCellComponent"],
-    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_52__["RateGameModalComponent"],
-    _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_53__["UploadTaskComponent"],
-    _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_54__["UploaderComponent"],
-    _upload_zone_directive__WEBPACK_IMPORTED_MODULE_55__["UploadZoneDirective"],
-    _feed_feed_component__WEBPACK_IMPORTED_MODULE_56__["FeedComponent"],
-    _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_57__["GameCardSmallComponent"],
-    _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_58__["LazyImageComponent"],
-    _comment_comment_component__WEBPACK_IMPORTED_MODULE_64__["CommentComponent"],
-    _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_65__["SinglePostComponent"]], [_angular_common__WEBPACK_IMPORTED_MODULE_66__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["UpperCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["LowerCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["JsonPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["SlicePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["DecimalPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["PercentPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["I18nPluralPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["I18nSelectPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_66__["KeyValuePipe"], _relative_time_pipe__WEBPACK_IMPORTED_MODULE_61__["RelativeTimePipe"]]);
+_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetComponentScope"](_profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_13__["ProfileContainerComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_67__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgComponentOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgTemplateOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgStyle"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgSwitch"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgSwitchCase"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgSwitchDefault"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgPlural"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["NgPluralCase"], _angular_router__WEBPACK_IMPORTED_MODULE_68__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_68__["RouterLink"], _angular_router__WEBPACK_IMPORTED_MODULE_68__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_68__["RouterLinkActive"], _angular_router__WEBPACK_IMPORTED_MODULE_68__["ɵangular_packages_router_router_l"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMap"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapBaseLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapBicyclingLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapCircle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapGroundOverlay"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapInfoWindow"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapKmlLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapMarker"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapPolygon"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapPolyline"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapRectangle"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapTrafficLayer"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["MapTransitLayer"], ngx_lottie__WEBPACK_IMPORTED_MODULE_17__["BaseDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_17__["LottieDirective"], ngx_lottie__WEBPACK_IMPORTED_MODULE_17__["LottieComponent"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_24__["FirebaseuiAngularLibraryComponent"], _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_69__["Dir"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["CdkScrollable"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["CdkFixedSizeVirtualScroll"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["CdkVirtualForOf"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_37__["CdkVirtualScrollViewport"], _angular_youtube_player__WEBPACK_IMPORTED_MODULE_41__["YouTubePlayer"], ngx_sharebuttons__WEBPACK_IMPORTED_MODULE_70__["ShareDirective"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaIconComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaDuotoneIconComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaLayersComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaLayersTextComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaLayersCounterComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaStackComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_71__["FaStackItemSizeDirective"], ngx_sharebuttons_button__WEBPACK_IMPORTED_MODULE_72__["ShareButton"], ngx_sharebuttons_buttons__WEBPACK_IMPORTED_MODULE_63__["ShareButtons"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmBicyclingLayer"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmCircle"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmDataLayer"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmFitBounds"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmFullscreenControl"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmInfoWindow"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmKmlLayer"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmMap"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmMapTypeControl"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmMarker"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmPanControl"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmPolygon"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmPolyline"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmPolylineIcon"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmPolylinePoint"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmRectangle"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmRotateControl"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmScaleControl"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmStreetViewControl"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmTransitLayer"], _agm_core__WEBPACK_IMPORTED_MODULE_2__["AgmZoomControl"], _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+    _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"],
+    _feed_container_feed_container_component__WEBPACK_IMPORTED_MODULE_6__["FeedContainerComponent"],
+    _login_box_login_box_component__WEBPACK_IMPORTED_MODULE_9__["LoginBoxComponent"],
+    _sign_in_buttons_sign_in_buttons_component__WEBPACK_IMPORTED_MODULE_10__["SignInButtonsComponent"],
+    _map_container_map_container_component__WEBPACK_IMPORTED_MODULE_11__["MapContainerComponent"],
+    _games_container_games_container_component__WEBPACK_IMPORTED_MODULE_12__["GamesContainerComponent"],
+    _profile_container_profile_container_component__WEBPACK_IMPORTED_MODULE_13__["ProfileContainerComponent"],
+    _chat_container_chat_container_component__WEBPACK_IMPORTED_MODULE_14__["ChatContainerComponent"],
+    _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_15__["SidebarComponent"],
+    _report_issue_report_issue_component__WEBPACK_IMPORTED_MODULE_27__["ReportIssueComponent"],
+    _game_card_game_card_component__WEBPACK_IMPORTED_MODULE_28__["GameCardComponent"],
+    _game_card_list_game_card_list_component__WEBPACK_IMPORTED_MODULE_29__["GameCardListComponent"],
+    _game_detail_game_detail_component__WEBPACK_IMPORTED_MODULE_30__["GameDetailComponent"],
+    _conversations_conversations_component__WEBPACK_IMPORTED_MODULE_31__["ConversationsComponent"],
+    _search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_33__["SearchBarComponent"],
+    _browse_channels_browse_channels_component__WEBPACK_IMPORTED_MODULE_34__["BrowseChannelsComponent"],
+    _browse_genres_browse_genres_component__WEBPACK_IMPORTED_MODULE_35__["BrowseGenresComponent"],
+    _browse_platforms_browse_platforms_component__WEBPACK_IMPORTED_MODULE_36__["BrowsePlatformsComponent"],
+    _new_post_modal_new_post_modal_component__WEBPACK_IMPORTED_MODULE_38__["NewPostModalComponent"],
+    _new_channel_modal_new_channel_modal_component__WEBPACK_IMPORTED_MODULE_39__["NewChannelModalComponent"],
+    _post_cell_post_cell_component__WEBPACK_IMPORTED_MODULE_40__["PostCellComponent"],
+    _card_grid_card_grid_component__WEBPACK_IMPORTED_MODULE_42__["CardGridComponent"],
+    _card_grid_container_card_grid_container_component__WEBPACK_IMPORTED_MODULE_43__["CardGridContainerComponent"],
+    _onboarding_modal_onboarding_modal_component__WEBPACK_IMPORTED_MODULE_44__["OnboardingModalComponent"],
+    _onboarding_steps_onboarding_steps_component__WEBPACK_IMPORTED_MODULE_45__["OnboardingStepsComponent"],
+    _ob_basic_ob_basic_component__WEBPACK_IMPORTED_MODULE_46__["ObBasicComponent"],
+    _ob_screen_names_ob_screen_names_component__WEBPACK_IMPORTED_MODULE_47__["ObScreenNamesComponent"],
+    _ob_customize_ob_customize_component__WEBPACK_IMPORTED_MODULE_48__["ObCustomizeComponent"],
+    _game_search_game_search_component__WEBPACK_IMPORTED_MODULE_49__["GameSearchComponent"],
+    _footer_card_footer_card_component__WEBPACK_IMPORTED_MODULE_51__["FooterCardComponent"],
+    _user_cell_user_cell_component__WEBPACK_IMPORTED_MODULE_52__["UserCellComponent"],
+    _rate_game_modal_rate_game_modal_component__WEBPACK_IMPORTED_MODULE_53__["RateGameModalComponent"],
+    _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_54__["UploadTaskComponent"],
+    _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_55__["UploaderComponent"],
+    _upload_zone_directive__WEBPACK_IMPORTED_MODULE_56__["UploadZoneDirective"],
+    _feed_feed_component__WEBPACK_IMPORTED_MODULE_57__["FeedComponent"],
+    _game_card_small_game_card_small_component__WEBPACK_IMPORTED_MODULE_58__["GameCardSmallComponent"],
+    _lazy_image_lazy_image_component__WEBPACK_IMPORTED_MODULE_59__["LazyImageComponent"],
+    _comment_comment_component__WEBPACK_IMPORTED_MODULE_65__["CommentComponent"],
+    _single_post_single_post_component__WEBPACK_IMPORTED_MODULE_66__["SinglePostComponent"]], [_angular_common__WEBPACK_IMPORTED_MODULE_67__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["UpperCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["LowerCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["JsonPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["SlicePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["DecimalPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["PercentPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["DatePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["I18nPluralPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["I18nSelectPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_67__["KeyValuePipe"], _relative_time_pipe__WEBPACK_IMPORTED_MODULE_62__["RelativeTimePipe"]]);
 
 
 /***/ }),
@@ -2863,18 +2874,103 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
-/* harmony import */ var _angular_google_maps__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/google-maps */ "./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
 
 
 
 
 
 
+const _c0 = ["mapThingy"];
 class MapContainerComponent {
-    constructor(http) {
+    constructor(http, mapsAPILoader) {
         this.http = http;
+        this.mapsAPILoader = mapsAPILoader;
+        this.heatmap = new google.maps.visualization.HeatmapLayer({
+            data: []
+        });
         this.points = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
+        this.styles = [
+            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            {
+                featureType: "administrative.locality",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#d59563" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#d59563" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "geometry",
+                stylers: [{ color: "#263c3f" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#6b9a76" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [{ color: "#38414e" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#212a37" }],
+            },
+            {
+                featureType: "road",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#9ca5b3" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry",
+                stylers: [{ color: "#746855" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#1f2835" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#f3d19c" }],
+            },
+            {
+                featureType: "transit",
+                elementType: "geometry",
+                stylers: [{ color: "#2f3948" }],
+            },
+            {
+                featureType: "transit.station",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#d59563" }],
+            },
+            {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [{ color: "#17263c" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#515c6d" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.stroke",
+                stylers: [{ color: "#17263c" }],
+            },
+        ];
         // google maps zoom level
         this.zoom = 13;
         // initial center position for the map
@@ -2963,29 +3059,54 @@ class MapContainerComponent {
         ]);
     }
     ngOnInit() {
+        this.mapsAPILoader.load();
         let url = 'https://cs1530group11graph.uc.r.appspot.com/map/points';
         this.http.get(url)
             .toPromise()
             .then(response => {
             this.points.next(response);
             console.log(this.points);
+            this.points.value.forEach(point => {
+                this.heatmap['data'].push(new google.maps.LatLng(point.latitude, point.longitude));
+            });
         });
     }
+    ngAfterViewInit() {
+        this.heatmap.setMap(this.mapThingy.nativeElement);
+        //Example with weighted heat markers
+        new google.maps.visualization.HeatmapLayer({
+            data: [
+                { location: new google.maps.LatLng(40.4443, -79.970), weight: 0.5 },
+                { location: new google.maps.LatLng(40.4443, -79.975), weight: 1.0 },
+                { location: new google.maps.LatLng(40.4443, -79.980), weight: 2.0 },
+                { location: new google.maps.LatLng(40.4443, -79.985), weight: 10.0 },
+            ]
+        }).setMap(this.mapThingy.nativeElement);
+        //Set Center Example (Empire state building)
+        //map.setCenter(new google.maps.LatLng(40.7484, -73.9857))
+    }
 }
-MapContainerComponent.ɵfac = function MapContainerComponent_Factory(t) { return new (t || MapContainerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-MapContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapContainerComponent, selectors: [["app-map-container"]], decls: 5, vars: 3, consts: [[1, "hero-head"], [1, "hero-body", "content-bg", 2, "padding", "0px"], [1, "dashboard", "is-full-height"], ["width", "100vw", "height", "93vh", 2, "margin-bottom", "20px", "height", "calc(100vh - 57px)", 3, "zoom", "center", "options"]], template: function MapContainerComponent_Template(rf, ctx) { if (rf & 1) {
+MapContainerComponent.ɵfac = function MapContainerComponent_Factory(t) { return new (t || MapContainerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_agm_core__WEBPACK_IMPORTED_MODULE_3__["MapsAPILoader"])); };
+MapContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapContainerComponent, selectors: [["app-map-container"]], viewQuery: function MapContainerComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true);
+    } if (rf & 2) {
+        var _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.mapThingy = _t.first);
+    } }, decls: 7, vars: 5, consts: [[1, "hero-head"], [1, "hero-body", "content-bg", 2, "padding", "0px"], [1, "dashboard", "is-full-height"], ["id", "mapThingy", "name", "mapThingy", 2, "width", "600px", "height", "600px", 3, "styles", "latitude", "longitude", "zoom", "disableDefaultUI"], ["mapThingy", ""]], template: function MapContainerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-navbar");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "google-map", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "agm-map", 3, 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("zoom", ctx.zoom)("center", ctx.center)("options", ctx.options);
-    } }, directives: [_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__["NavbarComponent"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_4__["GoogleMap"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hcC1jb250YWluZXIvbWFwLWNvbnRhaW5lci5jb21wb25lbnQuY3NzIn0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("styles", ctx.styles)("latitude", ctx.lat)("longitude", ctx.lng)("zoom", 13)("disableDefaultUI", false);
+    } }, directives: [_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_4__["NavbarComponent"], _agm_core__WEBPACK_IMPORTED_MODULE_3__["AgmMap"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hcC1jb250YWluZXIvbWFwLWNvbnRhaW5lci5jb21wb25lbnQuY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapContainerComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -2993,7 +3114,10 @@ MapContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
                 templateUrl: './map-container.component.html',
                 styleUrls: ['./map-container.component.css']
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }, { type: _agm_core__WEBPACK_IMPORTED_MODULE_3__["MapsAPILoader"] }]; }, { mapThingy: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
+            args: ['mapThingy']
+        }] }); })();
 
 
 /***/ }),
@@ -7522,7 +7646,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/faarisismail/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })
