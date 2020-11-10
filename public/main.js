@@ -4739,20 +4739,39 @@ class OnboardingModalComponent {
                 console.error(err);
             });
             let sn = new Set();
-            if (!this.isJson(this.appData.onboardingTempProfile.screenNames)) {
-                this.appData.onboardingTempProfile.screenNames.forEach(scrName => {
-                    if (Array.isArray(scrName.games)) {
-                        scrName.games.forEach(game => {
-                            sn.add(game.id);
-                        });
-                    }
+            var postRequestBody;
+            if (body === null || body === void 0 ? void 0 : body.fields) {
+                postRequestBody = body.fields;
+            }
+            else {
+                postRequestBody = body;
+            }
+            //console.log("BODY: " + JSON.stringify(postRequestBody.screenNames))
+            postRequestBody.screenNames.forEach(screenName => {
+                let games = JSON.parse(screenName).games;
+                games.forEach(game => {
+                    sn.add(game.id);
                 });
-            }
-            else if (!this.screenNamesIsArray()) {
-                let temp = this.appData.onboardingTempProfile.screenNames;
-                sn.add(temp.id);
-            }
-            console.log(sn);
+            });
+            // // this.appData.onboardingTempProfile.screenNames.forEach(screenName => {
+            //   screenName["game"].forEach(game => {
+            //     console.log("sn2: " + game.id)
+            //     sn.add(game.id)
+            //   })
+            // })
+            // if (!this.isJson(this.appData.onboardingTempProfile.screenNames)) {
+            //   this.appData.onboardingTempProfile.screenNames.forEach(scrName => {
+            //     if (Array.isArray(scrName.games)) {
+            //       scrName.games.forEach(game => {
+            //         sn.add(game.id)
+            //       })
+            //     }
+            //   })
+            // } else {
+            //   let temp: any = this.appData.onboardingTempProfile.screenNames
+            //   sn.add(temp.id)
+            // }
+            console.log("sn2: " + JSON.stringify(sn));
             sn.forEach(screenGame => {
                 let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game';
                 let body = { gameID: screenGame };
