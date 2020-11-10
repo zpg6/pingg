@@ -27,6 +27,7 @@ export class ProfileContainerComponent implements OnInit {
   loaded = 0;
   appData: AppData
   usersOwnProfile = false
+  isFollowedLocally
 
   constructor(private observerService: ObserverService,
               private gamesService: GamesService,
@@ -42,6 +43,7 @@ export class ProfileContainerComponent implements OnInit {
       if (!this.appData?.isOnboarded && msg.isOnboarded) {
         this.setupPage(this.user.id)
       }
+      this.appData = msg
     })
     this.posts = undefined
   }
@@ -79,6 +81,69 @@ export class ProfileContainerComponent implements OnInit {
         })
       }
     })
+  }
+
+  getFollowers() {
+    return this.followers.filter(follower => {
+      return follower.id !== this.appData.profile.id
+    })
+  }
+
+  getFollowing() {
+    return this.following.filter(follower => {
+      return follower.id !== this.appData.profile.id
+    })
+  }
+
+  doesFollow() {
+    return !this.usersOwnProfile && this.followers.find(user => { return user.id === this.appData.profile.id }) !== undefined
+  }
+
+  changeFollow() {
+    if (this.usersOwnProfile) {
+      return
+    }
+    let prev = this.doesFollow()
+    if (prev) {
+      this.unfollowUser()
+    } else {
+      this.followUser()
+    }
+  }
+
+  followUser() {
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-user/' + this.user.id
+    console.log('follow url = '+url)
+    this.http.get<any>(url).toPromise()
+              .then(response => {
+                console.log(response)
+                if (response.response === 'Success!') {
+                  if (!this.followers.find(usr => this.user.id === usr.id)) {
+                    this.followers.push({
+                      id: this.appData.profile.id,
+                      avatarVal: this.appData.profile.avatarVal,
+                      handle: this.appData.profile.handle,
+                    })
+                  }
+                }
+              })
+              .catch(err => console.error(err))
+  }
+
+  unfollowUser() {
+
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/unfollowed-user/' + this.user.id
+    console.log('unfollow url = '+url)
+    this.http.get<any>(url).toPromise()
+              .then(response => {
+                console.log(response)
+                if (response.response === 'Success!') {
+                  this.followers = this.followers.filter(follower => {
+                    return follower.id !== this.appData.profile.id
+                  })
+                }
+              })
+              .catch(err => console.error(err))
   }
 
   editProfile() {
