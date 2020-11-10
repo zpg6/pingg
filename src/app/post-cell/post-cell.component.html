@@ -2,7 +2,7 @@
   <div class="column is-1 is-centered has-text-centered">
 
     <div class="subtitle is-4" style="font-weight: bolder;" *ngIf="this.on?.value !== undefined">
-      <span class="vote {{this.on.value == true ? 'on':''}}" (click)="this.vote()"></span>
+      <span class="vote {{this.on?.value == true ? 'on':''}}" (click)="this.vote()"></span>
       <br>
       <a></a>{{this.post?.numUpvotes}}
     </div>

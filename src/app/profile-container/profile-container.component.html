@@ -34,7 +34,7 @@
                   </span>
                   Follow
                 </a>
-                <a class="card-footer-item" *ngIf="usersOwnProfile">
+                <a class="card-footer-item" *ngIf="usersOwnProfile" (click)="editProfile()">
                   <span class="icon is-medium" style="color: #95EF72;">
                     <i class="fas fa-user-edit"></i>
                   </span>

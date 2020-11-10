@@ -22,9 +22,6 @@ export class AppData {
   onboardingPage = 0;
   onboardingBasicsValid = false;
   onboardingScreenNamesValid = true;
-  screenNames = [];
-  avatarVal = 50;
-  avatarSeed = Math.round(Math.random() * 100);
   locationEnabled = false;
   onboardingTempProfile = new Profile();
   position;

@@ -3,13 +3,13 @@
 
   <div class="column is-centered has-text-centered">
     <figure class="">
-      <img style="max-width: 150px; border-radius: 50%; margin-right: 2px;" src="https://avatars.dicebear.com/api/bottts/{{imageKey()}}.svg">
+      <img style="max-width: 150px; border-radius: 50%; margin-right: 2px;" [src]="imageKey()">
     </figure>
   </div>
 
   <div class="column is-two-thirds">
     <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Choose an Avatar</p>
-    <input class="slider is-link" style="width: 100%;" step="1" min="0" max="1000" value="{{appData.avatarVal}}" type="range" (change)="onChange($event)">
+    <input class="slider is-link" style="width: 100%;" step="1" min="0" max="1000" value="{{appData?.onboardingTempProfile?.avatarVal}}" type="range" (change)="onChange($event)">
   </div>
 
 </div>

@@ -26,6 +26,10 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
       }));
   }
 
+  screenNamesIsArray(data: any) {
+    return Array.isArray(data.screenNames)
+  }
+
   ngOnInit(): void {
     this.afAuth.authState.subscribe(d =>
       {
@@ -42,6 +46,9 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
             console.log(data)
             if (data) {
               console.log(data.screenNames)
+              if (!this.screenNamesIsArray(data)) {
+                data.screenNames = [data.screenNames]
+              }
               // data.screenNames = data.screenNames.map(nameObj => {
               //   return JSON.parse(nameObj)
               // })

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { ApplicationRef, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { app } from 'firebase';
+import { AppData } from '../app-data';
 import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
 import { PostsService } from '../posts.service';
@@ -23,7 +25,7 @@ export class ProfileContainerComponent implements OnInit {
   following = []
 
   loaded = 0;
-
+  appData: AppData
   usersOwnProfile = false
 
   constructor(private observerService: ObserverService,
@@ -35,7 +37,12 @@ export class ProfileContainerComponent implements OnInit {
               private profileService: ProfileService)
 
   {
-    this.observerService.getMessage().subscribe(msg => this.user = msg.profile)
+    this.observerService.getMessage().subscribe(msg => {
+      this.user = msg.profile
+      if (!this.appData?.isOnboarded && msg.isOnboarded) {
+        this.setupPage(this.user.id)
+      }
+    })
     this.posts = undefined
   }
 
@@ -72,6 +79,17 @@ export class ProfileContainerComponent implements OnInit {
         })
       }
     })
+  }
+
+  editProfile() {
+    var appData = this.observerService.getMessageOnce()
+
+    appData.onboardingBasicsValid = true
+    appData.onboardingScreenNamesValid = true
+    appData.onboardingTempProfile = appData.profile
+    appData.isOnboarded = false
+
+    this.observerService.sendMessage(appData)
   }
 
   setupPage(userID: string) {
@@ -112,13 +130,21 @@ export class ProfileContainerComponent implements OnInit {
   }
 
   screenNamesIsArray() {
-    console.log(Array.isArray(this.user?.screenNames))
     return Array.isArray(this.user?.screenNames)
   }
 
-  fillInScreenNames() {
+  isJson(str): boolean {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+  }
 
-    if (JSON.parse(this.user.screenNames)) {
+  fillInScreenNames() {
+    var attempt = this.isJson(this.user?.screenNames)
+    if (attempt && attempt !== undefined) {
       console.log(JSON.parse(this.user.screenNames))
       this.user.screenNames = JSON.parse(this.user.screenNames)
       if (this.user.screenNames?.games && this.user.screenNames?.games.length > 0) {

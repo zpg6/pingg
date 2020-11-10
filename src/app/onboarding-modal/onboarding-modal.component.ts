@@ -39,18 +39,54 @@ export class OnboardingModalComponent implements OnInit {
       this.observerService.sendMessage(this.appData)
     }
   }
+
+  screenNamesIsArray() {
+    return Array.isArray(this.appData.onboardingTempProfile.screenNames)
+  }
+
+  isJson(obj): boolean {
+    try {
+        JSON.stringify(obj);
+    } catch (e) {
+        return false;
+    }
+    return true;
+  }
+
   rightButtonClick() {
     if (this.appData.onboardingPage < this.lastPage) {
 
       this.appData.onboardingPage++
     }
     else {
-      let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + this.appData.profile.id
-      var body = this.appData.onboardingTempProfile
-      body.screenNames = this.appData.screenNames.map(nameObj => JSON.stringify(nameObj))
+      let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + this.appData?.onboardingTempProfile?.id + (this.appData?.profile?.firstName.length > 0 ? '/update':'')
+      console.log(url)
+
+      // if (this.isJson(this.appData?.onboardingTempProfile?.screenNames)) {
+      //   this.appData.onboardingTempProfile.screenNames = [this.appData?.onboardingTempProfile?.screenNames]
+      // }
+
+      var body: any = this.appData.onboardingTempProfile
+
+      body.screenNames = ''
+
+      // try {
+      //   body.screenNames = body.screenNames.map(obj => JSON.stringify(obj as object))
+
+      //   console.log('1111')
+      // }
+      // catch {
+      //   console.log('2222')
+      //   body.screenNames = JSON.stringify(body.screenNames)
+      // }
+      if (this.appData?.profile?.id.length > 0) {
+        body = {fields: body}
+      }
+      console.log(body)
       this.http.post<any>(url, body)
                .toPromise()
                .then(response => {
+                 console.log(response)
                  this.appData.isOnboarded = true
                  this.observerService.sendMessage(this.appData)
                })
@@ -58,11 +94,19 @@ export class OnboardingModalComponent implements OnInit {
                  console.error(err)
                })
       let sn: Set<string> = new Set()
-      this.appData.screenNames.forEach(screenName => {
-        screenName[screenName].games.forEach(screenGame => {
-          sn.add(screenGame.id)
+      if (!this.isJson(this.appData.onboardingTempProfile.screenNames)) {
+        this.appData.onboardingTempProfile.screenNames.forEach(scrName => {
+          if (Array.isArray(scrName.games)) {
+            scrName.games.forEach(game => {
+              sn.add(game.id)
+            })
+          }
         })
-      })
+      } else if (!this.screenNamesIsArray()) {
+        let temp: any = this.appData.onboardingTempProfile.screenNames
+        sn.add(temp.id)
+      }
+      console.log(sn)
       sn.forEach(screenGame => {
         let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game'
         let body = { gameID: screenGame }
@@ -72,7 +116,7 @@ export class OnboardingModalComponent implements OnInit {
                   .then(response => {
                     console.log(response)
                     if (response.response == 'Success!') {
-                      //this.isFollowedLocally = true
+
                     }
                   })
                   .catch(err => console.error(err))

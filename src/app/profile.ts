@@ -6,8 +6,8 @@ export class Profile {
     firstName: string = "";
     lastName: string = "";
     handle: string = "";
-    screenNames: {} = {};
+    screenNames: any[] = []
     latitude = 1;
     longitude = 1;
-    avatarVal = 50;
+    avatarVal = Math.round(Math.random() * 1000);
 }

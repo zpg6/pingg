@@ -24,16 +24,14 @@ export class ObCustomizeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appData.onboardingTempProfile.avatarVal = 50 * this.appData.avatarSeed
   }
 
   imageKey() {
-    return this.appData.avatarSeed * this.appData.avatarVal
+    return 'https://avatars.dicebear.com/api/bottts/'+ this.appData?.onboardingTempProfile?.avatarVal + '.svg'
   }
 
   onChange(event: any) {
-    this.appData.avatarVal = event.target.value;
-    this.appData.onboardingTempProfile.avatarVal = event.target.value * this.appData.avatarSeed;
+    this.appData.onboardingTempProfile.avatarVal = event.target.value;
     this.updateObserver()
   }
 
