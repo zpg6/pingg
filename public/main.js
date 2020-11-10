@@ -4724,7 +4724,7 @@ class OnboardingModalComponent {
             catch (_g) {
                 body.screenNames = JSON.stringify(body.screenNames);
             }
-            if (((_f = (_e = this.appData) === null || _e === void 0 ? void 0 : _e.profile) === null || _f === void 0 ? void 0 : _f.id.length) > 0) {
+            if (((_f = (_e = this.appData) === null || _e === void 0 ? void 0 : _e.profile) === null || _f === void 0 ? void 0 : _f.firstName.length) > 0) {
                 body = { fields: body };
             }
             console.log(body);

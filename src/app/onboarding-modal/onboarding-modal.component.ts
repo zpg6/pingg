@@ -70,7 +70,7 @@ export class OnboardingModalComponent implements OnInit {
       catch {
         body.screenNames = JSON.stringify(body.screenNames)
       }
-      if (this.appData?.profile?.id.length > 0) {
+      if (this.appData?.profile?.firstName.length > 0) {
         body = {fields: body}
       }
       console.log(body)
