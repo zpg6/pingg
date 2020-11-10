@@ -4727,6 +4727,9 @@ class OnboardingModalComponent {
             if (((_f = (_e = this.appData) === null || _e === void 0 ? void 0 : _e.profile) === null || _f === void 0 ? void 0 : _f.firstName.length) > 0) {
                 body = { fields: body };
             }
+            else {
+                body.lastLogin = Math.round(new Date().getTime() / 1000);
+            }
             console.log(body);
             this.http.post(url, body)
                 .toPromise()
@@ -6419,6 +6422,7 @@ class Profile {
         this.screenNames = [];
         this.latitude = 1;
         this.longitude = 1;
+        this.lastLogin = 0;
         this.avatarVal = Math.round(Math.random() * 1000);
     }
 }
@@ -7225,6 +7229,7 @@ class SignInButtonsComponent {
                 this.appData.uid = d.uid;
                 this.appData.profile.id = d.uid;
                 this.appData.onboardingTempProfile.id = d.uid;
+                this.appData.profile.lastLogin = Math.round(new Date().getTime() / 1000);
                 let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid;
                 this.http.get(url).toPromise().then(profileObj => {
                     var data = profileObj.response.properties;

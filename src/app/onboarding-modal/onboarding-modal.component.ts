@@ -72,6 +72,8 @@ export class OnboardingModalComponent implements OnInit {
       }
       if (this.appData?.profile?.firstName.length > 0) {
         body = {fields: body}
+      } else {
+        body.lastLogin = Math.round(new Date().getTime() / 1000)
       }
       console.log(body)
       this.http.post<any>(url, body)

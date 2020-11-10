@@ -39,6 +39,7 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
           this.appData.uid = d.uid;
           this.appData.profile.id = d.uid
           this.appData.onboardingTempProfile.id = d.uid
+          this.appData.profile.lastLogin = Math.round(new Date().getTime() / 1000)
 
           let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + d.uid
           this.http.get<any>(url).toPromise().then(profileObj => {
