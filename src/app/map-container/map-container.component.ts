@@ -13,9 +13,8 @@ import { Point } from '../point'
 export class MapContainerComponent implements OnInit {
 
   constructor(private http: HttpClient, private mapsAPILoader:MapsAPILoader) { }
-  heatmap = new google.maps.visualization.HeatmapLayer({
-    data: []
-  })
+  heatmap;
+  map;
   @ViewChild('mapThingy') mapThingy:ElementRef
   points = new BehaviorSubject<Point[]>([])
   styles = [
@@ -102,41 +101,30 @@ export class MapContainerComponent implements OnInit {
   ngOnInit(): void {
     this.mapsAPILoader.load()
     let url = 'https://cs1530group11graph.uc.r.appspot.com/map/points'
-    this.http.get<Point[]>(url)
+    this.http.get<any>(url)
         .toPromise()
         .then(response => {
-          this.points.next(response)
+          this.points.next(response.response)
           console.log(this.points)
+          this.heatmap = new google.maps.visualization.HeatmapLayer({
+            data: []
+          })
           this.points.value.forEach(point => {
             this.heatmap['data'].push(
               new google.maps.LatLng(point.latitude,point.longitude)
             )
           })
+          if (this.map) {
+            this.heatmap.setMap(this.map)
+          }
         })
   }
 
-  ngAfterViewInit() {
-    
-    
-
-   
-
-    this.heatmap.setMap(this.mapThingy.nativeElement);
-
-
-    //Example with weighted heat markers
-    new google.maps.visualization.HeatmapLayer({
-      data: [
-        {location: new google.maps.LatLng(40.4443, -79.970), weight: 0.5},
-        {location: new google.maps.LatLng(40.4443, -79.975), weight: 1.0},
-        {location: new google.maps.LatLng(40.4443, -79.980), weight: 2.0},
-        {location: new google.maps.LatLng(40.4443, -79.985), weight: 10.0},
-      ]
-    }).setMap(this.mapThingy.nativeElement);
-
-    
-    //Set Center Example (Empire state building)
-    //map.setCenter(new google.maps.LatLng(40.7484, -73.9857))
+  onMapReady(event: any) {
+    this.map = event
+    if (this.heatmap) {
+      this.heatmap.setMap(event);
+    }
   }
 
   // google maps zoom level

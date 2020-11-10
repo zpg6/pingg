@@ -41,9 +41,10 @@ export class SignInButtonsComponent implements OnInit, OnDestroy {
             var data = profileObj.response.properties
             console.log(data)
             if (data) {
-              data.screenNames = data.screenNames.map(nameObj => {
-                return JSON.parse(nameObj)
-              })
+              console.log(data.screenNames)
+              // data.screenNames = data.screenNames.map(nameObj => {
+              //   return JSON.parse(nameObj)
+              // })
               this.appData.profile = data
               this.appData.isOnboarded = true;
               this.updateObserver();

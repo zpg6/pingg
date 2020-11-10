@@ -23,7 +23,7 @@
                   <div class="media-content">
                     <p class="title is-2 has-text-light">{{user.firstName}} {{user.lastName}}</p>
                     <p class="subtitle is-4 has-text-light">@{{user.handle}}</p>
-                    <p class="subtitle is-6 has-text-light" style="font-weight: bolder;">Last Online:&nbsp;&nbsp;<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time></p>
+                    <p class="subtitle is-6 has-text-light" style="font-weight: bolder;">Last Online:&nbsp;&nbsp;{{user?.lastLogin | relativeTime}}</p>
                   </div>
                 </div>
               </div>
@@ -98,20 +98,38 @@
               <div class="card-content is-dark">
                 <p class="title is-3 has-text-light">Screen Names</p>
                 <div *ngIf="user && user.screenNames">
-                  <div *ngFor="let name of user.screenNames" class="columns is-vcentered">
+
+                  <div *ngIf="screenNamesIsArray()">
+                    <div *ngFor="let name of user.screenNames" class="columns is-vcentered">
+                      <div class="column is-2 has-text-centered">
+                        <p class="heading" style="font-size: x-large; color: whitesmoke; text-transform: none;">{{name.name}}</p>
+                      </div>
+                      <div class="column is-10">
+                        <p *ngIf="!name.games || name.games.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                        <ul class="images-grid" *ngIf="name.games">
+                          <li *ngFor="let game of name.games">
+                              <app-game-card-small [game]="game"></app-game-card-small>
+                          </li>
+                        </ul>
+                      </div>
+                      <hr *ngIf="user.screenNames[user.screenNames.length-1].id !== name.id">
+                    </div>
+                  </div>
+
+                  <div *ngIf="!screenNamesIsArray()" class="columns is-vcentered">
                     <div class="column is-2 has-text-centered">
-                      <p class="heading" style="font-size: x-large; color: whitesmoke; text-transform: none;">{{name.name}}</p>
+                      <p class="heading" style="font-size: x-large; color: whitesmoke; text-transform: none;">{{user?.screenNames?.name}}</p>
                     </div>
                     <div class="column is-10">
-                      <p *ngIf="!name.games || name.games.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
-                      <ul class="images-grid" *ngIf="name.games">
-                        <li *ngFor="let game of name.games">
+                      <p *ngIf="!user?.screenNames?.games || user?.screenNames?.games.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                      <ul class="images-grid" *ngIf="user?.screenNames?.games">
+                        <li *ngFor="let game of user?.screenNames?.games">
                             <app-game-card-small [game]="game"></app-game-card-small>
                         </li>
                       </ul>
                     </div>
-                    <hr *ngIf="user.screenNames[user.screenNames.length-1].id !== name.id">
                   </div>
+
                 </div>
               </div>
             </div>

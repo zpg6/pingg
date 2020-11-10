@@ -15,7 +15,9 @@
     [longitude]="lng"
     [zoom]="13"
     [disableDefaultUI]="false"
-    style="width:600px; height:600px"
+    style="width: 100vw; height: calc( 100vh - 57px )"
+    (mapReady)="onMapReady($event)"
+
     #mapThingy
     name="mapThingy"
   >

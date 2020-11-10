@@ -111,9 +111,32 @@ export class ProfileContainerComponent implements OnInit {
     })
   }
 
+  screenNamesIsArray() {
+    console.log(Array.isArray(this.user?.screenNames))
+    return Array.isArray(this.user?.screenNames)
+  }
+
   fillInScreenNames() {
 
-    if (this.user.screenNames) {
+    if (JSON.parse(this.user.screenNames)) {
+      console.log(JSON.parse(this.user.screenNames))
+      this.user.screenNames = JSON.parse(this.user.screenNames)
+      if (this.user.screenNames?.games && this.user.screenNames?.games.length > 0) {
+        this.user.screenNames?.games.forEach(game => {
+          this.gamesService.getGame(game.id)
+            .then(gameObj => {
+              this.user.screenNames?.games.forEach((game,index) => {
+                if (game.id === gameObj.id) {
+                  this.user.screenNames.games[index] = gameObj
+                }
+              })
+            })
+            .catch(err => console.error(err))
+        })
+      }
+    }
+
+    else if (Array.isArray(this.user?.screenNames)) {
 
       var i = 0
       for (i = 0; i < this.user.screenNames.length; i++) {

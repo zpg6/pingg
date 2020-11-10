@@ -34,7 +34,7 @@ export class GamesService {
   }
 
   getGame(id: string) {
-    return new Promise( (resolve, reject) => {
+    return new Promise<any>( (resolve, reject) => {
       this.http.get(this.serverURL + 'game/id/'+id)
           .toPromise()
           .then(game => {

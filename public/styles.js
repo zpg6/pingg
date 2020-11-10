@@ -581,10 +581,10 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/faarisismail/pingg/src/styles.css */"./src/styles.css");
-__webpack_require__(/*! /Users/faarisismail/pingg/src/bulma/bulma.css */"./src/bulma/bulma.css");
-__webpack_require__(/*! /Users/faarisismail/pingg/src/bulma/bulma-dashboard.css */"./src/bulma/bulma-dashboard.css");
-module.exports = __webpack_require__(/*! /Users/faarisismail/pingg/node_modules/firebaseui/dist/firebaseui.css */"./node_modules/firebaseui/dist/firebaseui.css");
+__webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/styles.css */"./src/styles.css");
+__webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/bulma/bulma.css */"./src/bulma/bulma.css");
+__webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/bulma/bulma-dashboard.css */"./src/bulma/bulma-dashboard.css");
+module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/node_modules/firebaseui/dist/firebaseui.css */"./node_modules/firebaseui/dist/firebaseui.css");
 
 
 /***/ })

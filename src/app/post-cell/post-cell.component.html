@@ -1,8 +1,8 @@
 <div class="columns is-hidden-touch is-vcentered">
   <div class="column is-1 is-centered has-text-centered">
 
-    <div class="subtitle is-4" style="font-weight: bolder;">
-      <span class="vote {{this.voted ? 'on':''}}" (click)="this.vote()"></span>
+    <div class="subtitle is-4" style="font-weight: bolder;" *ngIf="this.on?.value !== undefined">
+      <span class="vote {{this.on.value == true ? 'on':''}}" (click)="this.vote()"></span>
       <br>
       <a></a>{{this.post?.numUpvotes}}
     </div>

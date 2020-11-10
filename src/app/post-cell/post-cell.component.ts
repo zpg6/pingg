@@ -17,7 +17,7 @@ export class PostCellComponent implements OnInit {
   @Input('post') post;
   appData: AppData
 
-  on = new BehaviorSubject<boolean>(false)
+  on;
 
   comments;
   loading = false;
@@ -42,7 +42,7 @@ export class PostCellComponent implements OnInit {
                 .then(response => {
                   console.log(urlUV + ': '+ response.response)
                   this.voted = `${response.response}`
-                  this.on.next(!this.voted.includes('not'))
+                  this.on = new BehaviorSubject<boolean>(!this.voted.includes('not'))
                 })
                 .catch(err => console.error(err))
 
