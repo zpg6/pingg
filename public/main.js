@@ -4717,19 +4717,13 @@ class OnboardingModalComponent {
         else {
             let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + ((_b = (_a = this.appData) === null || _a === void 0 ? void 0 : _a.onboardingTempProfile) === null || _b === void 0 ? void 0 : _b.id) + (((_d = (_c = this.appData) === null || _c === void 0 ? void 0 : _c.profile) === null || _d === void 0 ? void 0 : _d.firstName.length) > 0 ? '/update' : '');
             console.log(url);
-            // if (this.isJson(this.appData?.onboardingTempProfile?.screenNames)) {
-            //   this.appData.onboardingTempProfile.screenNames = [this.appData?.onboardingTempProfile?.screenNames]
-            // }
             var body = this.appData.onboardingTempProfile;
-            body.screenNames = '';
-            // try {
-            //   body.screenNames = body.screenNames.map(obj => JSON.stringify(obj as object))
-            //   console.log('1111')
-            // }
-            // catch {
-            //   console.log('2222')
-            //   body.screenNames = JSON.stringify(body.screenNames)
-            // }
+            try {
+                body.screenNames = body.screenNames.map(obj => JSON.stringify(obj));
+            }
+            catch (_g) {
+                body.screenNames = JSON.stringify(body.screenNames);
+            }
             if (((_f = (_e = this.appData) === null || _e === void 0 ? void 0 : _e.profile) === null || _f === void 0 ? void 0 : _f.id.length) > 0) {
                 body = { fields: body };
             }
@@ -7796,7 +7790,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zacharygrimaldi/Documents/Fall2020/CS1530/pingg/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/joepauljoe/Downloads/pingg/src/main.ts */"./src/main.ts");
 
 
 /***/ })

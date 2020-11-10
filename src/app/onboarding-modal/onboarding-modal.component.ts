@@ -62,23 +62,14 @@ export class OnboardingModalComponent implements OnInit {
       let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + this.appData?.onboardingTempProfile?.id + (this.appData?.profile?.firstName.length > 0 ? '/update':'')
       console.log(url)
 
-      // if (this.isJson(this.appData?.onboardingTempProfile?.screenNames)) {
-      //   this.appData.onboardingTempProfile.screenNames = [this.appData?.onboardingTempProfile?.screenNames]
-      // }
-
       var body: any = this.appData.onboardingTempProfile
 
-      body.screenNames = ''
-
-      // try {
-      //   body.screenNames = body.screenNames.map(obj => JSON.stringify(obj as object))
-
-      //   console.log('1111')
-      // }
-      // catch {
-      //   console.log('2222')
-      //   body.screenNames = JSON.stringify(body.screenNames)
-      // }
+      try {
+        body.screenNames = body.screenNames.map(obj => JSON.stringify(obj as object))
+      }
+      catch {
+        body.screenNames = JSON.stringify(body.screenNames)
+      }
       if (this.appData?.profile?.id.length > 0) {
         body = {fields: body}
       }
