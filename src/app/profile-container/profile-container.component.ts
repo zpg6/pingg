@@ -224,10 +224,10 @@ export class ProfileContainerComponent implements OnInit {
       console.log(JSON.parse(this.user.screenNames))
       this.user.screenNames = JSON.parse(this.user.screenNames)
       if (this.user.screenNames?.games && this.user.screenNames?.games.length > 0) {
-        this.user.screenNames?.games.forEach(game => {
+        this.user.screenNames?.games?.forEach(game => {
           this.gamesService.getGame(game.id)
             .then(gameObj => {
-              this.user.screenNames?.games.forEach((game,index) => {
+              this.user.screenNames?.games?.forEach((game,index) => {
                 if (game.id === gameObj.id) {
                   this.user.screenNames.games[index] = gameObj
                 }

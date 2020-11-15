@@ -35,9 +35,17 @@ export class ObCustomizeComponent implements OnInit {
     this.updateObserver()
   }
 
+  isOn() {
+    return this.appData.onboardingTempProfile.locationEnabled === 'enabled'
+  }
+
   onToggle(event: any) {
-    this.appData.locationEnabled = !this.appData.locationEnabled
-    if (!this.locationAttempted && this.appData.locationEnabled) {
+    if (this.appData.onboardingTempProfile.locationEnabled === 'disabled') {
+      this.appData.onboardingTempProfile.locationEnabled = 'enabled'
+    } else {
+      this.appData.onboardingTempProfile.locationEnabled = 'disabled'
+    }
+    if (!this.locationAttempted && this.appData.onboardingTempProfile.locationEnabled === 'enabled') {
       // geolocation
       this.geolocationService.subscribe(pos => {
         if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {

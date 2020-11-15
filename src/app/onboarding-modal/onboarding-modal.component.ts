@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppData } from '../app-data';
 import { ObserverService } from '../observer.service';
 
@@ -14,7 +15,7 @@ export class OnboardingModalComponent implements OnInit {
   lastPage = 2
   appData: AppData
 
-  constructor(private observerService: ObserverService, private http: HttpClient) {
+  constructor(private observerService: ObserverService, private http: HttpClient, private router: Router) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
     })
@@ -70,11 +71,11 @@ export class OnboardingModalComponent implements OnInit {
       catch {
         body.screenNames = JSON.stringify(body.screenNames)
       }
+      body.lastLogin = Math.round(new Date().getTime() / 1000)
       if (this.appData?.profile?.firstName.length > 0) {
         result = body
         body = {fields: body}
       } else {
-        body.lastLogin = Math.round(new Date().getTime() / 1000)
         result = body
       }
       console.log(body)
@@ -111,12 +112,17 @@ export class OnboardingModalComponent implements OnInit {
                       let body = { gameID: screenGame }
                       console.log('follow url = '+url)
                       console.log(body)
+                      var received = 0
                       this.http.post<any>(url, body).toPromise()
                                 .then(response => {
                                   console.log(response)
                                   if (response.response == 'Success!') {
                                     this.appData.isOnboarded = true
+                                    this.appData.onboardingPage = 0
                                     this.observerService.sendMessage(this.appData)
+                                    received++;
+                                    if (received == sn.size)
+                                      this.router.navigate(['/profile'])
                                   }
                                 })
                                 .catch(err => console.error(err))
@@ -146,6 +152,7 @@ export class OnboardingModalComponent implements OnInit {
   cancel() {
     this.appData.isOnboarded = true
     this.observerService.sendMessage(this.appData)
+    this.router.navigate(['/profile'])
   }
 
 }

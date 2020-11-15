@@ -4,7 +4,7 @@
     <p class="modal-card-title">Rate {{getName()}}</p>
     <button class="delete" aria-label="close" (click)="closeModal()"></button>
   </header>
-  <section class="modal-card-body has-text-dark">
+  <section class="modal-card-body has-text-dark" *ngIf="this.game">
 
 
     <nav class="level" style="margin-top: 1.0rem;">
@@ -20,7 +20,7 @@
 
       </div>
       <div class="level-right">
-        <div class="level-item" *ngIf="this.game">
+        <div class="level-item">
 
           <p class="subtitle is-6 has-text-dark" style="font-weight: bolder;">Current Rating</p>
 

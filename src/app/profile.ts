@@ -10,5 +10,6 @@ export class Profile {
     latitude = 1;
     longitude = 1;
     lastLogin = 0;
+    locationEnabled = 'disabled';
     avatarVal = Math.round(Math.random() * 1000);
 }
