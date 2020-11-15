@@ -33,6 +33,15 @@ export class ObBasicComponent implements OnInit {
   constructor(private observerService: ObserverService, private http: HttpClient) {
     this.observerService.getMessage().subscribe(msg => {
       this.appData = msg
+      if (this.appData.onboardingBasicsValid) {
+        this.fnTouched = true
+        this.lnTouched = true
+        this.unTouched = true
+        this.fnError = ''
+        this.lnError = ''
+        this.unError = ''
+        this.unVerified = true
+      }
     })
   }
 
@@ -50,20 +59,31 @@ export class ObBasicComponent implements OnInit {
   }
 
   fnChange(event: any) {
-    if (!this.fnTouched) this.fnTouched = true
-    this.appData.onboardingTempProfile.firstName = event.target.value
-    this.validateFirstName()
+    this.fnTouched = true
+    if (!this.appData?.onboardingTempProfile?.firstName ||
+      this.appData.onboardingTempProfile.firstName !== event.target.value)
+    {
+        console.log(event.target.value)
+        this.appData.onboardingTempProfile.firstName = event.target.value
+        this.validateFirstName()
+    }
   }
 
   lnChange(event: any) {
-    if (!this.lnTouched) this.lnTouched = true
-    this.appData.onboardingTempProfile.lastName = event.target.value
-    this.validateLastName()
+    this.lnTouched = true
+    if (!this.appData?.onboardingTempProfile?.lastName ||
+      this.appData.onboardingTempProfile.lastName !== event.target.value) {
+        this.appData.onboardingTempProfile.lastName = event.target.value
+        this.validateLastName()
+    }
   }
 
   unChange(event: any) {
-    this.unVerified = false
-    this.validateFields()
+    if (this.unVerified || this.appData.onboardingTempProfile.handle !== event.target.value) {
+      this.unTouched = true
+      this.unVerified = false
+      this.validateFields()
+    }
   }
 
   validateFirstName() {
@@ -73,13 +93,14 @@ export class ObBasicComponent implements OnInit {
       issueFound = true
       this.fnError = 'Please enter your first name.'
     }
-    else if (false) {
-      // TODO: check for more issues with first name
+    else if (this.appData.onboardingTempProfile.firstName.length > 20) {
+      issueFound = true
+      this.fnError = 'Please abbreviate your first name to limit it to 20 characters.'
     }
     else {
       this.fnError = ''
+      this.validateFields()
     }
-    this.validateFields()
 
     return !issueFound
   }
@@ -91,13 +112,15 @@ export class ObBasicComponent implements OnInit {
       issueFound = true
       this.lnError = 'Please enter your last name.'
     }
-    else if (false) {
-      // TODO: check for more issues with last name
+    else if (this.appData.onboardingTempProfile.lastName.length > 20) {
+      issueFound = true
+      this.lnError = 'Please abbreviate your last name to limit it to 20 characters.'
     }
     else {
       this.lnError = ''
+      this.validateFields()
     }
-    this.validateFields()
+
 
     return !issueFound
   }
@@ -108,7 +131,9 @@ export class ObBasicComponent implements OnInit {
     let un = this.un.nativeElement.value
     this.loading = true
     return new Promise<boolean>( (resolve,reject) => {
-
+      if (this.unVerified && this.appData.onboardingTempProfile.handle === un) {
+        resolve(true)
+      }
       if (un.length == 0) {
         this.unError = 'Please enter your desired username.'
         this.loading = false
@@ -160,6 +185,10 @@ export class ObBasicComponent implements OnInit {
     let allTouched = this.fnTouched && this.lnTouched && this.unTouched
 
     let verified = this.appData.onboardingTempProfile.handle !== '' && this.unVerified
+
+    console.log('errorsEmpty: '+errorsEmpty)
+    console.log('allTouched: '+allTouched)
+    console.log('verified: '+verified)
 
     this.appData.onboardingBasicsValid = errorsEmpty && allTouched && verified
     this.observerService.sendMessage(this.appData)

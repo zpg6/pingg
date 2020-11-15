@@ -2,7 +2,7 @@
 <div class="field">
   <label class="label">First Name</label>
   <div class="control">
-    <input class="input" type="text" placeholder="John" (focus)="fnChange($event)" (focusout)="fnChange($event)" name="fn" #fn>
+    <input class="input" type="text" placeholder="John" (keyup)="fnChange($event)" name="fn" #fn>
   </div>
   <p class="help is-danger">{{fnError}}</p>
 </div>
@@ -10,7 +10,7 @@
 <div class="field">
   <label class="label">Last Name</label>
   <div class="control">
-    <input class="input" type="text" placeholder="Smith" (focus)="lnChange($event)" (focusout)="lnChange($event)" name="ln" #ln>
+    <input class="input" type="text" placeholder="Smith" (keyup)="lnChange($event)" name="ln" #ln>
   </div>
   <p class="help is-danger">{{lnError}}</p>
 </div>
@@ -18,7 +18,7 @@
 <label class="label">Choose a Username</label>
 <div class="field has-addons">
   <div class="control">
-    <input class="input" type="text" placeholder="daCaptain1530" (focus)="unChange($event)" (focusout)="unChange($event)" name="un" #un>
+    <input class="input" type="text" placeholder="daCaptain1530" (keyup)="unChange($event)" name="un" #un>
   </div>
   <div class="control">
     <button class="button is-link {{loading ? 'is-loading':''}}" [disabled]="loading" (click)="validateUsername()">

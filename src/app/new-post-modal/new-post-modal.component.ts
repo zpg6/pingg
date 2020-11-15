@@ -172,8 +172,12 @@ export class NewPostModalComponent implements OnInit {
         })
   }
 
+  postLengthValid() {
+    return this.postText.length >= 10 && this.postText.length <= 120
+  }
+
   isDisabled() {
-    return !this.game || !this.postText || !this.postText.length || this.postText.length < 10
+    return !this.game || !this.postText || !this.postText.length || this.postText.length < 10 || this.postText.length > 120
   }
 
   isLoading() {

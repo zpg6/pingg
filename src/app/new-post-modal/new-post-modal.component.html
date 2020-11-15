@@ -38,6 +38,7 @@
     </nav>
 
     <textarea class="textarea is-link" placeholder="What's on your mind..." [disabled]="!this.game" style="margin-bottom: 1.0rem;" (focus)="changePost($event)" (focusout)="changePost($event)" name="postTextBox" #postTextBox></textarea>
+    <p class="help" [ngClass]="{'is-danger': !this.postLengthValid(), 'is-hidden': this.postLengthValid()}" *ngIf="this.game">Min 10 characters, Max 120 characters.</p>
     <label class="label" *ngIf="this.game && !appData.file" style="margin-top: 0.5rem;">Attach an Image...</label>
     <app-uploader *ngIf="this.game"></app-uploader>
     <!-- <p class="help">Feel free to add a video link, we'll do our best to fetch a thumbnail!</p> -->
