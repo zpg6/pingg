@@ -30,6 +30,8 @@ export class GameDetailComponent implements OnInit {
 
   ytAPILoaded = false
 
+  numFollowers;
+
   constructor(private observerService: ObserverService, private gamesService: GamesService,
     private ar: ActivatedRoute, private http: HttpClient, private router: Router, private sanitizer: DomSanitizer)
   {
@@ -58,6 +60,7 @@ export class GameDetailComponent implements OnInit {
         this.game = game
         this.recommended = []
         this.doesFollow()
+        this.getNumberOfFollowers()
         this.game.similarGames.forEach(similar => {
           this.gamesService.getGame(similar).then(recGame => {
             if (recGame) {
@@ -124,6 +127,7 @@ export class GameDetailComponent implements OnInit {
                 console.log(response)
                 if (response.response == 'Success!') {
                   //this.isFollowedLocally = true
+                  this.numFollowers ++;
                 }
               })
               .catch(err => console.error(err))
@@ -140,6 +144,20 @@ export class GameDetailComponent implements OnInit {
                 console.log(response)
                 if (response.response == 'Success!') {
                   //this.isFollowedLocally = false
+                  this.numFollowers --;
+                }
+              })
+              .catch(err => console.error(err))
+  }
+
+  getNumberOfFollowers() {
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/game/' + this.game.id + '/followers'
+    console.log('get num followers url = '+url)
+    this.http.get<any>(url).toPromise()
+              .then(response => {
+                console.log(response)
+                if (response.response) {
+                  this.numFollowers = response.response
                 }
               })
               .catch(err => console.error(err))

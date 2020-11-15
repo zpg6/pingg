@@ -12,6 +12,12 @@ export class LazyImageComponent implements OnInit {
   @Input('maxWidth') maxWidth: number;
   @Input('minHeight') minHeight: number;
   @Input('minWidth') minWidth: number;
+
+  @Input('maxHeightPx') maxHeightPx: number;
+  @Input('maxWidthPx') maxWidthPx: number;
+  @Input('minHeightPx') minHeightPx: number;
+  @Input('minWidthPx') minWidthPx: number;
+
   @Input('alt') alt: string;
 
   loading = true;
