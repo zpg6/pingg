@@ -53,10 +53,19 @@ export class ObScreenNamesComponent {
     this.appData.onboardingTempProfile.screenNames = this.appData.onboardingTempProfile.screenNames.filter(obj => {
       return obj.id !== id
     })
+    if (this.appData.onboardingTempProfile.screenNames.length == 0) {
+      this.appData.onboardingScreenNamesValid = true
+    } else {
+      this.appData.onboardingTempProfile.screenNames.forEach((obj,index) => {
+        let eventFake = {target: {value: obj.name}}
+        this.unChange(eventFake,obj.id)
+      })
+    }
     this.updateObserver()
   }
 
   unChange(event: any, screenNameID: number) {
+    console.log(event.target.value)
     this.appData.onboardingTempProfile.screenNames.forEach((obj,index) => {
       if (screenNameID === obj.id) {
         this.appData.onboardingTempProfile.screenNames[index].name = event.target.value

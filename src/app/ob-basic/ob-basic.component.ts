@@ -146,7 +146,7 @@ export class ObBasicComponent implements OnInit {
       }
       else {
         // TODO: check for more issues with username
-        let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + un
+        let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + un + '/' + this.appData.profile.id
         this.http.get<any>(url)
                 .toPromise()
                 .then(response => {
@@ -169,7 +169,7 @@ export class ObBasicComponent implements OnInit {
                   }
                 }).catch(err => {
                   console.error(err)
-                  this.unError = err
+                  this.unError = err?.message ? err.message:err
                   this.loading = false
                 })
       }

@@ -4146,7 +4146,7 @@ class ObBasicComponent {
             }
             else {
                 // TODO: check for more issues with username
-                let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + un;
+                let url = 'https://cs1530group11graph.uc.r.appspot.com/usernames/' + un + '/' + this.appData.profile.id;
                 this.http.get(url)
                     .toPromise()
                     .then(response => {
@@ -4171,7 +4171,7 @@ class ObBasicComponent {
                     }
                 }).catch(err => {
                     console.error(err);
-                    this.unError = err;
+                    this.unError = (err === null || err === void 0 ? void 0 : err.message) ? err.message : err;
                     this.loading = false;
                 });
             }
@@ -4551,9 +4551,19 @@ class ObScreenNamesComponent {
         this.appData.onboardingTempProfile.screenNames = this.appData.onboardingTempProfile.screenNames.filter(obj => {
             return obj.id !== id;
         });
+        if (this.appData.onboardingTempProfile.screenNames.length == 0) {
+            this.appData.onboardingScreenNamesValid = true;
+        }
+        else {
+            this.appData.onboardingTempProfile.screenNames.forEach((obj, index) => {
+                let eventFake = { target: { value: obj.name } };
+                this.unChange(eventFake, obj.id);
+            });
+        }
         this.updateObserver();
     }
     unChange(event, screenNameID) {
+        console.log(event.target.value);
         this.appData.onboardingTempProfile.screenNames.forEach((obj, index) => {
             if (screenNameID === obj.id) {
                 this.appData.onboardingTempProfile.screenNames[index].name = event.target.value;
