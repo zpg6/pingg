@@ -1,7 +1,8 @@
 <div class="modal-background"></div>
 <div class="modal-card" style="margin: 0px;">
   <header class="modal-card-head">
-    <p class="modal-card-title">Welcome!</p>
+    <p class="modal-card-title">{{getTitle()}}</p>
+    <button class="delete" aria-label="close" *ngIf="canCancel()" (click)="cancel()"></button>
   </header>
   <section class="modal-card-body has-text-dark">
     <app-onboarding-steps></app-onboarding-steps>

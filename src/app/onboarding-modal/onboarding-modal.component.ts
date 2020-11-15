@@ -83,8 +83,6 @@ export class OnboardingModalComponent implements OnInit {
                .then(response => {
                   console.log(response)
                   this.appData.profile = result
-                  this.appData.isOnboarded = true
-                  this.observerService.sendMessage(this.appData)
 
                   let sn: Set<string> = new Set()
                   var postRequestBody;
@@ -101,21 +99,29 @@ export class OnboardingModalComponent implements OnInit {
                     })
                   })
 
-                  console.log("sn2: " + JSON.stringify(sn))
-                  sn.forEach(screenGame => {
-                    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game'
-                    let body = { gameID: screenGame }
-                    console.log('follow url = '+url)
-                    console.log(body)
-                    this.http.post<any>(url, body).toPromise()
-                              .then(response => {
-                                console.log(response)
-                                if (response.response == 'Success!') {
+                  if (sn.size == 0) {
+                    this.appData.isOnboarded = true
+                    this.observerService.sendMessage(this.appData)
+                  }
 
-                                }
-                              })
-                              .catch(err => console.error(err))
-                  })
+                  else {
+                    console.log("sn2: " + JSON.stringify(sn))
+                    sn.forEach(screenGame => {
+                      let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game'
+                      let body = { gameID: screenGame }
+                      console.log('follow url = '+url)
+                      console.log(body)
+                      this.http.post<any>(url, body).toPromise()
+                                .then(response => {
+                                  console.log(response)
+                                  if (response.response == 'Success!') {
+                                    this.appData.isOnboarded = true
+                                    this.observerService.sendMessage(this.appData)
+                                  }
+                                })
+                                .catch(err => console.error(err))
+                    })
+                  }
                })
                .catch(err => {
                  console.error(err)
@@ -127,6 +133,19 @@ export class OnboardingModalComponent implements OnInit {
   rightButtonDisabled() {
     return (this.appData.onboardingPage == 0 && !this.appData.onboardingBasicsValid) ||
            (this.appData.onboardingPage == 1 && !this.appData.onboardingScreenNamesValid)
+  }
+
+  getTitle() {
+
+  }
+
+  canCancel() {
+    return this.appData.profile.firstName.length > 0
+  }
+
+  cancel() {
+    this.appData.isOnboarded = true
+    this.observerService.sendMessage(this.appData)
   }
 
 }
