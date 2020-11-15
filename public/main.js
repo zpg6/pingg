@@ -3147,7 +3147,9 @@ class MapContainerComponent {
         this.http.get(url)
             .toPromise()
             .then(response => {
-            this.points.next(response.response.filter(point => point.latitude > 5 && point.longitude > 5));
+            this.points.next(response.response.filter(point => {
+                return (point.latitude > 2 || point.latitude < -2) && (point.longitude > 2 || point.longitude < -2);
+            }));
             console.log(this.points);
             this.heatmap = new google.maps.visualization.HeatmapLayer({
                 data: []
@@ -4428,7 +4430,7 @@ class ObCustomizeComponent {
         else {
             this.appData.onboardingTempProfile.locationEnabled = 'disabled';
         }
-        if (!this.locationAttempted && this.appData.onboardingTempProfile.locationEnabled === 'enabled') {
+        if (this.appData.onboardingTempProfile.locationEnabled === 'enabled') {
             // geolocation
             this.geolocationService.subscribe(pos => {
                 if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {
@@ -4437,7 +4439,6 @@ class ObCustomizeComponent {
                     this.updateObserver();
                 }
             });
-            this.locationAttempted = true;
         }
         this.updateObserver();
     }

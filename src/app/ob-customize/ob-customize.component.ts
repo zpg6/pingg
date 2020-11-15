@@ -45,7 +45,7 @@ export class ObCustomizeComponent implements OnInit {
     } else {
       this.appData.onboardingTempProfile.locationEnabled = 'disabled'
     }
-    if (!this.locationAttempted && this.appData.onboardingTempProfile.locationEnabled === 'enabled') {
+    if ( this.appData.onboardingTempProfile.locationEnabled === 'enabled') {
       // geolocation
       this.geolocationService.subscribe(pos => {
         if (pos && pos.coords && pos.coords.latitude && pos.coords.longitude) {
@@ -54,7 +54,6 @@ export class ObCustomizeComponent implements OnInit {
           this.updateObserver()
         }
       })
-      this.locationAttempted = true
     }
     this.updateObserver()
   }

@@ -104,7 +104,9 @@ export class MapContainerComponent implements OnInit {
     this.http.get<any>(url)
         .toPromise()
         .then(response => {
-          this.points.next(response.response.filter(point => point.latitude > 5 && point.longitude > 5))
+          this.points.next(response.response.filter(point => {
+            return (point.latitude > 2 || point.latitude < -2) && (point.longitude > 2 || point.longitude < -2)
+          }))
           console.log(this.points)
           this.heatmap = new google.maps.visualization.HeatmapLayer({
             data: []
