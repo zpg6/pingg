@@ -4791,56 +4791,38 @@ class OnboardingModalComponent {
                 this.appData.profile = result;
                 this.appData.isOnboarded = true;
                 this.observerService.sendMessage(this.appData);
+                let sn = new Set();
+                var postRequestBody;
+                if (body === null || body === void 0 ? void 0 : body.fields) {
+                    postRequestBody = body.fields;
+                }
+                else {
+                    postRequestBody = body;
+                }
+                //console.log("BODY: " + JSON.stringify(postRequestBody.screenNames))
+                postRequestBody.screenNames.forEach(screenName => {
+                    let games = JSON.parse(screenName).games;
+                    games.forEach(game => {
+                        sn.add(game.id);
+                    });
+                });
+                console.log("sn2: " + JSON.stringify(sn));
+                sn.forEach(screenGame => {
+                    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game';
+                    let body = { gameID: screenGame };
+                    console.log('follow url = ' + url);
+                    console.log(body);
+                    this.http.post(url, body).toPromise()
+                        .then(response => {
+                        console.log(response);
+                        if (response.response == 'Success!') {
+                        }
+                    })
+                        .catch(err => console.error(err));
+                });
             })
                 .catch(err => {
                 console.error(err);
-            });
-            let sn = new Set();
-            var postRequestBody;
-            if (body === null || body === void 0 ? void 0 : body.fields) {
-                postRequestBody = body.fields;
-            }
-            else {
-                postRequestBody = body;
-            }
-            //console.log("BODY: " + JSON.stringify(postRequestBody.screenNames))
-            postRequestBody.screenNames.forEach(screenName => {
-                let games = JSON.parse(screenName).games;
-                games.forEach(game => {
-                    sn.add(game.id);
-                });
-            });
-            // // this.appData.onboardingTempProfile.screenNames.forEach(screenName => {
-            //   screenName["game"].forEach(game => {
-            //     console.log("sn2: " + game.id)
-            //     sn.add(game.id)
-            //   })
-            // })
-            // if (!this.isJson(this.appData.onboardingTempProfile.screenNames)) {
-            //   this.appData.onboardingTempProfile.screenNames.forEach(scrName => {
-            //     if (Array.isArray(scrName.games)) {
-            //       scrName.games.forEach(game => {
-            //         sn.add(game.id)
-            //       })
-            //     }
-            //   })
-            // } else {
-            //   let temp: any = this.appData.onboardingTempProfile.screenNames
-            //   sn.add(temp.id)
-            // }
-            console.log("sn2: " + JSON.stringify(sn));
-            sn.forEach(screenGame => {
-                let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game';
-                let body = { gameID: screenGame };
-                console.log('follow url = ' + url);
-                console.log(body);
-                this.http.post(url, body).toPromise()
-                    .then(response => {
-                    console.log(response);
-                    if (response.response == 'Success!') {
-                    }
-                })
-                    .catch(err => console.error(err));
             });
         }
         this.observerService.sendMessage(this.appData);
