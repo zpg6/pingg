@@ -29,6 +29,8 @@ export class ProfileContainerComponent implements OnInit {
   appData: AppData
   isFollowedLocally
 
+  seeded = [false,false,false,false,false]
+
   constructor(private observerService: ObserverService,
               private gamesService: GamesService,
               private ar: ActivatedRoute,
@@ -48,13 +50,16 @@ export class ProfileContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('hit')
     this.router.events.subscribe((event) => {
       if (!(event instanceof NavigationEnd)) {
           return;
       }
       this.scrollToTop()
+      this.seeded = [false,false,false,false,false]
     });
     this.ar.url.subscribe(url => {
+      this.seeded = [false,false,false,false,false]
       let id = url[url.length - 1].path.toString()
       let profile = this.observerService.getMessageOnce().profile
       if (id === profile.id) {
@@ -82,10 +87,14 @@ export class ProfileContainerComponent implements OnInit {
   }
 
   getFollowers() {
+    if (this.usersOwnProfile)
+      return this.followers.filter(obj => obj.id !== this.appData.profile.id)
     return this.followers
   }
 
   getFollowing() {
+    if (this.usersOwnProfile)
+      return this.following.filter(obj => obj.id !== this.appData.profile.id)
     return this.following
   }
 
@@ -153,10 +162,13 @@ export class ProfileContainerComponent implements OnInit {
   }
 
   setupPage(userID: string) {
+    if ((this.seeded[0] || this.seeded[1] || this.seeded[2] || this.seeded[3] || this.seeded[4]))
+      return
     this.postsService.getUserPosts(userID)
       .then(response => {
         console.log('✅')
         this.posts = response.response
+        this.seeded[0] = true
       })
       .catch(err => { console.error(err) })
 
@@ -165,12 +177,14 @@ export class ProfileContainerComponent implements OnInit {
     this.profileService.getFollowers(userID)
       .then(response => {
         this.followers = response.response
+        this.seeded[1] = true
       })
       .catch(err => { console.error(err) })
 
     this.profileService.getFollowing(userID)
       .then(response => {
         this.following = response.response
+        this.seeded[2] = true
       })
       .catch(err => { console.error(err) })
 
@@ -178,6 +192,7 @@ export class ProfileContainerComponent implements OnInit {
       .then(response => {
         console.log(response)
         this.games = response.response
+        this.seeded[3] = true
       })
       .catch(err => { console.error(err) })
   }
@@ -249,6 +264,7 @@ export class ProfileContainerComponent implements OnInit {
   }
 
   addGame(nameID: number, game: any) {
+    this.seeded[4] = true
     if (!this.user || !this.user.screenNames) return
     var i = 0
     for (i = 0; i < this.user.screenNames.length; i++) {

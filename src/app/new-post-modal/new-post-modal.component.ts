@@ -5,6 +5,7 @@ import { AppData } from '../app-data';
 import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
 import { v4 as uuidv4 } from 'uuid'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-post-modal',
@@ -27,7 +28,7 @@ export class NewPostModalComponent implements OnInit {
 
   @ViewChild('postTextBox') postTextBox: ElementRef
 
-  constructor(private observerService: ObserverService, private gamesService: GamesService, private http: HttpClient)
+  constructor(private observerService: ObserverService, private gamesService: GamesService, private http: HttpClient, private router: Router)
   {
       this.wasSet = false
       // subscribe to home component messages
@@ -92,6 +93,7 @@ export class NewPostModalComponent implements OnInit {
     this.postTextBox.nativeElement.value = ''
     this.appData.newPostModalOpen = false;
     this.updateObserver()
+    this.router.navigate(['/feed'])
   }
 
   getCover() {

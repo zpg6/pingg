@@ -3747,8 +3747,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../observer.service */ "./src/app/observer.service.ts");
 /* harmony import */ var _games_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../games.service */ "./src/app/games.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
+
 
 
 
@@ -3837,10 +3839,11 @@ function NewPostModalComponent_app_uploader_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-uploader");
 } }
 class NewPostModalComponent {
-    constructor(observerService, gamesService, http) {
+    constructor(observerService, gamesService, http, router) {
         this.observerService = observerService;
         this.gamesService = gamesService;
         this.http = http;
+        this.router = router;
         this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.loading = false;
         this.dropdownSetter = '';
@@ -3901,6 +3904,7 @@ class NewPostModalComponent {
         this.postTextBox.nativeElement.value = '';
         this.appData.newPostModalOpen = false;
         this.updateObserver();
+        this.router.navigate(['/feed']);
     }
     getCover() {
         var _a;
@@ -3997,7 +4001,7 @@ class NewPostModalComponent {
         this.observerService.sendMessage(appData);
     }
 }
-NewPostModalComponent.ɵfac = function NewPostModalComponent_Factory(t) { return new (t || NewPostModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"])); };
+NewPostModalComponent.ɵfac = function NewPostModalComponent_Factory(t) { return new (t || NewPostModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"])); };
 NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NewPostModalComponent, selectors: [["app-new-post-modal"]], viewQuery: function NewPostModalComponent_Query(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c1, true);
@@ -4069,7 +4073,7 @@ NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMapInterpolate1"]("button is-success ", ctx.isLoading() ? "is-loading" : "", "");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.isDisabled());
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_7__["UploaderComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25ldy1wb3N0LW1vZGFsL25ldy1wb3N0LW1vZGFsLmNvbXBvbmVudC5jc3MifQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgClass"], _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_8__["UploaderComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25ldy1wb3N0LW1vZGFsL25ldy1wb3N0LW1vZGFsLmNvbXBvbmVudC5jc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](NewPostModalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -4077,7 +4081,7 @@ NewPostModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
                 templateUrl: './new-post-modal.component.html',
                 styleUrls: ['./new-post-modal.component.css']
             }]
-    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }]; }, { dropdown: [{
+    }], function () { return [{ type: _observer_service__WEBPACK_IMPORTED_MODULE_3__["ObserverService"] }, { type: _games_service__WEBPACK_IMPORTED_MODULE_4__["GamesService"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }]; }, { dropdown: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
             args: ['dropdown']
         }], postTextBox: [{
@@ -6183,6 +6187,7 @@ class ProfileContainerComponent {
         this.followers = [];
         this.following = [];
         this.loaded = 0;
+        this.seeded = [false, false, false, false, false];
         this.observerService.getMessage().subscribe(msg => {
             var _a;
             this.appData = msg;
@@ -6193,13 +6198,16 @@ class ProfileContainerComponent {
         this.posts = undefined;
     }
     ngOnInit() {
+        console.log('hit');
         this.router.events.subscribe((event) => {
             if (!(event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"])) {
                 return;
             }
             this.scrollToTop();
+            this.seeded = [false, false, false, false, false];
         });
         this.ar.url.subscribe(url => {
+            this.seeded = [false, false, false, false, false];
             let id = url[url.length - 1].path.toString();
             let profile = this.observerService.getMessageOnce().profile;
             if (id === profile.id) {
@@ -6227,9 +6235,13 @@ class ProfileContainerComponent {
         });
     }
     getFollowers() {
+        if (this.usersOwnProfile)
+            return this.followers.filter(obj => obj.id !== this.appData.profile.id);
         return this.followers;
     }
     getFollowing() {
+        if (this.usersOwnProfile)
+            return this.following.filter(obj => obj.id !== this.appData.profile.id);
         return this.following;
     }
     doesFollow() {
@@ -6290,27 +6302,33 @@ class ProfileContainerComponent {
         this.observerService.sendMessage(appData);
     }
     setupPage(userID) {
+        if ((this.seeded[0] || this.seeded[1] || this.seeded[2] || this.seeded[3] || this.seeded[4]))
+            return;
         this.postsService.getUserPosts(userID)
             .then(response => {
             console.log('✅');
             this.posts = response.response;
+            this.seeded[0] = true;
         })
             .catch(err => { console.error(err); });
         this.fillInScreenNames();
         this.profileService.getFollowers(userID)
             .then(response => {
             this.followers = response.response;
+            this.seeded[1] = true;
         })
             .catch(err => { console.error(err); });
         this.profileService.getFollowing(userID)
             .then(response => {
             this.following = response.response;
+            this.seeded[2] = true;
         })
             .catch(err => { console.error(err); });
         this.profileService.getGames(userID)
             .then(response => {
             console.log(response);
             this.games = response.response;
+            this.seeded[3] = true;
         })
             .catch(err => { console.error(err); });
     }
@@ -6377,6 +6395,7 @@ class ProfileContainerComponent {
         }
     }
     addGame(nameID, game) {
+        this.seeded[4] = true;
         if (!this.user || !this.user.screenNames)
             return;
         var i = 0;
