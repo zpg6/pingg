@@ -190,8 +190,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.afAuth.signOut();
-    this.appData = new AppData();
-    this.updateObserver();
+    this.afAuth.signOut()
+      .then(result => {
+        console.log(result)
+        this.appData = new AppData();
+        this.updateObserver();
+      })
+      .catch(err => console.error(err))
+
   }
 }

@@ -63,7 +63,7 @@ export class OnboardingModalComponent implements OnInit {
       console.log(url)
 
       var body: any = this.appData.onboardingTempProfile
-
+      var result: any
       try {
         body.screenNames = body.screenNames.map(obj => JSON.stringify(obj as object))
       }
@@ -71,15 +71,18 @@ export class OnboardingModalComponent implements OnInit {
         body.screenNames = JSON.stringify(body.screenNames)
       }
       if (this.appData?.profile?.firstName.length > 0) {
+        result = body
         body = {fields: body}
       } else {
         body.lastLogin = Math.round(new Date().getTime() / 1000)
+        result = body
       }
       console.log(body)
       this.http.post<any>(url, body)
                .toPromise()
                .then(response => {
                  console.log(response)
+                 this.appData.profile = result
                  this.appData.isOnboarded = true
                  this.observerService.sendMessage(this.appData)
                })
@@ -118,7 +121,7 @@ export class OnboardingModalComponent implements OnInit {
       //   let temp: any = this.appData.onboardingTempProfile.screenNames
       //   sn.add(temp.id)
       // }
-      
+
       console.log("sn2: " + JSON.stringify(sn))
       sn.forEach(screenGame => {
         let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/followed-game'

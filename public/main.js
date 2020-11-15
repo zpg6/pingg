@@ -3350,9 +3350,13 @@ class NavbarComponent {
         }
     }
     logout() {
-        this.afAuth.signOut();
-        this.appData = new _app_data__WEBPACK_IMPORTED_MODULE_2__["AppData"]();
-        this.updateObserver();
+        this.afAuth.signOut()
+            .then(result => {
+            console.log(result);
+            this.appData = new _app_data__WEBPACK_IMPORTED_MODULE_2__["AppData"]();
+            this.updateObserver();
+        })
+            .catch(err => console.error(err));
     }
 }
 NavbarComponent.ɵfac = function NavbarComponent_Factory(t) { return new (t || NavbarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_observer_service__WEBPACK_IMPORTED_MODULE_5__["ObserverService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_games_service__WEBPACK_IMPORTED_MODULE_8__["GamesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"])); };
@@ -4764,6 +4768,7 @@ class OnboardingModalComponent {
             let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + ((_b = (_a = this.appData) === null || _a === void 0 ? void 0 : _a.onboardingTempProfile) === null || _b === void 0 ? void 0 : _b.id) + (((_d = (_c = this.appData) === null || _c === void 0 ? void 0 : _c.profile) === null || _d === void 0 ? void 0 : _d.firstName.length) > 0 ? '/update' : '');
             console.log(url);
             var body = this.appData.onboardingTempProfile;
+            var result;
             try {
                 body.screenNames = body.screenNames.map(obj => JSON.stringify(obj));
             }
@@ -4771,16 +4776,19 @@ class OnboardingModalComponent {
                 body.screenNames = JSON.stringify(body.screenNames);
             }
             if (((_f = (_e = this.appData) === null || _e === void 0 ? void 0 : _e.profile) === null || _f === void 0 ? void 0 : _f.firstName.length) > 0) {
+                result = body;
                 body = { fields: body };
             }
             else {
                 body.lastLogin = Math.round(new Date().getTime() / 1000);
+                result = body;
             }
             console.log(body);
             this.http.post(url, body)
                 .toPromise()
                 .then(response => {
                 console.log(response);
+                this.appData.profile = result;
                 this.appData.isOnboarded = true;
                 this.observerService.sendMessage(this.appData);
             })
@@ -6215,6 +6223,7 @@ class ProfileContainerComponent {
             .catch(err => { console.error(err); });
         this.profileService.getGames(userID)
             .then(response => {
+            console.log(response);
             this.games = response.response;
         })
             .catch(err => { console.error(err); });

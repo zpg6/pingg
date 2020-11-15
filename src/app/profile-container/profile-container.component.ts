@@ -181,6 +181,7 @@ export class ProfileContainerComponent implements OnInit {
 
     this.profileService.getGames(userID)
       .then(response => {
+        console.log(response)
         this.games = response.response
       })
       .catch(err => { console.error(err) })
