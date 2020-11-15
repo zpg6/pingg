@@ -155,8 +155,10 @@ export class NewPostModalComponent implements OnInit {
         .then(response => {
           this.deleteFile()
           console.log(response)
+          body['numUpvotes'] = 0
           if (this.appData.posts && this.appData.posts.length > 0) {
-            this.appData.posts.push(body)
+            let newArray = [body]
+            this.appData.posts = newArray.concat(this.appData.posts)
           } else {
             this.appData.posts = [body]
           }
@@ -173,6 +175,7 @@ export class NewPostModalComponent implements OnInit {
   }
 
   postLengthValid() {
+    if (!this.postText) return false
     return this.postText.length >= 10 && this.postText.length <= 120
   }
 

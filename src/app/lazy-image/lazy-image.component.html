@@ -5,10 +5,10 @@
   src="{{srcURL}}"
   [ngClass]="{'is-hidden': loading}"
   [ngStyle]="{
-    'max-height': maxHeight ? maxHeight+'%':'none',
-    'max-width': maxWidth ? maxWidth+'%':'none',
-    'min-height': minHeight ? minHeight+'%':'none',
-    'min-width': minWidth ? minWidth+'%':'none'
+    'max-height': this.getMaxHeight(),
+    'max-width': this.getMaxWidth(),
+    'min-height': this.getMinHeight(),
+    'min-width': this.getMinWidth()
   }"
   (load)="loaded($event)"
 >

@@ -100,7 +100,8 @@
                   <li *ngFor="let screenshot of this.game?.screenshots">
                     <app-lazy-image
                       [srcURL]="'https://'+screenshot"
-                      [maxWidth]="100"
+                      [maxWidthPx]="600"
+                      [maxHeightPx]="600"
                       [alt]="'Screenshot of '+this.game.name"
                       >
                     </app-lazy-image>
