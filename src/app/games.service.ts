@@ -35,10 +35,12 @@ export class GamesService {
 
   getGame(id: string) {
     return new Promise<any>( (resolve, reject) => {
+      let url = 'https://cs1530group11graph.uc.r.appspot.com/game/' + id
       this.http.get(this.serverURL + 'game/id/'+id)
           .toPromise()
           .then(game => {
             resolve(game)
+            this.updateGame(game)
           })
           .catch(err => {
             reject(err)
@@ -68,6 +70,15 @@ export class GamesService {
               console.error(err)
             })
     }
+  }
+
+  updateGame(game: any) {
+    this.gameNames.value.forEach((gameName,index) => {
+      if (gameName.id === game.id) {
+        this.gameNames[index] = game
+        return
+      }
+    })
   }
 
 

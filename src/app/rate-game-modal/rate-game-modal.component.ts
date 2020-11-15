@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppData } from '../app-data';
@@ -14,9 +15,10 @@ export class RateGameModalComponent implements OnInit, OnChanges {
   subscription = new Subscription();
   game;
   rating;
+  ratingError;
   @ViewChild('slider') slider: ElementRef
 
-  constructor(private observerService: ObserverService) {
+  constructor(private observerService: ObserverService, private http: HttpClient) {
       // subscribe to home component messages
       observerService.getMessage().subscribe(message => {
         this.appData = message;
@@ -76,6 +78,30 @@ export class RateGameModalComponent implements OnInit, OnChanges {
     } else {
       return 'Game'
     }
+  }
+
+  saveRating() {
+
+    let url = 'https://cs1530group11graph.uc.r.appspot.com/users/' + this.appData.profile.id + '/rated-game'
+    var body = {gameID: this.game.id, rating: parseFloat(this.rating)}
+    console.log(body)
+    this.http.post<any>(url, body)
+        .toPromise()
+        .then(response => {
+          console.log(response)
+          if (response.response) {
+            this.ratingError = response.response
+          }
+          if (response.newRating) {
+            this.ratingError = undefined
+            this.game.rating = response.newRating
+            this.closeModal()
+          }
+        })
+        .catch(err => {
+          console.error(err)
+          this.closeModal()
+        })
   }
 
 }

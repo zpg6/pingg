@@ -158,6 +158,8 @@ export class GameDetailComponent implements OnInit {
                 console.log(response)
                 if (response.response) {
                   this.numFollowers = response.response
+                } else {
+                  this.numFollowers = 0
                 }
               })
               .catch(err => console.error(err))

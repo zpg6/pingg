@@ -39,11 +39,12 @@
     <p class="subtitle is-6 has-text-dark" style="margin-bottom: 0.5rem; font-weight: bolder;">Your Rating: {{this.rating| number:'1.2-2'}}</p>
     <input class="slider is-link" style="width: 100%;" step="0.001" min="0.000" max="100.000" value="{{this.rating}}" type="range" (change)="onChange($event)">
 
+    <p class="help is-danger" *ngIf="this.ratingError" style="margin-top: 1.0rem;">{{this.ratingError}}</p>
 
 
   </section>
   <footer class="modal-card-foot">
-    <button class="button is-success">Save</button>
+    <button class="button is-success" (click)="saveRating()">Save</button>
     <button class="button" (click)="closeModal()">Cancel</button>
   </footer>
 </div>
