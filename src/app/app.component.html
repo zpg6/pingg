@@ -27,12 +27,12 @@
     <app-onboarding-modal></app-onboarding-modal>
   </div>
 
+  <div class="modal {{this.appData?.reportingIssue ? 'is-active':''}}">
+    <app-report-issue></app-report-issue>
+  </div>
+
   <div *ngIf="this.appData?.isAuthenticated && this.appData?.isOnboarded">
 
-
-    <div class="modal {{this.appData?.reportingIssue ? 'is-active':''}}">
-      <app-report-issue></app-report-issue>
-    </div>
 
     <div class="modal {{this.appData?.newPostModalOpen ? 'is-active':''}}">
       <app-new-post-modal></app-new-post-modal>
