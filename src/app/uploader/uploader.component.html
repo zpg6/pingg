@@ -3,10 +3,12 @@
      (hovered)="toggleHover($event)"
      (dropped)="onDrop($event)"
      [class.hovering]="isHovering"
-     *ngIf="!appData.file">
+     *ngIf="!appData.file"
+     >
 
 
      <p>Drag and Drop an Image File</p>
+     <p class="help is-danger" *ngIf="this.error" style="font-weight: bold;">{{this.error}}</p>
      <div class="file">
         <label class="file-label">
 

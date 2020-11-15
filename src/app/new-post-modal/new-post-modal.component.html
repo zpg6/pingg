@@ -7,7 +7,7 @@
   <section class="modal-card-body has-text-dark">
 
     <div *ngIf="!this.game">
-      <label class="label">Choose a Game</label>
+      <label class="label">First, choose a game for your post...</label>
       <input list="gameList" (change)="onChange($event)" class="input" type="text" placeholder="start typing.." [disabled]="this.game">
       <datalist id="gameList">
         <option *ngFor="let name of gameNames" value="{{name.name}}">{{name.name}}</option>
@@ -38,8 +38,9 @@
     </nav>
 
     <textarea class="textarea is-link" placeholder="What's on your mind..." [disabled]="!this.game" style="margin-bottom: 1.0rem;" (keyup)="changePost($event)" name="postTextBox" #postTextBox></textarea>
-    <p class="help" [ngClass]="{'is-danger': !this.postLengthValid(), 'is-hidden': this.postLengthValid()}" *ngIf="this.game">Min 10 characters, Max 120 characters.</p>
-    <label class="label" *ngIf="this.game && !appData.file" style="margin-top: 0.5rem;">Attach an Image...</label>
+    <p class="help" [ngClass]="{'is-danger': !this.postLengthValid(), 'is-hidden': this.postLengthValid()}" *ngIf="this.game" style="margin-bottom: 1.0rem;">Min 10 characters, Max 120 characters.</p>
+
+    <label class="label" *ngIf="this.game && !appData.file" style="margin-top: 0.5rem;">Optionally Attach an Image...</label>
     <app-uploader *ngIf="this.game"></app-uploader>
     <!-- <p class="help">Feel free to add a video link, we'll do our best to fetch a thumbnail!</p> -->
   </section>

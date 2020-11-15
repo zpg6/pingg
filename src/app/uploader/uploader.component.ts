@@ -11,6 +11,8 @@ export class UploaderComponent {
 
   appData: AppData
 
+  error
+
   constructor(private observerService: ObserverService) {
     this.observerService.getMessage().subscribe(msg => this.appData = msg)
   }
@@ -19,12 +21,20 @@ export class UploaderComponent {
 
 
 
+
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
   onDrop(files: FileList) {
-    this.appData.file = files.item(0)
+    let type = files.item(0).type
+    if (type.includes('image')) {
+      this.appData.file = files.item(0)
+      this.error = undefined
+    } else {
+      this.error = 'Our apologies, image files only!'
+    }
+
   }
 
   logFiles() {

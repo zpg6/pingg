@@ -79,11 +79,11 @@
                 <div class="card post-card">
                   <div class="card-content is-dark">
                     <p class="title is-3 has-text-light">
-                      Followers {{followers?.length > 0 ? '('+followers.length+')':''}}
+                      Followers {{getFollowers()?.length > 0 ? '('+getFollowers().length+')':''}}
                     </p>
-                    <p *ngIf="!followers || followers.length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
+                    <p *ngIf="!getFollowers() || getFollowers().length == 0" class="subtitle" style="margin: 50px">🙁 Nothing just yet...</p>
                     <ul class="users">
-                      <li *ngFor="let person of followers"><app-user-cell [user]="person"></app-user-cell></li>
+                      <li *ngFor="let person of getFollowers()"><app-user-cell [user]="person"></app-user-cell></li>
                     </ul>
                   </div>
                 </div>

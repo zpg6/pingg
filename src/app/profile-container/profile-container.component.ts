@@ -24,9 +24,9 @@ export class ProfileContainerComponent implements OnInit {
   followers = []
   following = []
 
+  usersOwnProfile
   loaded = 0;
   appData: AppData
-  usersOwnProfile = false
   isFollowedLocally
 
   constructor(private observerService: ObserverService,
@@ -39,11 +39,10 @@ export class ProfileContainerComponent implements OnInit {
 
   {
     this.observerService.getMessage().subscribe(msg => {
-      this.user = msg.profile
-      if (!this.appData?.isOnboarded && msg.isOnboarded) {
-        this.setupPage(this.user.id)
-      }
       this.appData = msg
+      if (!this.appData?.isOnboarded && msg.isOnboarded) {
+        this.router.navigate(['/feed'])
+      }
     })
     this.posts = undefined
   }
@@ -62,7 +61,6 @@ export class ProfileContainerComponent implements OnInit {
         this.user = profile
         this.setupPage(profile.id)
         this.usersOwnProfile = true
-
       } else {
         this.usersOwnProfile = false
         let url = 'https://cs1530group11graph.uc.r.appspot.com/user/' + id
@@ -84,18 +82,15 @@ export class ProfileContainerComponent implements OnInit {
   }
 
   getFollowers() {
-    return this.followers.filter(follower => {
-      return follower.id !== this.appData.profile.id
-    })
+    return this.followers
   }
 
   getFollowing() {
-    return this.following.filter(follower => {
-      return follower.id !== this.appData.profile.id
-    })
+    return this.following
   }
 
   doesFollow() {
+    if (this.usersOwnProfile == undefined) return
     return !this.usersOwnProfile && this.followers.find(user => { return user.id === this.appData.profile.id }) !== undefined
   }
 
