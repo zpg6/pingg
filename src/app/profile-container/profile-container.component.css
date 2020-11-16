@@ -67,6 +67,7 @@ li {
 
 .card-footer {
   border-top: 1px solid #95EF72;
+  color: #95EF72;
 }
 
 .card-footer-item:not(:last-child) {
