@@ -71,7 +71,7 @@ export class OnboardingModalComponent implements OnInit {
       catch {
         body.screenNames = JSON.stringify(body.screenNames)
       }
-      body.lastLogin = Math.round(new Date().getTime() / 1000)
+      body.lastLogin = Math.round(new Date().getTime())
       if (this.appData?.profile?.firstName.length > 0) {
         result = body
         body = {fields: body}

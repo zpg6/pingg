@@ -4900,7 +4900,7 @@ class OnboardingModalComponent {
             catch (_g) {
                 body.screenNames = JSON.stringify(body.screenNames);
             }
-            body.lastLogin = Math.round(new Date().getTime() / 1000);
+            body.lastLogin = Math.round(new Date().getTime());
             if (((_f = (_e = this.appData) === null || _e === void 0 ? void 0 : _e.profile) === null || _f === void 0 ? void 0 : _f.firstName.length) > 0) {
                 result = body;
                 body = { fields: body };
