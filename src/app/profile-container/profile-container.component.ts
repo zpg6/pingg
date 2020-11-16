@@ -7,6 +7,8 @@ import { GamesService } from '../games.service';
 import { ObserverService } from '../observer.service';
 import { PostsService } from '../posts.service';
 import { ProfileService } from '../profile.service';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-profile-container',
@@ -30,6 +32,13 @@ export class ProfileContainerComponent implements OnInit {
   isFollowedLocally
 
   seeded = [false,false,false,false,false]
+
+  public lottieConfig: Object = {
+    path: 'assets/lottie-files/greenCircleExpanding.json',
+    renderer: 'canvas',
+    autoplay: true,
+    loop: true
+  };
 
   constructor(private observerService: ObserverService,
               private gamesService: GamesService,
@@ -282,6 +291,13 @@ export class ProfileContainerComponent implements OnInit {
       }
     }
   }
+
+  animationCreated(animationItem: AnimationItem): void {
+  }
+
+  options: AnimationOptions = {
+    path: '/assets/lottie-files/greenCircleExpanding.json',
+  };
 
 
 }
