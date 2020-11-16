@@ -5153,13 +5153,24 @@ class PingService {
         this.http = http;
         this.pingStream = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         this.ping = 0;
-        this.url = "https://cors-test.appspot.com/test";
-        let timeStart = performance.now();
-        this.http.get(this.url)
-            .subscribe((data) => {
-            let timeEnd = performance.now();
+        this.url = "https://cs1530group11graph.uc.r.appspot.com/";
+        let timeStart = new Date().getMilliseconds();
+        this.http.get(this.url).toPromise().then(response => {
+            let timeEnd = new Date().getMilliseconds();
+            console.log("start: " + timeStart);
+            console.log("end: " + timeEnd);
+            console.log("response: " + response);
             let ping = timeEnd - timeStart;
             this.ping = ping;
+            this.pingStream.next(ping);
+        }).catch(err => {
+            let timeEnd = new Date().getMilliseconds();
+            console.log("start: " + timeStart);
+            console.log("end: " + timeEnd);
+            let ping = timeEnd - timeStart;
+            this.ping = ping;
+            console.log("ping: " + ping);
+            console.log("this.ping: " + this.ping);
             this.pingStream.next(ping);
         });
     }

@@ -9,17 +9,29 @@ export class PingService {
 
   pingStream: Subject<number> = new Subject<number>();
   ping: number = 0;
-  url: string = "https://cors-test.appspot.com/test";
+  url: string = "https://cs1530group11graph.uc.r.appspot.com/";
 
   constructor(private http: HttpClient) {
-    let timeStart: number = performance.now();
-    this.http.get(this.url)
-      .subscribe((data) => {
-        let timeEnd: number = performance.now();
+    let timeStart: number = new Date().getMilliseconds();
+    this.http.get(this.url).toPromise().then(response => {
+      let timeEnd: number = new Date().getMilliseconds();
+      console.log("start: " + timeStart)
+      console.log("end: " + timeEnd)
+      console.log("response: " + response)
 
-        let ping: number = timeEnd - timeStart;
-        this.ping = ping;
-        this.pingStream.next(ping);
-      });
+      let ping: number = timeEnd - timeStart;
+      this.ping = ping;
+      this.pingStream.next(ping);
+    }).catch( err => {
+      let timeEnd: number = new Date().getMilliseconds();
+      console.log("start: " + timeStart)
+      console.log("end: " + timeEnd)
+
+      let ping: number = timeEnd - timeStart;
+      this.ping = ping;
+      console.log("ping: " + ping)
+      console.log("this.ping: " + this.ping)
+      this.pingStream.next(ping);
+    })
   }
 }
