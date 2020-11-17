@@ -23,11 +23,15 @@
                   <div class="media-content">
                     <p class="title is-2 has-text-light">{{user.firstName}} {{user.lastName}}</p>
                     <p class="subtitle is-4 has-text-light">@{{user.handle}}</p>
-                    <p class="subtitle is-6 has-text-light" style="font-weight: bolder;">Last Online:&nbsp;&nbsp;{{user?.lastLogin | relativeTime}}</p>
-                    <div class="media-content; level-left">
-                      <p class="subtitle is-6 has-text-light" style="font-weight: bolder;"><br>Ping:&nbsp;&nbsp;{{user?.ping}} ms</p> 
-                      <ng-lottie width="2vw" height="2vw" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
-                    </div>
+                    <p class="subtitle is-6 has-text-light" style="font-weight: bolder; margin-bottom: 0.8rem;">Last Online:&nbsp;&nbsp;{{user?.lastLogin | relativeTime}}</p>
+                    <article class="media" style="border-top:none; padding-top: 0rem">
+                      <div class="media-left">
+                        <ng-lottie width="2.0rem" height="2.0rem" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+                      </div>
+                      <div class="media-content" style="margin-top: -0.85rem;">
+                        <p class="subtitle is-6 has-text-light" style="font-weight: bolder;"><br>Ping:&nbsp;&nbsp;{{user?.ping}} ms</p>
+                      </div>
+                    </article>
                   </div>
                 </div>
               </div>
